@@ -1,0 +1,66 @@
+const initialState = {
+    sentences: [
+      [
+[{ id: 1, sntc: 'I think so', tr: 'Mən belə fikirləşirəm', ch: 'Mən belə fikirləşirəm Sən gedirəm'},
+{ id: 2, sntc: 'We understand it', tr: 'Biz bunu başa düşürük', ch: 'Mən belə Biz bunu başa düşürük'},
+{ id: 3, sntc: 'I speak English', tr: 'Mən İngilis dilində danışıram', ch:'Mən İngilis Sən oxuyuram dilində danışıram'},
+{ id: 4, sntc: 'They help me', tr: 'Onlar mənə kömək edir', ch:'Onlar Siz mənə danışır kömək edir' },
+{ id: 5, sntc: 'She likes it', tr: 'O bunu bəyənir', ch:'O Sən bunu onu deyir bəyənir'},
+{ id: 6, sntc: 'I work there', tr: 'Mən orada işləyirəm', ch:'Mən orada işləyirəm oxuyuram danışıram' },
+{ id: 7, sntc: 'It really helps me', tr: 'Bu həqiqətən mənə kömək edir', ch:'Bu O danışır həqiqətən mənə kömək edir'},
+{ id: 8, sntc: 'I live here', tr: 'Mən burada yaşayıram', ch:'Mən burada orada oxuyuram yaşayıram' },
+{ id: 9, sntc: 'We live in this city', tr: 'Biz bu şəhərdə yaşayırıq', ch:'Biz Siz bu ölkədə yaşayırsız şəhərdə yaşayırıq',},
+{ id: 10, sntc: 'I remember it', tr: 'Bu mənim yadımdadır', ch: 'Bu sənin yadındadır mənim yadımdadır' }],
+[{ id: 11, sntc: 'He reads in English', tr: 'O İngilis dilində oxuyur', ch: 'O İngilis Mən danışıram dilində oxuyur' },
+{ id: 12, sntc: 'It looks interesting', tr: 'Bu marağlı görünür', ch: 'Bu Onlar marağlı görünür'  },
+{ id: 13, sntc: 'I work very hard', tr: 'Mən çox çalışıram', ch: 'Mən Onlar calışır çox çalışıram' },
+{ id: 14, sntc: 'I see that mistake', tr: 'Mən o səhvi görürəm', ch: 'Mən Sən bu o səhvi görürəm' },
+{ id: 15, sntc: 'She also remembers it', tr: 'O da bunu xatırlayır', ch: 'O da Mən xatırlayıram bunu xatırlayır' },
+{ id: 16, sntc: 'I also work there', tr: 'Məndə orada işləyirəm', ch: 'Məndə burada oxuyuram orada işləyirəm' },
+{ id: 17, sntc: 'She lives in this house', tr: 'O bu evdə yaşayır', ch: 'O bu Mən yaşayıram evdə yaşayır'  },
+{ id: 18, sntc: 'He also thinks so', tr: 'O da belə düşünür', ch:'O da Mən də belə düşünür düşünürəm' },
+{ id: 19, sntc: 'She thinks so', tr: 'O belə düşünür', ch: 'O belə Mən düşünürəm düşünür' },
+{ id: 20, sntc: 'He speaks English very well', tr: 'O İngilis dilində çox yaxşı danışır', ch: 'O Mən İngilis dilində çox yaxşı danışır oxuyuram'}],
+[{ id: 21, sntc: 'I have a cat', tr: 'Mənim pişiyim var', ch: 'Mənim Sənin pişiyin itim pişiyim var' },
+{ id: 22, sntc: 'He watches TV', tr: 'O televizora baxır', ch: 'O televizora Mən baxıram baxır' },
+{ id: 23, sntc: 'He goes to school', tr: 'O məktəbə gedir', ch: 'O məktəbə Onlar gedirlər gedir' },
+{ id: 24, sntc: 'I do it every day', tr: 'Mən bunu hər gün edirəm', ch: 'Mən onu bəzən bunu hər gün edirəm' },
+{ id: 25, sntc: 'She misses you', tr: 'O sənin üçün darıxır', ch: 'O Onlar sizin sənin üçün darıxır ' },
+{ id: 26, sntc: 'I sometimes go to the cinema', tr: 'Mən bəzən kinoya gedirəm', ch: 'Mən bəzən hər gün kinoya gedirəm'},
+{ id: 27, sntc: 'He sometimes plays computer games', tr: 'O bəzən kompüter oyunları oynayır', ch: 'O Onlar bəzən kompüter oyunları kompüterlə oynayır'},
+{ id: 28, sntc: 'She has a dog', tr: 'Onun iti var', ch: 'Onun Mənim pişiyim itim var' },
+{ id: 29, sntc: 'I try to find a job', tr: 'Mən iş tapmağa çalışıram', ch: 'Mən iş Sən çalışırsan tapmağa çalışıram' },
+{ id: 30, sntc: 'She tries to do it', tr: 'O bunu etməyə çalışır', ch: 'O bunu onu Onlar etməyə çalışır çalışırlar' }],
+[{ id: 31, sntc: 'My brother lives there', tr: 'Mənim qardaşım orada yaşayır', ch: 'Mənim qardaşım orada yaşayır işləyir'},
+{ id: 32, sntc: 'This lesson seems interesting', tr: 'Bu dərs maraqlı gəlir', ch: 'Bu O dərs kitab maraqlı gəlir'},
+{ id: 33, sntc: 'She understands everything', tr: 'O hər şeyi başa düşür', ch: 'O hər heçnə şeyi başa düşmür düşür'},
+{ id: 34, sntc: 'His brother often says it', tr: 'Onun qardaşı tez-tez bunu deyir', ch: 'Onun qardaşı bacısı bunu tez-tez bəzən deyir'},
+{ id: 35, sntc: 'This offer seems strange', tr: 'Bu təklif qəribə gəlir', ch: 'Bu kitab təklif marağlı qəribə gəlir'},
+{ id: 36, sntc: 'My friend always says it', tr: 'Mənim dostum həmişə bunu deyir', ch: 'Mənim danışır bəzən dostum həmişə bunu deyir'},
+{ id: 37, sntc: 'My parents know it', tr: 'Mənim valideynlərim bunu bilir', ch: 'Mənim valideynlərim bunu onu danışır bilir'},
+{ id: 38, sntc: 'His mother has a car', tr: 'Onun anasının maşını var', ch: 'Onun anasının atasının yoxdur evi maşını var'},
+{ id: 39, sntc: 'My parents want to do it', tr: 'Mənim valideynlərim bunu etmək istəyir', ch: 'Mənim Sənin valideynlərim bunu etmək istəyir onu'},
+{ id: 40, sntc: 'My brother studies there', tr: 'Mənim qardaşım orada təhsil alir', ch: 'qardaşım Mənim bacım orada burada təhsil alir'}],
+[{ id: 41, sntc: 'He wants it', tr: 'O bunu istəyir', ch: 'O bunu Onlar sevir istəyir' },
+{ id: 42, sntc: 'We want more practice', tr: 'Biz daha çox praktika istəyirik', ch: 'Biz Onlar dərs daha çox praktika istəyirik'},
+{ id: 43, sntc: 'He sees this mistake', tr: 'O bu səhvi görür', ch: 'O bu Biz görürük səhvi görür' },
+{ id: 44, sntc: 'It looks strange', tr: 'Bu qəribə görünür', ch: 'Bu marağlı qəribə görünür' },
+{ id: 45, sntc: 'She really remembers it', tr: 'O bunu həqiqətən xatırlayır', ch: 'O Mən bunu görürəm həqiqətən xatırlayır'},
+{ id: 46, sntc: 'This company has money', tr: 'Bu şirkətin pulu var', ch: 'Bu O şirkətin həsabı pulu var' },
+{ id: 47, sntc: 'She sees this mistake', tr: 'O bu səhvi görür', ch: 'O bu Mən səhvi görür görürəm' },
+{ id: 48, sntc: 'He remembers it', tr: 'O bunu xatırlayır', ch: 'O bunu bizi sevir xatırlayır' },
+{ id: 49, sntc: 'He speaks English very well', tr: 'O İngilis dilini çox yaxşı bilir', ch: 'O İngilis dilini dilində çox yaxşı bilir danışır'},
+{ id: 50, sntc: 'I see these mistakes', tr: 'Mən bu səhvləri görürəm', ch: 'Mən Sən bu səhvləri görürəm bilirsən' }],
+
+      ],
+      [],
+      [],
+      [],
+      []
+    ]
+    };
+const enAzSentences = (state=initialState, action)=>{
+    return state
+}
+
+export default enAzSentences
