@@ -1,47 +1,39 @@
+import { useNavigation } from '@react-navigation/core'
 import React from 'react'
-import { View, Text, TouchableOpacity, StyleSheet, Image, ImageBackground } from 'react-native'
-import { useSelector } from 'react-redux'
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native'
+import { useDispatch } from 'react-redux'
+import { setBottomTabVisible } from '../../redux/bottomTab'
 
-const locked = <Image style={{ height: 50, width: 50 }} source={require('../../img/locked1.png')}/>
-const ready = <Image style={{ height: 50, width: 50 }} source={require('../../img/checked.png')}/>
-const studying = <Image style={{ height: 50, width: 50 }} source={require('../../img/studying.png')}/>
-
-
-export const Task = ({ navigation, routeName, setDisable, lessonIndex, num, setSuccess}) => {
+export const Task = ({ routeName, setDisable, lessonIndex, num, setSuccess, header}) => {
+    const dispatch= useDispatch()
+    const navigation = useNavigation()
+    const locked = <Image style={s.images} source={require('../../img/locked1.png')}/>
+    const ready = <Image style={s.images} source={require('../../img/success.png')}/>
+    const studying = <Image style={s.images} source={require('../../img/studying1.png')}/>
     return (
-        <TouchableOpacity activeOpacity={0.7} disabled={setDisable} style={s.wrapper} onPress={() => navigation.navigate(`${routeName}`, { lessonIndex: lessonIndex, num: num })}>
-            <View style={{flex:1}}>{setDisable?locked:!setSuccess?ready:setSuccess?studying:null}</View>
-                <Text style={s.text}>{routeName}</Text>
+        <View style={s.wrapper}>
+        <TouchableOpacity activeOpacity={0.5} disabled={setDisable} style={s.touchble} onPress={() => navigation.navigate(`${routeName}`, { lessonIndex: lessonIndex, num: num } )}>
+            <View>{setDisable?locked:!setSuccess?ready:setSuccess?studying:null}</View>
+            <Text style={s.descr}>{header}</Text>
+            <View style={{paddingRight:10}}>
+                <Image style={{ height: 40, width: 40 }} source={require('../../img/next1.png')}/>
+            </View>
         </TouchableOpacity>
+        </View>
     )
 }
 const s = StyleSheet.create({
-    image: {
-        flex: 1,
-        resizeMode: "cover",
-        justifyContent: "center"
-    },
     wrapper: {
-        height: 80, 
-        backgroundColor: 'white',
-        flexDirection:'row',
-        marginBottom:5,
-        alignItems:'center',
-        paddingHorizontal:10,
-        elevation: 10,
-        borderRadius: 10
+      alignItems: 'center', justifyContent: 'flex-start', 
+      backgroundColor: 'rgba(255, 255, 255, 0.95)', height: 90, flexDirection: 'row', paddingLeft: 10, borderRadius:20, marginTop:1, marginHorizontal:5
     },
-    textWrapper: {
-        justifyContent: 'center',
-        backgroundColor: '#F7F9FA',
-        borderRadius: 5,
+    touchble: {
+      flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around'
     },
-    text: {
-        textAlign: 'center',
-        fontSize: 22,
-        color: 'black',
-        flex:4,
-        // backgroundColor:'yellow'
-        
+    descr: {
+      fontSize: 17, color: '#000', flex: 1, paddingLeft: 20, paddingRight:10, textAlign:'center',fontFamily:'SFUIDisplay-Regular'
+    },
+    images: {
+      height: 50, width: 50
     }
-})
+  })

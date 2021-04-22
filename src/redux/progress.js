@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import database from '@react-native-firebase/database';
 
 let initialState = [
     1,
@@ -13,13 +14,11 @@ const setBeginnerProgress = value => ({
     type: SET_BEGINNER_PROGRESS,
     value
 })
-
 const SET_ELEMENTARY_PROGRESS = 'SET_ELEMENTARY_PROGRESS';
 const setElementaryProgress = value => ({
     type: SET_ELEMENTARY_PROGRESS,
     value
 })
-
 const SET_PREINTERMEDIATE_PROGRESS = 'SET_PREINTERMEDIATE_PROGRESS';
 const setPreIntermediateProgress = value => ({
     type: SET_PREINTERMEDIATE_PROGRESS,
@@ -36,7 +35,7 @@ const setUpperIntermediateProgress = value => ({
     value
 })
 const SET_COMMON_PROGRESS = 'SET_COMMON_PROGRESS';
-const setCommonProgress = value => ({
+export const setCommonProgress = value => ({
     type: SET_COMMON_PROGRESS,
     value
 })
@@ -66,86 +65,96 @@ export const downloadProgress = () => {
     }
 }
 
-export const fdownloadProgress = () => {
-    return async (dispatch) => {
-        try {
-            const beginner = await AsyncStorage.getItem('beginner')
-            const elementary = await AsyncStorage.getItem('elementary')
-            const preIntermediate = await AsyncStorage.getItem('preIntermediate')
-            const intermediate = await AsyncStorage.getItem('intermediate')
-            const upperIntermediate = await AsyncStorage.getItem('upperIntermediate')
-
-            if (beginner && elementary && preIntermediate && intermediate && upperIntermediate !== null) {
-                dispatch(setBeginnerProgress(JSON.parse(beginner))),
-                dispatch(setElementaryProgress(JSON.parse(elementary))),
-                dispatch(setPreIntermediateProgress(JSON.parse(preIntermediate))),
-                dispatch(setIntermediateProgress(JSON.parse(intermediate))),
-                dispatch(setUpperIntermediateProgress(JSON.parse(upperIntermediate)))
-            }
-            else{
-                try {
-                    await AsyncStorage.setItem('beginner', JSON.stringify(1))
-                    await AsyncStorage.setItem('elementary', JSON.stringify(1))
-                    await AsyncStorage.setItem('preIntermediate', JSON.stringify(1))
-                    await AsyncStorage.setItem('intermediate', JSON.stringify(1))
-                    await AsyncStorage.setItem('upperIntermediate', JSON.stringify(1))
-                  } catch (e) {
-                    console.log(e)
-                  }
-            }
-        } catch {}
+export const updateProgress = (level, progressValue, user) => {
+    return async dispatch=>{
+        dispatch(level === 0 ? updateBeginnerProgress(progressValue,user) : level === 1 ? updateElementaryProgress(progressValue) : level === 2 ? updatePreIntermediateProgress(progressValue) : level === 3 ? updateIntermediateProgress(progressValue) : level === 4 ? updateUpperIntermediateProgress(progressValue) : null)
     }
 }
 
-export const updateBeginnerProgress = (value) => {
+export const updateBeginnerProgress = (value, user) => {
     return async (dispatch) => {
         try {
             await AsyncStorage.setItem('beginner', JSON.stringify(value))
             dispatch(setBeginnerProgress(value))
+            if(user)
+            {database()
+            .ref(`/users/${user.uid}`)
+            .update({
+                0: value,
+            })
+            .then(() => console.log('Data updated.'))};
         }
         catch(e){
             console.log(e)
         }
     }
 }
-export const updateElementaryProgress = (value) => {
+export const updateElementaryProgress = (value, user) => {
     return async (dispatch) => {
         try {
             await AsyncStorage.setItem('elementary', JSON.stringify(value))
             dispatch(setElementaryProgress(value))
+            if(user)
+            {database()
+            .ref(`/users/${user.uid}`)
+            .update({
+                1: value,
+            })
+            .then(() => console.log('Data updated.'))};
         }
         catch(e){
             console.log(e)
         }
     }
 }
-export const updatePreIntermediateProgress = (value) => {
+export const updatePreIntermediateProgress = (value,user) => {
     return async (dispatch) => {
         try {
             await AsyncStorage.setItem('preIntermediate', JSON.stringify(value))
             dispatch(setPreIntermediateProgress(value))
+            if(user){
+            database()
+            .ref(`/users/${user.uid}`)
+            .update({
+                2: value,
+            })
+            .then(() => console.log('Data updated.'))};
         }
         catch(e){
             console.log(e)
         }
     }
 }
-export const updateIntermediateProgress = (value) => {
+export const updateIntermediateProgress = (value, user) => {
     return async (dispatch) => {
         try {
             await AsyncStorage.setItem('intermediate', JSON.stringify(value))
             dispatch(setIntermediateProgress(value))
+            if(user){
+            database()
+            .ref(`/users/${user.uid}`)
+            .update({
+                3: value,
+            })
+            .then(() => console.log('Data updated.'))}
         }
         catch(e){
             console.log(e)
         }
     }
 }
-export const updateUpperIntermediateProgress = (value) => {
+export const updateUpperIntermediateProgress = (value, user) => {
     return async (dispatch) => {
         try {
             await AsyncStorage.setItem('upperIntermediate', JSON.stringify(value))
             dispatch(setUpperIntermediateProgress(value))
+            if(user){
+            database()
+            .ref(`/users/${user.uid}`)
+            .update({
+                4: value,
+            })
+            .then(() => console.log('Data updated.'));}
         }
         catch(e){
             console.log(e)

@@ -1,18 +1,21 @@
-import React, { useRef } from 'react';
-import { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Animated, ImageBackground } from 'react-native';
-import SoundPlayer from 'react-native-sound-player';
-import storage from '@react-native-firebase/storage';
-import { shuffle } from '../../utils/shuffle';
-import { useSelector, useDispatch } from 'react-redux';
-import { ProgressBar } from './../ProgressBar/ProgressBar';
-import { setProgress } from '../../redux/levelsList';
-import { CommonButton } from '../Common/Button';
-import { updateBeginnerProgress, updateElementaryProgress, updateIntermediateProgress, updatePreIntermediateProgress, updateUpperIntermediateProgress } from '../../redux/progress';
-import { Output } from '../Common/Output';
-import { OriginOutput } from '../Common/Output';
+import React, { useRef } from 'react'
+import { useEffect, useState } from 'react'
+import { View, Text, TouchableOpacity, StyleSheet, Animated, ImageBackground } from 'react-native'
+import SoundPlayer from 'react-native-sound-player'
+import storage from '@react-native-firebase/storage'
+import { shuffle } from '../../utils/shuffle'
+import { useSelector, useDispatch } from 'react-redux'
+import { ProgressBar } from '../Common/ProgressBar'
+import { CommonButton } from '../Common/Button'
+import { updateProgress } from '../../redux/progress'
+import { Output } from '../Common/Output'
+import { setBottomTabVisible } from '../../redux/bottomTab'
+import { Award } from '../Common/Award'
+let keyArray = []
+let outputArr=[]
 
 export function Theory({ navigation, route }) {
+    const user=useSelector(state=>state.auth.user)
     const level = route.params.num;
     const progress = useSelector(state => state.progress[level])
     const dispatch = useDispatch()
@@ -23,121 +26,129 @@ export function Theory({ navigation, route }) {
     const [sentence, setSentence] = useState(lesson.sntc)
     const [transSentence, setTransSentence] = useState(lesson.tr)
     const [originSentence, setOriginSentence] = useState([...transSentence.split(' ')])
-    const [choice, setChoice] = useState(shuffle([...transSentence.split(' ')]))
+    const [choice, setChoice] = useState(shuffle([...originSentence]))
     const [isReady, setReady] = useState(false)
     const [result, setResult] = useState(false)
+    const [numOfTasks,setNumOfTasks] = useSelector(state=>state.theory.lessons[level])
+    // const [outputArr,setOutputArr]=useState([])
 
-    // async function loadAudio(){
-    //     let url = await storage()
-    //     .ref(lesson.u)
-    //     .getDownloadURL()
-    //     SoundPlayer.stop()
-    //     SoundPlayer.loadUrl(url)
-    //   }
-    //   loadAudio()
+    async function loadAudio(){
+        SoundPlayer.stop()
+        let url = await storage()
+        .ref(`theory/${lesson.id}.ogg`)
+        .getDownloadURL()
+        SoundPlayer.loadUrl(url)
+      }
+    useEffect(() => {   
+        dispatch(setBottomTabVisible(false))
+        return () => {
+            dispatch(setBottomTabVisible(true))
+            keyArray = []
+        }
+      }, []) 
+
     function play() {
         SoundPlayer.play()
     }
     function next() {
-        if (num <= 8) { setNum((prev) => prev + 1) }
+        if (num < numOfTasks.length-1) { setNum((prev) => prev + 1) }
     }
 
-    function answer(word) {
+    function answer(word, id) {
         if (originSentence[wordNumber] == word) {
             setOutput((prev) => (prev + ' ' + word).trim());
             setWordNumber((prev) => prev + 1)
+            keyArray.push(id)
+            outputArr.push(word)
         }
     }
     useEffect(() => {
         setSentence(lesson.sntc),
             setTransSentence(lesson.tr),
-            setOutput('')
+            setOutput(''),
+            loadAudio()
     }, [num])
     useEffect(() => setChoice(shuffle(transSentence.split(' '))), [sentence])
     useEffect(() => {
         setOriginSentence([...transSentence.split(' ')]),
-            setWordNumber(0)
+            setWordNumber(0),
+            keyArray = [],
+            outputArr = []
     }, [transSentence])
-    useEffect(() => setResult(transSentence === output), [output])
-    useEffect(() => { if (num === 9 && result) { setReady(true) } }, [result])
+    useEffect(() => {setResult(transSentence === output)}, [output])
+    useEffect(() => { if (num === numOfTasks.length-1 && result) { setReady(true) }; if(result){play()} }, [result])
 
-    const progressValue = route.params.lessonIndex * 6 + 4;
+    const progressValue = route.params.lessonIndex * 7 + 4;
     useEffect(() => {
-        if (isReady && progressValue > progress) {
-            dispatch(level === 0 ? updateBeginnerProgress(progressValue) : level === 1 ? updateElementaryProgress(progressValue) : level === 2 ? updatePreIntermediateProgress(progressValue) : level === 3 ? updateIntermediateProgress(progressValue) : level === 4 ? updateUpperIntermediateProgress(progressValue) : null)
-        }
-    }, [isReady])
+        if (isReady && progressValue > progress) dispatch(updateProgress(level, progressValue, user))}, [isReady])
 
-    const fadeAnim = useRef(new Animated.Value(0)).current;
-    const fadeIn = () => {
-        Animated.timing(fadeAnim, {
-            toValue: 1,
-            duration: 500,
-            useNativeDriver: true
-        }).start();
-    };
-    const fadeOut = () => {
-        Animated.timing(fadeAnim, {
-            toValue: 0,
-            duration: 500,
-            useNativeDriver: true
-        }).start()
-    };
-    if (result) { fadeIn(1000) }
-    else { fadeOut() }
+    const speakerAnim = useRef(new Animated.Value(0)).current;
+    const descrAnim = useRef(new Animated.Value(0)).current;
+    const taskAnim = useRef(new Animated.Value(0)).current;
+    const outputAnim = useRef(new Animated.Value(0)).current;
 
-
-    const fadeDescr = useRef(new Animated.Value(0)).current;
-    const fadeTask = useRef(new Animated.Value(0)).current;
-    const fadeOutput = useRef(new Animated.Value(0)).current;
-
-    const fadeInKey = (element, value) => {
+    const fade = (element,toVAlue,duration) => {
         Animated.timing(element, {
-            toValue: 1,
-            duration: value,
+            toValue: toVAlue,
+            duration: duration,
             useNativeDriver: true
         }).start();
-    }
+    };
+    if (result) { fade(speakerAnim,1,500)} else { fade(speakerAnim,0,500) }
+
     useEffect(() => {
-        fadeInKey(fadeDescr, 300),
+        fade(descrAnim,1,300)
         setTimeout(() => {
-            fadeInKey(fadeTask, 500)
+            fade(taskAnim,1,500)
         }, 500),
         setTimeout(() => {
-            fadeInKey(fadeOutput, 500)
+            fade(outputAnim,1,500)
         }, 700),
         []
     });
 
+    const symbols = useSelector(s=>s.words.symbols)
+    const adverb =useSelector(s=>s.words.adverb)
+    const verbs = useSelector(state=>state.words.verbs)
+    const demPronouns=useSelector(s=>s.words.demPronouns)
+    const pPronouns=useSelector(s=>s.words.pPronouns)
+    const article=useSelector(s=>s.words.article)
+    const qWords=useSelector(s=>s.words.qWords)
+    const pronoun=useSelector(s=>s.words.pronoun)
+    const adjectives=useSelector(s=>s.words.adjectives)
+    
     return (
         <ImageBackground source={require('../../img/londonBlur.jpg')} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
             <View style={s.progressBar}>
-                <ProgressBar count={num} />
+                <ProgressBar count={num} numOfTasks={numOfTasks.length}/>
             </View>
             <View style={s.wrapper}>
-                <Animated.View style={{ flex: 2.3, elevation: 5, opacity: fadeDescr }}>
-                    <View style={{ backgroundColor: '#fff', padding: 15, borderRadius: 15, }}>
-                        <Text style={{ fontSize: 17, paddingBottom: 10, color: '#000', fontFamily: 'SFUIDisplay-Regular', }}>{lesson.descr}:</Text>
-                        <Text style={{ fontSize: 17, padding: 5, textAlign: 'center', color: '#fff', fontFamily: 'SFUIDisplay-Bold', backgroundColor: '#4ABC96', borderRadius: 5 }}>{lesson.expl}</Text>
+                <Animated.View style={[s.explainContainer, {opacity: descrAnim}]}>
+                    <View style={{alignItems:'center'}} >
+                        {lesson.descr?<Text style={s.explainDescr}>{lesson.descr}</Text>:null}
+                        <View style={{flexDirection:'row', flexWrap:'wrap'}}>{lesson.expl.split(' ').map((w,i)=><Text key={i} style={[s.explainExample, verbs.some(e=>e==w)?s.verb:adverb.some(e=>e==w)?s.adverb:pronoun.some(e=>e==w)?s.pronoun:symbols.some(e=>e==w)?s.symbols:demPronouns.some(e=>e==w)?s.demPronouns:pPronouns.some(e=>e==w)?s.pPronouns:article.some(e=>e==w)?s.article:qWords.some(e=>e==w)?s.qWords:adjectives.some(e=>e==w)?s.adjectives:null]}>{w}</Text>)}</View>
                     </View>
                 </Animated.View>
-                <Animated.View style={{ flex: 2.5, opacity: fadeTask }}>
-                    <Text style={{ fontSize: 22, textAlign: 'center', paddingVertical: 10, color: '#fff', fontWeight: 'bold' }}>Cümləni topla</Text>
+                <Animated.View style={[s.originContainer,{opacity: taskAnim}]}>
+                    <Award/>
+                    <Text style={s.originHeader}>Cümləni topla</Text>
                     <Output value={sentence} />
                 </Animated.View>
-                <Animated.View style={{ flex: 2, paddingHorizontal: 10, fontSize: 17, opacity: fadeOutput }}>
-                    <TouchableOpacity style={{ alignItems: 'center', paddingBottom: 10 }}>
-                        <Animated.Image style={{ width: 30, height: 30, opacity: fadeAnim }} source={require('../../img/speakerW.png')} />
-                    </TouchableOpacity>
-                    <Output value={output} />
+                <Animated.View style={[s.answerContainer,{opacity: outputAnim}]}>
+                    {/* <Output value={output} success={result} /> */}
+                    <View style={{flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'flex-start'}}>
+                    {outputArr.map((w, i) => <Text key={i} style={[s.choice, pronoun.some(e=>e==w)?s.pronoun:null, adverb.some(e=>e==w)?s.adverb:null, verbs.some(e=>e==w)?s.verb:demPronouns.some(e=>e==w)?s.demPronouns:pPronouns.some(e=>e==w)?s.pPronouns:article.some(e=>e==w)?s.article:qWords.some(e=>e==w)?s.qWords:adjectives.some(e=>e==w)?s.adjectives:symbols.some(e=>e==w)?s.symbols:null]}>{w}</Text>)}
+                    </View>
                 </Animated.View>
-                <Animated.View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', flex: 1, opacity: fadeOutput }}>
-                    {choice.map((w, i) =>
-                        <TouchableOpacity key={i} onPress={() => answer(w)} disabled={result}>
-                            <Text style={s.choice}>{w}</Text>
+                <Animated.View style={[s.choiceContainer, {opacity: outputAnim}]}>
+                    {result?<TouchableOpacity style={{ alignItems: 'center', paddingBottom: 5 }} disabled={!result} onPress={play}>
+                        <Animated.Image style={{ width: 50, height: 50, opacity: speakerAnim }} source={require('../../img/speaker.png')} />
+                    </TouchableOpacity>:choice.map((w, i) =>
+                        <TouchableOpacity key={i} onPress={()=>answer(w,i)} disabled={result||keyArray.some(id=>id==i)}>
+                            <Text style={[s.choice, pronoun.some(e=>e==w)?s.pronoun:null, adverb.some(e=>e==w)?s.adverb:null, verbs.some(e=>e==w)?s.verb:demPronouns.some(e=>e==w)?s.demPronouns:pPronouns.some(e=>e==w)?s.pPronouns:article.some(e=>e==w)?s.article:qWords.some(e=>e==w)?s.qWords:adjectives.some(e=>e==w)?s.adjectives:symbols.some(e=>e==w)?s.symbols:null, keyArray.some(id=>id==i)?s.chosen:null]}>{w}</Text>
                         </TouchableOpacity>)}
                 </Animated.View>
-                <Animated.View style={{ marginTop: 20, justifyContent: 'center', flex: 1, opacity: fadeAnim }}>
+                <Animated.View style={[s.buttonContainer,{opacity: 1 }]}>
                     <CommonButton result={result} isReady={isReady} next={next} num={level} />
                 </Animated.View>
             </View>
@@ -147,29 +158,73 @@ export function Theory({ navigation, route }) {
 
 const s = StyleSheet.create({
     wrapper: {
-        padding: 20,
-        flex: 8,
+        padding: 10, flex: 8,
     },
     progressBar: {
         flex: 1, justifyContent: 'flex-end',
     },
-    sentence: {
-        fontSize: 20, textAlign: 'center'
+    explainWrapper:{
+        flex: 2, justifyContent:'center', alignItems:'center'
     },
-    choiceWrapper: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-        flex: 1
+    explainContainer:{
+        backgroundColor: '#fff', padding: 10, borderRadius:10, alignItems:'center', justifyContent:'center'
+    },
+    explainDescr:{ 
+        fontSize: 17, paddingBottom: 5, color: '#000', fontFamily:'SFUIDisplay-Regular'
+    },
+    explainExample:{
+        fontSize: 19, padding: 5, textAlign: 'center', color: '#000', backgroundColor: '#F7F9FA', borderRadius: 5,fontFamily:'SFUIDisplay-Regular', margin:3, paddingHorizontal:10
+    },
+    originContainer:{ 
+        flex: 2.2, justifyContent:'center', alignItems:'center'
+    },
+    originHeader:{ 
+        fontSize: 25, textAlign: 'center', paddingBottom: 5, color: '#fff', fontFamily:'SFUIDisplay-Bold' 
+    },
+    answerContainer:{ 
+        flex: 2, justifyContent:'center',
+    },
+    choiceContainer: {
+        flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', flex: 2
     },
     choice: {
-        fontSize: 19,
-        borderRadius: 5,
-        paddingHorizontal: 5,
-        color: '#000',
-        margin: 10,
-        paddingVertical: 5,
-        paddingHorizontal: 10,
-        backgroundColor: '#fff',
-    }
+        fontSize: 20, borderRadius: 5, color: '#000', margin: 5, paddingVertical: 5, paddingHorizontal: 10,
+        backgroundColor: '#F7F9FA',fontFamily:'SFUIDisplay-Regular'
+    },
+    chosen: {
+        backgroundColor:'rgba(0,0,0,0)',borderWidth:0.5, borderColor:'#fff', borderStyle:'dashed', paddingHorizontal:9.5, paddingVertical:4.5, color:'rgba(0,0,0,0)'
+    },
+    buttonContainer:{
+        marginTop: 20, justifyContent: 'center', flex: 1,
+    },
+    symbols:{
+        backgroundColor:'#E2BD01', color:'#fff',
+    }, 
+    pronoun:{
+        backgroundColor:'#F54000', color:'#fff'
+    },
+    adverb:{
+        backgroundColor:'#328FDE', color:'#fff'
+    },
+    verb:{
+        backgroundColor:'#1AB248', color:'#fff'
+    },
+    demPronouns:{
+        backgroundColor:'#FF43f5', color:'#fff'
+    },
+    pPronouns:{
+        backgroundColor:'#02B5C3',color:'#fff'
+    },
+    article:{
+        backgroundColor:'#9AED5E',color:'#fff'
+    },
+    qWords:{
+        backgroundColor:'#108B93',color:'#fff'
+    },
+    adjectives:{
+        backgroundColor:'#E21152',color:'#fff'
+    },
+    negative:{
+        backgroundColor:'#ED0000',color:'#fff'
+    },
 })

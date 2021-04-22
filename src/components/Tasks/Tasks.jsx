@@ -1,40 +1,102 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Task } from './Task'
-import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Button, ImageBackground } from 'react-native'
-import { useSelector } from 'react-redux'
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Button, ImageBackground, Animated } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux'
 import { Back } from '../Common/Back'
+import { setBottomTabVisible } from '../../redux/bottomTab'
 
 export const Tasks = ({navigation, route}) => {
     const [num,setNum]=useState(route.params.num)
     const [index,setIndex]=useState(route.params.index)
-    const [numForProgress, setNumForProgress]=useState((route.params.index)*6)
+    const [numForProgress, setNumForProgress]=useState((route.params.index)*7)
     const progress=useSelector(state=>state.progress[num])
     const l=index+1;
- 
+    const fadeInOne = useRef(new Animated.Value(0)).current;
+    const fadeInTwo = useRef(new Animated.Value(0)).current;
+    const fadeInThree = useRef(new Animated.Value(0)).current;
+    const fadeInFour = useRef(new Animated.Value(0)).current;
+    const fadeInFive = useRef(new Animated.Value(0)).current;
+    const fadeInSix = useRef(new Animated.Value(0)).current;
+    const fadeInSeven = useRef(new Animated.Value(0)).current;
+
+    const fadeInKey = (element,value) => {
+        Animated.timing(element, {
+            toValue: 1,
+            duration: value,
+            useNativeDriver: true
+        }).start();
+    }
+    useEffect(()=>{
+    setTimeout(() => {
+        fadeInKey(fadeInOne,300)  
+    }, 100),
+    setTimeout(() => {
+        fadeInKey(fadeInTwo,300)  
+    }, 150),
+    setTimeout(() => {
+        fadeInKey(fadeInThree,300)  
+    }, 200),
+    setTimeout(() => {
+        fadeInKey(fadeInFour,300)  
+    }, 250),
+    setTimeout(() => {
+        fadeInKey(fadeInFive,300)  
+    }, 300),
+    setTimeout(() => {
+        fadeInKey(fadeInSix,300)  
+    }, 350),
+    setTimeout(() => {
+        fadeInKey(fadeInSeven,350)  
+    }, 350),
+    []});
+
     return (
         <ImageBackground source={require('../../img/londonBlur.jpg')} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
-            <View style={{flex:1, justifyContent:'center', alignItems:'center', paddingHorizontal:20,  }}>
-                <View style={{position:'absolute', left:20}}><Back/></View>
-                <Text style={{color:'#fff', fontSize:25, fontWeight:'bold', textAlign:'center' }}>{l===6||l===16||l===26||l===36||l===46||l===56||l===60||l===66||l===76||l===86||l===90||l===96?`${l}-cı`:l===9||l===19||l===29||l===39||l===49||l===59||l===69||l===79||l===89||l===99||l===10?`${l}-cu`:`${l}-ci`} dərs</Text>
+            <View style={s.header}>
+                <View style={{position:'absolute', left:20, bottom:10}}>
+                    <Back/>
+                </View>
+                <Text style={{color:'#fff', fontSize:25, textAlign:'center',fontFamily:'SFUIDisplay-Bold' }}>Dərs {l}</Text>
             </View>
-           <View style={s.container}>
-       <ScrollView style={{}}>
-            <Task navigation={navigation} routeName={'LearnWords'} setDisable={progress<numForProgress+1} setSuccess={progress<numForProgress+2} lessonIndex={index} num={num}/>
-            <Task navigation={navigation} routeName={'MatchWordsEnAz'} setDisable={progress<numForProgress+2} setSuccess={progress<numForProgress+3} lessonIndex={index} num={num}/>
-            <Task navigation={navigation} routeName={'Theory'} setDisable={progress<numForProgress+3} setSuccess={progress<numForProgress+4} lessonIndex={index} num={num}/>
-            <Task navigation={navigation} routeName={'TranslateFromAz'} setDisable={progress<numForProgress+4} setSuccess={progress<numForProgress+5} lessonIndex={index} num={num}/>
-            <Task navigation={navigation} routeName={'TranslateFromEn'} setDisable={progress<numForProgress+5} setSuccess={progress<numForProgress+6} lessonIndex={index} num={num}/> 
-            <Task navigation={navigation} routeName={'ListenAndAnswer'} setDisable={progress<numForProgress+6} setSuccess={progress<numForProgress+7} lessonIndex={index} num={num}/>
-       </ScrollView>
-            </View>
-       </ImageBackground>
+        <View style={s.container}>
+            <ScrollView >
+                <Animated.View style={{opacity:fadeInOne}}>
+                    <Task routeName={'LearnWords'} header={'Sözləri çap et '} setDisable={progress<numForProgress+1} setSuccess={progress<numForProgress+2} lessonIndex={index} num={num}/>
+                </Animated.View>
+                <Animated.View style={{opacity:fadeInTwo}}>
+                    <Task routeName={'MatchWordsEnAz'} header={'Sözləri uyğunlaşdır'} setDisable={progress<numForProgress+2} setSuccess={progress<numForProgress+3} lessonIndex={index} num={num}/>
+                </Animated.View>
+                <Animated.View style={{opacity:fadeInThree}}>
+                    <Task routeName={'Theory'} header={'Qrammatikanı öyrən'} setDisable={progress<numForProgress+3} setSuccess={progress<numForProgress+4} lessonIndex={index} num={num}/>
+                </Animated.View>
+                <Animated.View style={{opacity:fadeInFour}}>
+                    <Task routeName={'TranslateFromAz'} header={'Azərbaycan dilindən İnglis dilinə tərcümə'} setDisable={progress<numForProgress+4} setSuccess={progress<numForProgress+5} lessonIndex={index} num={num}/>
+                </Animated.View>
+                <Animated.View style={{opacity:fadeInFive}}>
+                    <Task routeName={'TranslateFromEn'} header={'İnglis dilindən Azərbaycan dilinə tərcümə'} setDisable={progress<numForProgress+5} setSuccess={progress<numForProgress+6} lessonIndex={index} num={num}/>
+                </Animated.View>
+                {/* <Animated.View style={{opacity:fadeInSix}}>
+                    <Task routeName={'ListenAndEnter'} header={'Dinlə və cümləni topla'} setDisable={progress<numForProgress+6} setSuccess={progress<numForProgress+7} lessonIndex={index} num={num}/>
+                </Animated.View> */}
+                <Animated.View style={{opacity:fadeInSix}}>
+                    <Task routeName={'ListenAndEnter'} header={'Dinlə və cümləni topla'} setDisable={true} setSuccess={false} lessonIndex={index} num={num}/>
+                </Animated.View>
+                {/* <Animated.View style={{opacity:fadeInSeven, marginBottom:60}}>
+                    <Task routeName={'ListenAndTranslate'} header={'Dinlə və tərcümə et'} setDisable={progress<numForProgress+7} setSuccess={progress<numForProgress+8} lessonIndex={index} num={num}/>
+                </Animated.View> */}
+                <Animated.View style={{opacity:fadeInSeven, marginBottom:60}}>
+                    <Task routeName={'ListenAndTranslate'} header={'Dinlə və tərcümə et'} setDisable={true} setSuccess={false} lessonIndex={index} num={num}/>
+                </Animated.View>
+            </ScrollView>
+        </View>
+    </ImageBackground>
     )
 }
 
 const s = StyleSheet.create({
+    header:{flex:1, justifyContent:'flex-end', alignItems:'center', paddingHorizontal:20, paddingBottom:10 },
     container: {
-        flex:6,
-        marginHorizontal:10,
+        flex:9, backgroundColor:'rgba(0,0,0,0.1)'
     }
 })
 

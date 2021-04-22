@@ -1,54 +1,38 @@
-import React, { useEffect } from 'react'
-import { Text, View } from 'react-native'
+import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { Tasks } from '../components/Tasks/Tasks'
 import { TranslateFromAz } from '../components/TranslateFromAz'
 import { TranslateFromEn } from '../components/TranslateFromEn'
-import MatchWordsEnAz from '../components/MatchWordsEnAz'
-import { ListenAndAnswer } from '../components/ListenAndAnswer'
 import { LearnWords } from '../components/LearnWords/LearnWords'
 import { Theory } from '../components/Theory/Theory'
 import { Levels } from '../components/Levels/Levels'
 import { Lessons } from '../components/Lessons/Lessons'
-import { useDispatch } from 'react-redux'
-import { downloadProgress } from '../redux/progress'
+import { ListenAndEnter } from '../components/ListenAndEnter'
+import { ListenAndTranslate } from '../components/ListenAndTranslate'
+import { MatchWordsEnAz } from '../components/MatchWords/MatchWordsEnAz'
+import { useNavigation } from '@react-navigation/core'
+import { useSelector } from 'react-redux'
 
 const MainStack = createStackNavigator()
 
-export function MainStackscreen() {
-  const dispatch=useDispatch()
-
-  useEffect(()=>{dispatch(downloadProgress())},[])
+export function MainStackscreen({navigation, route}) {
+  const tabVisible=useSelector(state=>state.bottomTab.show)
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      tabBarVisible: tabVisible
+    });
+  }, [navigation,tabVisible]);
   return (
-    <MainStack.Navigator
-      options={{
-        headerStyle: {
-          backgroundColor: '#33826a',
-        },
-        // headerTintColor: '#fff',
-        // headerTitleStyle: {
-        //   fontWeight: 'bold',
-        // },
-      }}>
+    <MainStack.Navigator>
       <MainStack.Screen
         name="Levels"
         component={Levels}
-        options={{
-          headerShown:false,
-        headerStyle: {
-          backgroundColor: '#33826a',}}}/>
+        options={{headerShown:false}}
+      />
       <MainStack.Screen
         name="Lessons"
         component={Lessons}
-        options={{
-          headerStyle:{backgroundColor: '#33826a',
-        },
-          headerTitleAlign: 'center',
-          headerTitle:
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-              <Text style={{ fontSize: 25, color: '#fff', fontWeight: 'bold', marginLeft: 10 }}>Lessons</Text>
-            </View>
-        }}
+        options={{headerShown:false}}
       />
       <MainStack.Screen
         name="Tasks"
@@ -56,35 +40,57 @@ export function MainStackscreen() {
         options={{headerShown:false}}
       />
       <MainStack.Screen
-        name="TranslateFromAz"
-        component={TranslateFromAz}
-        options={{headerShown:false, title: 'TranslateFromAz' }}
-      />
-      <MainStack.Screen
-        name="TranslateFromEn"
-        component={TranslateFromEn}
-        options={{headerShown:false, title: 'TranslateFromEn' }}
+        name="LearnWords"
+        component={LearnWords}
+        options={{headerShown:false}}
       />
       <MainStack.Screen
         name="MatchWordsEnAz"
         component={MatchWordsEnAz}
-      
-        options={{ title: 'MatchWordsEnAz', headerShown:false }}
-      />
-      <MainStack.Screen
-        name="ListenAndAnswer"
-        component={ListenAndAnswer}
-        options={{headerShown:false, title: 'ListenAndAnswer' }}
-      />
-      <MainStack.Screen
-        name="LearnWords"
-        component={LearnWords}
-        options={{headerShown:false, title: 'LearnWords' }}
+        options={{headerShown:false}}
       />
       <MainStack.Screen
         name="Theory"
         component={Theory}
-        options={{headerShown:false, title: 'Theory' }}
+        options={{headerShown:false}}
+      />
+      <MainStack.Screen
+        name="TranslateFromAz"
+        component={TranslateFromAz}
+        options={{headerShown:false}}
+      />
+      <MainStack.Screen
+        name="TranslateFromEn"
+        component={TranslateFromEn}
+        options={{headerShown:false}}
+      />
+      <MainStack.Screen
+        name="ListenAndEnter"
+        component={ListenAndEnter}
+        options={{headerShown:false}}
+      />
+      <MainStack.Screen
+        name="ListenAndTranslate"
+        component={ListenAndTranslate}
+        options={{headerShown:false}}
       />
     </MainStack.Navigator>)
 }
+
+// const LearnWordsStack = createStackNavigator()
+// function LearnWordsStackScreen ({navigation}){
+//   React.useLayoutEffect(() => {
+//     navigation.setOptions({
+//       tabBarVisible: false
+//     })
+//   }, [navigation])
+//   return (
+//     <LearnWordsStack.Navigator>
+//     <LearnWordsStack.Screen
+//     name="LearnWordsS"
+//     component={LearnWords}
+//     // options={{headerShown:false}}
+//     />
+//     </LearnWordsStack.Navigator>
+//   )
+// }

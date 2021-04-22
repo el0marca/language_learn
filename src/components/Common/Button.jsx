@@ -7,8 +7,8 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 export const CommonButton = ({ result, isReady, next, num }) => {
     const navigation = useNavigation()
     return (
-        <TouchableOpacity disabled={!result} onPress={!isReady ? next : isReady ? () => navigation.navigate('Tasks', { num: num }) : null}>
-            <Text style={{color:'#fff', fontSize: 25, backgroundColor: '#4ABC96', padding:1, textAlign: 'center', fontWeight:'bold', borderRadius:5, }}>
+        <TouchableOpacity disabled={false} onPress={!isReady ? next : isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>
+            <Text style={{color:'#fff', fontSize: 27, backgroundColor: '#25AE88', padding:5, textAlign: 'center', borderRadius:10, fontFamily:'SFUIDisplay-Bold'}}>
                 {!isReady ? 'növbəti' : isReady ? 'dərslər' : null}
             </Text>
         </TouchableOpacity>

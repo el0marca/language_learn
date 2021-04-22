@@ -2,16 +2,18 @@ import React, { useEffect, useState, useRef } from 'react'
 import { Text, View, StyleSheet, Animated, ImageBackground } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useDispatch, useSelector } from 'react-redux';
-import { setProgress } from '../../redux/levelsList';
-import { ProgressBar } from '../ProgressBar/ProgressBar';
+import { ProgressBar } from '../Common/ProgressBar';
 import { QwertyKeyboard } from './QwertyKeyboard';
 import { CommonButton } from '../Common/Button'
-import { updateBeginnerProgress, updateElementaryProgress, updateIntermediateProgress, updatePreIntermediateProgress, updateUpperIntermediateProgress } from '../../redux/progress';
-import { Exit } from '../Common/Exit';
+import { updateProgress } from '../../redux/progress';
+import storage from '@react-native-firebase/storage';
+import { setBottomTabVisible } from '../../redux/bottomTab';
+import SoundPlayer from 'react-native-sound-player'
 
-let a;
+let word;
 
 export function LearnWords({ route }) {
+    const user=useSelector(state=>state.auth.user)
     const level = route.params.num
     const progress = useSelector(state => state.progress[level])
     const dispatch = useDispatch()
@@ -27,6 +29,23 @@ export function LearnWords({ route }) {
     const [output, setOutput] = useState('')
     const [item, setItem] = useState(wordToChoose)
 
+    async function loadAudio(){
+        SoundPlayer.stop()
+        let url = await storage()
+        .ref(`words/${translatedWord}.mp3`)
+        .getDownloadURL()
+        SoundPlayer.loadUrl(url)
+      }
+      function play() {
+        SoundPlayer.play()
+    }
+    useEffect(() => {   
+        dispatch(setBottomTabVisible(false))
+        return () => {
+            dispatch(setBottomTabVisible(true))
+        }
+        }, []) 
+
     useEffect(() => {
         setOriginWord(task.wd);
         setCount(0);
@@ -34,93 +53,80 @@ export function LearnWords({ route }) {
         setOutput('')
     }, [numberOfWord])
 
-    useEffect(() => setWordToChoose(translatedWord.split('')), [translatedWord])
+    useEffect(() => {setWordToChoose(translatedWord.split('')); loadAudio()}, [translatedWord])
     useEffect(() => setItem(wordToChoose), [wordToChoose])
-    useEffect(() => { setResult(output === translatedWord) }, [output])
+    useEffect(() => {if (output === translatedWord){play()};
+    setResult(output === translatedWord) }, [output]
+    )
     useEffect(() => { if (result && numberOfWord == 9) { setReady(true) } }, [result])
-
-    const progressValue = route.params.lessonIndex * 6 + 2;
+    const progressValue = route.params.lessonIndex * 7 + 2;
     useEffect(() => {
-        if (isReady && progressValue > progress) {
-            dispatch(level === 0 ? updateBeginnerProgress(progressValue) : level === 1 ? updateElementaryProgress(progressValue) : level === 2 ? updatePreIntermediateProgress(progressValue) : level === 3 ? updateIntermediateProgress(progressValue) : level === 4 ? updateUpperIntermediateProgress(progressValue) : null)
-        }
-    }, [isReady])
+        if (isReady && progressValue > progress)dispatch(updateProgress(level, progressValue, user))}, [isReady])
 
     function choice(w) {
         if (wordToChoose[count] == w) {
             setOutput(prev => prev + w)
             setCount(prev => prev + 1)
             setItem(prev => {
-                a = [...prev]
-                a.shift()
-                return a
+                word = [...prev]
+                word.shift()
+                return word
             })
         }
     }
-    function res(w) {
-        return item.filter((s, i) => s[i] === w)
-    }
+
     function next() {
         if (numberOfWord < 9) { setNumberOfWord(prev => prev + 1) }
     }
-    const fadeAnim = useRef(new Animated.Value(0)).current;
-    const fadeIn = (value) => {
-        Animated.timing(fadeAnim, {
-            toValue: 1,
-            duration: value,
-            useNativeDriver: true
-        }).start();
-    };
-    const fadeOut = (value) => {
-        Animated.timing(fadeAnim, {
-            toValue: 0,
-            duration: value,
-            useNativeDriver: true
-        }).start();
-    };
-    if (result) { fadeIn(500) } else { fadeOut(500) }
-
-    const fadeKey = useRef(new Animated.Value(0)).current;
-    const fadeTask = useRef(new Animated.Value(0)).current;
-    const fadeInKey = (element,value) => {
-        Animated.timing(element, {
-            toValue: 1,
-            duration: value,
-            useNativeDriver: true
-        }).start();
-    }
-    useEffect(()=>fadeInKey(fadeKey,500),
-    fadeInKey(fadeTask,300),
-    [])
+    const buttonAnim = useRef(new Animated.Value(0)).current;
+    const keyboardAnim = useRef(new Animated.Value(0)).current;
+    const taskAnim = useRef(new Animated.Value(0)).current;
     
+    const fade = (element,toValue,duration) => {
+        Animated.timing(element, {
+            toValue: toValue,
+            duration: duration,
+            useNativeDriver: true
+        }).start()
+    }
+
+    if (result) { fade(buttonAnim,1,500) } else { fade(buttonAnim,0,500) }
+
+    useEffect(()=>{
+    fade(taskAnim,1,500)
+    setTimeout(() => {
+        fade(keyboardAnim,1,500)
+    }, 700)},
+    [])
+  
     return (
         <View style={s.content}>
             <ImageBackground source={require('../../img/londonBlur.jpg')} style={{flex: 1, resizeMode: "center", justifyContent: "center"}}>
-            <View style={{ flex: 1.1, justifyContent:'center'  }}>
+            <View style={{ flex: 1.1, justifyContent:'center'}}>
                     <ProgressBar count={numberOfWord} />
             </View>
-            <Animated.View style={{ flex: 3, alignItems: 'center', justifyContent: 'center', opacity:fadeTask}}>
+            <Animated.View style={{ flex: 3, alignItems: 'center', justifyContent: 'center', opacity:taskAnim}}>
                 <View style={s.task}>
                     <View style={s.originWord}>
                         <Text style={s.originWordText}>{originWord}</Text>
                     </View>
                     <View style={s.speaker}>
-                        <TouchableOpacity >
-                            <Animated.Image style={{ width: 30, height: 30, opacity: fadeAnim}} source={require('../../img/sound.png')} />
+                        <TouchableOpacity onPress={play}>
+                            <Animated.Image style={{ width: 25, height: 25 }} source={require('../../img/sound.png')} />
                         </TouchableOpacity>
                     </View>
-                    <View style={s.translatedWord}>
+                    <View style={[s.translatedWord, result?{backgroundColor:'#25AE88'}:null]}>
                         <TouchableOpacity disabled={!result}>
                             <Animated.Text style={s.translatedWordText}>{output}</Animated.Text>
                         </TouchableOpacity></View>
                 </View>
             </Animated.View>
-            <Animated.View style={{flex: 2, justifyContent: 'center', opacity:fadeKey}}>
-                <QwertyKeyboard line={keyboard[0]} res={res} choice={choice} />
-                <QwertyKeyboard line={keyboard[1]} res={res} choice={choice} />
-                <QwertyKeyboard line={keyboard[2]} res={res} choice={choice} />
+            <Animated.View style={{flex: 2, justifyContent: 'center', opacity:keyboardAnim}}>
+                <QwertyKeyboard line={keyboard[0]} choice={choice} item={item}/>
+                <QwertyKeyboard line={keyboard[1]} choice={choice} item={item}/>
+                <QwertyKeyboard line={keyboard[2]} choice={choice} item={item}/>
             </Animated.View>
-            <Animated.View style={{ paddingHorizontal: 20, justifyContent: 'center', flex: 1, opacity: fadeAnim }}>
+            <Animated.View style={{ paddingHorizontal: 20, justifyContent: 'center', flex: 1, opacity: buttonAnim }}>
                 <CommonButton result={result} isReady={isReady} next={next} num={level} />
             </Animated.View>
             </ImageBackground>
@@ -156,10 +162,9 @@ const s = StyleSheet.create({
         width: '100%',
     },
     originWordText: {
-        fontSize: 22,
-        fontFamily: 'SFUIDisplay-Regular',
+        fontSize: 24,
         textAlign: 'center',
-        color: '#fff',
+        color: '#fff',fontFamily:'SFUIDisplay-Regular'
     },
     translatedWord: {
         flex: 0.5,
@@ -171,12 +176,11 @@ const s = StyleSheet.create({
 
     },
     translatedWordText: {
-        fontSize: 22,
+        fontSize: 24,
         justifyContent: 'flex-end',
-        fontFamily: 'SFUIDisplay-Regular',
         color: '#fff',
         padding: 5,
-        borderRadius: 5
+        borderRadius: 5,fontFamily:'SFUIDisplay-Regular'
     },
     keyboard: {
         flex: 2,
