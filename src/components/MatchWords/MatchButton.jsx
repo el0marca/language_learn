@@ -11,6 +11,6 @@ export function MatchButton({answerMode,ChangeAnswerMode,isReady, page, next, le
     )
 }
 const s = StyleSheet.create({
-    buttonText:{color:'#fff', fontSize: 25, backgroundColor: '#25AE88', padding: 5, textAlign: 'center', borderRadius:10,fontFamily:'SFUIDisplay-Bold'
+    buttonText:{color:'#fff', fontSize: 25, backgroundColor: '#25AE88', padding: 5, textAlign: 'center', borderRadius:10,fontFamily:'SFUIDisplay-Bold', marginHorizontal:20
 }
 })

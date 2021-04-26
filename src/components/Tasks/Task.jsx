@@ -25,7 +25,7 @@ export const Task = ({ routeName, setDisable, lessonIndex, num, setSuccess, head
 const s = StyleSheet.create({
     wrapper: {
       alignItems: 'center', justifyContent: 'flex-start', 
-      backgroundColor: 'rgba(255, 255, 255, 0.95)', height: 90, flexDirection: 'row', paddingLeft: 10, borderRadius:20, marginTop:1, marginHorizontal:5
+      backgroundColor: 'rgba(255, 255, 255, 1)', height: 90, flexDirection: 'row', paddingLeft: 10, marginTop:0, marginHorizontal:5
     },
     touchble: {
       flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around'

@@ -11,8 +11,8 @@ const initialState = {
 { id: 8, sntc: 'I live here', tr: 'Mən burada yaşayıram', ch:'Mən burada orada oxuyuram yaşayıram' },
 { id: 9, sntc: 'We live in this city', tr: 'Biz bu şəhərdə yaşayırıq', ch:'Biz Siz bu ölkədə yaşayırsız şəhərdə yaşayırıq',},
 { id: 10, sntc: 'I remember it', tr: 'Bu mənim yadımdadır', ch: 'Bu sənin yadındadır mənim yadımdadır' }],
-[{ id: 11, sntc: 'He reads in English', tr: 'O, İngilis dilində oxuyur', ch: 'O, İngilis Mən danışıram dilində oxuyur' },
-{ id: 12, sntc: 'It looks interesting', tr: 'Bu marağlı görünür', ch: 'Bu Onlar marağlı görünür'  },
+[{ id: 11, sntc: 'He reads in English', tr: 'O, İngilis dilində oxuyur', ch: 'O, İngilis Mən danışıram dilində oxuyur'},
+{ id: 12, sntc: 'It looks interesting', tr: 'Bu marağlı görünür', ch: 'Bu Onlar marağlı görünür' },
 { id: 13, sntc: 'I work very hard', tr: 'Mən çox çalışıram', ch: 'Mən Onlar calışır çox çalışıram' },
 { id: 14, sntc: 'I see that mistake', tr: 'Mən o səhvi görürəm', ch: 'Mən Sən bu o səhvi görürəm' },
 { id: 15, sntc: 'She also remembers it', tr: 'O da bunu xatırlayır', ch: 'O da Mən xatırlayıram bunu xatırlayır' },
@@ -37,7 +37,7 @@ const initialState = {
 { id: 34, sntc: 'His brother often says it', tr: 'Onun qardaşı tez-tez bunu deyir', ch: 'Onun qardaşı bacısı bunu tez-tez bəzən deyir'},
 { id: 35, sntc: 'This offer seems strange', tr: 'Bu təklif qəribə gəlir', ch: 'Bu kitab təklif marağlı qəribə gəlir'},
 { id: 36, sntc: 'My friend always says it', tr: 'Mənim dostum həmişə bunu deyir', ch: 'Mənim danışır bəzən dostum həmişə bunu deyir'},
-{ id: 37, sntc: 'My parents know it', tr: 'Mənim valideynlərim bunu bilir', ch: 'Mənim valideynlərim bunu onu danışır bilir'},
+{ id: 37, sntc: 'My parents know it', tr: 'Mənim valideynlərim bunu bilirlər', ch: 'Mənim valideynlərim bunu onu danışır bilirlər'},
 { id: 38, sntc: 'His mother has a car', tr: 'Onun anasının maşını var', ch: 'Onun anasının atasının yoxdur evi maşını var'},
 { id: 39, sntc: 'My parents want to do it', tr: 'Mənim valideynlərim bunu etmək istəyirlər', ch: 'Mənim Sənin valideynlərim bunu etmək istəyirlər onu'},
 { id: 40, sntc: 'My brother studies there', tr: 'Mənim qardaşım orada təhsil alir', ch: 'qardaşım Mənim bacım orada burada təhsil alir'}],
@@ -342,12 +342,12 @@ const initialState = {
   {
     id: 99,
     sntc: 'We need to change our life',
-    tr: 'Biz həyatımızı dəyişməliyik',
-    ch: 'Biz həyatımızı Siz dəyişməlisiz dəyişməliyik'
+    tr: 'Bizə həyatımızı dəyişmək lazımdır',
+    ch: 'Bizə həyatımızı dəyişmək lazımdır'
   },
   {
     id: 100,
-    sntc: 'I really need your lessons ',
+    sntc: 'I really need your lessons',
     tr: 'Mənim həqiqətən sizin dərslərinizə ehtiyacım var ',
     ch: 'Mənim həqiqətən bizim yoxdur sizin dərslərinizə ehtiyacım var '
   }],
@@ -1711,7 +1711,200 @@ const initialState = {
     sntc: 'I want to speak English better',
     tr: 'Mən İngilis dilində daha yaxşı danışmaq istəyirəm',
     ch: 'Mən İngilis dilində daha yaxşı danışmaq istəyirəm'
-  }],  
+  }],
+  [{ id: 351,
+    sntc: 'How often do you listen to the radio?',
+    tr: 'Radioya nə qədər qulaq asırsan?',
+    ch: 'Radioya nə qədər qulaq asırsan?'
+  },
+  { id: 352,
+    sntc: 'I don’t like this atmosphere',
+    tr: 'Bu ab-hava xoşuma gəlmir',
+    ch: 'Bu ab-hava xoşuma gəlmir'
+  },
+  { id: 353,
+    sntc: 'It isn’t surprising',
+    tr: 'Bu təəccüblü deyil',
+    ch: 'Bu təəccüblü deyil'
+  },
+  { id: 354,
+    sntc: 'What frightens you more?',
+    tr: 'Səni daha çox qorxuya salan nədir?',
+    ch: 'Səni daha çox qorxuya salan nədir?'
+  },
+  { id: 355,
+    sntc: 'What channel are popular nowadays?',
+    tr: 'Hal-hazırda hansı kanal populyardır?',
+    ch: 'Hal-hazırda hansı kanal populyardır?'
+  },
+  { id: 356,
+    sntc: "What's really important?",
+    tr: 'Əslində nə vacibdir?',
+    ch: 'Əslində nə vacibdir?'
+  },
+  { id: 357,
+    sntc: 'Are they lucky?',
+    tr: 'Onlar şanslıdırlar?',
+    ch: 'Onlar şanslıdırlar?'
+  },
+  { id: 358,
+    sntc: 'Is he tired?',
+    tr: 'O, yorğundur?',
+    ch: 'O, yorğundur?'
+  },
+  { id: 359,
+    sntc: "I'm fine, thanks",
+    tr: 'Yaxşıyam, təşəkkürlər',
+    ch: 'Yaxşıyam, təşəkkürlər'
+  },
+  { id: 360,
+    sntc: 'You know all the truth',
+    tr: 'Sən bütün həqiqəti bilirsən',
+    ch: 'Sən bütün həqiqəti bilirsən'
+  }],
+  [{ id: 361,
+    sntc: 'Does your brother live alone',
+    tr: 'Qardaşın tək yaşayır?',
+    ch: 'Qardaşın tək yaşayır?'
+  },
+  { id: 362,
+    sntc: 'Is my experience enough',
+    tr: 'Mənim təcrübəm kifayət edir?',
+    ch: 'Mənim təcrübəm kifayət edir?'
+  },
+  { id: 363,
+    sntc: 'I hope you remember it',
+    tr: 'Ümid edirəm, sən bunu xatırlayırsan',
+    ch: 'Ümid edirəm, sən bunu xatırlayırsan'
+  },
+  { id: 364,
+    sntc: 'He enjoys listening to music ',
+    tr: 'O musiqi dinləməkdən zövq alır ',
+    ch: 'O musiqi dinləməkdən zövq alır '
+  },
+  { id: 365,
+    sntc: 'Do you need to do it this year?',
+    tr: 'Sənə bunu bu il etmək lazımdır?',
+    ch: 'Sənə bunu bu il etmək lazımdır?'
+  },
+  { id: 366,
+    sntc: 'Do you need to finish it by tomorrow?',
+    tr: 'Sənə bunu sabaha qədər bitirmək lazımdır?',
+    ch: 'Sənə bunu sabaha qədər bitirmək lazımdır?'
+  },
+  { id: 367,
+    sntc: 'Is the food tasty?',
+    tr: 'Yemək dadlıdır?',
+    ch: 'Yemək dadlıdır?'
+  },
+  { id: 368,
+    sntc: 'Do they often talk about politics?',
+    tr: 'Onlar tez-tez siyasətdən danışırlar?',
+    ch: 'Onlar tez-tez siyasətdən danışırlar?'
+  },
+  { id: 369,
+    sntc: "This subject isn't easy at all",
+    tr: 'Bu mövzu heç də asan deyil',
+    ch: 'Bu mövzu heç də asan deyil'
+  },
+  { id: 370,
+    sntc: "It's on the floor",
+    tr: 'Bu döşəmənin üstündədir',
+    ch: 'Bu döşəmənin üstündədir'
+  }],
+  [{ id: 371,
+    sntc: 'How difficult this exercise?',
+    tr: 'Bu tapşırıq nə dərəcədə çətindir?',
+    ch: 'Bu tapşırıq nə dərəcədə çətindir?'
+  },
+  { id: 372,
+    sntc: 'Do you know the meaning of this word?',
+    tr: 'Bu sözün mənasını bilirsən?',
+    ch: 'Bu sözün mənasını bilirsən?'
+  },
+  { id: 373,
+    sntc: "I'm fond of sport",
+    tr: 'Mən idmanı sevirəm',
+    ch: 'Mən idmanı sevirəm'
+  },
+  { id: 374,
+    sntc: 'She always does it with great pleasure',
+    tr: 'O, bunu həmişə böyük məmnuniyyətlə edir',
+    ch: 'O, bunu həmişə böyük məmnuniyyətlə edir'
+  },
+  { id: 375,
+    sntc: "I'd like to add it",
+    tr: 'Mən bunu əlavə etmək istərdim',
+    ch: 'Mən bunu əlavə etmək istərdim'
+  },
+  { id: 376,
+    sntc: 'Her daughter is at school',
+    tr: 'Onun qızı məktəbdədir',
+    ch: 'Onun qızı məktəbdədir'
+  },
+  { id: 377,
+    sntc: 'What time does he come to work?',
+    tr: 'O, işə nə vaxt gəlir?',
+    ch: 'O, işə nə vaxt gəlir?'
+  },
+  {  id: 378, sntc: "I'm sure", tr: 'Mən əminəm', ch: 'Mən əminəm' },
+  { id: 379,
+    sntc: 'Is it his point of view?',
+    tr: 'Bu onun nöqteyi - nəzəridir?',
+    ch: 'Bu onun nöqteyi - nəzəridir?'
+  },
+  { id: 380,
+    sntc: 'Where do you usually go in summer?',
+    tr: 'Yayda adətən hara gedirsən?',
+    ch: 'Yayda adətən hara gedirsən?'
+  }],
+  [{ id: 381,
+    sntc: 'I hope you remember it',
+    tr: 'Ümid edirəm, sən bunu xatırlayırsan',
+    ch: 'Ümid edirəm, sən bunu xatırlayırsan'
+  },
+  {  id: 382, sntc: "She's sad", tr: 'O, qəmlidir', ch: 'O, qəmlidir' },
+  { id: 383,
+    sntc: 'She watches TV',
+    tr: 'O, televizora baxır',
+    ch: 'O, televizora baxır'
+  },
+  { id: 384,
+    sntc: "His salary isn't so high It's low.",
+    tr: 'Onun maaşı o qədər də yüksək deyil. Aşağıdır.',
+    ch: 'Onun maaşı o qədər də yüksək deyil. Aşağıdır.'
+  },
+  { id: 385,
+    sntc: 'Are we near this place?',
+    tr: 'Biz bu yerin yaxınlığındayıq?',
+    ch: 'Biz bu yerin yaxınlığındayıq?'
+  },
+  { id: 386,
+    sntc: 'How do you usually prepare for your exams?',
+    tr: 'İmtahanlarına adətən necə hazırlaşırsan?',
+    ch: 'İmtahanlarına adətən necə hazırlaşırsan?'
+  },
+  { id: 387,
+    sntc: "I don't want to drink",
+    tr: 'Mən içmək istəmirəm',
+    ch: 'Mən içmək istəmirəm'
+  },
+  { id: 388,
+    sntc: 'Do you often call him?',
+    tr: 'Sən tez-tez ona zəng edirsən?',
+    ch: 'Sən tez-tez ona zəng edirsən?'
+  },
+  { id: 389,
+    sntc: "It's necessary to remember it",
+    tr: 'Bunu yadda saxlamaq vacibdir',
+    ch: 'Bunu yadda saxlamaq vacibdir'
+  },
+  { id: 390,
+    sntc: 'Is that information really useful?',
+    tr: 'O məlumat həqiqətən faydalıdır?',
+    ch: 'O məlumat həqiqətən faydalıdır?'
+  }],
+    
       ],
       [],
       [],
@@ -1719,6 +1912,15 @@ const initialState = {
       []
     ]
     };
+
+// let obj=[];
+// for (let i=0; i<10; i++){
+//     for(let a=0; a<initialState.sentences[0][0].length; a++){
+//         // obj.id=initialState.sentences[0][i][a].id
+//         obj.push(initialState.sentences[0][i][a].sntc)}}
+// setTimeout(() => {console.log(obj)}, 1000)
+
+
 const enAzSentences = (state=initialState, action)=>{
     return state
 }

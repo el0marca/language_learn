@@ -23,7 +23,7 @@ export const Lessons = () => {
       </View>
       <View style={{ flex: 8 }}>
         <FlatList data={levels} keyExtractor={item => item[0].toString()} renderItem={({ item, index }) => (
-          <View style={[s.wrapper, index==34&&num==0||index==49&&(num==1||num==2||num==3||num==4)?{marginBottom:55}:null]}>
+          <View style={[s.wrapper, index==38&&num==0||index==49&&(num==1||num==2||num==3||num==4)?{marginBottom:55}:null]}>
             <Circle class={s.circle} num={item[0]} percent={progress > (index + 1) * 7 ? 100 : ((progress - 1) % 7) / 0.07} radius={28} progress={!index == 0 && index >= progress / 7} />
             <TouchableOpacity disabled={!index == 0 && index >= progress / 7} style={s.touchble} onPress={() => navigation.navigate('Tasks', { num: num, index: index })}>
               <Text style={s.descr}>{item[0]}. {item[1]}</Text>
@@ -39,7 +39,7 @@ export const Lessons = () => {
 const s = StyleSheet.create({
   wrapper: {
     marginHorizontal: 10, alignItems: 'center', justifyContent: 'flex-start', marginTop: 1,
-    backgroundColor: 'rgba(255, 255, 255, 0.95)', height: 90, borderRadius: 15, flexDirection: 'row', paddingLeft: 10,
+    backgroundColor: 'rgba(255, 255, 255, 1.95)', height: 90, borderRadius: 15, flexDirection: 'row', paddingLeft: 10,
     elevation: 5,
   },
   touchble: {
