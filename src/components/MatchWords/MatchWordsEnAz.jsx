@@ -8,21 +8,21 @@ import { MatchButton } from './MatchButton';
 import storage from '@react-native-firebase/storage';
 import { Audio } from 'expo-av';
 import { setBottomTabVisible } from '../../redux/bottomTab';
-let keyArray = [];
-let wordString='';
-export const MatchWordsEnAz = ({ navigation, route }) => {
+let keyArray = []
+
+export const MatchWordsEnAz = ({ route }) => {
     const user = useSelector(state => state.auth.user)
     const level = route.params.num;
     const progress = useSelector(state => state.progress[level])
     const dispatch = useDispatch()
     const words = useSelector(state => state.wordsForMatch.words[level][route.params.lessonIndex])
     const [page, setPage] = useState(0)
-    const [numberOfWord, setNumberOfWord] = useState(0)
     const [answerMode, setAnswerMode] = useState(false)
     const [wordList, setWordList] = useState([...words[0]])
     const [wordsToChoose, setWordsToChoose] = useState([...wordList])
     const [output, setOutput] = useState([])
     const [isReady, setIsReady] = useState(false)
+    const [chosenWord, setChosenWord] = useState('')
 
     useEffect(() => {
         dispatch(setBottomTabVisible(false))
@@ -34,9 +34,9 @@ export const MatchWordsEnAz = ({ navigation, route }) => {
 
     async function playSound(word) {
         let url = await storage()
-            .ref(`words/${word}.mp3`)
+            .ref(`words/${word}.ogg`)
             .getDownloadURL()
-        const { sound } = await Audio.Sound.createAsync({ uri: url });
+        const { sound } = await Audio.Sound.createAsync({ uri: url })
         await sound.playAsync();
     }
 
@@ -56,14 +56,12 @@ export const MatchWordsEnAz = ({ navigation, route }) => {
         fadeOut()
     }
     function choiseAWord(word, i) {
-        if (wordList[numberOfWord].tr === word.tr) {
-            setNumberOfWord((p) => p + 1);
-            setOutput((prev) => [...prev, [word.tr, word.id],])
+        if (chosenWord == word.tr) {
+            setOutput((prev) => [...prev, [word.tr, word.id]])
             playSound(word.wd)
             keyArray.push(i)
         }
     }
-
     const fadeAn = useRef(new Animated.Value(0)).current;
     const fadeIn = () => {
         Animated.timing(fadeAn, {
@@ -101,32 +99,23 @@ export const MatchWordsEnAz = ({ navigation, route }) => {
         setWordsToChoose([...words[1]])
         setOutput([])
         setIsReady(false)
-        setNumberOfWord(0)
     }
     if (!answerMode || isReady) { fadeIn() }
 
-    // let listOfAnswers = (wordList.map((word) =>
-    //     <Text key={word.id} style={s.textAns}>{word.tr}</Text>)
-    // )
-    // let listOfAnsweredWords = (output.map((word) =>
-    //     <Text key={word[1]} style={[s.textAns, { backgroundColor: '#25AE88', color: '#fff' }]}>{word[0]}</Text>)
-    // )
-    // // console.log(wordList[0].wd)
-    function nums(w,compareW){wordString=w; console.log(wordString)}
-    function compare(w){wordCompare=w,console.log(wordCompare)}
+    function nums(w) { setChosenWord(w) }
 
     return (
         <View style={{ flex: 1, backgroundColor: '#181A1B' }}>
             <ImageBackground source={require('../../img/londonBlur.jpg')} style={s.imageBackground}>
-                <View style={{ flex: 0.9, justifyContent: 'flex-end' }}>
+                <View style={{ flex: 0.8, justifyContent: 'flex-end' }}>
                     <ProgressBar count={page + (page ? 4 * 2 : 4 * 1)} />
                 </View>
                 <View style={s.header}>
                     <Text style={{ fontSize: 25, color: '#fff', textAlign: 'center', paddingHorizontal: 10, fontFamily: 'SFUIDisplay-Bold' }}>{!answerMode ? 'Tərcüməni yadda saxla' : 'Düzgün tərcüməni seç'}</Text>
                 </View>
-                <Animated.View style={{ flexDirection: 'row', paddingVertical: 20, paddingHorizontal: 5, flex: 3, opacity: fadeAnim }}>
+                <Animated.View style={[s.content, {opacity: fadeAnim }]}>
                     <View style={[s.answeredWords]}>{wordList.map((word) =>
-                        <TouchableOpacity onPress={() => playSound(word.wd)} activeOpacity={0.6} style={s.originWordsContainer} key={word.id}>
+                        <TouchableOpacity key={word.id} onPress={() => playSound(word.wd)} activeOpacity={0.6} style={s.originWordsContainer}>
                             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                                 <Image style={{ width: 20, height: 20 }} source={require('../../img/sound.png')} />
                             </View>
@@ -135,15 +124,14 @@ export const MatchWordsEnAz = ({ navigation, route }) => {
                     </View>
                     <View style={s.answeredWords}>
                         {wordList.map((word) =>
-                        <TouchableOpacity onPress={()=>nums(word.tr)}>
-                            <Text key={word.id} style={[s.textAns, answerMode ? { backgroundColor: '#667D9C', color: 'rgba(0,0,0,0)' } : null, output.some(w => word.tr == w[0]) ? { backgroundColor: '#fff', color: '#000' } : null]}>{word.tr}</Text>
-                        </TouchableOpacity>
-                            )}
+                            <TouchableOpacity key={word.id} onPress={() => nums(word.tr)} disabled={!answerMode}>
+                                <Text key={word.id} style={[s.textAns, answerMode ? { backgroundColor: 'rgba(255,255,255,0.3)', color: 'rgba(0,0,0,0)', borderStyle:'dashed', borderWidth:0.6, borderColor:'#fff', paddingVertical: 9.7,marginVertical: 3.7, } : null, output.some(w => word.tr == w[0]) ? { backgroundColor: '#fff', color: '#000', borderWidth: 0,paddingVertical: 10,marginVertical: 4 } : chosenWord == word.tr ? { backgroundColor: '#25AE88' } : null]}>{word.tr}</Text>
+                            </TouchableOpacity>)}
                     </View>
                 </Animated.View>
-                <Animated.View style={{ flex: 1.5, opacity: fadeAnim }}>{answerMode ? <View style={s.chooseLine}>
+                <Animated.View style={{ flex: 2, opacity: fadeAnim }}>{answerMode ? <View style={s.chooseLine}>
                     {wordsToChoose.map((word, i) =>
-                        <TouchableOpacity key={word.id} disabled={isReady} onPress={() => choiseAWord(word, i)}><Text style={[s.wordsForTap, keyArray.some(index => index == i) ? { backgroundColor: '#667D9C', color: 'rgba(0,0,0,0)' } : null]}>{word.tr}</Text>
+                        <TouchableOpacity key={word.id} disabled={output.some(w => word.tr == w[0])?true:false} onPress={() => choiseAWord(word, i)}><Text style={[s.wordsForTap, keyArray.some(index => index == i) ? { backgroundColor: '#667D9C', color: 'rgba(0,0,0,0)' } : null]}>{word.tr}</Text>
                         </TouchableOpacity>)}
                 </View> : false}
                 </Animated.View>
@@ -156,37 +144,66 @@ export const MatchWordsEnAz = ({ navigation, route }) => {
 }
 const s = ({
     imageBackground: {
-        flex: 1, resizeMode: "center", justifyContent: "center"
+        flex: 1,
+        resizeMode: "center",
+        justifyContent: "center"
     },
     header: {
-        flex: 1, justifyContent: 'flex-end', alignItems: 'center'
+        flex: 0.7,
+        justifyContent: 'flex-end',
+        alignItems: 'center',
     },
     content: {
-        flex: 3, flexDirection: 'row', paddingVertical: 20, paddingHorizontal: 10,
-    },
-    wordsToChoose: {
-        flex: 2,
+        flexDirection: 'row',
+        paddingVertical: 20, 
+        paddingHorizontal: 5, 
+        flex: 3,
     },
     answeredWords: {
         flex: 1,
     },
     originWordsContainer: {
-        marginVertical: 4, borderRadius: 10, backgroundColor: '#fff', flexDirection: 'row', justifyContent: 'center', marginRight: 6, paddingHorizontal: 5
+        marginVertical: 4,
+        borderRadius: 15,
+        backgroundColor: '#fff',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginRight: 5,
+        paddingHorizontal: 5
     },
     originWordsText: {
-        flex: 7, fontSize: 20, paddingVertical: 7, color: '#000', textAlign: 'center', fontFamily: 'SFUIDisplay-Regular'
+        flex: 7,
+        fontSize: 18,
+        paddingVertical: 10,
+        color: '#000',
+        textAlign: 'center',
+        fontFamily: 'SFUIDisplay-Regular'
     },
     textAns: {
-        fontSize: 20, marginVertical: 4, borderRadius: 10, textAlign: 'center', backgroundColor: '#fff',
-        color: '#000', paddingVertical: 7, fontFamily: 'SFUIDisplay-Regular'
+        fontSize: 18,
+        marginVertical: 4,
+        borderRadius: 15,
+        textAlign: 'center',
+        backgroundColor: '#fff',
+        color: '#000',
+        paddingVertical: 10,
+        fontFamily: 'SFUIDisplay-Regular',
     },
     chooseLine: {
-        flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', padding: 5
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        padding: 5,
     },
     wordsForTap: {
-        fontSize: 17, marginRight: 10, marginVertical: 5, color: '#000', paddingVertical: 7, paddingHorizontal: 10, backgroundColor: '#fff', borderRadius: 10,
+        fontSize: 18,
+        marginRight: 10,
+        marginVertical: 8,
+        color: '#000',
+        paddingVertical: 10,
+        paddingHorizontal: 15,
+        backgroundColor: '#fff', 
+        borderRadius: 15,
+        fontFamily: 'SFUIDisplay-Regular',
     },
-    buttonText: {
-        textAlign: 'center', borderRadius: 10, backgroundColor: 'white', fontSize: 20, borderRadius: 5, padding: 5
-    }
 })

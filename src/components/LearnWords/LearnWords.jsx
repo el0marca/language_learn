@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { Text, View, StyleSheet, Animated, ImageBackground } from 'react-native'
+import { Text, View, StyleSheet, Animated, ImageBackground, Image } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useDispatch, useSelector } from 'react-redux';
 import { ProgressBar } from '../Common/ProgressBar';
@@ -32,7 +32,7 @@ export function LearnWords({ route }) {
     async function loadAudio(){
         SoundPlayer.stop()
         let url = await storage()
-        .ref(`words/${translatedWord}.mp3`)
+        .ref(`words/${translatedWord}.ogg`)
         .getDownloadURL()
         SoundPlayer.loadUrl(url)
       }
@@ -103,22 +103,17 @@ export function LearnWords({ route }) {
         <View style={s.content}>
             <ImageBackground source={require('../../img/londonBlur.jpg')} style={{flex: 1, resizeMode: "center", justifyContent: "center"}}>
             <View style={{ flex: 1.1, justifyContent:'center'}}>
-                    <ProgressBar count={numberOfWord} />
+                <ProgressBar count={numberOfWord} />
             </View>
             <Animated.View style={{ flex: 3, alignItems: 'center', justifyContent: 'center', opacity:taskAnim}}>
                 <View style={s.task}>
-                    <View style={s.originWord}>
                         <Text style={s.originWordText}>{originWord}</Text>
-                    </View>
-                    <View style={s.speaker}>
-                        <TouchableOpacity onPress={play}>
-                            <Animated.Image style={{ width: 25, height: 25 }} source={require('../../img/sound.png')} />
+                        <TouchableOpacity style={s.speaker} onPress={play}>
+                            <Animated.Image style={{ width: 35, height: 35 }} source={require('../../img/speakerW.png')} />
                         </TouchableOpacity>
-                    </View>
-                    <View style={[s.translatedWord, result?{backgroundColor:'#25AE88'}:null]}>
                         <TouchableOpacity disabled={!result}>
-                            <Animated.Text style={s.translatedWordText}>{output}</Animated.Text>
-                        </TouchableOpacity></View>
+                            <Animated.Text style={[s.originWordText, result?{color:'#fff', backgroundColor:'#25AE88'}:null]}>{output}</Animated.Text>
+                        </TouchableOpacity>
                 </View>
             </Animated.View>
             <Animated.View style={{flex: 2, justifyContent: 'center', opacity:keyboardAnim}}>
@@ -145,49 +140,29 @@ const s = StyleSheet.create({
     task: {
         flex: 0.8,
         width: '65%',
-        height: 120,
-        borderRadius: 10,
-        elevation: 15,
-        backgroundColor: '#fff',
-        padding: 10,
-    },
-    originWord: {
-        flexDirection: 'row',
-        flex: 1,
-        backgroundColor: '#00557F',
-        borderRadius: 10,
-        padding: 5,
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100%',
+        justifyContent:'space-around'
     },
     originWordText: {
-        fontSize: 24,
+        fontSize: 20,
         textAlign: 'center',
-        color: '#fff',fontFamily:'SFUIDisplay-Regular'
-    },
-    translatedWord: {
-        flex: 0.5,
-        justifyContent: 'center',
-        backgroundColor: '#ED4431',
-        width: '100%',
-        borderRadius: 10,
-        alignItems: 'center',
-
+        color: '#000',
+        backgroundColor:'#fff',
+        borderRadius: 15,
+        padding:7
     },
     translatedWordText: {
-        fontSize: 24,
-        justifyContent: 'flex-end',
-        color: '#fff',
-        padding: 5,
-        borderRadius: 5,fontFamily:'SFUIDisplay-Regular'
+        fontSize: 20,
+        color: '#000',
+        // padding: 8,
+        borderRadius: 15,
+        backgroundColor:'#fff',
+        textAlign:'center'
     },
     keyboard: {
         flex: 2,
         justifyContent: 'center'
     },
     speaker: {
-        flex: 0.7,
         justifyContent: 'center',
         alignItems: 'center'
     },

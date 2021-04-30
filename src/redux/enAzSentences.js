@@ -246,7 +246,7 @@ const initialState = {
   {
     id: 83,
     sntc: 'He doesn’t speak English fluently',
-    tr: 'O, İngilis dilində səlis danışmır',
+    tr: 'O, İngilis dilində sərbəst danışmır',
     ch: 'O, İngilis Mən oxumur dilidə səlis danışmır'
   },
   {
@@ -606,8 +606,8 @@ const initialState = {
   {
     id: 143,
     sntc: 'How do you get to this place?',
-    tr: 'Sən bu yerə necə çatırsan?',
-    ch: 'Sən bu yerə necə çatırsan?'
+    tr: 'Sən bu yerə necə gədirsən?',
+    ch: 'Sən bu yerə necə gədirsən?'
   },
   {
     id: 144,
@@ -618,8 +618,8 @@ const initialState = {
   {
     id: 145,
     sntc: 'How often do you listen to the radio?',
-    tr: 'Sən radioya nə qədər tez-tez qulaq asırsan?',
-    ch: 'Sən radioya nə qədər tez-tez qulaq asırsan?'
+    tr: 'Sən radioya nə qədər qulaq asırsan?',
+    ch: 'Sən radioya nə qədər qulaq asırsan?'
   },
   {
     id: 146,
@@ -666,8 +666,8 @@ const initialState = {
   {
     id: 153,
     sntc: 'How often does she go to the cinema?',
-    tr: 'O, kinoya nə qədər tez-tez gedir?',
-    ch: 'O, kinoya nə qədər tez-tez gedir?'
+    tr: 'O, kinoya nə qədər gedir?',
+    ch: 'O, kinoya nə qədər gedir?'
   },
   {
     id: 154,
@@ -708,8 +708,8 @@ const initialState = {
   {
     id: 160,
     sntc: 'Why does he complain so often?',
-    tr: 'O, niyə bu qədər tez-tez şikayət edir?',
-    ch: 'O, niyə bu qədər tez-tez şikayət edir?'
+    tr: 'O, niyə elə tez-tez şikayət edir?',
+    ch: 'O, niyə elə tez-tez şikayət edir?'
   }],
   [{
     id: 161,
@@ -750,8 +750,8 @@ const initialState = {
   {
     id: 167,
     sntc: 'How often does this thing happen?',
-    tr: 'Bu hadisə nə qədər tez-tez baş verir?',
-    ch: 'Bu hadisə nə qədər tez-tez baş verir?'
+    tr: 'Bu nə qədər baş verir?',
+    ch: 'Bu nə qədər baş verir?'
   },
   {
     id: 168,
@@ -822,8 +822,8 @@ const initialState = {
   {
     id: 179,
     sntc: 'How does he get home?',
-    tr: 'O, evə necə çatır?',
-    ch: 'O, evə necə çatır?'
+    tr: 'O, evə necə gədir?',
+    ch: 'O, evə necə gədir?'
   },
   {
     id: 180,
@@ -876,8 +876,8 @@ const initialState = {
   {
     id: 188,
     sntc: 'How long does it take his daughter to get to school?',
-    tr: 'Onun qızına məktəbə çatmaq üçün nə qədər vaxt lazımdır?',
-    ch: 'Onun qızına məktəbə çatmaq üçün nə qədər vaxt lazımdır?'
+    tr: 'Onun qızına məktəbə getmək üçün nə qədər vaxt lazımdır?',
+    ch: 'Onun qızına məktəbə getmək üçün nə qədər vaxt lazımdır?'
   },
   {
     id: 189,
@@ -1038,8 +1038,8 @@ const initialState = {
   {
     id: 215,
     sntc: 'How does she get home?',
-    tr: 'O, evə necə çatır?',
-    ch: 'O, evə necə çatır?'
+    tr: 'O, evə necə gedir?',
+    ch: 'O, evə necə gedir?'
   },
   {
     id: 216,
@@ -1213,8 +1213,8 @@ const initialState = {
   },
   {  id: 249,
     sntc: "It's such a cheap thing",
-    tr: 'Bu, elə ucuz şeydir ki',
-    ch: 'Bu, elə qədər ucuz şeydir ki'
+    tr: 'Bu, elə ucuz əşyadır ki',
+    ch: 'Bu, elə qədər ucuz əşyadır ki'
   },
   {  id: 250,
     sntc: "He's so talented",
@@ -1904,7 +1904,57 @@ const initialState = {
     tr: 'O məlumat həqiqətən faydalıdır?',
     ch: 'O məlumat həqiqətən faydalıdır?'
   }],
-    
+  [{  id: 391,
+    sntc: 'Knowledge is very important',
+    tr: 'Bilik çox vacibdir',
+    ch: 'Bilik çox vacibdir'
+  },
+  {  id: 392,
+    sntc: 'We may do it',
+    tr: 'Biz bunu edə bilərik',
+    ch: 'Biz bunu edə bilərik'
+  },
+  {  id: 393,
+    sntc: 'He should do it',
+    tr: 'O, gərək bunu etsin',
+    ch: 'O, gərək bunu etsin'
+  },
+  {  id: 394,
+    sntc: 'I can read in English',
+    tr: 'İngilis dilində oxuya bilirəm',
+    ch: 'İngilis dilində oxuya bilirəm'
+  },
+  {  id: 395,
+    sntc: 'We must change our life',
+    tr: 'Biz həyatımızı dəyişməliyik',
+    ch: 'Biz həyatımızı dəyişməliyik'
+  },
+  {  id: 396,
+    sntc: 'I enjoy doing it',
+    tr: 'Bunu etməkdən zövq alıram',
+    ch: 'Bunu etməkdən zövq alıram'
+  },
+  {  id: 397,
+    sntc: 'I like living abroad',
+    tr: 'Xaricdə yaşamaq xoşuma gəlir',
+    ch: 'Xaricdə yaşamaq xoşuma gəlir'
+  },
+  {  id: 398,
+    sntc: 'You must tell me about this problem',
+    tr: 'Bu problemdən mənə danışmalısan',
+    ch: 'Bu problemdən mənə danışmalısan'
+  },
+  {  id: 399,
+    sntc: 'I should call him tomorrow',
+    tr: 'Gərək sabah ona zəng vurum',
+    ch: 'Gərək sabah ona zəng vurum'
+  },
+  {  id: 400,
+    sntc: 'She usually do it in the evening',
+    tr: 'O, adətən axşamlar bunu edir',
+    ch: 'O, adətən axşamlar bunu edir'
+  }],
+  
       ],
       [],
       [],

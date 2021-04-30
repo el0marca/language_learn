@@ -30,11 +30,13 @@ export const TranslateFrom = ({ route, sentences, setNumCount, num, type }) => {
     const [isReady, setReady] = useState(false)
 
     async function loadAudio() {
+        try{
         SoundPlayer.stop()
         let url = await storage()
             .ref(`${type}/${sentences.id}.ogg`)
             .getDownloadURL()
-        SoundPlayer.loadUrl(url)
+        SoundPlayer.loadUrl(url)}
+        catch(e){console.log(e)}
     }
     useEffect(() => {
         dispatch(setBottomTabVisible(false))
@@ -44,7 +46,14 @@ export const TranslateFrom = ({ route, sentences, setNumCount, num, type }) => {
         }
     }, [])
 
-    function play() { SoundPlayer.play() }
+    function play() { 
+        try {
+            SoundPlayer.play()
+        }
+        catch(e){
+            console.log(e)
+        }
+         }
 
     function next() {
         if (num < 9) { setNumCount() }
@@ -117,7 +126,7 @@ export const TranslateFrom = ({ route, sentences, setNumCount, num, type }) => {
                 </Animated.View>
                 <Animated.View style={[s.outputWrapper, { opacity: taskAnim }]}>
                     <View style={s.output}>
-                        {outputArr.map((w, i) => <Text key={i} style={[s.choice, result ? { backgroundColor: '#1AB248', color: '#fff' } : null]}>{w}</Text>)}
+                        {outputArr.map((w, i) => <Text key={i} style={[s.choice, result ? { backgroundColor: '#65c658', color: '#fff' } : null]}>{w}</Text>)}
                     </View>
                 </Animated.View>
                 <Animated.View style={[s.choiceWrapper, { opacity: outputAnim }]}>
@@ -178,12 +187,12 @@ const s = StyleSheet.create({
         flex: 2,
     },
     choice: {
-        fontSize: 19,
+        fontSize: 18,
         borderRadius: 15,
         color: '#000',
         marginRight: 5,
         marginVertical: 5,
-        paddingVertical: 7,
+        paddingVertical: 9,
         paddingHorizontal: 15,
         backgroundColor: '#fff',
         fontFamily: 'SFUIDisplay-Regular'

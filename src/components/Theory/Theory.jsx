@@ -32,11 +32,13 @@ export function Theory({ route }) {
     const [numOfTasks, setNumOfTasks] = useSelector(state => state.theory.lessons[level])
 
     async function loadAudio() {
+        try{
         SoundPlayer.stop()
         let url = await storage()
             .ref(`theory/${lesson.id}.ogg`)
             .getDownloadURL()
-        SoundPlayer.loadUrl(url)
+        SoundPlayer.loadUrl(url)}
+        catch(e){console.log(e)}
     }
     useEffect(() => {
         dispatch(setBottomTabVisible(false))
@@ -47,7 +49,12 @@ export function Theory({ route }) {
     }, [])
 
     function play() {
-        SoundPlayer.play()
+        try {
+            SoundPlayer.play()
+        }
+        catch (e) {
+            console.log(e)
+        }
     }
     function next() {
         if (num < numOfTasks.length - 1) { setNum((prev) => prev + 1) }
@@ -151,7 +158,7 @@ export function Theory({ route }) {
                     </View>
                 </Animated.View>
                 <Animated.View style={[s.choiceContainer, { opacity: outputAnim }]}>
-                    {result ? <View style={{justifyContent:'space-around', width:'100%'}}>
+                    {result ? <View style={{ justifyContent: 'space-around', width: '100%' }}>
                         <TouchableOpacity style={{ alignItems: 'center', paddingBottom: 5 }} disabled={!result} onPress={play}>
                             <Speaker opacity={speakerAnim} play={play} />
                         </TouchableOpacity>
@@ -171,7 +178,8 @@ export function Theory({ route }) {
 
 const s = StyleSheet.create({
     wrapper: {
-        padding: 10, flex: 9,
+        padding: 10, 
+        flex: 9,
     },
     progressBar: {
         flex: 1,
@@ -184,16 +192,13 @@ const s = StyleSheet.create({
     },
     explainContainer: {
         backgroundColor: '#fff',
-        paddingHorizontal: 7,
-        paddingTop: 7,
+        padding: 10,
         paddingBottom: 2,
         borderRadius: 15,
-        alignItems: 'center',
-        justifyContent: 'center'
+        paddingBottom:10,
     },
     explainDescr: {
         fontSize: 17,
-        paddingBottom: 5, 
         color: '#07131F',
         fontFamily: 'SFUIDisplay-ZillaSlab-Light'
     },
@@ -202,29 +207,29 @@ const s = StyleSheet.create({
         borderRadius: 15,
         color: '#000',
         marginRight: 5,
-        marginBottom: 5,
-        paddingVertical: 6,
+        marginTop: 5,
+        paddingVertical: 7,
         paddingHorizontal: 13,
         backgroundColor: '#F7F9FA',
         fontFamily: 'SFUIDisplay-Regular'
     },
     originContainer: {
-        flex: 2.5,
+        flex: 2,
         justifyContent: 'center',
         alignItems: 'center',
-        paddingVertical: 5
     },
     originHeader: {
         fontSize: 23,
         textAlign: 'center',
-        paddingBottom: 5,
+        paddingBottom: 3,
         color: '#fff',
         fontFamily: 'SFUIDisplay-Bold'
     },
     answerContainer: {
         flex: 2,
         justifyContent: 'center',
-        justifyContent: 'flex-start'
+        justifyContent: 'flex-start',
+        paddingTop:10
     },
     choiceContainer: {
         flexDirection: 'row',
@@ -233,47 +238,58 @@ const s = StyleSheet.create({
         flex: 2
     },
     choice: {
-        fontSize: 19,
+        fontSize: 18,
         borderRadius: 15,
         color: '#000',
         marginRight: 5,
         marginBottom: 10,
-        paddingVertical: 7,
+        paddingVertical: 9,
         paddingHorizontal: 15,
         backgroundColor: '#F7F9FA',
         fontFamily: 'SFUIDisplay-Regular'
     },
     chosen: {
-        backgroundColor: '#667D9C', color: 'rgba(0,0,0,0)'
+        backgroundColor: '#667D9C', 
+        color: 'rgba(0,0,0,0)'
     },
     symbols: {
-        backgroundColor: '#E2BD01', color: '#fff',
+        backgroundColor: '#E2BD01', 
+        color: '#fff',
     },
     pronoun: {
-        backgroundColor: '#F54000', color: '#fff'
+        backgroundColor: '#F54000', 
+        color: '#fff'
     },
     adverb: {
-        backgroundColor: '#328FDE', color: '#fff'
+        backgroundColor: '#328FDE', 
+        color: '#fff'
     },
     verb: {
-        backgroundColor: '#1AB248', color: '#fff'
+        backgroundColor: '#1AB248', 
+        color: '#fff'
     },
     demPronouns: {
-        backgroundColor: '#FF43f5', color: '#fff'
+        backgroundColor: '#FF43f5', 
+        color: '#fff'
     },
     pPronouns: {
-        backgroundColor: '#02B5C3', color: '#fff'
+        backgroundColor: '#02B5C3', 
+        color: '#fff'
     },
     article: {
-        backgroundColor: '#9AED5E', color: '#fff'
+        backgroundColor: '#9AED5E', 
+        color: '#fff'
     },
     qWords: {
-        backgroundColor: '#108B93', color: '#fff'
+        backgroundColor: '#108B93', 
+        color: '#fff'
     },
     adjectives: {
-        backgroundColor: '#E21152', color: '#fff'
+        backgroundColor: '#E21152', 
+        color: '#fff'
     },
     negative: {
-        backgroundColor: '#ED0000', color: '#fff'
+        backgroundColor: '#ED0000', 
+        color: '#fff'
     },
 })

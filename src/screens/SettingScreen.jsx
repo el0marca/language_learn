@@ -17,12 +17,11 @@ export const SettingScreen = ({ navigation, route }) => {
   const dispatch = useDispatch()
   const userInfo=useSelector(state=>state.auth.user)
 
-
   return (
     <View>
       <Button title='remooveValue' onPress={() => removeFew()} />
       <Button title='setCommonProgress' onPress={() => dispatch(downloadProgress())} />
-      <Button title='setbeginner' onPress={() => dispatch(updateBeginnerProgress(299))} />
+      <Button title='setbeginner' onPress={() => dispatch(updateBeginnerProgress(555))} />
       <Button title='setelementary' onPress={() => dispatch(updateElementaryProgress(1))} />
       <Button title='setpreintermediate' onPress={() => dispatch(updatePreIntermediateProgress(1))} />
       <Button title='setintermediate' onPress={() => dispatch(updateIntermediateProgress(1))} />

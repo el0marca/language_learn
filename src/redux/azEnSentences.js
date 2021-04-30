@@ -60,7 +60,7 @@ const initialState = {
     },
     {
       id: 52,
-      sntc: 'Mən İngilis dilində səlis və düzgün danışmaq istəyirəm',
+      sntc: 'Mən İngilis dilində sərbəst və düzgün danışmaq istəyirəm',
       tr: 'I want to speak English fluently and correctly',
       ch: 'I want to speak English fluently and correctly'
     },
@@ -594,13 +594,13 @@ const initialState = {
     }],
     [{
       id: 141,
-      sntc: 'Sən ora necə çatırsan?',
+      sntc: 'Sən ora necə gedirsən?',
       tr: 'How do you get there?',
       ch: 'How do you get there?'
     },
     {
       id: 142,
-      sntc: 'Sən adətən evə necə çatırsan?',
+      sntc: 'Sən adətən evə necə gedirsən?',
       tr: 'How do you usually get home?',
       ch: 'How do you usually get home?'
     },
@@ -714,7 +714,7 @@ const initialState = {
     }],
     [{
       id: 161,
-      sntc: 'Onun oğlu işə çatmağı nə qədər vaxt alır?',
+      sntc: 'Onun oğluna işə getmək üçün nə qədər vaxt lazımdır?',
       tr: 'How long does it take his son to get to work?',
       ch: 'How long does it take his son to get to work?'
     },
@@ -744,7 +744,7 @@ const initialState = {
     },
     {
       id: 166,
-      sntc: 'Sənin dostun ora çatmağı nə qədər vaxt alır?',
+      sntc: 'Sənin dostuna ora getmək üçün nə qədər vaxt lazımdır?',
       tr: 'How long does it take your friend to get there?',
       ch: 'How long does it take your friend to get there?'
     },
@@ -1853,7 +1853,7 @@ const initialState = {
       ch: 'Are these exercises so useful?'
     },
     { id: 382,
-      sntc: 'Mənə İngilis dilində səlis danışmaq lazımdır',
+      sntc: 'Mənə İngilis dilində sərbəst danışmaq lazımdır',
       tr: 'I need to speak English fluently',
       ch: 'I need to speak English fluently'
     },
@@ -1896,6 +1896,56 @@ const initialState = {
       sntc: 'Mən adətən erkən qalxıram',
       tr: 'I usually get up early',
       ch: 'I usually get up early'
+    }],
+    [{  id: 391,
+      sntc: 'O, bunu dərk edir',
+      tr: 'He realizes it',
+      ch: 'He realizes it'
+    },
+    {  id: 392,
+      sntc: 'Mən bizneslə məşğul oluram',
+      tr: 'I do business',
+      ch: 'I do business'
+    },
+    {  id: 393,
+      sntc: 'Mən səyahəti xoşlayıram',
+      tr: 'I like travelling',
+      ch: 'I like travelling'
+    },
+    {  id: 394,
+      sntc: 'Başqa kitab oxumaq istəyirəm',
+      tr: 'I want to read another book',
+      ch: 'I want to read another book'
+    },
+    {  id: 395,
+      sntc: 'Bizə bunu demək lazımdır',
+      tr: 'We need to say it',
+      ch: 'We need to say it'
+    },
+    {  id: 396,
+      sntc: 'O, adətən ingilis dilində çox tez danışır',
+      tr: 'She usually speak English very fast',
+      ch: 'She usually speak English very fast'
+    },
+    {  id: 397,
+      sntc: 'Bu problemdən danışmağı həqiqətən xoşlayıram',
+      tr: 'I really like to talk about this problem',
+      ch: 'I really like to talk about this problem'
+    },
+    {  id: 398,
+      sntc: 'Biz bunu edə bilərik',
+      tr: 'We can do it',
+      ch: 'We can do it'
+    },
+    {  id: 399,
+      sntc: 'Mən bunu vaxtında etməliyəm',
+      tr: 'I must do it on time',
+      ch: 'I must do it on time'
+    },
+    {  id: 400,
+      sntc: 'Bu video daha uzundur',
+      tr: 'This video is much longer',
+      ch: 'This video is much longer'
     }],
     
     
