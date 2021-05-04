@@ -23,7 +23,7 @@ export const MatchWordsEnAz = ({ route }) => {
     const [output, setOutput] = useState([])
     const [isReady, setIsReady] = useState(false)
     const [chosenWord, setChosenWord] = useState('')
-
+    
     useEffect(() => {
         dispatch(setBottomTabVisible(false))
         return () => {
@@ -41,8 +41,9 @@ export const MatchWordsEnAz = ({ route }) => {
     }
 
     useEffect(() => { if (output.length === wordList.length) { setIsReady(true) } }, [output])
-
-    const progressValue = route.params.lessonIndex * 7 + 3;
+    const index = route.params.lessonIndex
+    const progressValue = index < 40 ? index * 7 + 3 : index * 7 + 2
+    console.log(index)
     useEffect(() => {
         keyArray = [];
         if (isReady && page === 1 && progressValue > progress) dispatch(updateProgress(level, progressValue, user),)
@@ -108,16 +109,16 @@ export const MatchWordsEnAz = ({ route }) => {
         <View style={{ flex: 1, backgroundColor: '#181A1B' }}>
             <ImageBackground source={require('../../img/londonBlur.jpg')} style={s.imageBackground}>
                 <View style={{ flex: 0.8, justifyContent: 'flex-end' }}>
-                    <ProgressBar count={page + (page ? 4 * 2 : 4 * 1)} />
+                    <ProgressBar count={page + (page ? 4 * 2 : 4 * 1)} learnMode={true} />
                 </View>
                 <View style={s.header}>
                     <Text style={{ fontSize: 25, color: '#fff', textAlign: 'center', paddingHorizontal: 10, fontFamily: 'SFUIDisplay-Bold' }}>{!answerMode ? 'Tərcüməni yadda saxla' : 'Düzgün tərcüməni seç'}</Text>
                 </View>
-                <Animated.View style={[s.content, {opacity: fadeAnim }]}>
+                <Animated.View style={[s.content, { opacity: fadeAnim }]}>
                     <View style={[s.answeredWords]}>{wordList.map((word) =>
                         <TouchableOpacity key={word.id} onPress={() => playSound(word.wd)} activeOpacity={0.6} style={s.originWordsContainer}>
                             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                                <Image style={{ width: 20, height: 20 }} source={require('../../img/sound.png')} />
+                                <Image style={{ width: 25, height: 25 }} source={require('../../img/sound.png')} />
                             </View>
                             <Text style={s.originWordsText}>{word.wd}</Text>
                         </TouchableOpacity>)}
@@ -125,13 +126,13 @@ export const MatchWordsEnAz = ({ route }) => {
                     <View style={s.answeredWords}>
                         {wordList.map((word) =>
                             <TouchableOpacity key={word.id} onPress={() => nums(word.tr)} disabled={!answerMode}>
-                                <Text key={word.id} style={[s.textAns, answerMode ? { backgroundColor: 'rgba(255,255,255,0.3)', color: 'rgba(0,0,0,0)', borderStyle:'dashed', borderWidth:0.6, borderColor:'#fff', paddingVertical: 9.7,marginVertical: 3.7, } : null, output.some(w => word.tr == w[0]) ? { backgroundColor: '#fff', color: '#000', borderWidth: 0,paddingVertical: 10,marginVertical: 4 } : chosenWord == word.tr ? { backgroundColor: '#25AE88' } : null]}>{word.tr}</Text>
+                                <Text key={word.id} style={[s.textAns, answerMode ? { backgroundColor: 'rgba(255,255,255,0.3)', color: 'rgba(0,0,0,0)', borderStyle: 'dashed', borderWidth: 0.6, borderColor: '#fff', paddingVertical: 9.7, marginVertical: 3.7, } : null, output.some(w => word.tr == w[0]) ? { backgroundColor: '#fff', color: '#000', borderWidth: 0, paddingVertical: 10, marginVertical: 4 } : chosenWord == word.tr ? { backgroundColor: '#4ba83e' } : null]}>{word.tr}</Text>
                             </TouchableOpacity>)}
                     </View>
                 </Animated.View>
                 <Animated.View style={{ flex: 2, opacity: fadeAnim }}>{answerMode ? <View style={s.chooseLine}>
                     {wordsToChoose.map((word, i) =>
-                        <TouchableOpacity key={word.id} disabled={output.some(w => word.tr == w[0])?true:false} onPress={() => choiseAWord(word, i)}><Text style={[s.wordsForTap, keyArray.some(index => index == i) ? { backgroundColor: '#667D9C', color: 'rgba(0,0,0,0)' } : null]}>{word.tr}</Text>
+                        <TouchableOpacity key={word.id} disabled={output.some(w => word.tr == w[0]) ? true : false} onPress={() => choiseAWord(word, i)}><Text style={[s.wordsForTap, keyArray.some(index => index == i) ? { backgroundColor: '#667D9C', color: 'rgba(0,0,0,0)' } : null]}>{word.tr}</Text>
                         </TouchableOpacity>)}
                 </View> : false}
                 </Animated.View>
@@ -155,8 +156,8 @@ const s = ({
     },
     content: {
         flexDirection: 'row',
-        paddingVertical: 20, 
-        paddingHorizontal: 5, 
+        paddingVertical: 20,
+        paddingHorizontal: 5,
         flex: 3,
     },
     answeredWords: {
@@ -202,7 +203,7 @@ const s = ({
         color: '#000',
         paddingVertical: 10,
         paddingHorizontal: 15,
-        backgroundColor: '#fff', 
+        backgroundColor: '#fff',
         borderRadius: 15,
         fontFamily: 'SFUIDisplay-Regular',
     },

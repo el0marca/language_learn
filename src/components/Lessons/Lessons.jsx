@@ -22,14 +22,14 @@ export const Lessons = () => {
       <View style={{ flex: 8 }}>
         <FlatList data={levels} keyExtractor={item => item[0].toString()} renderItem={({ item, index }) => (
           <View style={[s.wrapper, index == 49 && num == 0 || index == 49 && (num == 1 || num == 2 || num == 3 || num == 4) ? { marginBottom: 55 } : null]}>
-            <Circle class={s.circle} percent={progress > (index + 1) * 7 ? 100 : ((progress - 1) % 7) / 0.07} progress={!index == 0 && index >= progress / 7} />
+            <Circle type='lessons' class={s.circle} percent={progress > (index + 1) * 7 ? 100 : ((progress - 1) % 7) / 0.07} progress={!index == 0 && index >= progress / 7} />
             <TouchableOpacity activeOpacity={0.5} disabled={!index == 0 && index >= progress / 7} style={s.touchble} onPress={() => navigation.navigate('Tasks', { num: num, index: index })}>
               <View style={s.descr}>
                 <Text style={{ fontWeight: 'bold', fontSize: 15, color: 'rgba(0,0,0,0.6)' }} >{item[0]} </Text>
                 <Text>{item[1]}</Text>
               </View>
 
-              <Image style={s.img} source={require('../../img/next1.png')} />
+              <Image style={s.img} source={require('../../img/next5.png')} />
             </TouchableOpacity>
           </View>
         )} />
@@ -62,11 +62,11 @@ const s = StyleSheet.create({
     backgroundColor: '#fff',
     height: 90,
     flexDirection: 'row',
-    paddingLeft: 20,
+    paddingLeft: 15,
     paddingRight: 10,
-    borderRadius: 20,
+    borderRadius: 30,
     marginHorizontal: 15,
-    marginTop: 2,
+    marginTop: 2
   },
   touchble: {
     flex: 1,

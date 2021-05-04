@@ -1,17 +1,18 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { Tasks } from '../components/Tasks/Tasks'
-import { TranslateFromAz } from '../components/TranslateFromAz'
-import { TranslateFromEn } from '../components/TranslateFromEn'
+import { TranslateFromAz } from '../components/TranslateFromLMode/TranslateFromAz'
+import { TranslateFromEn } from '../components/TranslateFromLMode/TranslateFromEn'
 import { LearnWords } from '../components/LearnWords/LearnWords'
 import { Theory } from '../components/Theory/Theory'
 import { Levels } from '../components/Levels/Levels'
 import { Lessons } from '../components/Lessons/Lessons'
-import { ListenAndEnter } from '../components/ListenAndEnter'
-import { ListenAndTranslate } from '../components/ListenAndTranslate'
+import { ListenAndEnter } from '../components/Listening/ListenAndEnter'
+import { ListenAndTranslate } from '../components/Listening/ListenAndTranslate'
 import { MatchWordsEnAz } from '../components/MatchWords/MatchWordsEnAz'
-import { useNavigation } from '@react-navigation/core'
 import { useSelector } from 'react-redux'
+import { TranslateFromAzSecond } from '../components/TranslateFromLMode/TranslateFromAzSecond'
+import { ListenAndEnterSecond } from '../components/Listening/ListenAndEnterSecond'
 
 const MainStack = createStackNavigator()
 
@@ -60,6 +61,11 @@ export function MainStackscreen({navigation, route}) {
         options={{headerShown:false}}
       />
       <MainStack.Screen
+        name="TranslateFromAzSecond"
+        component={TranslateFromAzSecond}
+        options={{headerShown:false}}
+      />
+      <MainStack.Screen
         name="TranslateFromEn"
         component={TranslateFromEn}
         options={{headerShown:false}}
@@ -70,27 +76,14 @@ export function MainStackscreen({navigation, route}) {
         options={{headerShown:false}}
       />
       <MainStack.Screen
+        name="ListenAndEnterSecond"
+        component={ListenAndEnterSecond}
+        options={{headerShown:false}}
+      />
+      <MainStack.Screen
         name="ListenAndTranslate"
         component={ListenAndTranslate}
         options={{headerShown:false}}
       />
     </MainStack.Navigator>)
 }
-
-// const LearnWordsStack = createStackNavigator()
-// function LearnWordsStackScreen ({navigation}){
-//   React.useLayoutEffect(() => {
-//     navigation.setOptions({
-//       tabBarVisible: false
-//     })
-//   }, [navigation])
-//   return (
-//     <LearnWordsStack.Navigator>
-//     <LearnWordsStack.Screen
-//     name="LearnWordsS"
-//     component={LearnWords}
-//     // options={{headerShown:false}}
-//     />
-//     </LearnWordsStack.Navigator>
-//   )
-// }

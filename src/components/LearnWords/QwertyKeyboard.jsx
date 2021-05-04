@@ -6,7 +6,7 @@ export const QwertyKeyboard = ({ line, choice, item }) => {
     return (
         <View style={s.container}>
             {line.map((w, i) => <TouchableOpacity activeOpacity={0.8} key={i} onPress={() => { choice(w) }}>
-                <Animated.Text style={[s.text, item.some(i => i == w) ? s.ch : s.default, item.some((word, index) => word == w && index == 0) ? { backgroundColor: '#69e0bf' } : null]}>{w}
+                <Animated.Text style={[s.text, item.some(i => i == w) ? s.ch : s.default, item.some((word, index) => word == w && index == 0) ? { backgroundColor: '#4ba83e' } : null]}>{w}
                 </Animated.Text>
             </TouchableOpacity>)}
         </View>
@@ -20,10 +20,10 @@ const s = StyleSheet.create({
         paddingHorizontal: 10
     },
     text: {
-        borderRadius: 3,
-        fontSize: 28,
-        paddingHorizontal: 10,
-        paddingVertical: 5,
+        borderRadius: 5,
+        fontSize: 20,
+        paddingHorizontal: 12,
+        paddingVertical: 7,
         marginHorizontal: 1,
         marginVertical: 1,
         fontFamily: 'SFUIDisplay-Regular',
@@ -33,6 +33,6 @@ const s = StyleSheet.create({
         backgroundColor: '#fff', color: '#000'
     },
     ch: {
-        backgroundColor: '#25AE88', color: '#fff'
+        backgroundColor: '#0881FF', color: '#fff'
     }
 })

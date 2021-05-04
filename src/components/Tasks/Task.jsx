@@ -12,8 +12,8 @@ export const Task = ({ routeName, setDisable, lessonIndex, num, setSuccess, head
       <TouchableOpacity activeOpacity={0.5} disabled={setDisable} style={s.touchble} onPress={() => navigation.navigate(`${routeName}`, { lessonIndex: lessonIndex, num: num })}>
         <View>{setDisable ? locked : !setSuccess ? ready : setSuccess ? studying : null}</View>
         <Text style={s.descr}>{header}</Text>
-        <View style={{ paddingRight: 10 }}>
-          <Image style={{ height: 35, width: 35 }} source={require('../../img/next1.png')} />
+        <View style={{ paddingRight: 15 }}>
+          <Image style={{ height: 35, width: 35 }} source={require('../../img/next5.png')} />
         </View>
       </TouchableOpacity>
     </View>
@@ -28,10 +28,9 @@ const s = StyleSheet.create({
     flexDirection: 'row',
     paddingLeft: 15,
     marginHorizontal: 20,
-    borderRadius:15,
-    marginBottom:2,
-    // borderWidth:2,
-    borderColor:'rgba(0, 0, 255, 0.1)'
+    borderRadius: 30,
+    marginBottom: 2,
+    borderColor: 'rgba(0, 0, 255, 0.1)'
   },
   touchble: {
     flex: 1,
@@ -40,10 +39,11 @@ const s = StyleSheet.create({
     justifyContent: 'space-around'
   },
   descr: {
-    fontSize: 17,
-    color: 'rgba(22, 22, 22, 0.7)',
+    fontSize: 16,
+    color: '#00264d',
     flex: 1,
     paddingRight: 10,
+    paddingLeft: 5,
     textAlign: 'center',
     fontFamily: 'SFUIDisplay-Regular',
   },

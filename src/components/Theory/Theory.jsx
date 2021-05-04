@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { useEffect, useState } from 'react'
-import { View, Text, TouchableOpacity, StyleSheet, Animated, ImageBackground } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, Animated, ImageBackground, Image } from 'react-native'
 import SoundPlayer from 'react-native-sound-player'
 import storage from '@react-native-firebase/storage'
 import { shuffle } from '../../utils/shuffle'
@@ -12,12 +12,13 @@ import { Output } from '../Common/Output'
 import { setBottomTabVisible } from '../../redux/bottomTab'
 import { Award } from '../Common/Award'
 import { Speaker } from '../Common/Speaker'
+import { useNavigation } from '@react-navigation/core'
 let keyArray = []
 let outputArr = []
 
 export function Theory({ route }) {
     const user = useSelector(state => state.auth.user)
-    const level = route.params.num;
+    const level = route.params.num
     const progress = useSelector(state => state.progress[level])
     const dispatch = useDispatch()
     const [num, setNum] = useState(0)
@@ -32,13 +33,14 @@ export function Theory({ route }) {
     const [numOfTasks, setNumOfTasks] = useSelector(state => state.theory.lessons[level])
 
     async function loadAudio() {
-        try{
-        SoundPlayer.stop()
-        let url = await storage()
-            .ref(`theory/${lesson.id}.ogg`)
-            .getDownloadURL()
-        SoundPlayer.loadUrl(url)}
-        catch(e){console.log(e)}
+        try {
+            SoundPlayer.stop()
+            let url = await storage()
+                .ref(`theory/${lesson.id}.ogg`)
+                .getDownloadURL()
+            SoundPlayer.loadUrl(url)
+        }
+        catch (e) { console.log(e) }
     }
     useEffect(() => {
         dispatch(setBottomTabVisible(false))
@@ -85,13 +87,10 @@ export function Theory({ route }) {
         if (num === numOfTasks.length - 1 && result) { setReady(true) }
         if (result) {
             setTimeout(() => {
-                fade(speakerAnim, 1, 500);
                 play()
-                setTimeout(() => {
-                    fade(buttonAnim, 1, 500);
-                }, 1000);
+                fade(buttonAnim, 1, 500)
             }, 300);
-        } else { fade(speakerAnim, 0, 500); fade(buttonAnim, 0, 500); }
+        } else { fade(buttonAnim, 0, 500); }
     }, [result])
 
     const progressValue = route.params.lessonIndex * 7 + 4;
@@ -99,7 +98,6 @@ export function Theory({ route }) {
         if (isReady && progressValue > progress) dispatch(updateProgress(level, progressValue, user))
     }, [isReady])
 
-    const speakerAnim = useRef(new Animated.Value(0)).current;
     const descrAnim = useRef(new Animated.Value(0)).current;
     const taskAnim = useRef(new Animated.Value(0)).current;
     const outputAnim = useRef(new Animated.Value(0)).current;
@@ -132,11 +130,11 @@ export function Theory({ route }) {
     const qWords = useSelector(s => s.words.qWords)
     const pronoun = useSelector(s => s.words.pronoun)
     const adjectives = useSelector(s => s.words.adjectives)
-
+    const navigation = useNavigation()
     return (
         <ImageBackground source={require('../../img/londonBlur.jpg')} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
             <View style={s.progressBar}>
-                <ProgressBar count={num} numOfTasks={numOfTasks.length} />
+                <ProgressBar count={num} numOfTasks={numOfTasks.length} learnMode={true}/>
             </View>
             <View style={s.wrapper}>
                 <Animated.View style={[s.explainContainer, { opacity: descrAnim }]}>
@@ -154,22 +152,27 @@ export function Theory({ route }) {
                     <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
                         {outputArr.map((w, i) =>
                             <Text key={i} style={[s.choice, pronoun.some(e => e == w.replace('?', '')) ? s.pronoun : null, adverb.some(e => e == w.replace('?', '')) ? s.adverb : null, verbs.some(e => e == w.replace('?', '')) ? s.verb : demPronouns.some(e => e == w.replace('?', '')) ? s.demPronouns : pPronouns.some(e => e == w.replace('?', '')) ? s.pPronouns : article.some(e => e == w.replace('?', '')) ? s.article : qWords.some(e => e == w.replace('?', '')) ? s.qWords : adjectives.some(e => e == w.replace('?', '')) ? s.adjectives : symbols.some(e => e == w.replace('?', '')) ? s.symbols : null]}>{w}
-                            </Text>)}
+                            </Text>
+                           )}
                     </View>
                 </Animated.View>
                 <Animated.View style={[s.choiceContainer, { opacity: outputAnim }]}>
-                    {result ? <View style={{ justifyContent: 'space-around', width: '100%' }}>
-                        <TouchableOpacity style={{ alignItems: 'center', paddingBottom: 5 }} disabled={!result} onPress={play}>
-                            <Speaker opacity={speakerAnim} play={play} />
-                        </TouchableOpacity>
-                        <Animated.View style={{ opacity: buttonAnim }}>
-                            <CommonButton result={result} isReady={isReady} next={next} num={level} />
-                        </Animated.View>
-                    </View>
-                        : choice.map((w, i) =>
-                            <TouchableOpacity key={i} onPress={() => answer(w, i)} disabled={result || keyArray.some(id => id == i)}>
+                    <View style={{ flexDirection: 'row', flexWrap: 'wrap', flex: 2 }}>
+                        {choice.map((w, i) =>
+                            <TouchableOpacity style={{ flexDirection: 'row', flexWrap: 'wrap' }} key={i} onPress={() => answer(w, i)} disabled={result || keyArray.some(id => id == i)}>
                                 <Text style={[s.choice, pronoun.some(e => e == w.replace('?', '')) ? s.pronoun : null, adverb.some(e => e == w.replace('?', '')) ? s.adverb : null, verbs.some(e => e == w.replace('?', '')) ? s.verb : demPronouns.some(e => e == w.replace('?', '')) ? s.demPronouns : pPronouns.some(e => e == w.replace('?', '')) ? s.pPronouns : article.some(e => e == w.replace('?', '')) ? s.article : qWords.some(e => e == w.replace('?', '')) ? s.qWords : adjectives.some(e => e == w.replace('?', '')) ? s.adjectives : symbols.some(e => e == w.replace('?', '')) ? s.symbols : null, keyArray.some(id => id == i) ? s.chosen : null]}>{w}</Text>
                             </TouchableOpacity>)}
+                    </View>
+                    {result?<Animated.View style={{ width: '100%', flex: 0.7, opacity: buttonAnim, position:'absolute', bottom:30 }}>
+                         <TouchableOpacity disabled={!result} onPress={!isReady ? next : isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>
+                            <Text style={{ color: '#fff', fontSize: 25, backgroundColor: '#0881FF', padding: 10, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold', marginHorizontal: 20, }}>
+                                {!isReady ? 'növbəti' : isReady ? 'dərslər' : null}
+                            </Text>
+                            <TouchableOpacity disabled={!result} onPress={play} style={{ position: 'absolute', transform: [{ translateY: 10 }], right: 30 }} >
+                                <Image style={{ width: 30, height: 30 }} source={require('../../img/speakerW.png')} />
+                            </TouchableOpacity>
+                        </TouchableOpacity>
+                    </Animated.View>:null}
                 </Animated.View>
             </View>
         </ImageBackground>
@@ -178,7 +181,7 @@ export function Theory({ route }) {
 
 const s = StyleSheet.create({
     wrapper: {
-        padding: 10, 
+        padding: 10,
         flex: 9,
     },
     progressBar: {
@@ -195,7 +198,7 @@ const s = StyleSheet.create({
         padding: 10,
         paddingBottom: 2,
         borderRadius: 15,
-        paddingBottom:10,
+        paddingBottom: 10,
     },
     explainDescr: {
         fontSize: 17,
@@ -229,67 +232,65 @@ const s = StyleSheet.create({
         flex: 2,
         justifyContent: 'center',
         justifyContent: 'flex-start',
-        paddingTop:10
+        paddingTop: 10
     },
     choiceContainer: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
+        alignItems: 'center',
         flex: 2
     },
     choice: {
-        fontSize: 18,
+        fontSize: 17,
         borderRadius: 15,
         color: '#000',
         marginRight: 5,
-        marginBottom: 10,
+        marginBottom: 5,
         paddingVertical: 9,
         paddingHorizontal: 15,
         backgroundColor: '#F7F9FA',
         fontFamily: 'SFUIDisplay-Regular'
     },
     chosen: {
-        backgroundColor: '#667D9C', 
+        backgroundColor: '#667D9C',
         color: 'rgba(0,0,0,0)'
     },
     symbols: {
-        backgroundColor: '#E2BD01', 
+        backgroundColor: '#E2BD01',
         color: '#fff',
     },
     pronoun: {
-        backgroundColor: '#F54000', 
+        backgroundColor: '#F54000',
         color: '#fff'
     },
     adverb: {
-        backgroundColor: '#328FDE', 
+        backgroundColor: '#328FDE',
         color: '#fff'
     },
     verb: {
-        backgroundColor: '#1AB248', 
+        backgroundColor: '#1AB248',
         color: '#fff'
     },
     demPronouns: {
-        backgroundColor: '#FF43f5', 
+        backgroundColor: '#FF43f5',
         color: '#fff'
     },
     pPronouns: {
-        backgroundColor: '#02B5C3', 
+        backgroundColor: '#02B5C3',
         color: '#fff'
     },
     article: {
-        backgroundColor: '#9AED5E', 
+        backgroundColor: '#9AED5E',
         color: '#fff'
     },
     qWords: {
-        backgroundColor: '#108B93', 
+        backgroundColor: '#108B93',
         color: '#fff'
     },
     adjectives: {
-        backgroundColor: '#E21152', 
+        backgroundColor: '#E21152',
         color: '#fff'
     },
     negative: {
-        backgroundColor: '#ED0000', 
+        backgroundColor: '#ED0000',
         color: '#fff'
     },
 })

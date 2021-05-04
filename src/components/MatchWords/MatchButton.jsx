@@ -14,8 +14,8 @@ const s = StyleSheet.create({
     buttonText: {
         color: '#fff',
         fontSize: 25,
-        backgroundColor: '#25AE88',
-        padding: 5,
+        backgroundColor: '#0881FF',
+        padding: 10,
         textAlign: 'center',
         borderRadius: 10,
         fontFamily: 'SFUIDisplay-Bold',

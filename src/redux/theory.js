@@ -2599,7 +2599,7 @@ const initialState={
     {  id: 392,
       descr: '',
       expl: '',
-      sntc: 'İngilis dilini öyrənə bilərəm',
+      sntc: 'İngilis dilini öyrənə bilirəm',
       tr: 'I can learn English'
     },
     {  id: 393,
@@ -2650,7 +2650,503 @@ const initialState={
       sntc: 'Bu problemdən danışmaq istərdim',
       tr: 'I’d like to talk about this problem'
     }],
-      
+    [{  id: 401,
+      sntc: 'O, adətən hansı kanala baxır?',
+      tr: 'Which channel does he usually watch?',
+      ch: 'Which channel does he usually watch?'
+    },
+    {  id: 402,
+      sntc: 'Nəyə görə bu, düzgün görünür?',
+      tr: 'Why does it seem right?',
+      ch: 'Why does it seem right?'
+    },
+    { id: 403, sntc: 'Mən bunu bilirəm', tr: 'I know it', ch: 'I know it' },
+    {  id: 404,
+      sntc: 'Bu şirkətin pulu var',
+      tr: 'This company has money',
+      ch: 'This company has money'
+    },
+    {  id: 405,
+      sntc: 'Məni anlayırsan?',
+      tr: 'Do you understand me?',
+      ch: 'Do you understand me?'
+    },
+    {  id: 406,
+      sntc: 'Yemək həqiqətən dadlıdır',
+      tr: 'The food is really tasty',
+      ch: 'The food is really tasty'
+    },
+    {  id: 407,
+      sntc: 'O, çox gözəl qızdır',
+      tr: "She's a very beautiful girl",
+      ch: "She's a very beautiful girl"
+    },
+    {  id: 408,
+      sntc: 'Bu çox asandır',
+      tr: "It's so easy",
+      ch: "It's so easy"
+    },
+    {  id: 409,
+      sntc: 'Bu daha yaxşıdır',
+      tr: "It's better",
+      ch: "It's better"
+    },
+    {  id: 410,
+      sntc: 'Bizim kifayət qədər praktikamız var?',
+      tr: 'Do we have enough practice?',
+      ch: 'Do we have enough practice?'
+    }],
+    [{  id: 411,
+      sntc: 'Pul da vacibdir',
+      tr: 'Money is also important',
+      ch: 'Money is also important'
+    },
+    {  id: 412,
+      sntc: 'Günəşlidir?',
+      tr: 'Is it sunny?',
+      ch: 'Is it sunny?'
+    },
+    {  id: 413,
+      sntc: 'Sən ordasan?',
+      tr: 'Are you there?',
+      ch: 'Are you there?'
+    },
+    {  id: 414,
+      sntc: 'Bu onlara lazımdır',
+      tr: 'They need it',
+      ch: 'They need it'
+    },
+    {  id: 415,
+      sntc: 'Bu jurnal nə dərəcədə maraqlıdır?',
+      tr: 'How interesting is this magazine?',
+      ch: 'How interesting is this magazine?'
+    },
+    {  id: 416,
+      sntc: 'Bu şeylər çox vacibdir?',
+      tr: 'Are these things so important?',
+      ch: 'Are these things so important?'
+    },
+    {  id: 417,
+      sntc: 'Bu qərar daha betərdir?',
+      tr: 'Is that decision worse?',
+      ch: 'Is that decision worse?'
+    },
+    {  id: 418,
+      sntc: 'Parkdayıq',
+      tr: "We're in the park",
+      ch: "We're in the park"
+    },
+    {  id: 419,
+      sntc: 'Onun videosu belə əyləncəlidir?',
+      tr: 'Is his video so funny?',
+      ch: 'Is his video so funny?'
+    },
+    {  id: 420,
+      sntc: 'Bunu bu il etmək lazımdırmı?',
+      tr: 'Do you need to do it this year?',
+      ch: 'Do you need to do it this year?'
+    }],
+    [{  id: 421,
+      sntc: 'Mən bu sahənin mütəxəssisi deyiləm',
+      tr: "I'm not a specialist in this area",
+      ch: "I'm not a specialist in this area"
+    },
+    {  id: 422,
+      sntc: 'O kitab daha çox maraqlıdır',
+      tr: 'That book is much more interesting',
+      ch: 'That book is much more interesting'
+    },
+    {  id: 423,
+      sntc: 'Onlar ayrı yaşayırlar?',
+      tr: 'Do they live separately?',
+      ch: 'Do they live separately?'
+    },
+    {  id: 424,
+      sntc: 'O, səyahəti həqiqətən də xoşlayır',
+      tr: 'He really likes travelling',
+      ch: 'He really likes travelling'
+    },
+    {  id: 425,
+      sntc: 'Onlar pessimist deyillər',
+      tr: "They aren't pessimistic",
+      ch: "They aren't pessimistic"
+    },
+    {  id: 426,
+      sntc: 'Adətən kimə zəng edirsən?',
+      tr: 'Who do you usually call?',
+      ch: 'Who do you usually call?'
+    },
+    {  id: 427,
+      sntc: 'Xəbər qəribədir',
+      tr: 'The news is strange',
+      ch: 'The news is strange'
+    },
+    {  id: 428,
+      sntc: 'Bəzi insanlar belə deyir',
+      tr: 'Some people say so',
+      ch: 'Some people say so'
+    },
+    {  id: 429,
+      sntc: 'Nə etmək istəyirsən?',
+      tr: 'What do you want to do?',
+      ch: 'What do you want to do?'
+    },
+    {  id: 430,
+      sntc: 'Yaddaşımı daha çox məşq etmək lazımdır',
+      tr: 'I need to train my memory more',
+      ch: 'I need to train my memory more'
+    }],
+    [{  id: 431,
+      sntc: 'Səni qorxuya salan nədir?',
+      tr: 'What frightens you?',
+      ch: 'What frightens you?'
+    },
+    {  id: 432,
+      sntc: 'Bu qədər maraqlı görünən nədir?',
+      tr: 'What seems so interesting?',
+      ch: 'What seems so interesting?'
+    },
+    {  id: 433,
+      sntc: 'Onun o yerə gəlməyi lazımdır?',
+      tr: 'Does she need to come to that place?',
+      ch: 'Does she need to come to that place?'
+    },
+    {  id: 434,
+      sntc: 'Biz bunu üçüncü nümunədə görürük',
+      tr: 'We see it in the third example',
+      ch: 'We see it in the third example'
+    },
+    {  id: 435,
+      sntc: 'Ona, bunu yazmaq lazımdır',
+      tr: 'She needs to write it down',
+      ch: 'She needs to write it down'
+    },
+    {  id: 436,
+      sntc: 'Nəyə görə onun dərsləri bu qədər yararsızdır?',
+      tr: 'Why are her lessons so ineffective?',
+      ch: 'Why are her lessons so ineffective?'
+    },
+    {  id: 437,
+      sntc: 'Onlar birlikdədirlər?',
+      tr: 'Are they together?',
+      ch: 'Are they together?'
+    },
+    {  id: 438,
+      sntc: 'O, uzun boylu bir qızdır',
+      tr: "She's a tall girl",
+      ch: "She's a tall girl"
+    },
+    {  id: 439,
+      sntc: 'Bu çox sadə cavabdır',
+      tr: "It's such a simple answer",
+      ch: "It's such a simple answer"
+    },
+    {  id: 440,
+      sntc: 'Qəribə görünən nədir?',
+      tr: 'What looks strange?',
+      ch: 'What looks strange?'
+    }],
+    [{  id: 441,
+      sntc: 'Bu onun tövsiyəsi deyil',
+      tr: "It isn't her recommendation",
+      ch: "It isn't her recommendation"
+    },
+    {  id: 442,
+      sntc: 'Dərs faydalıdır?',
+      tr: 'Is the lesson useful?',
+      ch: 'Is the lesson useful?'
+    },
+    {  id: 443,
+      sntc: 'Sən tez-tez ora gedirsən?',
+      tr: 'Do you often go there?',
+      ch: 'Do you often go there?'
+    },
+    {  id: 444,
+      sntc: 'O, xarici dillərə həvəslidir',
+      tr: "He's keen on foreign languages",
+      ch: "He's keen on foreign languages"
+    },
+    {  id: 445,
+      sntc: 'Sizə nə kömək edir?',
+      tr: 'What helps you?',
+      ch: 'What helps you?'
+    },
+    {  id: 446,
+      sntc: 'Müdiriniz adətən nə vəd edir?',
+      tr: 'What does your boss usually promise?',
+      ch: 'What does your boss usually promise?'
+    },
+    {  id: 447,
+      sntc: 'Bunu yazmalıyam',
+      tr: 'I must write it down',
+      ch: 'I must write it down'
+    },
+    {  id: 448,
+      sntc: 'O da orada işləyir',
+      tr: 'She also works there',
+      ch: 'She also works there'
+    },
+    {  id: 449,
+      sntc: 'O, işgüzar səfərdədir',
+      tr: "He's on a business trip",
+      ch: "He's on a business trip"
+    },
+    {  id: 450,
+      sntc: 'Mənim kifayət qədər pulum var?',
+      tr: 'Do I have enough money?',
+      ch: 'Do I have enough money?'
+    }],
+    [{  id: 451,
+      sntc: 'Çox maraqlı fikirdir',
+      tr: "It's a very interesting idea",
+      ch: "It's a very interesting idea"
+    },
+    {  id: 452,
+      sntc: 'Bu, vacib görünür?',
+      tr: 'Does this thing seem important?',
+      ch: 'Does this thing seem important?'
+    },
+    {  id: 453,
+      sntc: 'Bir-birinizi tanıyırsınız?',
+      tr: 'Do you know each other?',
+      ch: 'Do you know each other?'
+    },
+    {  id: 454,
+      sntc: 'Mənim bir bacım var',
+      tr: 'I have a sister',
+      ch: 'I have a sister'
+    },
+    {  id: 455,
+      sntc: 'Bilirsiniz ki, ingilis dilini addım-addım öyrənirik',
+      tr: 'You know that we learn English step by step',
+      ch: 'You know that we learn English step by step'
+    },
+    {  id: 456,
+      sntc: 'Bu çox yaxşıdır',
+      tr: "It's so good",
+      ch: "It's so good"
+    },
+    {  id: 457,
+      sntc: 'Fikirləri çox maraqlı görünür',
+      tr: 'Their ideas seem very interesting',
+      ch: 'Their ideas seem very interesting'
+    },
+    {  id: 458,
+      sntc: 'Bütün şagirdlər bu ifadənin mənasını bilirlər?',
+      tr: 'Do all the students know the meaning of this expression?',
+      ch: 'Do all the students know the meaning of this expression?'
+    },
+    {  id: 459,
+      sntc: 'Sizi nə maraqlandırır?',
+      tr: 'What interests you?',
+      ch: 'What interests you?'
+    },
+    {  id: 460,
+      sntc: 'Nə vaxt boş vaxtın var?',
+      tr: 'When do you have free time?',
+      ch: 'When do you have free time?'
+    }],
+    [{  id: 461,
+      sntc: 'Onlar bir yerdə yaşayırlar',
+      tr: 'They live together',
+      ch: 'They live together'
+    },
+    {  id: 462,
+      sntc: 'Mənə bütün məlumatları təhlil etməyə ehtiyac yoxdur',
+      tr: "I don't need to analyze all the data",
+      ch: "I don't need to analyze all the data"
+    },
+    {  id: 463,
+      sntc: 'Oyun maraqlıdır?',
+      tr: 'Is the game interesting?',
+      ch: 'Is the game interesting?'
+    },
+    {  id: 464,
+      sntc: 'Onlar sənə nə demək istəyirlər?',
+      tr: 'What do they want to tell you?',
+      ch: 'What do they want to tell you?'
+    },
+    {  id: 465,
+      sntc: 'Onlar çox ciddi öyrənirlər',
+      tr: 'They study very hard',
+      ch: 'They study very hard'
+    },
+    {  id: 466,
+      sntc: 'Bu mövzu mənim üçün çox çətindir',
+      tr: 'This subject is too difficult for me',
+      ch: 'This subject is too difficult for me'
+    },
+    {  id: 467,
+      sntc: 'Sizi daha çox nə təşviq edir?',
+      tr: 'What motivates you more?',
+      ch: 'What motivates you more?'
+    },
+    {  id: 468,
+      sntc: 'İdeya maraqlıdır?',
+      tr: 'Is the idea interesting?',
+      ch: 'Is the idea interesting?'
+    },
+    {  id: 469,
+      sntc: 'Kitab bu qədər maraqlıdır?',
+      tr: 'Is the book so interesting?',
+      ch: 'Is the book so interesting?'
+    },
+    {  id: 470,
+      sntc: 'Bu ən yaxşı kitabdır',
+      tr: "It's the best book",
+      ch: "It's the best book"
+    }],
+    [{  id: 471,
+      sntc: 'Bu məsləhət xoşuma gəlir',
+      tr: 'I like this advice',
+      ch: 'I like this advice'
+    },
+    {  id: 472,
+      sntc: 'Adətən boş vaxtını necə keçirirsən?',
+      tr: 'How do you usually spend your free time?',
+      ch: 'How do you usually spend your free time?'
+    },
+    {  id: 473,
+      sntc: 'Bu çox faydalı nümunədir',
+      tr: "It's a very useful example",
+      ch: "It's a very useful example"
+    },
+    {  id: 474,
+      sntc: 'Onun əri xəstəxanadadır',
+      tr: 'Her husband is in hospital',
+      ch: 'Her husband is in hospital'
+    },
+    {  id: 475,
+      sntc: 'Bu üsul yenidir?',
+      tr: 'Is this method new?',
+      ch: 'Is this method new?'
+    },
+    {  id: 476,
+      sntc: 'O, başqa bir yerdə yaşamaq istərdi',
+      tr: "She'd like to live in another place",
+      ch: "She'd like to live in another place"
+    },
+    {  id: 477,
+      sntc: 'Onun sözləri bizi ruhlandırır',
+      tr: 'Her words inspire us',
+      ch: 'Her words inspire us'
+    },
+    {  id: 478,
+      sntc: 'Onun müəllimi necə nümunələr verir?',
+      tr: 'What kind of examples does his teacher give?',
+      ch: 'What kind of examples does his teacher give?'
+    },
+    {  id: 479,
+      sntc: 'O, kinoya nə qədər gedir?',
+      tr: 'How often does she go to the cinema?',
+      ch: 'How often does she go to the cinema?'
+    },
+    {  id: 480,
+      sntc: 'İngilis dilində səlis və düzgün danışmaq istəyirəm',
+      tr: 'I want to speak English fluently and correctly',
+      ch: 'I want to speak English fluently and correctly'
+    }],
+    [{  id: 481,
+      sntc: 'O, bu evdə yaşayır',
+      tr: 'He lives in this house',
+      ch: 'He lives in this house'
+    },
+    {  id: 482,
+      sntc: 'Bu dərs darıxdırıcı görünür?',
+      tr: 'Does that lesson seem boring?',
+      ch: 'Does that lesson seem boring?'
+    },
+    {  id: 483,
+      sntc: 'O çox boyludur',
+      tr: "He's so tall",
+      ch: "He's so tall"
+    },
+    {  id: 484,
+      sntc: 'Dostunun on doqquz yaşı var?',
+      tr: 'Is your friend nineteen?',
+      ch: 'Is your friend nineteen?'
+    },
+    {  id: 485,
+      sntc: 'Mənə bunu gələn ilə qədər etmək lazımdır',
+      tr: 'I need to do it by next year',
+      ch: 'I need to do it by next year'
+    },
+    {  id: 486,
+      sntc: 'Bu nə qədər çətindir?',
+      tr: 'How difficult is it?',
+      ch: 'How difficult is it?'
+    },
+    {  id: 487,
+      sntc: 'Müdirim bütün sənədləri oxuyur',
+      tr: 'My boss reads all the documents',
+      ch: 'My boss reads all the documents'
+    },
+    {  id: 488,
+      sntc: 'Müdiriniz niyə bunu tənqid edir?',
+      tr: 'Why does your boss criticize it?',
+      ch: 'Why does your boss criticize it?'
+    },
+    {  id: 489,
+      sntc: 'Sən birinci yerdə deyilsən. Sən ikinci yerdəsən',
+      tr: "You aren't in the first place. You're in the second place",
+      ch: "You aren't in the first place. You're in the second place"
+    },
+    {  id: 490,
+      sntc: 'Bu şeylər çox vacibdir',
+      tr: 'These things are very important',
+      ch: 'These things are very important'
+    }],
+    [{  id: 491,
+      sntc: 'Bu geyim neçəyədir?',
+      tr: 'How much is that dress?',
+      ch: 'How much is that dress?'
+    },
+    {  id: 492,
+      sntc: 'Bu ucuzdur?',
+      tr: 'Is it cheap?',
+      ch: 'Is it cheap?'
+    },
+    {  id: 493,
+      sntc: 'Siz ona dəstəksiniz?',
+      tr: 'Do you support him?',
+      ch: 'Do you support him?'
+    },
+    {  id: 494,
+      sntc: 'Dərs çox informativdir',
+      tr: 'The lesson is so informative',
+      ch: 'The lesson is so informative'
+    },
+    {  id: 495,
+      sntc: 'Onlar bir yerdədirlər',
+      tr: "They're together",
+      ch: "They're together"
+    },
+    {  id: 496,
+      sntc: 'O, bu ölkədə yaşayır',
+      tr: 'He lives in this country',
+      ch: 'He lives in this country'
+    },
+    {  id: 497,
+      sntc: 'O, bu şeyləri çox yaxşı izah edir',
+      tr: 'She explains all these things very well',
+      ch: 'She explains all these things very well'
+    },
+    {  id: 498,
+      sntc: 'Müdirim hər şeyi bilir',
+      tr: 'My boss knows everything',
+      ch: 'My boss knows everything'
+    },
+    {  id: 499,
+      sntc: 'Dostun bunu başa düşür?',
+      tr: 'Does his friend understand it?',
+      ch: 'Does his friend understand it?'
+    },
+    {  id: 500,
+      sntc: 'Onlar çox vaxt gülürlər',
+      tr: 'They often laugh',
+      ch: 'They often laugh'
+    }],
+        
 ],
 [],
 [],
@@ -2658,17 +3154,17 @@ const initialState={
 [],
 ]};
 
-let obj=[];
+// let obj=[];
 
-for (let i=20;i<30; i++){
-    for(let a=0; a<initialState.lessons[0][0].length; a++){
-        // obj.id=initialState.lessons[0][i][a].id
-        obj.push(initialState.lessons[0][i][a].tr)
-    }
-}
-setTimeout(() => {
-  console.log(obj)
-}, 1000)
+// for (let i=40;i<50; i++){
+//     for(let a=0; a<initialState.lessons[0][0].length; a++){
+//         // obj.id=initialState.lessons[0][i][a].id
+//         obj.push(initialState.lessons[0][i][a].tr)
+//     }
+// }
+// setTimeout(() => {
+//   console.log(obj)
+// }, 1000)
 
 const theory = (state=initialState, action)=>{
     return state

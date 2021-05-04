@@ -7,8 +7,8 @@ export const Level = ({ level, num, percent, bColor }) => {
     const navigation = useNavigation()
     return (
       <View  style={s.container}>
-        <View style={{backgroundColor:bColor, justifyContent: 'center', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 5, elevation: 5, borderRadius:10, height:'100%'}}>
-          <Circle percent={percent} />
+        <View style={{backgroundColor:bColor, justifyContent: 'center', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10, borderRadius:20, height:'100%'}}>
+          <Circle percent={percent} type='levels' />
           <TouchableOpacity style={s.touchble} onPress={() => navigation.navigate('Lessons', { num: num, level: level })}>
             <Text style={s.text}>{level}</Text>
             <View style={{justifyContent:'center'}}><Image style={s.img} source={require('../../img/next-641.png')} /></View>
