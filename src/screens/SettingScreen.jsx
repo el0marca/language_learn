@@ -19,18 +19,18 @@ export const SettingScreen = ({ navigation, route }) => {
 
   return (
     <View>
-      <Button title='remooveValue' onPress={() => removeFew()} />
-      <Button title='setCommonProgress' onPress={() => dispatch(downloadProgress())} />
+      {/* <Button title='remooveValue' onPress={() => removeFew()} /> */}
+      {/* <Button title='setCommonProgress' onPress={() => dispatch(downloadProgress())} /> */}
       <Button title='resetbeginner' onPress={() => dispatch(updateBeginnerProgress(1))} />
-      <Button title='setbeginner' onPress={() => dispatch(updateBeginnerProgress(4))} />
-      <Button title='setelementary' onPress={() => dispatch(updateElementaryProgress(1))} />
+      <Button title='setbeginner' onPress={() => dispatch(updateBeginnerProgress(97))} />
+      <Button title='setelementary' onPress={() => dispatch(updateElementaryProgress(22))} />
       <Button title='setpreintermediate' onPress={() => dispatch(updatePreIntermediateProgress(1))} />
       <Button title='setintermediate' onPress={() => dispatch(updateIntermediateProgress(1))} />
       <Button title='setupperintermediate' onPress={() => dispatch(updateUpperIntermediateProgress(1))} />
       {/* <Text>Welcome {userInfo.email}</Text> */}
       {/* <Button title='signOut' onPress={signOut} /> */}
       {/* <Button title='setData' onPress={setData} /> */}
-      <Button title='getData' onPress={()=>getData(userInfo.uid)} />
+      {/* <Button title='getData' onPress={()=>getData(userInfo.uid)} /> */}
     </View>
   )
 }

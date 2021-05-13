@@ -8,7 +8,7 @@ import { MatchButton } from './MatchButton';
 import storage from '@react-native-firebase/storage';
 import { Audio } from 'expo-av';
 import { setBottomTabVisible } from '../../redux/bottomTab';
-let keyArray = []
+
 
 export const MatchWordsEnAz = ({ route }) => {
     const user = useSelector(state => state.auth.user)
@@ -23,12 +23,12 @@ export const MatchWordsEnAz = ({ route }) => {
     const [output, setOutput] = useState([])
     const [isReady, setIsReady] = useState(false)
     const [chosenWord, setChosenWord] = useState('')
-    
+    const [keyArray, setKeyArray] = useState([])
+
     useEffect(() => {
         dispatch(setBottomTabVisible(false))
         return () => {
             dispatch(setBottomTabVisible(true))
-            keyArray = []
         }
     }, [])
 
@@ -43,49 +43,45 @@ export const MatchWordsEnAz = ({ route }) => {
     useEffect(() => { if (output.length === wordList.length) { setIsReady(true) } }, [output])
     const index = route.params.lessonIndex
     const progressValue = index < 40 ? index * 7 + 3 : index * 7 + 2
-    console.log(index)
+
     useEffect(() => {
-        keyArray = [];
-        if (isReady && page === 1 && progressValue > progress) dispatch(updateProgress(level, progressValue, user),)
+        if (isReady && page === 1 && progressValue > progress) dispatch(updateProgress(level, progressValue, user))
     }, [isReady])
+
 
     function ChangeAnswerMode() {
         fadeOutIn()
         setAnswerMode(true)
         setWordList(prev => shuffle(prev))
         setWordsToChoose(prev => shuffle(prev))
-        fadeOut()
+        fade(buttonAnim, 0, 1000)
     }
     function choiseAWord(word, i) {
         if (chosenWord == word.tr) {
             setOutput((prev) => [...prev, [word.tr, word.id]])
             playSound(word.wd)
-            keyArray.push(i)
+            setKeyArray(prev => [...prev, i])
         }
     }
-    const fadeAn = useRef(new Animated.Value(0)).current;
-    const fadeIn = () => {
-        Animated.timing(fadeAn, {
-            toValue: 1,
-            duration: 1000,
+
+    const buttonAnim = useRef(new Animated.Value(0)).current
+    const taskAnim = useRef(new Animated.Value(1)).current
+
+    const fade = (element, toValue, duration) => {
+        Animated.timing(element, {
+            toValue: toValue,
+            duration: duration,
             useNativeDriver: true
         }).start();
-    };
-    const fadeOut = () => {
-        Animated.timing(fadeAn, {
-            toValue: 0,
-            duration: 500,
-            useNativeDriver: true
-        }).start();
-    };
-    const fadeAnim = useRef(new Animated.Value(1)).current;
+    }
+
     const fadeOutIn = () => {
-        Animated.timing(fadeAnim, {
+        Animated.timing(taskAnim, {
             toValue: 0,
             duration: 1,
             useNativeDriver: true
         }).start(() => {
-            Animated.timing(fadeAnim, {
+            Animated.timing(taskAnim, {
                 toValue: 1,
                 duration: 500,
                 useNativeDriver: true
@@ -100,21 +96,22 @@ export const MatchWordsEnAz = ({ route }) => {
         setWordsToChoose([...words[1]])
         setOutput([])
         setIsReady(false)
+        setKeyArray([])
     }
-    if (!answerMode || isReady) { fadeIn() }
+    if (!answerMode || isReady) { fade(buttonAnim, 1, 1000) }
 
     function nums(w) { setChosenWord(w) }
 
     return (
         <View style={{ flex: 1, backgroundColor: '#181A1B' }}>
-            <ImageBackground source={require('../../img/londonBlur.jpg')} style={s.imageBackground}>
+            <ImageBackground source={{uri:'https://firebasestorage.googleapis.com/v0/b/asan-english.appspot.com/o/img%2Fbackground%2FtasksBg.jpg?alt=media&token=9f985407-a58e-4dbe-b5cb-d271af9a32c5'}} style={s.imageBackground}>
                 <View style={{ flex: 0.8, justifyContent: 'flex-end' }}>
                     <ProgressBar count={page + (page ? 4 * 2 : 4 * 1)} learnMode={true} />
                 </View>
                 <View style={s.header}>
                     <Text style={{ fontSize: 25, color: '#fff', textAlign: 'center', paddingHorizontal: 10, fontFamily: 'SFUIDisplay-Bold' }}>{!answerMode ? 'Tərcüməni yadda saxla' : 'Düzgün tərcüməni seç'}</Text>
                 </View>
-                <Animated.View style={[s.content, { opacity: fadeAnim }]}>
+                <Animated.View style={[s.content, { opacity: taskAnim }]}>
                     <View style={[s.answeredWords]}>{wordList.map((word) =>
                         <TouchableOpacity key={word.id} onPress={() => playSound(word.wd)} activeOpacity={0.6} style={s.originWordsContainer}>
                             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -130,13 +127,13 @@ export const MatchWordsEnAz = ({ route }) => {
                             </TouchableOpacity>)}
                     </View>
                 </Animated.View>
-                <Animated.View style={{ flex: 2, opacity: fadeAnim }}>{answerMode ? <View style={s.chooseLine}>
+                <Animated.View style={{ flex: 2, opacity: taskAnim }}>{answerMode ? <View style={s.chooseLine}>
                     {wordsToChoose.map((word, i) =>
                         <TouchableOpacity key={word.id} disabled={output.some(w => word.tr == w[0]) ? true : false} onPress={() => choiseAWord(word, i)}><Text style={[s.wordsForTap, keyArray.some(index => index == i) ? { backgroundColor: '#667D9C', color: 'rgba(0,0,0,0)' } : null]}>{word.tr}</Text>
                         </TouchableOpacity>)}
                 </View> : false}
                 </Animated.View>
-                <Animated.View style={{ flex: 1, paddingHorizontal: 20, opacity: fadeAn }}>
+                <Animated.View style={{ flex: 1, paddingHorizontal: 20, opacity: buttonAnim }}>
                     <MatchButton answerMode={answerMode} ChangeAnswerMode={ChangeAnswerMode} isReady={isReady} page={page} next={next} level={level} />
                 </Animated.View>
             </ImageBackground>

@@ -1,44 +1,39 @@
 import React from 'react'
-import { TouchableOpacity, Text, View, StyleSheet, Image } from 'react-native'
-import { Circle } from '../Common/Circle'
+import { TouchableOpacity, Text, View, StyleSheet, Image, Animated } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
-export const Level = ({ level, num, percent, bColor }) => {
-    const navigation = useNavigation()
-    return (
-      <View  style={s.container}>
-        <View style={{backgroundColor:bColor, justifyContent: 'center', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10, borderRadius:20, height:'100%'}}>
-          <Circle percent={percent} type='levels' />
-          <TouchableOpacity style={s.touchble} onPress={() => navigation.navigate('Lessons', { num: num, level: level })}>
+export const Level = ({ level, num }) => {
+  const navigation = useNavigation()
+  return (
+        <TouchableOpacity style={s.container} activeOpacity={.5} onPress={() => navigation.navigate('Lessons', { num: num, level: level })}>
+          <View style={{ flex:1, justifyContent:'center', alignItems:'center' }}>
+            <Image style={{width: 50, height: 50}} source={require('../../img/award.png')} />
             <Text style={s.text}>{level}</Text>
-            <View style={{justifyContent:'center'}}><Image style={s.img} source={require('../../img/next-641.png')} /></View>
-          </TouchableOpacity>
-        </View>
-      </View>
-      )
-  }
+          </View>
+          <View style={{ flex:1 }}>
+            <Image style={{width: 50, height: 50}} source={require('../../img/next-641.png')} />
+          </View>
+        </TouchableOpacity>
+  )
+}
 
-  const s = StyleSheet.create({
-      container:{
-        justifyContent: 'center',
-        alignItems:'center',
-        width: '90%', 
-        paddingBottom:'1%',
-        flex: 0.8
-      },
-      touchble:{
-        flexDirection: 'row', 
-        flex: 1
-      },
-      text:{
-        fontSize: 23, 
-        textAlign: 'center', 
-        flex: 4.9,
-        fontFamily: 'SFUIDisplay-Bold', 
-        color: '#fff'
-      },
-      img:{
-        width: 28, 
-        height: 28
-      }
-  })
+const s = StyleSheet.create({
+  container: {
+    justifyContent: 'center', 
+    alignItems: 'center',
+    flex:1, 
+    paddingVertical:20 
+  },
+  text: {
+    fontSize: 22,
+    textAlign: 'center',
+    flex: 1,
+    fontFamily: 'SFUIDisplay-Bold',
+    color: '#fff'
+  },
+  img: {
+    width: 60,
+    height: 60,
+    flex:1
+  }
+})

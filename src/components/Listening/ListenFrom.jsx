@@ -24,9 +24,9 @@ export const ListenFrom = ({ route, sentences, setNumCount, num, type, progressV
     const [result, setResult] = useState(false)
     const [isReady, setReady] = useState(false)
     const [keyArray, setKeyArray] = useState([])
-    const [outputArr, setOutputArr] = useState([])
     const [answered, setAnswered] = useState(false)
     const [mistakes, setMistakes] = useState(2)
+    const errorData=type+' '+sentences.id
 
     async function loadAudio() {
         try {
@@ -66,7 +66,7 @@ export const ListenFrom = ({ route, sentences, setNumCount, num, type, progressV
     function next() {
         setResult(false)
         setAnswered(false)
-        setOutput(''), setKeyArray([]), setOutputArr([]), setTimeout(() => {
+        setOutput(''), setKeyArray([]), setTimeout(() => {
             play()
         }, 1500)
         if (num < 9) { setNumCount() }
@@ -77,7 +77,6 @@ export const ListenFrom = ({ route, sentences, setNumCount, num, type, progressV
     function answer(word, id) {
         setOutput((prev) => (prev + ' ' + word).trim())
         setKeyArray(prev => [...prev, id])
-        setOutputArr(prev => [...prev, word])
     }
 
     const taskAnim = useRef(new Animated.Value(0)).current
@@ -89,34 +88,28 @@ export const ListenFrom = ({ route, sentences, setNumCount, num, type, progressV
             useNativeDriver: true
         }).start()
     }
-    // useEffect(() => { setSentence(sentences.sntc), setTransSentence(sentences.tr), setOutput(''), loadAudio(), keyArray = [], outputArr = [] }, [sentences])
     useEffect(() => setChoice(shuffle(sentences.ch.split(' '))), [sentence])
 
     function check() {
-        setResult(transSentence == outputArr.join(' '))
-        if(!(transSentence == outputArr.join(' '))){setMistakes(prev=>prev-1)}
+        setResult(transSentence == output)
+        if (!(transSentence == output)) { setMistakes(prev => prev - 1) }
         setAnswered(true)
         if (num === 9) { setReady(true) }
     }
 
     useEffect(() => {
-        if (isReady && mistakes>=0 && progressValue > progress) dispatch(updateProgress(level, progressValue, user))
+        if (isReady && mistakes >= 0 && progressValue > progress) dispatch(updateProgress(level, progressValue, user))
     }, [isReady])
 
     const navigation = useNavigation()
     function remove() {
-        let a = outputArr
-        a.pop()
-        setOutputArr(a)
         setOutput((prev) => (prev.substring(0, prev.lastIndexOf(" "))))
-        let b = keyArray;
-        b.pop()
-        setKeyArray(b)
+        keyArray.pop()
     }
     return (
-        <ImageBackground source={require('../../img/londonBlur.jpg')} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
+        <ImageBackground source={{uri:'https://firebasestorage.googleapis.com/v0/b/asan-english.appspot.com/o/img%2Fbackground%2FtasksBg.jpg?alt=media&token=9f985407-a58e-4dbe-b5cb-d271af9a32c5'}} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
             <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-                <ProgressBar count={num} mistakesBalance={mistakes}/>
+                <ProgressBar count={num} mistakesBalance={mistakes} />
             </View>
             <View style={s.wrapper}>
                 <Animated.View style={[s.task, { opacity: taskAnim }]}>
@@ -128,22 +121,22 @@ export const ListenFrom = ({ route, sentences, setNumCount, num, type, progressV
                 <Animated.View style={[s.outputWrapper, { opacity: taskAnim }]}>
                     <TouchableOpacity disabled={answered} activeOpacity={0.5} onPress={remove}>
                         <View style={s.output}>
-                            {outputArr.map((w, i) =>
-                                <Text key={i} style={[s.choice, answered && result ? { backgroundColor: '#65c658', color: '#fff' } : answered && transSentence.split(' ')[i] != w ? { backgroundColor: '#DB504B', color: '#fff' } : null]}>{w}</Text> )}
+                            {output.length>0?output.split(' ').map((w, i) =>
+                                <Text key={i} style={[s.choice, answered && result ? { backgroundColor: '#65c658', color: '#fff' } : answered && transSentence.split(' ')[i] != w ? { backgroundColor: '#DB504B', color: '#fff' } : null]}>{w}</Text>):null}
                         </View>
                     </TouchableOpacity>
                 </Animated.View>
                 <Animated.View style={[s.choiceWrapper, { opacity: outputAnim }]}>
-                    <View style={{ flexDirection: 'row', flexWrap: 'wrap', width: '100%', flex: 1 }}>{choice.map((w, i) =>
+                    <View style={{ flexDirection: 'row', flexWrap: 'wrap', flex: 1 }}>{choice.map((w, i) =>
                         <TouchableOpacity key={i} onPress={() => answer(w, i)} disabled={result || answered || keyArray.some(id => id == i)}>
                             <Text style={[s.choice, keyArray.some(id => id == i) ? s.chosen : null]}>{w}
                             </Text>
                         </TouchableOpacity>)}
-                        {answered ? <ResultModal result={result} sentence={sentence} transSentence={transSentence} /> : null}
                     </View>
-                    <View style={{ width: '100%', justifyContent: 'flex-end', flex: 0.5 }}>
-                        <TouchableOpacity disabled={!answered && outputArr.length == 0} onPress={!answered ? check : answered && !isReady ? next : answered && isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>
-                            <Text style={[{ color: '#fff', fontSize: 25, backgroundColor: '#0881FF', padding: 10, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold', marginHorizontal: 20, }, outputArr.length == 0 ? { backgroundColor: '#7B97BC' } : null]}>
+                    {answered ? <ResultModal result={result} sentence={sentence} transSentence={transSentence} errorData={errorData} /> : null}
+                    <View style={{ width: '100%', justifyContent: 'flex-end' }}>
+                        <TouchableOpacity disabled={!answered && output.length == 0} onPress={!answered ? check : answered && !isReady ? next : answered && isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>
+                            <Text style={[{ color: '#fff', fontSize: 25, backgroundColor: '#0881FF', padding: 10, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold', marginHorizontal: 20 }, output.length == 0 ? { backgroundColor: '#7B97BC' } : null]}>
                                 {!answered ? 'yoxlamaq' : answered && !isReady ? 'növbəti' : answered && isReady ? 'dərslər' : null}
                             </Text>
                         </TouchableOpacity>
@@ -166,7 +159,8 @@ const s = StyleSheet.create({
     },
     taskHeader: {
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginBottom:10
     },
     taskHeaderText: {
         fontSize: 25,
@@ -188,7 +182,7 @@ const s = StyleSheet.create({
     choiceWrapper: {
         justifyContent: 'center',
         flex: 2.5,
-        alignItems: 'center'
+        alignItems: 'flex-start'
     },
     choice: {
         fontSize: 17,

@@ -39,7 +39,10 @@ export function LearnWords({ route }) {
         SoundPlayer.loadUrl(url)
     }
     function play() {
-        SoundPlayer.play()
+        try {
+            SoundPlayer.play()
+        }
+        catch (e) { console.log(e) }
     }
     useEffect(() => {
         dispatch(setBottomTabVisible(false))
@@ -107,10 +110,25 @@ export function LearnWords({ route }) {
 
     return (
         <View style={s.content}>
-            <ImageBackground source={require('../../img/londonBlur.jpg')} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
+            <ImageBackground source={{uri:'https://firebasestorage.googleapis.com/v0/b/asan-english.appspot.com/o/img%2Fbackground%2FtasksBg.jpg?alt=media&token=9f985407-a58e-4dbe-b5cb-d271af9a32c5'}} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
                 <View style={{ flex: 1.1, justifyContent: 'center' }}>
                     <ProgressBar count={numberOfWord} learnMode={true} />
                 </View>
+                {/* <View style={[{ width: 250, height: 250, borderRadius: 999 },]}>
+                    <ImageBackground source={require('../../img/circle/2.png')} style={{ flex: 1 }} >
+                        <View style={{ flex: 0.3, justifyContent: 'center', alignItems: 'center' }}>
+                            <Text style={{ fontSize: 15, color: '#fff', textAlign: 'center', fontFamily: 'SFUIDisplay-Regular' }}>dərs #</Text>
+                        </View>
+                        <View style={{ flex: 0.5, paddingHorizontal: 30, alignItems: 'center', paddingTop: 15 }}>
+                            <Text style={[s.text]}>'subject'</Text>
+                        </View>
+                        <View style={{ justifyContent: 'center', alignItems: 'center', flex: 0.5 }}>
+                        </View>
+                        <View style={{ flex: 0.8, alignItems: 'center', justifyContent: 'flex-end', paddingBottom: 20 }}>
+                            <Text style={[{ color: '#999', fontSize: 19, padding: 10, backgroundColor: '#fff', paddingHorizontal: 25, borderRadius: 25, fontFamily: 'SFUIDisplay-Regular' }, progress ? { color: '#000' } : null]}></Text>
+                        </View>
+                    </ImageBackground>
+                </View> */}
                 <Animated.View style={{ flex: 3, alignItems: 'center', justifyContent: 'center', opacity: taskAnim }}>
                     <View style={s.task}>
                         <Text style={s.originWordText}>{originWord}</Text>
@@ -159,7 +177,7 @@ const s = StyleSheet.create({
         backgroundColor: '#fff',
         borderRadius: 25,
         padding: 15,
-        paddingHorizontal:25,
+        paddingHorizontal: 25,
         fontFamily: 'SFUIDisplay-Regular',
     },
     keyboard: {

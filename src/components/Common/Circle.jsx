@@ -12,7 +12,7 @@ export const Circle = ({ percent, progress, type }) => {
         <ProgressCircle
           percent={progress ? 0 : Math.floor(percent)}
           radius={25}
-          borderWidth={5}
+          borderWidth={4}
           color='#4ABC96'
           shadowColor="#d1fff0"
           bgColor='rgb(247, 249, 250)' >

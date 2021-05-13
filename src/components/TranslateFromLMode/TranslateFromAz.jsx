@@ -11,6 +11,7 @@ export const TranslateFromAz = ({ route }) => {
     }
     const index = route.params.lessonIndex
     const progressValue = index < 40 ? index * 7 + 6 : index * 7 + 4
+
     return (
         <TranslateFrom route={route} sentences={sentences} num={num} setNumCount={setNumCount} type={'azEn'} progressValue={progressValue} />
     )

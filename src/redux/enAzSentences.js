@@ -95,8 +95,8 @@ const initialState = {
         {
           id: 16,
           sntc: 'I also work there',
-          tr: 'Məndə orada işləyirəm',
-          ch: 'Məndə burada oxuyuram yaşayıram orada işləyirəm'
+          tr: 'Mən də orada işləyirəm',
+          ch: 'Mən də burada oxuyuram yaşayıram orada işləyirəm'
         },
         {
           id: 17,
@@ -419,20 +419,20 @@ const initialState = {
           id: 69,
           sntc: 'I would like to know English very well',
           tr: 'Mən İngilis dilini çox yaxşı bilmək istərdim',
-          ch: 'Mən İngilis dilini çox yaxşı bilmək danışmaq istərdim'
+          ch: 'Mən İngilis dilini çox yaxşı bilmək Sən danışmaq istərdim'
         },
         {
           id: 70,
           sntc: 'We like it ',
           tr: 'Biz bunu xoşlayırıq',
-          ch: 'Biz bunu onu Siz xoşlayırıq'
+          ch: 'Biz bunu onu Siz oxuyuruq xoşlayırıq'
         }
       ],
       [{
           id: 71,
           sntc: 'You don’t want to know it',
           tr: 'Sən bunu bilmək istəmirsən',
-          ch: 'Sən bunu onu bacarmaq bilmək istəmirsən'
+          ch: 'Sən bunu onu bacarmaq bilmək Mən istəmirsən'
         },
         {
           id: 72,
@@ -456,7 +456,7 @@ const initialState = {
           id: 75,
           sntc: 'I don’t know',
           tr: 'Mən bilmirəm',
-          ch: 'Mən bilmirəm oxuyuram'
+          ch: 'Mən bilmirəm bilirəm oxuyuram'
         },
         {
           id: 76,
@@ -541,7 +541,7 @@ const initialState = {
           id: 89,
           sntc: 'He doesn’t try to change his life',
           tr: 'O, həyatını dəyişməyə çalışmır',
-          ch: 'O, həyatını dəyişməyə çalışır çalışmır'
+          ch: 'O, həyatını evini dəyişməyə çalışır çalışmır'
         },
         {
           id: 90,
@@ -602,7 +602,7 @@ const initialState = {
           id: 99,
           sntc: 'We need to change our life',
           tr: 'Bizə həyatımızı dəyişmək lazımdır',
-          ch: 'Bizə həyatımızı dəyişmək lazımdır'
+          ch: 'Bizə həyatımızı dəyişmək Sənə oxumaq lazımdır'
         },
         {
           id: 100,
@@ -615,7 +615,7 @@ const initialState = {
           id: 101,
           sntc: 'Do you want to study better?',
           tr: 'Sən daha yaxşı öyrənmək istəyirsən?',
-          ch: 'Sən Biz daha yaxşı çox öyrənmək istəyirsən?'
+          ch: 'Sən Biz daha yaxşı çox az öyrənmək istəyirsən?'
         },
         {
           id: 102,
@@ -737,287 +737,287 @@ const initialState = {
           id: 121,
           sntc: 'Does this thing seem important?',
           tr: 'Bu şey vacib görünür?',
-          ch: 'Bu şey vacib görünür?'
+          ch: 'Bu şey vacib görünür O əhəmiyyətsiz?'
         },
         {
           id: 122,
           sntc: 'Does that lesson seem boring?',
           tr: 'O, dərs darıxdırıcı görünür?',
-          ch: 'O, dərs darıxdırıcı görünür?'
+          ch: 'O, dərs dərslər darıxdırıcı maraqlı görünür?'
         },
         {
           id: 123,
           sntc: 'Does you mother want to tell him all the truth?',
           tr: 'Sənin anan ona bütün həqiqəti demək istəyir?',
-          ch: 'Sənin anan ona bütün həqiqəti demək istəyir?'
+          ch: 'Sənin anan atan mənə ona bütün həqiqəti demək istəyir?'
         },
         {
           id: 124,
           sntc: 'Do those students speak English correctly?',
           tr: 'O tələbələr İngilis dilində düzgün danışır?',
-          ch: 'O tələbələr İngilis dilində düzgün danışır?'
+          ch: 'O tələbələ tələbə deyir İngilis dilində düzgün danışır?'
         },
         {
           id: 125,
           sntc: 'Does this student show brilliant result?',
-          tr: 'Bu şagird parlaq nəticə göstərir?',
-          ch: 'Bu şagird parlaq nəticə göstərir?'
+          tr: 'Bu tələbə parlaq nəticə göstərir?',
+          ch: 'Bu şagird parlaq yaxşı tələbə nəticə göstərir?'
         },
         {
           id: 126,
           sntc: 'Does this exam seem very difficult?',
-          tr: 'Bu imtahan çox çətin görünür?',
-          ch: 'Bu imtahan çox çətin görünür?'
+          tr: 'Bu imtahan çox çətin gəlir?',
+          ch: 'Bu imtahan sınaq çox çətin asan gəlir?'
         },
         {
           id: 127,
           sntc: 'Does his friend want to go abroad?',
           tr: 'Onun dostu xaricə getmək istəyir?',
-          ch: 'Onun dostu xaricə getmək istəyir?'
+          ch: 'Onun dostu xaricə getmək evə gəlmək istəyir?'
         },
         {
           id: 128,
           sntc: 'Do these lessons help you?',
           tr: 'Bu dərslər sənə kömək edir?',
-          ch: 'Bu dərslər sənə kömək edir?'
+          ch: 'Bu dərslər sənə kömək etmir? dərs edir?'
         },
         {
           id: 129,
           sntc: 'Does this teacher explain everything very well?',
           tr: 'Bu müəllim hər şeyi çox yaxşı izah edir?',
-          ch: 'Bu müəllim hər şeyi çox yaxşı izah edir?'
+          ch: 'Bu müəllim hər şeyi çox pis etmir yaxşı izah edir?'
         },
         {
           id: 130,
           sntc: 'Does you father need it?',
           tr: 'Sənin atanın buna ehtiyacı var?',
-          ch: 'Sənin atanın buna ehtiyacı var?'
+          ch: 'Sənin atanın buna ehtiyacı yoxdur ananın var?'
         }
       ],
       [{
           id: 131,
           sntc: 'Does his words motivate her?',
           tr: 'Onun sözləri onu motivasiya edirmi?',
-          ch: 'Onun sözləri onu motivasiya edirmi?'
+          ch: 'Onun sözləri sözü məni onu motivasiya edirmi?'
         },
         {
           id: 132,
           sntc: 'She likes this idea',
           tr: 'Bu fikir onun xoşuna gəlir',
-          ch: 'Bu fikir onun xoşuna gəlir'
+          ch: 'Bu fikir mənim gəlmir onun xoşuna gəlir'
         },
         {
           id: 133,
           sntc: 'Does she like this idea?',
           tr: 'Bu fikir onun xoşuna gəlir?',
-          ch: 'Bu fikir onun xoşuna gəlir?'
+          ch: 'Bu fikir onun O xoşuma xoşuna gəlir?'
         },
         {
           id: 134,
           sntc: "His words doesn't motivate her",
           tr: 'Onun sözləri onu motivasiya etmir',
-          ch: 'Onun sözləri onu motivasiya etmir'
+          ch: 'Onun sözləri onu sözü edir motivasiya etmir'
         },
         {
           id: 135,
           sntc: 'He comes come late',
           tr: 'O, evə gec gəlir',
-          ch: 'O, evə gec gəlir'
+          ch: 'O, evə gec tez gedir gəlir'
         },
         {
           id: 136,
           sntc: 'Does she come home late?',
           tr: 'O, evə gec gəlir?',
-          ch: 'O, evə gec gəlir?'
+          ch: 'O, evə gec tez getmir gəlir?'
         },
         {
           id: 137,
           sntc: 'She works in another place',
           tr: 'O, başqa yerdə işləyir',
-          ch: 'O, başqa yerdə işləyir'
+          ch: 'O, başqa yerdə evdə yaşayır işləyir'
         },
         {
           id: 138,
           sntc: 'Does she works in another place?',
           tr: 'O, başqa yerdə işləyir?',
-          ch: 'O, başqa yerdə işləyir?'
+          ch: 'O, başqa yerdə yaşayır bu işləyir?'
         },
         {
           id: 139,
           sntc: "He doesn't want to solve this problem",
           tr: 'O, bu problemi həll etmək istəmir',
-          ch: 'O, bu problemi həll etmək istəmir'
+          ch: 'O, bu problemi izah istəyir həll etmək istəmir'
         },
         {
           id: 140,
           sntc: 'Does he want to solve this problem?',
           tr: 'O, bu problemi həll etmək istəyir?',
-          ch: 'O, bu problemi həll etmək istəyir?'
+          ch: 'O, bu problemi həll etmək istəymir? o istəyir?'
         }
       ],
       [{
           id: 141,
           sntc: 'How regularly do you learn English?',
           tr: 'Sən İİngilis dilini nə qədər mütəmadi öyrənirsən?',
-          ch: 'Sən İİngilis dilini nə qədər mütəmadi öyrənirsən?'
+          ch: 'Sən İİngilis dilini Onlar oxuyur nə qədər mütəmadi öyrənirsən?'
         },
         {
           id: 142,
           sntc: 'What do you know?',
           tr: 'Sən nə bilirsən?',
-          ch: 'Sən nə bilirsən?'
+          ch: 'Sən nə vaxt oxuyursan bilirsən?'
         },
         {
           id: 143,
           sntc: 'How do you get to this place?',
           tr: 'Sən bu yerə necə gədirsən?',
-          ch: 'Sən bu yerə necə gədirsən?'
+          ch: 'Sən bu yerə necə o yerdə gədirsən?'
         },
         {
           id: 144,
           sntc: 'What do they want to tell you?',
-          tr: 'Onlar sizə nə demək istəyirlər?',
-          ch: 'Onlar sizə nə demək istəyirlər?'
+          tr: 'Onlar sənə nə demək istəyirlər?',
+          ch: 'Onlar sənə mənə nə danışmaq demək istəyirlər?'
         },
         {
           id: 145,
           sntc: 'How often do you listen to the radio?',
           tr: 'Sən radioya nə qədər qulaq asırsan?',
-          ch: 'Sən radioya nə qədər qulaq asırsan?'
+          ch: 'Sən radioya kinoya Mən nə qədər qulaq asırsan?'
         },
         {
           id: 146,
           sntc: 'How do you usually get to that place?',
-          tr: 'Sən adətən bu yerə necə gedirsən?',
-          ch: 'Sən adətən bu yerə necə gedirsən?'
+          tr: 'Sən adətən o yerə necə gedirsən?',
+          ch: 'Sən adətən o yerə necə gedirsən?'
         },
         {
           id: 147,
           sntc: 'Where do you go?',
           tr: 'Sən hara gedirsən?',
-          ch: 'Sən hara gedirsən?'
+          ch: 'Sən hara ora gəlirsən gedirsən?'
         },
         {
           id: 148,
           sntc: 'What looks strange?',
           tr: 'Qəribə görünən nədir?',
-          ch: 'Qəribə görünən nədir?'
+          ch: 'Qəribə görünən nə maraqlı nədir?'
         },
         {
           id: 149,
           sntc: 'Who checks everything?',
           tr: 'Hər şeyi kim yoxlayır?',
-          ch: 'Hər şeyi kim yoxlayır?'
+          ch: 'Hər şeyi kim mən onlar yoxlayır?'
         },
         {
           id: 150,
           sntc: 'Why do you want to visit this place?',
           tr: 'Sən niyə bu məkana baş çəkmək istəyirsən?',
-          ch: 'Sən niyə bu məkana baş çəkmək istəyirsən?'
+          ch: 'Sən niyə bu məkana evə getmək baş çəkmək istəyirsən?'
         }
       ],
       [{
           id: 151,
           sntc: 'Which channel does he usually watch?',
           tr: 'O, adətən hansı kanala baxır?',
-          ch: 'O, adətən hansı kanala baxır?'
+          ch: 'O, adətən hansı videoya baxmır kanala baxır?'
         },
         {
           id: 152,
           sntc: 'What motivates you more?',
           tr: 'Səni daha çox nə motivasiya edir?',
-          ch: 'Səni daha çox nə motivasiya edir?'
+          ch: 'Səni daha çox etmir Məni nə motivasiya edir?'
         },
         {
           id: 153,
           sntc: 'How often does she go to the cinema?',
           tr: 'O, kinoya nə qədər gedir?',
-          ch: 'O, kinoya nə qədər gedir?'
+          ch: 'O, kinoya nə qədər çox burada gedir?'
         },
         {
           id: 154,
           sntc: 'She watches different movies',
           tr: 'O, müxtəlif filmlərə baxır',
-          ch: 'O, müxtəlif filmlərə baxır'
+          ch: 'O, müxtəlif filmlərə görür maraqlı baxır'
         },
         {
           id: 155,
           sntc: 'Who does he support?',
           tr: 'O, kimi dəstəkləyir?',
-          ch: 'O, kimi dəstəkləyir?'
+          ch: 'O, kimi kim Onu, dəstəkləyir?'
         },
         {
           id: 156,
           sntc: 'What advice does she give you?',
           tr: 'O, sənə nə məsləhət görür?',
-          ch: 'O, sənə nə məsləhət görür?'
+          ch: 'O, sənə Sən, ona nə məsləhət görür?'
         },
         {
           id: 157,
           sntc: 'What really helps you?',
           tr: 'Sənə həqiqətən nə kömək edir?',
-          ch: 'Sənə həqiqətən nə kömək edir?'
+          ch: 'Sənə həqiqətən mən edirəm nə kömək edir?'
         },
         {
           id: 158,
           sntc: 'How does he explain it?',
           tr: 'O, bunu necə izah edir?',
-          ch: 'O, bunu necə izah edir?'
+          ch: 'O, bunu necə idib Mən izah edir?'
         },
         {
           id: 159,
           sntc: 'How long does it take him to get to that place?',
-          tr: 'Ona bu yerə çatmaq üçün nə qədər vaxt lazımdır?',
-          ch: 'Ona bu yerə çatmaq üçün nə qədər vaxt lazımdır?'
+          tr: 'O yerə çatmaq üçün ona nə qədər vaxt lazımdır?',
+          ch: 'O yerə çatmaq üçün ona nə qədər vaxt lazımdır?'
         },
         {
           id: 160,
           sntc: 'Why does he complain so often?',
           tr: 'O, niyə elə tez-tez şikayət edir?',
-          ch: 'O, niyə elə tez-tez şikayət edir?'
+          ch: 'O, niyə elə nə vaxt tez-tez şikayət edir?'
         }
       ],
       [{
           id: 161,
           sntc: 'How does your brother control it?',
           tr: 'Sənin qardaşın bunu necə nəzarət edir?',
-          ch: 'Sənin qardaşın bunu necə nəzarət edir?'
+          ch: 'Sənin qardaşın bunu məni səni necə nəzarət edir?'
         },
         {
           id: 162,
           sntc: 'Why do your friends disagree with you?',
           tr: 'Sənin dostların nə üçün səninlə razılaşmır?',
-          ch: 'Sənin dostların nə üçün səninlə razılaşmır?'
+          ch: 'Sənin dostların dostun Mənim nə üçün səninlə razılaşmır?'
         },
         {
           id: 163,
           sntc: 'Why does your boss criticize it?',
           tr: 'Niyə müdiriniz bunu tənqid edir?',
-          ch: 'Niyə müdiriniz bunu tənqid edir?'
+          ch: 'Niyə müdiriniz onu xoşlayır bunu tənqid edir?'
         },
         {
           id: 164,
           sntc: 'How many English words does your friend want to know?',
           tr: 'Sənin dostun nə qədər İngilis sözü bilmək istəyir?',
-          ch: 'Sənin dostun nə qədər İngilis sözü bilmək istəyir?'
+          ch: 'Sənin dostun nə qədər öyrənmək İngilis sözü bilmək istəyir?'
         },
         {
           id: 165,
           sntc: 'What advice does your teacher give you?',
           tr: 'Sənin müəllimin sənə hansı məsləhəti verir?',
-          ch: 'Sənin müəllimin sənə hansı məsləhəti verir?'
+          ch: 'Sənin müəllimin sənə hansı nə cür məsləhəti verir?'
         },
         {
           id: 166,
           sntc: 'How much money does your friend have?',
           tr: 'Sənin dostunun nə qədər pulu var?',
-          ch: 'Sənin dostunun nə qədər pulu var?'
+          ch: 'Sənin dostunun nə qədər pulu pulun var?'
         },
         {
           id: 167,
           sntc: 'How often does this thing happen?',
           tr: 'Bu nə qədər baş verir?',
-          ch: 'Bu nə qədər baş verir?'
+          ch: 'Bu nə qədər O çox baş verir?'
         },
         {
           id: 168,
@@ -1029,81 +1029,81 @@ const initialState = {
           id: 169,
           sntc: 'Why does your friend want to look for a new job?',
           tr: 'Sənin dostun niyə yeni iş axtarmaq istəyir?',
-          ch: 'Sənin dostun niyə yeni iş axtarmaq istəyir?'
+          ch: 'Sənin dostun niyə istəmir yeni iş axtarmaq istəyir?'
         },
         {
           id: 170,
           sntc: 'Where does your mother work?',
           tr: 'Sənin anan harda işləyir?',
-          ch: 'Sənin anan harda işləyir?'
+          ch: 'Sənin anan harda atan yaşayır işləyir?'
         }
       ],
       [{
           id: 171,
           sntc: 'How often does he test their knowledge?',
-          tr: 'O, nə qədər tez-tez onların biliyini yoxlayır?',
-          ch: 'O, nə qədər tez-tez onların biliyini yoxlayır?'
+          tr: 'O, nə qədər onların biliyini yoxlayır?',
+          ch: 'O, nə qədər çox bizim onların biliyini yoxlayır?'
         },
         {
           id: 172,
           sntc: 'I really like it',
           tr: 'Bu həqiqətən mənim xoşuma gəlir',
-          ch: 'Bu həqiqətən mənim xoşuma gəlir'
+          ch: 'Bu həqiqətən sənin gəlmir mənim xoşuma gəlir'
         },
         {
           id: 173,
           sntc: 'Do you want to study better?',
-          tr: 'Sən daha yaxşı öyrənmək istəyirsən?',
-          ch: 'Sən daha yaxşı öyrənmək istəyirsən?'
+          tr: 'Sən daha yaxşı oxumaq istəyirsən?',
+          ch: 'Sən daha yaxşı oxumaq çox pis istəyirsən?'
         },
         {
           id: 174,
           sntc: 'I need your advice',
           tr: 'Mənim sənin məsləhətinə ehtiyacım var',
-          ch: 'Mənim sənin məsləhətinə ehtiyacım var'
+          ch: 'Mənim sənin məsləhətinə köməyinə yoxdur ehtiyacım var'
         },
         {
           id: 175,
           sntc: 'She would like to go to another place',
-          tr: 'O, başqa yerə getmək istəyərdi',
-          ch: 'O, başqa yerə getmək istəyərdi'
+          tr: 'O, başqa yerə getmək istərdi',
+          ch: 'O, başqa yerə getmək gəlmək bura istərdi'
         },
         {
           id: 176,
           sntc: 'What time do you usually get up?',
           tr: 'Sən adətən nə vaxt qalxırsan?',
-          ch: 'Sən adətən nə vaxt qalxırsan?'
+          ch: 'Sən adətən nə çox harada vaxt qalxırsan?'
         },
         {
           id: 177,
           sntc: 'She feels happy',
           tr: 'O, özünü xoşbəxt hiss edir',
-          ch: 'O, özünü xoşbəxt hiss edir'
+          ch: 'O, özünü xoşbəxt etmir Mən hiss edir'
         },
         {
           id: 178,
           sntc: 'Do you often call him?',
           tr: 'Sən tez-tez ona zəng edirsən?',
-          ch: 'Sən tez-tez ona zəng edirsən?'
+          ch: 'Sən tez-tez ona mənə çox zəng edirsən?'
         },
         {
           id: 179,
           sntc: 'How does he get home?',
           tr: 'O, evə necə gədir?',
-          ch: 'O, evə necə gədir?'
+          ch: 'O, evə necə nə vaxt gədir?'
         },
         {
           id: 180,
           sntc: 'What do you think about it?',
           tr: 'Sən bu barədə nə düşünürsən?',
-          ch: 'Sən bu barədə nə düşünürsən?'
+          ch: 'Sən bu barədə o cür nə düşünürsən?'
         }
       ],
       [{
           id: 181,
           sntc: 'How does it help you?',
-          tr: 'Bu sizə necə kömək edir?',
-          ch: 'Bu sizə necə kömək edir?'
+          tr: 'Bu sənə necə kömək edir?',
+          ch: 'Bu sənə necə  kömək edir?'
         },
         {
           id: 182,
@@ -2792,8 +2792,8 @@ const initialState = {
       { id: 473, sntc: "It's simple", tr: 'Bu sadədir', ch: 'Bu sadədir' },
       {  id: 474,
         sntc: 'How is this test?',
-        tr: 'Bu necə sınaqdır?',
-        ch: 'Bu necə sınaqdır?'
+        tr: 'Bu sınaq necədir?',
+        ch: 'Bu sınaq necədir?'
       },
       {  id: 475,
         sntc: 'My friend is at home',
@@ -2812,8 +2812,8 @@ const initialState = {
       },
       {  id: 478,
         sntc: 'He helps me',
-        tr: 'O mənə kömək edir',
-        ch: 'O mənə kömək edir'
+        tr: 'O, mənə kömək edir',
+        ch: 'O, mənə kömək edir'
       },
       {  id: 479,
         sntc: "He isn't in the city",
@@ -2831,9 +2831,9 @@ const initialState = {
         ch: 'Sənə nə kömək edir?'
       },
       {  id: 482,
-        sntc: 'The men are here',
-        tr: 'Kişilər buradadır',
-        ch: 'Kişilər buradadır'
+        sntc: 'The men are there',
+        tr: 'Kişilər oradadır',
+        ch: 'Kişilər oradadır'
       },
       {  id: 483,
         sntc: 'How much is this book?',
@@ -2872,8 +2872,8 @@ const initialState = {
       },
       {  id: 490,
         sntc: 'Does he often think about it?',
-        tr: 'O, tez-tez bu haqda düşünür?',
-        ch: 'O, tez-tez bu haqda düşünür?'
+        tr: 'O, tez-tez bu barədə düşünür?',
+        ch: 'O, tez-tez bu barədə düşünür?'
       }],
       [{  id: 491,
         sntc: "What's your friend's name?",
@@ -2924,7 +2924,7 @@ const initialState = {
         sntc: 'I perfectly understand you',
         tr: 'Mən səni əla başa düşürəm',
         ch: 'Mən səni əla başa düşürəm'
-      }],      
+      }],
     ],
     [],
     [],

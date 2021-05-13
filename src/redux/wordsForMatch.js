@@ -20,7 +20,7 @@ initialState={
 [{ id: 16, wd: 'see', tr: 'görmək' },
 { id: 17, wd: 'this', tr: 'bu (işarə əvəzliyi)' },
 { id: 18, wd: 'mistake', tr: 'səhv' },
-{ id: 19, wd: 'also', tr: 'həmçinin' },
+{ id: 19, wd: 'also', tr: 'həmçinin, eləcə də' },
 { id: 20, wd: 'house', tr: 'ev' }]],
 [[
 { id: 21, wd: 'watch', tr: 'baxmaq' },
@@ -214,7 +214,7 @@ initialState={
 { id: 205, wd: 'many', tr: 'çox' }],
 [{ id: 206, wd: 'really', tr: 'həqiqətən, əslində' },
 { id: 207, wd: 'correct', tr: 'düzgün' },
-{ id: 208, wd: 'also', tr: 'həmçinin' },
+{ id: 208, wd: 'also', tr: 'həmçinin, eləcə də' },
 { id: 209, wd: 'brother', tr: 'qardaş' },
 { id: 210, wd: 'exercise', tr: 'tapşırıq, məşq' }]],
 [[{ id: 211, wd: 'worry', tr: 'narahat olmaq' },

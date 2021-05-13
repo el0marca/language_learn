@@ -10,10 +10,10 @@ export const Task = ({ routeName, setDisable, lessonIndex, num, setSuccess, head
   return (
     <View style={s.wrapper}>
       <TouchableOpacity activeOpacity={0.5} disabled={setDisable} style={s.touchble} onPress={() => navigation.navigate(`${routeName}`, { lessonIndex: lessonIndex, num: num })}>
-        <View>{setDisable ? locked : !setSuccess ? ready : setSuccess ? studying : null}</View>
+        {setDisable ? locked : !setSuccess ? ready : setSuccess ? studying : null}
         <Text style={s.descr}>{header}</Text>
         <View style={{ paddingRight: 15 }}>
-          <Image style={{ height: 35, width: 35 }} source={require('../../img/next5.png')} />
+          <Image style={{ height: 30, width: 30 }} source={require('../../img/next5.png')} />
         </View>
       </TouchableOpacity>
     </View>

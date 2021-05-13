@@ -1,13 +1,13 @@
-import { Provider, useDispatch, useSelector } from 'react-redux';
-import React, { Component, useEffect, useState } from 'react';
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { Provider, useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SettingScreen } from './src/screens/SettingScreen';
 import { ProfileScreen } from './src/screens/ProfileScreen';
 import { MainStackscreen } from './src/screens/Mainscreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StatusBar } from 'expo-status-bar';
-import { Image, ActivityIndicator, ImageBackground, Text, View, StyleSheet } from 'react-native';
+import { Image, ActivityIndicator, View, StyleSheet } from 'react-native';
 import store from './src/redux/store';
 import auth, { firebase } from '@react-native-firebase/auth';
 import { setUserInfo } from './src/redux/auth';
@@ -21,11 +21,7 @@ function ProfileStackScreen(){
     <ProfileStack.Screen
       name="Profile"
       component={ProfileScreen}
-      // options={{ title: 'Profile' }}
-      options={navigation => ({
-      // tabBarIcon: ,
-      tabBarVisible: false
-    })}
+      options={{headerShown:false}}
     />
   </ProfileStack.Navigator>)
 }
@@ -57,7 +53,7 @@ function MyTabs() {
   return (
     <NavigationContainer>
     <Tab.Navigator options={{tabBarVisible:false}} initialRouteName="Main"
-      tabBarOptions={{showLabel:false, activeBackgroundColor: '#edfffa', inactiveBackgroundColor: '#fff', style:{position: 'absolute'}}}
+      tabBarOptions={{showLabel:false, style:{position: 'absolute', backgroundColor:'transparent',elevation: 0}}}
       >
       <Tab.Screen name="Main" title={false} component={MainStackscreen} 
       options={{
@@ -70,31 +66,17 @@ function MyTabs() {
       <Tab.Screen name="Settings" component={SettingStackScreen} 
       options={{
         tabBarIcon: props => <LogoTitle params={require('./src/img/setting.png')} {...props} /> 
-      }}/>      
+      }}/>
     </Tab.Navigator>
     </NavigationContainer>
   );
 }
-
-// const SettingStack = createStackNavigator();
-
-// function SettingStackScreen (){
-//   return (
-//      <SettingStack.Navigator>
-//     <SettingStack.Screen
-//       name="Setting"
-//       component={SettingScreen}
-//       options={{ title: 'Settings' }}
-//     />
-//     </SettingStack.Navigator>)}
-
 
 export default AppContainer = () => {
   return (
      <Provider store={store}>
      <App/>
      </Provider>
-  // <AuthScreen/>
   )
 }
 
@@ -115,7 +97,7 @@ function App() {
 
   if (initializing) return (
   <View style={[styles.container, styles.horizontal]}>
-    <ActivityIndicator size="large" color="#00ff00" />
+    <ActivityIndicator size={50} color="#00ff00" />
   </View>)
 
   return(

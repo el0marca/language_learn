@@ -6,15 +6,11 @@ import storage from '@react-native-firebase/storage'
 import { shuffle } from '../../utils/shuffle'
 import { useSelector, useDispatch } from 'react-redux'
 import { ProgressBar } from '../Common/ProgressBar'
-import { CommonButton } from '../Common/Button'
 import { updateProgress } from '../../redux/progress'
 import { Output } from '../Common/Output'
 import { setBottomTabVisible } from '../../redux/bottomTab'
 import { Award } from '../Common/Award'
-import { Speaker } from '../Common/Speaker'
 import { useNavigation } from '@react-navigation/core'
-let keyArray = []
-let outputArr = []
 
 export function Theory({ route }) {
     const user = useSelector(state => state.auth.user)
@@ -30,6 +26,8 @@ export function Theory({ route }) {
     const [choice, setChoice] = useState(shuffle([...originSentence]))
     const [isReady, setReady] = useState(false)
     const [result, setResult] = useState(false)
+    const [keyArray, setKeyArray] = useState([])
+    const [outputArr, setOutputArr] = useState([])
     const [numOfTasks, setNumOfTasks] = useSelector(state => state.theory.lessons[level])
 
     async function loadAudio() {
@@ -46,9 +44,9 @@ export function Theory({ route }) {
         dispatch(setBottomTabVisible(false))
         return () => {
             dispatch(setBottomTabVisible(true))
-            keyArray = []
         }
     }, [])
+    useEffect(() => setResult(transSentence == outputArr.join(' ')), [outputArr])
 
     function play() {
         try {
@@ -59,25 +57,23 @@ export function Theory({ route }) {
         }
     }
     function next() {
+        setResult(false)
+        setWordNumber(0)
+        setKeyArray([])
+        setOutputArr([])
         if (num < numOfTasks.length - 1) { setNum((prev) => prev + 1) }
     }
-
     function answer(word, id) {
         if (originSentence[wordNumber] == word) {
             setWordNumber((prev) => prev + 1)
-            keyArray.push(id)
-            outputArr.push(word)
-            setResult(transSentence == outputArr.join(' '))
+            setKeyArray(prev => [...prev, id])
+            setOutputArr(prev => [...prev, word])
         }
     }
     useEffect(() => {
         setSentence(lesson.sntc),
-            setTransSentence(lesson.tr),
-            loadAudio()
-        setResult(false)
-        setWordNumber(0)
-        keyArray = []
-        outputArr = []
+        setTransSentence(lesson.tr),
+        loadAudio()
     }, [num])
 
     useEffect(() => setChoice(shuffle(transSentence.split(' '))), [sentence])
@@ -109,7 +105,6 @@ export function Theory({ route }) {
             useNativeDriver: true
         }).start();
     };
-
     useEffect(() => {
         fade(descrAnim, 1, 300)
         setTimeout(() => {
@@ -132,9 +127,9 @@ export function Theory({ route }) {
     const adjectives = useSelector(s => s.words.adjectives)
     const navigation = useNavigation()
     return (
-        <ImageBackground source={require('../../img/londonBlur.jpg')} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
+        <ImageBackground source={{uri:'https://firebasestorage.googleapis.com/v0/b/asan-english.appspot.com/o/img%2Fbackground%2FtasksBg.jpg?alt=media&token=9f985407-a58e-4dbe-b5cb-d271af9a32c5'}} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
             <View style={s.progressBar}>
-                <ProgressBar count={num} numOfTasks={numOfTasks.length} learnMode={true}/>
+                <ProgressBar count={num} numOfTasks={numOfTasks.length} learnMode={true} />
             </View>
             <View style={s.wrapper}>
                 <Animated.View style={[s.explainContainer, { opacity: descrAnim }]}>
@@ -153,7 +148,7 @@ export function Theory({ route }) {
                         {outputArr.map((w, i) =>
                             <Text key={i} style={[s.choice, pronoun.some(e => e == w.replace('?', '')) ? s.pronoun : null, adverb.some(e => e == w.replace('?', '')) ? s.adverb : null, verbs.some(e => e == w.replace('?', '')) ? s.verb : demPronouns.some(e => e == w.replace('?', '')) ? s.demPronouns : pPronouns.some(e => e == w.replace('?', '')) ? s.pPronouns : article.some(e => e == w.replace('?', '')) ? s.article : qWords.some(e => e == w.replace('?', '')) ? s.qWords : adjectives.some(e => e == w.replace('?', '')) ? s.adjectives : symbols.some(e => e == w.replace('?', '')) ? s.symbols : null]}>{w}
                             </Text>
-                           )}
+                        )}
                     </View>
                 </Animated.View>
                 <Animated.View style={[s.choiceContainer, { opacity: outputAnim }]}>
@@ -163,16 +158,16 @@ export function Theory({ route }) {
                                 <Text style={[s.choice, pronoun.some(e => e == w.replace('?', '')) ? s.pronoun : null, adverb.some(e => e == w.replace('?', '')) ? s.adverb : null, verbs.some(e => e == w.replace('?', '')) ? s.verb : demPronouns.some(e => e == w.replace('?', '')) ? s.demPronouns : pPronouns.some(e => e == w.replace('?', '')) ? s.pPronouns : article.some(e => e == w.replace('?', '')) ? s.article : qWords.some(e => e == w.replace('?', '')) ? s.qWords : adjectives.some(e => e == w.replace('?', '')) ? s.adjectives : symbols.some(e => e == w.replace('?', '')) ? s.symbols : null, keyArray.some(id => id == i) ? s.chosen : null]}>{w}</Text>
                             </TouchableOpacity>)}
                     </View>
-                    {result?<Animated.View style={{ width: '100%', flex: 0.7, opacity: buttonAnim, position:'absolute', bottom:30 }}>
-                         <TouchableOpacity disabled={!result} onPress={!isReady ? next : isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>
-                            <Text style={{ color: '#fff', fontSize: 25, backgroundColor: '#0881FF', padding: 10, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold', marginHorizontal: 20, }}>
+                    <Animated.View style={{ width: '100%', opacity: buttonAnim, position: 'absolute', bottom: 30 }}>
+                        <TouchableOpacity disabled={!result} onPress={!isReady ? next : isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>
+                            <Text style={{ color: '#fff', fontSize: 25, backgroundColor: '#0881FF', padding: 10, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold', marginHorizontal: 20 }}>
                                 {!isReady ? 'növbəti' : isReady ? 'dərslər' : null}
                             </Text>
                             <TouchableOpacity disabled={!result} onPress={play} style={{ position: 'absolute', transform: [{ translateY: 10 }], right: 30 }} >
                                 <Image style={{ width: 30, height: 30 }} source={require('../../img/speakerW.png')} />
                             </TouchableOpacity>
                         </TouchableOpacity>
-                    </Animated.View>:null}
+                    </Animated.View>
                 </Animated.View>
             </View>
         </ImageBackground>
@@ -201,7 +196,7 @@ const s = StyleSheet.create({
         paddingBottom: 10,
     },
     explainDescr: {
-        fontSize: 17,
+        fontSize: 16,
         color: '#07131F',
         fontFamily: 'SFUIDisplay-ZillaSlab-Light'
     },

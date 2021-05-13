@@ -6,15 +6,12 @@ import storage from '@react-native-firebase/storage'
 import { shuffle } from '../../utils/shuffle'
 import { useDispatch, useSelector } from 'react-redux'
 import { ProgressBar } from '../Common/ProgressBar'
-// import { CommonButton } from '../Common/Button'
 import { updateProgress } from '../../redux/progress'
 import { Output } from '../Common/Output'
 import { setBottomTabVisible } from '../../redux/bottomTab'
 import { Award } from '../Common/Award'
 import { useNavigation } from '@react-navigation/core'
 import { ResultModal } from '../Common/ResultModal'
-let keyArray = []
-let outputArr = []
 
 export const TranslateFrom = ({ route, sentences, setNumCount, num, type, progressValue }) => {
     const dispatch = useDispatch()
@@ -28,7 +25,10 @@ export const TranslateFrom = ({ route, sentences, setNumCount, num, type, progre
     const [result, setResult] = useState(false)
     const [isReady, setReady] = useState(false)
     const [mistakes, setMistakes] = useState(2)
-
+    const [keyArray,setKeyArray] = useState([])
+    const [answered, setAnswered] = useState(false)
+    const errorData=type+' '+sentences.id
+    
     async function loadAudio() {
         try {
             SoundPlayer.stop()
@@ -43,7 +43,6 @@ export const TranslateFrom = ({ route, sentences, setNumCount, num, type, progre
         dispatch(setBottomTabVisible(false))
         return () => {
             dispatch(setBottomTabVisible(true))
-            keyArray = []
         }
     }, [])
 
@@ -57,14 +56,13 @@ export const TranslateFrom = ({ route, sentences, setNumCount, num, type, progre
     }
 
     function next() {
+        setKeyArray([])
         setResult(false)
         if (num < 9) { setNumCount(), setAnswered(false) }
     }
     function answer(word, id) {
         setOutput((prev) => (prev + ' ' + word).trim())
-        // setWordNumber((prev) => prev + 1)
-        keyArray.push(id)
-        outputArr.push(word)
+        setKeyArray(prev=>[...prev, id])
     }
     const speakerAnim = useRef(new Animated.Value(0)).current
     const taskAnim = useRef(new Animated.Value(0)).current
@@ -80,8 +78,6 @@ export const TranslateFrom = ({ route, sentences, setNumCount, num, type, progre
     }
     useEffect(() => { setSentence(sentences.sntc), setTransSentence(sentences.tr), setOutput(''), loadAudio() }, [num])
     useEffect(() => setChoice(shuffle(sentences.ch.split(' '))), [sentence])
-    useEffect(() => { keyArray = [], outputArr = [] }, [transSentence])
-    // useEffect(() => setResult(transSentence == output), [output])
     useEffect(() => {
         if (result) {
             setTimeout(() => {
@@ -94,17 +90,15 @@ export const TranslateFrom = ({ route, sentences, setNumCount, num, type, progre
         } else { fade(speakerAnim, 0, 500); fade(buttonAnim, 0, 500) }
     }, [result])
 
-    const [answered, setAnswered] = useState(false)
-
     function check() {
-        setResult(transSentence == outputArr.join(' '))
-        if(!(transSentence == outputArr.join(' '))){setMistakes(prev=>prev-1)}
+        setResult(transSentence == output)
+        if (!(transSentence == output)) { setMistakes(prev => prev - 1) }
         setAnswered(true)
         if (num === 9) { setReady(true) }
     }
 
     useEffect(() => {
-        if (isReady && mistakes>=0 && progressValue > progress) dispatch(updateProgress(level, progressValue, user))
+        if (isReady && mistakes >= 0 && progressValue > progress) dispatch(updateProgress(level, progressValue, user))
     }, [isReady])
 
     useEffect(() => {
@@ -118,14 +112,13 @@ export const TranslateFrom = ({ route, sentences, setNumCount, num, type, progre
     })
     const navigation = useNavigation()
     function remove() {
-        outputArr.pop()
         setOutput((prev) => (prev.substring(0, prev.lastIndexOf(" "))))
         keyArray.pop()
     }
     return (
-        <ImageBackground source={require('../../img/londonBlur.jpg')} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
+        <ImageBackground source={{uri:'https://firebasestorage.googleapis.com/v0/b/asan-english.appspot.com/o/img%2Fbackground%2FtasksBg.jpg?alt=media&token=9f985407-a58e-4dbe-b5cb-d271af9a32c5'}} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
             <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-                <ProgressBar count={num} mistakesBalance={mistakes}/>
+                <ProgressBar count={num} mistakesBalance={mistakes} />
             </View>
             <View style={s.wrapper}>
                 <Animated.View style={[s.task, { opacity: taskAnim }]}>
@@ -138,10 +131,11 @@ export const TranslateFrom = ({ route, sentences, setNumCount, num, type, progre
                 <Animated.View style={[s.outputWrapper, { opacity: taskAnim }]}>
                     <TouchableOpacity disabled={answered} activeOpacity={0.5} onPress={remove}>
                         <View style={s.output}>
-                            {outputArr.map((w, i) =>
+                            {output.length>0?output.split(' ').map((w, i) =>
                                 <Text key={i} style={[s.choice, answered && result ? { backgroundColor: '#4ba83e', color: '#fff' } : answered && transSentence.split(' ')[i] != w ? { backgroundColor: '#DB504B', color: '#fff' } : null]}>{w}</Text>
-                            )}
-                        </View></TouchableOpacity>
+                            ):null}
+                        </View>
+                    </TouchableOpacity>
                 </Animated.View>
                 <Animated.View style={[s.choiceWrapper, { opacity: outputAnim }]}>
                     <View style={{ flexDirection: 'row', flexWrap: 'wrap', width: '100%', flex: 1 }}>{choice.map((w, i) =>
@@ -150,15 +144,15 @@ export const TranslateFrom = ({ route, sentences, setNumCount, num, type, progre
                             </Text>
                         </TouchableOpacity>)}
                     </View>
-                    {answered ? <ResultModal result={result} sentence={sentence} transSentence={transSentence} /> : null}
-                    <View style={{ width: '100%', justifyContent: 'flex-end', flex: 0.5 }}>
-                        <TouchableOpacity disabled={!answered && outputArr.length == 0} onPress={!answered ? () => { play(), check() } : answered && !isReady ? next : answered && isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>
-                            <Text style={[{ color: '#fff', fontSize: 25, backgroundColor: '#0881FF', padding: 10, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold', marginHorizontal: 20, }, outputArr.length == 0 ? { backgroundColor: '#7B97BC' } : null]}>
+                    {answered ? <ResultModal result={result} sentence={sentence} transSentence={transSentence} errorData={errorData} /> : null}
+                    <View style={{ width: '100%', justifyContent: 'flex-end' }}>
+                        <TouchableOpacity disabled={!answered && output.length == 0} onPress={!answered ? () => { play(), check() } : answered && !isReady ? next : answered && isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>
+                            <Text style={[{ color: '#fff', fontSize: 25, backgroundColor: '#0881FF', padding: 10, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold', marginHorizontal: 20, }, output.length == 0 ? { backgroundColor: '#7B97BC' } : null]}>
                                 {!answered ? 'yoxlamaq' : answered && !isReady ? 'növbəti' : answered && isReady ? 'dərslər' : null}
                             </Text>
-                            {answered?<TouchableOpacity disabled={!answered} onPress={play} style={{ position: 'absolute', transform: [{ translateY: 10 }], right: 30 }} >
+                            {answered ? <TouchableOpacity disabled={!answered} onPress={play} style={{ position: 'absolute', transform: [{ translateY: 10 }], right: 30 }} >
                                 <Image style={{ width: 30, height: 30 }} source={require('../../img/speakerW.png')} />
-                            </TouchableOpacity>:null}
+                            </TouchableOpacity> : null}
                         </TouchableOpacity>
                     </View>
                 </Animated.View>
@@ -191,7 +185,6 @@ const s = StyleSheet.create({
     },
     outputWrapper: {
         flex: 2,
-        // paddingTop: 10,
         alignItems: 'flex-start'
     },
     output: {
@@ -201,6 +194,7 @@ const s = StyleSheet.create({
     },
     choiceWrapper: {
         flex: 2.5,
+        alignItems: 'flex-start'
     },
     choice: {
         fontSize: 17,

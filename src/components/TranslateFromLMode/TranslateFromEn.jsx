@@ -13,6 +13,6 @@ export const TranslateFromEn = ({ route }) => {
         setNum(prev => prev + 1)
     }
     return (
-        <TranslateFrom route={route} sentences={sentences} num={num} setNumCount={setNumCount} type={'enAz'} progressValue={progressValue}/>
+        <TranslateFrom route={route} sentences={sentences} num={num} setNumCount={setNumCount} type={'enAz'} progressValue={progressValue} />
     )
 }
