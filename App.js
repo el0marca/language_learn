@@ -1,4 +1,4 @@
-import { Provider, useDispatch } from 'react-redux';
+import { Provider, useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -50,10 +50,11 @@ function LogoTitle({params}) {
 const Tab = createBottomTabNavigator();
 
 function MyTabs() {
+  const bottomTransparent=useSelector(state=>state.bottomTab.transparent)
   return (
     <NavigationContainer>
     <Tab.Navigator options={{tabBarVisible:false}} initialRouteName="Main"
-      tabBarOptions={{showLabel:false, style:{position: 'absolute', backgroundColor:'transparent',elevation: 0}}}
+      tabBarOptions={{showLabel:false, style:{position: 'absolute', backgroundColor:bottomTransparent&&'transparent'||'#fff', elevation: 0}}}
       >
       <Tab.Screen name="Main" title={false} component={MainStackscreen} 
       options={{

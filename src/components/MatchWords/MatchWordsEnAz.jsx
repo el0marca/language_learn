@@ -12,10 +12,9 @@ import { setBottomTabVisible } from '../../redux/bottomTab';
 
 export const MatchWordsEnAz = ({ route }) => {
     const user = useSelector(state => state.auth.user)
-    const level = route.params.num;
-    const progress = useSelector(state => state.progress[level])
+    const progress = useSelector(state => state.progress[0])
     const dispatch = useDispatch()
-    const words = useSelector(state => state.wordsForMatch.words[level][route.params.lessonIndex])
+    const words = useSelector(state => state.wordsForMatch.words[route.params.lessonIndex])
     const [page, setPage] = useState(0)
     const [answerMode, setAnswerMode] = useState(false)
     const [wordList, setWordList] = useState([...words[0]])
@@ -45,7 +44,7 @@ export const MatchWordsEnAz = ({ route }) => {
     const progressValue = index < 40 ? index * 7 + 3 : index * 7 + 2
 
     useEffect(() => {
-        if (isReady && page === 1 && progressValue > progress) dispatch(updateProgress(level, progressValue, user))
+        if (isReady && page === 1 && progressValue > progress) dispatch(updateProgress( progressValue, user))
     }, [isReady])
 
 
@@ -104,7 +103,7 @@ export const MatchWordsEnAz = ({ route }) => {
 
     return (
         <View style={{ flex: 1, backgroundColor: '#181A1B' }}>
-            <ImageBackground source={{uri:'https://firebasestorage.googleapis.com/v0/b/asan-english.appspot.com/o/img%2Fbackground%2FtasksBg.jpg?alt=media&token=9f985407-a58e-4dbe-b5cb-d271af9a32c5'}} style={s.imageBackground}>
+            <ImageBackground source={require('../../img/bg/tasksBg.jpg')} style={s.imageBackground}>
                 <View style={{ flex: 0.8, justifyContent: 'flex-end' }}>
                     <ProgressBar count={page + (page ? 4 * 2 : 4 * 1)} learnMode={true} />
                 </View>
@@ -134,7 +133,7 @@ export const MatchWordsEnAz = ({ route }) => {
                 </View> : false}
                 </Animated.View>
                 <Animated.View style={{ flex: 1, paddingHorizontal: 20, opacity: buttonAnim }}>
-                    <MatchButton answerMode={answerMode} ChangeAnswerMode={ChangeAnswerMode} isReady={isReady} page={page} next={next} level={level} />
+                    <MatchButton answerMode={answerMode} ChangeAnswerMode={ChangeAnswerMode} isReady={isReady} page={page} next={next} />
                 </Animated.View>
             </ImageBackground>
         </View>

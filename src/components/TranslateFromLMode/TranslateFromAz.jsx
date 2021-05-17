@@ -5,7 +5,7 @@ import { TranslateFrom } from './TranslateFrom'
 
 export const TranslateFromAz = ({ route }) => {
     const [num, setNum] = useState(0)
-    const sentences = useSelector(state => state.azEnSentences.sentences[route.params.num][route.params.lessonIndex][num])
+    const sentences = useSelector(state => state.azEnSentences.sentences[route.params.lessonIndex][num])
     function setNumCount() {
         setNum(prev => prev + 1)
     }

@@ -5,7 +5,7 @@ import { TranslateFrom } from './TranslateFrom'
 
 export const TranslateFromEn = ({ route }) => {
     const [num, setNum] = useState(0)
-    const sentences = useSelector(state => state.enAzSentences.sentences[route.params.num][route.params.lessonIndex][num])
+    const sentences = useSelector(state => state.enAzSentences.sentences[route.params.lessonIndex][num])
 
     const index = route.params.lessonIndex
     const progressValue = index < 40 ? index * 7 + 5 : index * 7 + 3

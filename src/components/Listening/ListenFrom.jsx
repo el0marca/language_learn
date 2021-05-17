@@ -12,11 +12,10 @@ import { useNavigation } from '@react-navigation/core'
 import { Speaker } from '../Common/Speaker'
 import { ResultModal } from '../Common/ResultModal'
 
-export const ListenFrom = ({ route, sentences, setNumCount, num, type, progressValue }) => {
+export const ListenFrom = ({ sentences, setNumCount, num, type, progressValue }) => {
     const dispatch = useDispatch()
     const user = useSelector(state => state.auth.user)
-    const level = route.params.num
-    const progress = useSelector(state => state.progress[route.params.num])
+    const progress = useSelector(state => state.progress[0])
     const [output, setOutput] = useState('')
     const [sentence, setSentence] = useState(sentences.sntc)
     const [transSentence, setTransSentence] = useState(sentences.tr)
@@ -25,7 +24,7 @@ export const ListenFrom = ({ route, sentences, setNumCount, num, type, progressV
     const [isReady, setReady] = useState(false)
     const [keyArray, setKeyArray] = useState([])
     const [answered, setAnswered] = useState(false)
-    const [mistakes, setMistakes] = useState(2)
+    const [mistakes, setMistakes] = useState(12)
     const errorData=type+' '+sentences.id
 
     async function loadAudio() {
@@ -98,7 +97,7 @@ export const ListenFrom = ({ route, sentences, setNumCount, num, type, progressV
     }
 
     useEffect(() => {
-        if (isReady && mistakes >= 0 && progressValue > progress) dispatch(updateProgress(level, progressValue, user))
+        if (isReady && mistakes >= 0 && progressValue > progress) dispatch(updateProgress( progressValue, user))
     }, [isReady])
 
     const navigation = useNavigation()
@@ -107,7 +106,7 @@ export const ListenFrom = ({ route, sentences, setNumCount, num, type, progressV
         keyArray.pop()
     }
     return (
-        <ImageBackground source={{uri:'https://firebasestorage.googleapis.com/v0/b/asan-english.appspot.com/o/img%2Fbackground%2FtasksBg.jpg?alt=media&token=9f985407-a58e-4dbe-b5cb-d271af9a32c5'}} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
+        <ImageBackground source={require('../../img/bg/tasksBg.jpg')} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
             <View style={{ flex: 1, justifyContent: 'flex-end' }}>
                 <ProgressBar count={num} mistakesBalance={mistakes} />
             </View>

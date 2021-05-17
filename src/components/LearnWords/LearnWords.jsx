@@ -16,12 +16,11 @@ let word;
 export function LearnWords({ route }) {
     const navigation = useNavigation()
     const user = useSelector(state => state.auth.user)
-    const level = route.params.num
-    const progress = useSelector(state => state.progress[level])
+    const progress = useSelector(state => state.progress[0])
     const dispatch = useDispatch()
     const [numberOfWord, setNumberOfWord] = useState(0)
     const [count, setCount] = useState(0)
-    const task = useSelector(state => state.learnWords.words[level][route.params.lessonIndex][numberOfWord])
+    const task = useSelector(state => state.learnWords.words[route.params.lessonIndex][numberOfWord])
     const keyboard = useSelector(state => state.learnWords.keyboard)
     const [result, setResult] = useState(false)
     const [isReady, setReady] = useState(false)
@@ -68,7 +67,7 @@ export function LearnWords({ route }) {
     useEffect(() => { if (result && numberOfWord == 9) { setReady(true) } }, [result])
     const progressValue = route.params.lessonIndex * 7 + 2;
     useEffect(() => {
-        if (isReady && progressValue > progress) dispatch(updateProgress(level, progressValue, user))
+        if (isReady && progressValue > progress) dispatch(updateProgress( progressValue, user))
     }, [isReady])
 
     function choice(w) {
@@ -146,7 +145,7 @@ export function LearnWords({ route }) {
                     <QwertyKeyboard line={keyboard[2]} choice={choice} item={item} />
                 </Animated.View>
                 <Animated.View style={{ paddingHorizontal: 20, justifyContent: 'center', flex: 1, opacity: buttonAnim }}>
-                    <TouchableOpacity disabled={!result} onPress={!isReady ? next : isReady ? () => navigation.navigate('Tasks', { num: level }) : next}>
+                    <TouchableOpacity disabled={!result} onPress={!isReady ? next : isReady ? () => navigation.navigate('Tasks') : next}>
                         <Text style={{ color: '#fff', fontSize: 25, backgroundColor: '#0881FF', padding: 10, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold', marginHorizontal: 20, }}>
                             {!isReady ? 'növbəti' : isReady ? 'dərslər' : null}
                         </Text>

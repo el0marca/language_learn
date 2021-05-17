@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { ActivityIndicator, TouchableOpacity } from 'react-native';
+import { ActivityIndicator, Button, TouchableOpacity } from 'react-native';
 import { Text, View, StyleSheet, TextInput, ImageBackground } from 'react-native';
 import auth, { firebase } from '@react-native-firebase/auth';
 import { useDispatch, useSelector } from 'react-redux';
 import database from '@react-native-firebase/database';
 import { setUserInfo } from '../redux/auth';
-import { updateBeginnerProgress, updateElementaryProgress, updateIntermediateProgress, updatePreIntermediateProgress, updateUpperIntermediateProgress } from '../redux/progress';
+import * as Progress from 'react-native-progress';
+import { updateBeginnerProgress } from '../redux/progress';
 
 export const ProfileScreen = () => {
   const [loginMode, setLoginMode] = useState(false)
@@ -99,77 +100,92 @@ export const ProfileScreen = () => {
       .once('value')
       .then(snapshot => {
         const beginner = JSON.parse(snapshot.val()[[0]]);
-        const elementary = JSON.parse(snapshot.val()[[1]]);
-        const preIntermediate = JSON.parse(snapshot.val()[[2]]);
-        const intermediate = JSON.parse(snapshot.val()[[3]]);
-        const upperIntermediate = JSON.parse(snapshot.val()[[4]]);
         if (beginner > progress[0]) { dispatch(updateBeginnerProgress(beginner)) }
-        if (elementary > progress[1]) { dispatch(updateElementaryProgress(elementary)) }
-        if (preIntermediate > progress[2]) { dispatch(updatePreIntermediateProgress(preIntermediate)) }
-        if (intermediate > progress[3]) { dispatch(updateIntermediateProgress(intermediate)) }
-        if (upperIntermediate > progress[4]) { dispatch(updateUpperIntermediateProgress(upperIntermediate)) }
       });
   }
+  let learnedWords = 0
+  let theory = 0
+  let passedSentences = 0
+  
 
   if (initializing) return (
-    <View style={{flex: 1,justifyContent: "center",flexDirection: "row", justifyContent: "space-around", padding: 10 }}>
+    <View style={{ flex: 1, justifyContent: "center", flexDirection: "row", justifyContent: "space-around", padding: 10 }}>
       <ActivityIndicator size={50} color="#00ff00" />
     </View>)
 
   return (
-    <ImageBackground source={{uri:'https://firebasestorage.googleapis.com/v0/b/asan-english.appspot.com/o/img%2Fbackground%2FprofileBg.png?alt=media&token=6af0ee2f-542d-4d1a-8a3a-a8d21c341e6e'}} style={{flex:1}}>
-    <View style={{ paddingTop: 50, flex: 1 }}>
-      {!user ? (
-        <>
-          <Text style={{ textAlign: 'center', paddingTop: 10, fontSize: 18, fontFamily: 'SFUIDisplay-Regular', marginBottom: 10 }}>
-            {!loginMode ? 'Progresi saxlamaq üçün qeydiyyatdan keçin' : 'Daxil olun'}</Text>
-          <TextInput
-            style={[s.input, errorInfo && { borderColor: '#DB504B' }]}
-            onChangeText={onChangeEmail}
-            value={email}
-            placeholder="e-mail"
-            type='email'
-          />
-          {!forgotPassword && <TextInput
-            style={[s.input, errorInfo && { borderColor: '#DB504B' }]}
-            onChangeText={onChangePassword}
-            value={password}
-            placeholder="şifrə"
-            type='password'
-            secureTextEntry={true}
-          />}
-          <Text style={{ fontFamily: 'SFUIDisplay-Regular', textAlign: 'center', fontSize: 16, marginBottom: 10 }}>{alert || errorInfo}</Text>
-          {!loginMode ? <View>
-            <TouchableOpacity onPress={signUpWithEmail}>
-              <Text style={{ backgroundColor: '#0881FF', fontFamily: 'SFUIDisplay-Regular', marginHorizontal: 50, padding: 10, textAlign: 'center', borderRadius: 15, fontSize: 20, color: '#fff', marginBottom: 5 }}>Qeydiyyatdan keçmək</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => {setLoginMode(true), setErrorInfo(''),onChangePassword('')}}>
-              <Text style={{ backgroundColor: '#0881FF', fontFamily: 'SFUIDisplay-Regular', marginHorizontal: 50, padding: 10, textAlign: 'center', borderRadius: 15, fontSize: 20, color: '#fff', marginBottom: 5 }}>Həsabınız var?</Text>
-            </TouchableOpacity>
+    <ImageBackground source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/asan-english.appspot.com/o/img%2Fbackground%2FprofileBg.png?alt=media&token=6af0ee2f-542d-4d1a-8a3a-a8d21c341e6e' }} style={{ flex: 1 }}>
+      <View style={{ paddingTop: 50, flex: 1 }}>
+        {!user ? (
+          <>
+            <Text style={{ textAlign: 'center', paddingTop: 10, fontSize: 18, fontFamily: 'SFUIDisplay-Regular', marginBottom: 10 }}>
+              {!loginMode ? 'Progresi saxlamaq üçün qeydiyyatdan keçin' : 'Daxil olun'}</Text>
+            <TextInput
+              style={[s.input, errorInfo && { borderColor: '#DB504B' }]}
+              onChangeText={onChangeEmail}
+              value={email}
+              placeholder="e-mail"
+              type='email'
+            />
+            {!forgotPassword && <TextInput
+              style={[s.input, errorInfo && { borderColor: '#DB504B' }]}
+              onChangeText={onChangePassword}
+              value={password}
+              placeholder="şifrə"
+              type='password'
+              secureTextEntry={true}
+            />}
+            <Text style={{ fontFamily: 'SFUIDisplay-Regular', textAlign: 'center', fontSize: 16, marginBottom: 10 }}>{alert || errorInfo}</Text>
+            {!loginMode ? <View>
+              <TouchableOpacity onPress={signUpWithEmail}>
+                <Text style={{ backgroundColor: '#0881FF', fontFamily: 'SFUIDisplay-Regular', marginHorizontal: 50, padding: 10, textAlign: 'center', borderRadius: 15, fontSize: 20, color: '#fff', marginBottom: 5 }}>Qeydiyyatdan keçmək</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => { setLoginMode(true), setErrorInfo(''), onChangePassword('') }}>
+                <Text style={{ backgroundColor: '#0881FF', fontFamily: 'SFUIDisplay-Regular', marginHorizontal: 50, padding: 10, textAlign: 'center', borderRadius: 15, fontSize: 20, color: '#fff', marginBottom: 5 }}>Həsabınız var?</Text>
+              </TouchableOpacity>
+            </View>
+              : null}
+            {loginMode ? <View>
+              {!forgotPassword && <TouchableOpacity onPress={signInWithEmail}>
+                <Text style={{ backgroundColor: '#0881FF', fontFamily: 'SFUIDisplay-Regular', marginHorizontal: 50, padding: 10, textAlign: 'center', borderRadius: 15, fontSize: 20, color: '#fff', marginBottom: 5 }}>Daxil olmaq</Text>
+              </TouchableOpacity>}
+              <TouchableOpacity onPress={() => { !forgotPassword && (setForgotPassword(true), setErrorInfo('')), forgotPassword && passwordReset() }}>
+                <Text style={{ backgroundColor: '#0881FF', fontFamily: 'SFUIDisplay-Regular', marginHorizontal: 50, padding: 10, textAlign: 'center', borderRadius: 15, fontSize: 20, color: '#fff', marginBottom: 5 }}>{!forgotPassword ? 'Şifrəni unutmusan?' : 'Şifrəni sıfırla'}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => { forgotPassword && setForgotPassword(false), loginMode && !forgotPassword && setLoginMode(false), setAlert(''), setErrorInfo(''), onChangePassword('') }}>
+                <Text style={{ backgroundColor: '#0881FF', fontFamily: 'SFUIDisplay-Regular', marginHorizontal: 50, padding: 10, textAlign: 'center', borderRadius: 15, fontSize: 20, color: '#fff', marginBottom: 5 }}>Geriyə</Text>
+              </TouchableOpacity>
+            </View> : null}
+          </>
+        ) :
+          <View style={{ paddingHorizontal: 10 }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }}>
+              <Text style={{ marginRight: 10 }}>{user.email}</Text>
+              <TouchableOpacity onPress={signOut}>
+                <Text style={{ backgroundColor: '#7B97BC', fontFamily: 'SFUIDisplay-Regular', paddingVertical: 5, textAlign: 'center', borderRadius: 5, fontSize: 17, color: '#fff', paddingHorizontal: 10 }}>çıxmaq</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={{ marginTop: 10 }}>
+              <ProgresItem style={{}} progress={learnedWords} item='söz tərcümə olunub' />
+              <ProgresItem progress={theory} item='qrammatik tapşırıq həll edilib' />
+              <ProgresItem progress={passedSentences} item='dinləmə tapşırıqları həll olunub' />
+              <ProgresItem progress={passedSentences} item='cümlə azərbaycan dilinə tərcümə olunub' />
+              <ProgresItem progress={passedSentences} item='cümlə ingilis dilinə tərcümə olunub' />
+            </View>
           </View>
-            : null}
-          {loginMode ? <View>
-            {!forgotPassword && <TouchableOpacity onPress={signInWithEmail}>
-              <Text style={{ backgroundColor: '#0881FF', fontFamily: 'SFUIDisplay-Regular', marginHorizontal: 50, padding: 10, textAlign: 'center', borderRadius: 15, fontSize: 20, color: '#fff', marginBottom: 5 }}>Daxil olmaq</Text>
-            </TouchableOpacity>}
-            <TouchableOpacity onPress={() => { !forgotPassword && (setForgotPassword(true), setErrorInfo('')), forgotPassword && passwordReset() }}>
-              <Text style={{ backgroundColor: '#0881FF', fontFamily: 'SFUIDisplay-Regular', marginHorizontal: 50, padding: 10, textAlign: 'center', borderRadius: 15, fontSize: 20, color: '#fff', marginBottom: 5 }}>{!forgotPassword ? 'Şifrəni unutmusan?' : 'Şifrəni sıfırla'}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => { forgotPassword && setForgotPassword(false), loginMode && !forgotPassword && setLoginMode(false), setAlert(''), setErrorInfo(''), onChangePassword('') }}>
-              <Text style={{ backgroundColor: '#0881FF', fontFamily: 'SFUIDisplay-Regular', marginHorizontal: 50, padding: 10, textAlign: 'center', borderRadius: 15, fontSize: 20, color: '#fff', marginBottom: 5 }}>Geriyə</Text>
-            </TouchableOpacity>
-          </View> : null}
-        </>
-      ) :
-        <>
-          <TouchableOpacity onPress={signOut}>
-            <Text style={{ backgroundColor: '#0881FF', fontFamily: 'SFUIDisplay-Regular', marginHorizontal: 50, padding: 10, textAlign: 'center', borderRadius: 15, fontSize: 20, color: '#fff', marginBottom: 5 }}>Cıxmaq</Text>
-          </TouchableOpacity>
-          <Text>Welcome {user.email}</Text>
-        </>
-      }
-    </View>
+        }
+      </View>
     </ImageBackground>
+  )
+}
+
+const ProgresItem = ({ item, progress }) => {
+  return (
+    <Progress.Bar style={{ justifyContent: 'center', marginTop: 10, }} progress={0.4} width={null} height={40} color='#d1ffef' unfilledColor='#F7F9FA' borderRadius={10} animationType='timing' useNativeDriver={true} borderWidth={0}>
+      <Text style={{ position: 'absolute', left: 10, fontSize: 18, fontFamily: 'SFUIDisplay-Regular' }}>
+        {progress} {item}
+      </Text>
+    </Progress.Bar>
   )
 }
 

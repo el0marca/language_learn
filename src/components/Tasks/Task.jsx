@@ -10,15 +10,16 @@ export const Task = ({ routeName, setDisable, lessonIndex, num, setSuccess, head
   return (
     <View style={s.wrapper}>
       <TouchableOpacity activeOpacity={0.5} disabled={setDisable} style={s.touchble} onPress={() => navigation.navigate(`${routeName}`, { lessonIndex: lessonIndex, num: num })}>
-        {setDisable ? locked : !setSuccess ? ready : setSuccess ? studying : null}
+       <View style={{ borderWidth:5, borderColor:setDisable&&'#ffe3e0'||!setSuccess&&'#ccfff6'||setSuccess &&'#F7F9FA', borderStyle:'solid', borderRadius:999, justifyContent:'center', alignItems:'center', padding:2 }}>{setDisable && locked || !setSuccess && ready || setSuccess && studying }</View>
         <Text style={s.descr}>{header}</Text>
         <View style={{ paddingRight: 15 }}>
-          <Image style={{ height: 30, width: 30 }} source={require('../../img/next5.png')} />
+          <View style={{borderWidth:4,borderStyle:'solid', borderRadius:999, justifyContent:'center', alignItems:'center', padding:2, borderColor:'#ccfff6'}}><Image style={{ height: 30, width: 30 }} source={require('../../img/next5.png')} /></View>
         </View>
       </TouchableOpacity>
     </View>
   )
 }
+
 const s = StyleSheet.create({
   wrapper: {
     alignItems: 'center',
@@ -30,7 +31,6 @@ const s = StyleSheet.create({
     marginHorizontal: 20,
     borderRadius: 30,
     marginBottom: 2,
-    borderColor: 'rgba(0, 0, 255, 0.1)'
   },
   touchble: {
     flex: 1,
@@ -39,11 +39,9 @@ const s = StyleSheet.create({
     justifyContent: 'space-around'
   },
   descr: {
-    fontSize: 16,
-    color: '#00264d',
+    fontSize: 15,
+    color: '#444',
     flex: 1,
-    paddingRight: 10,
-    paddingLeft: 5,
     textAlign: 'center',
     fontFamily: 'SFUIDisplay-Regular',
   },

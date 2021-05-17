@@ -14,11 +14,10 @@ import { useNavigation } from '@react-navigation/core'
 
 export function Theory({ route }) {
     const user = useSelector(state => state.auth.user)
-    const level = route.params.num
-    const progress = useSelector(state => state.progress[level])
+    const progress = useSelector(state => state.progress[0])
     const dispatch = useDispatch()
     const [num, setNum] = useState(0)
-    const lesson = useSelector(state => state.theory.lessons[level][route.params.lessonIndex][num])
+    const lesson = useSelector(state => state.theory.lessons[route.params.lessonIndex][num])
     const [wordNumber, setWordNumber] = useState(0)
     const [sentence, setSentence] = useState(lesson.sntc)
     const [transSentence, setTransSentence] = useState(lesson.tr)
@@ -28,7 +27,6 @@ export function Theory({ route }) {
     const [result, setResult] = useState(false)
     const [keyArray, setKeyArray] = useState([])
     const [outputArr, setOutputArr] = useState([])
-    const [numOfTasks, setNumOfTasks] = useSelector(state => state.theory.lessons[level])
 
     async function loadAudio() {
         try {
@@ -61,7 +59,8 @@ export function Theory({ route }) {
         setWordNumber(0)
         setKeyArray([])
         setOutputArr([])
-        if (num < numOfTasks.length - 1) { setNum((prev) => prev + 1) }
+        fade(buttonAnim, 0, 500)
+        if (num < 9) { setNum((prev) => prev + 1) }
     }
     function answer(word, id) {
         if (originSentence[wordNumber] == word) {
@@ -72,22 +71,12 @@ export function Theory({ route }) {
     }
     useEffect(() => {
         setSentence(lesson.sntc),
-        setTransSentence(lesson.tr),
-        loadAudio()
+            setTransSentence(lesson.tr),
+            loadAudio()
     }, [num])
 
     useEffect(() => setChoice(shuffle(transSentence.split(' '))), [sentence])
     useEffect(() => { setOriginSentence([...transSentence.split(' ')]) }, [transSentence])
-
-    useEffect(() => {
-        if (num === numOfTasks.length - 1 && result) { setReady(true) }
-        if (result) {
-            setTimeout(() => {
-                play()
-                fade(buttonAnim, 1, 500)
-            }, 300);
-        } else { fade(buttonAnim, 0, 500); }
-    }, [result])
 
     const progressValue = route.params.lessonIndex * 7 + 4;
     useEffect(() => {
@@ -114,7 +103,14 @@ export function Theory({ route }) {
                 fade(outputAnim, 1, 500)
             }, 700),
             []
-    });
+    })
+    useEffect(() => {
+        if (num === 9 && result) { setReady(true) }
+        if (result) {
+            play()
+            fade(buttonAnim, 1, 500)
+        } else { fade(buttonAnim, 0, 500) }
+    }, [result])
 
     const symbols = useSelector(s => s.words.symbols)
     const adverb = useSelector(s => s.words.adverb)
@@ -127,9 +123,9 @@ export function Theory({ route }) {
     const adjectives = useSelector(s => s.words.adjectives)
     const navigation = useNavigation()
     return (
-        <ImageBackground source={{uri:'https://firebasestorage.googleapis.com/v0/b/asan-english.appspot.com/o/img%2Fbackground%2FtasksBg.jpg?alt=media&token=9f985407-a58e-4dbe-b5cb-d271af9a32c5'}} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
+        <ImageBackground source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/asan-english.appspot.com/o/img%2Fbackground%2FtasksBg.jpg?alt=media&token=9f985407-a58e-4dbe-b5cb-d271af9a32c5' }} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
             <View style={s.progressBar}>
-                <ProgressBar count={num} numOfTasks={numOfTasks.length} learnMode={true} />
+                <ProgressBar count={num} numOfTasks={10} learnMode={true} />
             </View>
             <View style={s.wrapper}>
                 <Animated.View style={[s.explainContainer, { opacity: descrAnim }]}>

@@ -13,18 +13,17 @@ import { Award } from '../Common/Award'
 import { useNavigation } from '@react-navigation/core'
 import { ResultModal } from '../Common/ResultModal'
 
-export const TranslateFrom = ({ route, sentences, setNumCount, num, type, progressValue }) => {
+export const TranslateFrom = ({ sentences, setNumCount, num, type, progressValue }) => {
     const dispatch = useDispatch()
     const user = useSelector(state => state.auth.user)
-    const level = route.params.num
-    const progress = useSelector(state => state.progress[route.params.num])
+    const progress = useSelector(state => state.progress[0])
     const [output, setOutput] = useState('')
     const [sentence, setSentence] = useState(sentences.sntc)
     const [transSentence, setTransSentence] = useState(sentences.tr)
     const [choice, setChoice] = useState(shuffle([...sentences.ch.split(' ')]))
     const [result, setResult] = useState(false)
     const [isReady, setReady] = useState(false)
-    const [mistakes, setMistakes] = useState(2)
+    const [mistakes, setMistakes] = useState(12)
     const [keyArray,setKeyArray] = useState([])
     const [answered, setAnswered] = useState(false)
     const errorData=type+' '+sentences.id
@@ -56,6 +55,7 @@ export const TranslateFrom = ({ route, sentences, setNumCount, num, type, progre
     }
 
     function next() {
+        setOutput('')
         setKeyArray([])
         setResult(false)
         if (num < 9) { setNumCount(), setAnswered(false) }
@@ -76,7 +76,7 @@ export const TranslateFrom = ({ route, sentences, setNumCount, num, type, progre
             useNativeDriver: true
         }).start()
     }
-    useEffect(() => { setSentence(sentences.sntc), setTransSentence(sentences.tr), setOutput(''), loadAudio() }, [num])
+    useEffect(() => { setSentence(sentences.sntc), setTransSentence(sentences.tr), loadAudio() }, [num])
     useEffect(() => setChoice(shuffle(sentences.ch.split(' '))), [sentence])
     useEffect(() => {
         if (result) {
@@ -98,7 +98,7 @@ export const TranslateFrom = ({ route, sentences, setNumCount, num, type, progre
     }
 
     useEffect(() => {
-        if (isReady && mistakes >= 0 && progressValue > progress) dispatch(updateProgress(level, progressValue, user))
+        if (isReady && mistakes >= 0 && progressValue > progress) dispatch(updateProgress( progressValue, user))
     }, [isReady])
 
     useEffect(() => {
@@ -116,7 +116,7 @@ export const TranslateFrom = ({ route, sentences, setNumCount, num, type, progre
         keyArray.pop()
     }
     return (
-        <ImageBackground source={{uri:'https://firebasestorage.googleapis.com/v0/b/asan-english.appspot.com/o/img%2Fbackground%2FtasksBg.jpg?alt=media&token=9f985407-a58e-4dbe-b5cb-d271af9a32c5'}} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
+        <ImageBackground source={require('../../img/bg/tasksBg.jpg')} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
             <View style={{ flex: 1, justifyContent: 'flex-end' }}>
                 <ProgressBar count={num} mistakesBalance={mistakes} />
             </View>

@@ -8,7 +8,7 @@ let initialState = {
     demPronouns:['this','these','those','that','This','These','Those','That','işarə\u00A0əvəzliyi', 'İşarə\u00A0əvəzliyi'],
     pPronouns:['my','our','your','his','her','its','their','My','Our','Your','His','Her','Its','Their','Yiyəlik⁣⁣⁣⁣⁣\u00A0əvəzliyi', 'yiyəlik⁣⁣⁣⁣⁣\u00A0əvəzliyi'],
     article:['a','an','A','An','the','The','artikl'],
-    qWords:['Sual\u00A0söz','sual\u00A0söz','Sual\u00A0söz\u00A0qısa\u00A0forma','how','why','whose','whom','who','which','where','when','what','How','Why','Whose','Whom','Who','Which','Where','When','What','What’s','Who’s','what’s','who’s'],
+    qWords:['Sual\u00A0söz','sual\u00A0söz','Sual\u00A0söz\u00A0qısa\u00A0forma','how','why','whose','whom','who','which','where','when','what','How','Why','Whose','Whom','Who','Which','Where','When','What','What’s','Who’s','what’s',"What's",'who’s',"Who's",],
     pronoun:['I','You','We','They','He','She','It','it','you','we','they','he','she','Şəxs\u00A0əvəzliyi','şəxs\u00A0əvəzliyi','əvəzlik','Əvəzlik'],
     adverb:['always','sometimes','often','usually','sometimes','also'],
     adjectives:['able','bad','best','better','big','black','certain','clear','different','early','easy','economic','federal','free','full','good','great','hard','high','human','important','international','large','late','little','local','long','low','major','military','national','new','old','only','other','political','possible','public','real','recent','right','small','social','special','strong','sure','true','white','whole','young','interesting','cold','sifət','hot'],
