@@ -25,7 +25,7 @@ export const ListenFrom = ({ sentences, setNumCount, num, type, progressValue })
     const [keyArray, setKeyArray] = useState([])
     const [answered, setAnswered] = useState(false)
     const [mistakes, setMistakes] = useState(12)
-    const errorData=type+' '+sentences.id
+    const errorData = type + ' ' + sentences.id
 
     async function loadAudio() {
         try {
@@ -97,7 +97,7 @@ export const ListenFrom = ({ sentences, setNumCount, num, type, progressValue })
     }
 
     useEffect(() => {
-        if (isReady && mistakes >= 0 && progressValue > progress) dispatch(updateProgress( progressValue, user))
+        if (isReady && mistakes >= 0 && progressValue > progress) dispatch(updateProgress(progressValue, user))
     }, [isReady])
 
     const navigation = useNavigation()
@@ -120,8 +120,8 @@ export const ListenFrom = ({ sentences, setNumCount, num, type, progressValue })
                 <Animated.View style={[s.outputWrapper, { opacity: taskAnim }]}>
                     <TouchableOpacity disabled={answered} activeOpacity={0.5} onPress={remove}>
                         <View style={s.output}>
-                            {output.length>0?output.split(' ').map((w, i) =>
-                                <Text key={i} style={[s.choice, answered && result ? { backgroundColor: '#65c658', color: '#fff' } : answered && transSentence.split(' ')[i] != w ? { backgroundColor: '#DB504B', color: '#fff' } : null]}>{w}</Text>):null}
+                            {output.length > 0 ? output.split(' ').map((w, i) =>
+                                <Text key={i} style={[s.choice, answered && result ? { backgroundColor: '#65c658', color: '#fff' } : answered && transSentence.split(' ')[i] != w ? { backgroundColor: '#DB504B', color: '#fff' } : null]}>{w}</Text>) : null}
                         </View>
                     </TouchableOpacity>
                 </Animated.View>
@@ -159,7 +159,7 @@ const s = StyleSheet.create({
     taskHeader: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom:10
+        marginBottom: 10
     },
     taskHeaderText: {
         fontSize: 25,

@@ -9,8 +9,7 @@ import storage from '@react-native-firebase/storage';
 import { Audio } from 'expo-av';
 import { setBottomTabVisible } from '../../redux/bottomTab';
 
-
-export const MatchWordsEnAz = ({ route }) => {
+export const MatchWordsEnAz = ({ route, practice }) => {
     const user = useSelector(state => state.auth.user)
     const progress = useSelector(state => state.progress[0])
     const dispatch = useDispatch()
@@ -41,12 +40,11 @@ export const MatchWordsEnAz = ({ route }) => {
 
     useEffect(() => { if (output.length === wordList.length) { setIsReady(true) } }, [output])
     const index = route.params.lessonIndex
-    const progressValue = index < 40 ? index * 7 + 3 : index * 7 + 2
+    const progressValue = practice && index * 7 + 3 || index * 7 + 2
 
     useEffect(() => {
-        if (isReady && page === 1 && progressValue > progress) dispatch(updateProgress( progressValue, user))
+        if (isReady && page === 1 && progressValue > progress) dispatch(updateProgress(progressValue, user))
     }, [isReady])
-
 
     function ChangeAnswerMode() {
         fadeOutIn()
@@ -86,7 +84,7 @@ export const MatchWordsEnAz = ({ route }) => {
                 useNativeDriver: true
             }).start()
         })
-    };
+    }
 
     function next() {
         setAnswerMode(false)
@@ -114,7 +112,7 @@ export const MatchWordsEnAz = ({ route }) => {
                     <View style={[s.answeredWords]}>{wordList.map((word) =>
                         <TouchableOpacity key={word.id} onPress={() => playSound(word.wd)} activeOpacity={0.6} style={s.originWordsContainer}>
                             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                                <Image style={{ width: 25, height: 25 }} source={require('../../img/sound.png')} />
+                                <Image style={{ width: 20, height: 20 }} source={require('../../img/sound.png')} />
                             </View>
                             <Text style={s.originWordsText}>{word.wd}</Text>
                         </TouchableOpacity>)}
@@ -195,7 +193,7 @@ const s = ({
     wordsForTap: {
         fontSize: 18,
         marginRight: 10,
-        marginVertical: 8,
+        marginBottom: 8,
         color: '#000',
         paddingVertical: 10,
         paddingHorizontal: 15,

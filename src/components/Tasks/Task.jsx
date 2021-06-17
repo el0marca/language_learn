@@ -2,14 +2,14 @@ import { useNavigation } from '@react-navigation/core'
 import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native'
 
-export const Task = ({ routeName, setDisable, lessonIndex, num, setSuccess, header }) => {
+export const Task = ({ routeName, setDisable, lessonIndex, setSuccess, header }) => {
   const navigation = useNavigation()
   const locked = <Image style={s.images} source={require('../../img/locked1.png')} />
   const ready = <Image style={s.images} source={require('../../img/okk.png')} />
   const studying = <Image style={s.images} source={require('../../img/studying1.png')} />
   return (
     <View style={s.wrapper}>
-      <TouchableOpacity activeOpacity={0.5} disabled={setDisable} style={s.touchble} onPress={() => navigation.navigate(`${routeName}`, { lessonIndex: lessonIndex, num: num })}>
+      <TouchableOpacity activeOpacity={0.5} disabled={setDisable} style={s.touchble} onPress={() => navigation.navigate(`${routeName}`, { lessonIndex: lessonIndex })}>
        <View style={{ borderWidth:5, borderColor:setDisable&&'#ffe3e0'||!setSuccess&&'#ccfff6'||setSuccess &&'#F7F9FA', borderStyle:'solid', borderRadius:999, justifyContent:'center', alignItems:'center', padding:2 }}>{setDisable && locked || !setSuccess && ready || setSuccess && studying }</View>
         <Text style={s.descr}>{header}</Text>
         <View style={{ paddingRight: 15 }}>
@@ -46,7 +46,7 @@ const s = StyleSheet.create({
     fontFamily: 'SFUIDisplay-Regular',
   },
   images: {
-    height: 40,
-    width: 40
+    height: 35,
+    width: 35
   }
 })

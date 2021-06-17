@@ -3,14 +3,14 @@ import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { TranslateFrom } from './TranslateFrom'
 
-export const TranslateFromAz = ({ route }) => {
+export const TranslateFromAz = ({ route, practice }) => {
     const [num, setNum] = useState(0)
     const sentences = useSelector(state => state.azEnSentences.sentences[route.params.lessonIndex][num])
     function setNumCount() {
         setNum(prev => prev + 1)
     }
     const index = route.params.lessonIndex
-    const progressValue = index < 40 ? index * 7 + 6 : index * 7 + 4
+    const progressValue = practice && index * 7 + 6 || index * 7 + 4
 
     return (
         <TranslateFrom route={route} sentences={sentences} num={num} setNumCount={setNumCount} type={'azEn'} progressValue={progressValue} />

@@ -1,19 +1,16 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { Text, View, StyleSheet, Animated, ImageBackground, Image } from 'react-native'
+import { Text, View, StyleSheet, Animated, ImageBackground } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useDispatch, useSelector } from 'react-redux';
 import { ProgressBar } from '../Common/ProgressBar';
 import { QwertyKeyboard } from './QwertyKeyboard';
-import { CommonButton } from '../Common/Button'
 import { updateProgress } from '../../redux/progress';
 import storage from '@react-native-firebase/storage';
 import { setBottomTabVisible } from '../../redux/bottomTab';
 import SoundPlayer from 'react-native-sound-player'
 import { useNavigation } from '@react-navigation/core';
 
-let word;
-
-export function LearnWords({ route }) {
+export function LearnWords({ route, practice }) {
     const navigation = useNavigation()
     const user = useSelector(state => state.auth.user)
     const progress = useSelector(state => state.progress[0])
@@ -32,10 +29,13 @@ export function LearnWords({ route }) {
 
     async function loadAudio() {
         SoundPlayer.stop()
-        let url = await storage()
-            .ref(`words/${translatedWord}.ogg`)
-            .getDownloadURL()
-        SoundPlayer.loadUrl(url)
+        try {
+            let url = await storage()
+                .ref(`words/${translatedWord}.ogg`)
+                .getDownloadURL()
+            SoundPlayer.loadUrl(url)
+        }
+        catch (e) { console.log(e) }
     }
     function play() {
         try {
@@ -45,6 +45,9 @@ export function LearnWords({ route }) {
     }
     useEffect(() => {
         dispatch(setBottomTabVisible(false))
+        setTimeout(() => {
+            play()
+        }, 1500);
         return () => {
             dispatch(setBottomTabVisible(true))
         }
@@ -60,20 +63,20 @@ export function LearnWords({ route }) {
     useEffect(() => { setWordToChoose(translatedWord.split('')); loadAudio() }, [translatedWord])
     useEffect(() => setItem(wordToChoose), [wordToChoose])
     useEffect(() => {
-        if (output === translatedWord) { play() };
         setResult(output === translatedWord)
     }, [output]
     )
     useEffect(() => { if (result && numberOfWord == 9) { setReady(true) } }, [result])
     const progressValue = route.params.lessonIndex * 7 + 2;
     useEffect(() => {
-        if (isReady && progressValue > progress) dispatch(updateProgress( progressValue, user))
+        if (isReady && progressValue > progress) dispatch(updateProgress(progressValue, user))
     }, [isReady])
 
     function choice(w) {
         if (wordToChoose[count] == w) {
             setOutput(prev => prev + w)
             setCount(prev => prev + 1)
+            let word
             setItem(prev => {
                 word = [...prev]
                 word.shift()
@@ -81,8 +84,10 @@ export function LearnWords({ route }) {
             })
         }
     }
-
     function next() {
+        setTimeout(() => {
+            play()
+        }, 1500);
         if (numberOfWord < 9) { setNumberOfWord(prev => prev + 1) }
     }
     const buttonAnim = useRef(new Animated.Value(0)).current;
@@ -109,7 +114,7 @@ export function LearnWords({ route }) {
 
     return (
         <View style={s.content}>
-            <ImageBackground source={{uri:'https://firebasestorage.googleapis.com/v0/b/asan-english.appspot.com/o/img%2Fbackground%2FtasksBg.jpg?alt=media&token=9f985407-a58e-4dbe-b5cb-d271af9a32c5'}} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
+            <ImageBackground source={require('../../img/bg/tasksBg.jpg')} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
                 <View style={{ flex: 1.1, justifyContent: 'center' }}>
                     <ProgressBar count={numberOfWord} learnMode={true} />
                 </View>
@@ -132,7 +137,7 @@ export function LearnWords({ route }) {
                     <View style={s.task}>
                         <Text style={s.originWordText}>{originWord}</Text>
                         <TouchableOpacity style={s.speaker} onPress={play}>
-                            <Animated.Image style={{ width: 40, height: 40 }} source={require('../../img/speakerW.png')} />
+                            <Animated.Image style={{ width: 80, height: 80 }} source={require('../../img/microphone.png')} />
                         </TouchableOpacity>
                         <TouchableOpacity disabled={!result}>
                             <Animated.Text style={[s.originWordText, result ? { color: '#fff', backgroundColor: '#4ba83e' } : null]}>{output}</Animated.Text>
@@ -165,7 +170,7 @@ const s = StyleSheet.create({
         justifyContent: 'center',
     },
     task: {
-        flex: 0.6,
+        flex: 0.7,
         minWidth: '50%',
         justifyContent: 'space-around'
     },
@@ -174,8 +179,8 @@ const s = StyleSheet.create({
         textAlign: 'center',
         color: '#000',
         backgroundColor: '#fff',
-        borderRadius: 25,
-        padding: 15,
+        borderRadius: 10,
+        padding: 10,
         paddingHorizontal: 25,
         fontFamily: 'SFUIDisplay-Regular',
     },

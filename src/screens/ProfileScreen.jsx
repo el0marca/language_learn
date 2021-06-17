@@ -114,7 +114,7 @@ export const ProfileScreen = () => {
     </View>)
 
   return (
-    <ImageBackground source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/asan-english.appspot.com/o/img%2Fbackground%2FprofileBg.png?alt=media&token=6af0ee2f-542d-4d1a-8a3a-a8d21c341e6e' }} style={{ flex: 1 }}>
+    <ImageBackground source={require('../img/bg/profileBg.png')} style={{ flex: 1 }}>
       <View style={{ paddingTop: 50, flex: 1 }}>
         {!user ? (
           <>

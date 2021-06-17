@@ -78,9 +78,10 @@ export function Theory({ route }) {
     useEffect(() => setChoice(shuffle(transSentence.split(' '))), [sentence])
     useEffect(() => { setOriginSentence([...transSentence.split(' ')]) }, [transSentence])
 
-    const progressValue = route.params.lessonIndex * 7 + 4;
+    const progressValue = route.params.lessonIndex * 7 + 4
+    
     useEffect(() => {
-        if (isReady && progressValue > progress) dispatch(updateProgress(level, progressValue, user))
+        if (isReady && progressValue > progress) dispatch(updateProgress( progressValue, user))
     }, [isReady])
 
     const descrAnim = useRef(new Animated.Value(0)).current;
@@ -123,7 +124,7 @@ export function Theory({ route }) {
     const adjectives = useSelector(s => s.words.adjectives)
     const navigation = useNavigation()
     return (
-        <ImageBackground source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/asan-english.appspot.com/o/img%2Fbackground%2FtasksBg.jpg?alt=media&token=9f985407-a58e-4dbe-b5cb-d271af9a32c5' }} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
+        <ImageBackground source={require('../../img/bg/tasksBg.jpg')} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
             <View style={s.progressBar}>
                 <ProgressBar count={num} numOfTasks={10} learnMode={true} />
             </View>

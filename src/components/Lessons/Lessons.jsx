@@ -9,63 +9,50 @@ let interval = width * 0.7
 
 export const Lessons = () => {
   const navigation = useNavigation()
-  const [num, setNum] = useState(0)
   const levels = useSelector(state => state.levelsList.levels[0])
   const progress = useSelector(state => state.progress[0] - 1)
-  let learnedWords = 0
-  let theory = 0
-  let passedSentences = 0
-
-  if (progress < 280) { learnedWords += (Math.floor(progress / 7) * 17) }
-  if (progress <= 280 && progress % 7 >= 2) { learnedWords += 10 }
-  if (progress > 280) { learnedWords += (Math.floor((progress - 280) / 7) * 7) + 560 }
-  if (progress < 280 && progress % 7 >= 1) { learnedWords += 7 }
-  if (progress < 280) { theory += (Math.floor(progress / 7)) * 10 }
-  else { theory = 400 }
-  if (progress < 280 && progress % 7 >= 3) { theory += 10 }
-  if (progress < 280) { passedSentences += (Math.floor(progress / 7) * 20) }
-  if (progress <= 280 && progress % 7 >= 4) { passedSentences += 10 }
-  if (progress <= 280 && progress % 7 >= 5) { passedSentences += 10 }
-  if (progress > 280) { passedSentences += (Math.floor((progress - 280) / 7) * 30) + 800 }
-  if (progress > 280 && progress % 7 >= 2) { passedSentences += 10 }
-  if (progress > 280 && progress % 7 >= 3) { passedSentences += 10 }
-  if (progress > 280 && progress % 7 >= 5) { passedSentences += 10 }
+  
+  // const [num, setNum] = useState(0)
+  // let learnedWords = 0
+  // let theory = 0
+  // let passedSentences = 0
+  // if (progress < 280) { learnedWords += (Math.floor(progress / 7) * 17) }
+  // if (progress <= 280 && progress % 7 >= 2) { learnedWords += 10 }
+  // if (progress > 280) { learnedWords += (Math.floor((progress - 280) / 7) * 7) + 560 }
+  // if (progress < 280 && progress % 7 >= 1) { learnedWords += 7 }
+  // if (progress < 280) { theory += (Math.floor(progress / 7)) * 10 }
+  // else { theory = 400 }
+  // if (progress < 280 && progress % 7 >= 3) { theory += 10 }
+  // if (progress < 280) { passedSentences += (Math.floor(progress / 7) * 20) }
+  // if (progress <= 280 && progress % 7 >= 4) { passedSentences += 10 }
+  // if (progress <= 280 && progress % 7 >= 5) { passedSentences += 10 }
+  // if (progress > 280) { passedSentences += (Math.floor((progress - 280) / 7) * 30) + 800 }
+  // if (progress > 280 && progress % 7 >= 2) { passedSentences += 10 }
+  // if (progress > 280 && progress % 7 >= 3) { passedSentences += 10 }
+  // if (progress > 280 && progress % 7 >= 5) { passedSentences += 10 }
 
   const scrollPos = useRef(new Animated.Value(0)).current
   return (
     <ImageBackground source={require('../../img/bg/lessonBg.png')} style={s.background}>
       <View style={{ flex: 1 }}>
         <View style={{ flex: 8, justifyContent: 'center', alignItems: 'center' }}>
-          <View style={[s.progressContainer,]}>
-            {/* <View style={s.progress} >
-              <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Circle percent={(progress) / 3.5} progress={false} />
-              </View>
-              <View style={{ flex: 4, justifyContent: 'space-around', paddingLeft: 10 }}>
-                {(!learnedWords) ? <Text style={{ fontSize: 18, fontFamily: 'SFUIDisplay-Regular' }}>Progress mövcud deyil</Text> :
-                  <View>
-                    <Text style={{ fontSize: 17, fontFamily: 'SFUIDisplay-Regular', color: '#5e6c80' }}>{learnedWords} unikal söz</Text>
-                    <Text style={{ fontSize: 17, fontFamily: 'SFUIDisplay-Regular', color: '#5e6c80' }}>{theory} qrammatik tapşırıq</Text>
-                    <Text style={{ fontSize: 17, fontFamily: 'SFUIDisplay-Regular', color: '#5e6c80' }}>{passedSentences} unikal cümlə</Text>
-                  </View>}
-              </View> */}
-            {/* </View> */}
+          <View style={[s.progressContainer]}>
           </View>
           <View style={{ flex: 1.2 }}>
-            <Animated.FlatList style={{ height: interval, paddingLeft: width * .15 }} onScroll={Animated.event([{ nativeEvent: { contentOffset: { x: scrollPos } } }], { useNativeDriver: true })} horizontal data={levels} keyExtractor={item => item[0]} getItemLayout={(data, index) => ({ length: interval, offset: interval * index, index })} initialScrollIndex={Math.floor(progress / 7) > 149 ? 149 : Math.floor(progress / 7)} snapToInterval={interval} decelerationRate={.8} renderItem={({ item, index }) => {
+            <Animated.FlatList showsHorizontalScrollIndicator={false} style={{ height: interval, paddingLeft: width * .15 }} onScroll={Animated.event([{ nativeEvent: { contentOffset: { x: scrollPos } } }], { useNativeDriver: true })} horizontal data={levels} keyExtractor={item => item[0]} getItemLayout={(data, index) => ({ length: interval, offset: interval * index, index })} initialScrollIndex={Math.floor(progress / 7) > 149 ? 149 : Math.floor(progress / 7)} snapToInterval={interval} decelerationRate={.8} renderItem={({ item, index }) => {
               const scale = scrollPos.interpolate({
                 inputRange: [interval * (index - 1), interval * index, interval * (index + 1)],
-                outputRange: [0.8, 1, 0.8],
+                outputRange: [0.75, 1, 0.75],
                 extrapolate: 'clamp'
               })
               return (
                 <Animated.View style={[{ justifyContent: 'flex-start', width: interval }, index == 149 && {marginRight: width * .35}, { transform: [{ scale }] }
                 ]}>
-                  <TouchableOpacity activeOpacity={0.9} disabled={!index == 0 && index > progress / 7} style={s.touchble} onPress={() => navigation.navigate('Tasks', { num: num, index: index })}>
-                    <CircleItem radius={interval / 2} type='lessons' percent={progress > (index + 1) * 7 ? 100 : ((progress - 1) % 7) / 0.07} progress={!(!index == 0 && index > progress / 7)} subject={item[1]} index={item[0]} />
+                  <TouchableOpacity activeOpacity={0.9} disabled={!index == 0 && index > progress / 7} style={s.touchble} onPress={() => navigation.navigate('Tasks', { index: index, practice:item[2] })}>
+                    <CircleItem progress={!(!index == 0 && index > progress / 7)} subject={item[1]} index={item[0]} />
                   </TouchableOpacity>
-                </Animated.View>)
-            }} />
+                </Animated.View>
+                )}} />
           </View>
         </View>
       </View>
