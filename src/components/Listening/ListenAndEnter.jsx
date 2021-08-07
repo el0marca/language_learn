@@ -11,10 +11,10 @@ export const ListenAndEnter = ({ route, practice }) => {
     function setNumCount() {
         setNum(prev => prev + 1)
     }
-    const index = route.params.lessonIndex
-    const progressValue = practice && index * 7 + 7 || index * 7 + 5
+    const index = route.params.lessonIndex * 7
+    const progressValue = practice && index + 5 || index + 7
 
     return (
-        <ListenFrom route={route} sentences={sentences} num={num} setNumCount={setNumCount} type={'azEn'} progressValue={progressValue} erro/>
+        <ListenFrom route={route} sentences={sentences} num={num} setNumCount={setNumCount} type={'azEn'} progressValue={progressValue}/>
     )
 }

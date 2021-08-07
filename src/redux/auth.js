@@ -1,6 +1,5 @@
 let initialState = {
-    // isAuth,
-    user:null
+    user: null
 }
 
 const SET_USER = 'SET_USER';
@@ -13,10 +12,10 @@ const auth = (state = initialState, action) => {
     switch (action.type) {
         case SET_USER:
             return {
-                ...state, user:action.value
+                ...state, user: action.value
             }
-        default:
-            return state
+            default:
+                return state
     }
 }
 

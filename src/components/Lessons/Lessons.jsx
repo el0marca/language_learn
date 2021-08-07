@@ -1,5 +1,5 @@
-import React, { useCallback, useRef, useState } from 'react'
-import { TouchableOpacity, Text, View, StyleSheet, Dimensions, ImageBackground, Animated } from 'react-native'
+import React, { useRef, } from 'react'
+import { TouchableOpacity, View, StyleSheet, Dimensions, ImageBackground, Animated } from 'react-native'
 import { useSelector } from 'react-redux'
 import { useNavigation } from '@react-navigation/native'
 import { CircleItem } from './CircleItem'
@@ -7,31 +7,12 @@ import { CircleItem } from './CircleItem'
 const { width } = Dimensions.get('window');
 let interval = width * 0.7
 
-export const Lessons = () => {
+export default function Lessons() {
   const navigation = useNavigation()
   const levels = useSelector(state => state.levelsList.levels[0])
   const progress = useSelector(state => state.progress[0] - 1)
-  
-  // const [num, setNum] = useState(0)
-  // let learnedWords = 0
-  // let theory = 0
-  // let passedSentences = 0
-  // if (progress < 280) { learnedWords += (Math.floor(progress / 7) * 17) }
-  // if (progress <= 280 && progress % 7 >= 2) { learnedWords += 10 }
-  // if (progress > 280) { learnedWords += (Math.floor((progress - 280) / 7) * 7) + 560 }
-  // if (progress < 280 && progress % 7 >= 1) { learnedWords += 7 }
-  // if (progress < 280) { theory += (Math.floor(progress / 7)) * 10 }
-  // else { theory = 400 }
-  // if (progress < 280 && progress % 7 >= 3) { theory += 10 }
-  // if (progress < 280) { passedSentences += (Math.floor(progress / 7) * 20) }
-  // if (progress <= 280 && progress % 7 >= 4) { passedSentences += 10 }
-  // if (progress <= 280 && progress % 7 >= 5) { passedSentences += 10 }
-  // if (progress > 280) { passedSentences += (Math.floor((progress - 280) / 7) * 30) + 800 }
-  // if (progress > 280 && progress % 7 >= 2) { passedSentences += 10 }
-  // if (progress > 280 && progress % 7 >= 3) { passedSentences += 10 }
-  // if (progress > 280 && progress % 7 >= 5) { passedSentences += 10 }
-
   const scrollPos = useRef(new Animated.Value(0)).current
+
   return (
     <ImageBackground source={require('../../img/bg/lessonBg.png')} style={s.background}>
       <View style={{ flex: 1 }}>
@@ -46,13 +27,14 @@ export const Lessons = () => {
                 extrapolate: 'clamp'
               })
               return (
-                <Animated.View style={[{ justifyContent: 'flex-start', width: interval }, index == 149 && {marginRight: width * .35}, { transform: [{ scale }] }
+                <Animated.View style={[{ justifyContent: 'flex-start', width: interval }, index == 149 && { marginRight: width * .35 }, { transform: [{ scale }] }
                 ]}>
-                  <TouchableOpacity activeOpacity={0.9} disabled={!index == 0 && index > progress / 7} style={s.touchble} onPress={() => navigation.navigate('Tasks', { index: index, practice:item[2] })}>
+                  <TouchableOpacity activeOpacity={0.9} disabled={!index == 0 && index > progress / 7} style={s.touchble} onPress={() => navigation.navigate('Tasks', { index: index, practice: item[2] })}>
                     <CircleItem progress={!(!index == 0 && index > progress / 7)} subject={item[1]} index={item[0]} />
                   </TouchableOpacity>
                 </Animated.View>
-                )}} />
+              )
+            }} />
           </View>
         </View>
       </View>

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { useEffect, useState } from 'react'
-import { View, Text, TouchableOpacity, StyleSheet, Animated, ImageBackground, Image } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, Animated, ImageBackground, Image, Modal, Dimensions, Alert } from 'react-native'
 import SoundPlayer from 'react-native-sound-player'
 import storage from '@react-native-firebase/storage'
 import { shuffle } from '../../utils/shuffle'
@@ -11,13 +11,17 @@ import { Output } from '../Common/Output'
 import { setBottomTabVisible } from '../../redux/bottomTab'
 import { Award } from '../Common/Award'
 import { useNavigation } from '@react-navigation/core'
+import database from '@react-native-firebase/database'
+
+const { width } = Dimensions.get('window')
 
 export function Theory({ route }) {
     const user = useSelector(state => state.auth.user)
     const progress = useSelector(state => state.progress[0])
     const dispatch = useDispatch()
     const [num, setNum] = useState(0)
-    const lesson = useSelector(state => state.theory.lessons[route.params.lessonIndex][num])
+    const lessonIndex = route.params.lessonIndex
+    const lesson = useSelector(state => state.theory.lessons[lessonIndex][num])
     const [wordNumber, setWordNumber] = useState(0)
     const [sentence, setSentence] = useState(lesson.sntc)
     const [transSentence, setTransSentence] = useState(lesson.tr)
@@ -27,6 +31,26 @@ export function Theory({ route }) {
     const [result, setResult] = useState(false)
     const [keyArray, setKeyArray] = useState([])
     const [outputArr, setOutputArr] = useState([])
+
+    function report() {
+        database()
+            .ref(`/theory/${lesson.id}`)
+            .update({
+                mistake: true
+            })
+            .then(() => console.log('success'))
+    }
+    function alert() {
+        Alert.alert("", "Səhv haqqında bildirmək istəyirsiniz?",
+            [
+                {
+                    text: "XEYİR",
+                    onPress: () => console.log("Cancel Pressed"),
+                },
+                { text: "BƏLİ", onPress: () => (report()) }
+            ]
+        )
+    }
 
     async function loadAudio() {
         try {
@@ -79,9 +103,9 @@ export function Theory({ route }) {
     useEffect(() => { setOriginSentence([...transSentence.split(' ')]) }, [transSentence])
 
     const progressValue = route.params.lessonIndex * 7 + 4
-    
+
     useEffect(() => {
-        if (isReady && progressValue > progress) dispatch(updateProgress( progressValue, user))
+        if (isReady && progressValue > progress) dispatch(updateProgress(progressValue, user))
     }, [isReady])
 
     const descrAnim = useRef(new Animated.Value(0)).current;
@@ -123,48 +147,69 @@ export function Theory({ route }) {
     const pronoun = useSelector(s => s.words.pronoun)
     const adjectives = useSelector(s => s.words.adjectives)
     const navigation = useNavigation()
+    const [modalVisible, setModalVisible] = useState(false)
+
+    const changeModalVisibleMode = () => { setModalVisible(true) }
+
+    const table = lessonIndex < 22 && require('../../img/tables/tenses.png') || require('../../img/tables/tenses.png')
     return (
         <ImageBackground source={require('../../img/bg/tasksBg.jpg')} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
+            <Modal
+                animationType="fade"
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => { setModalVisible(!modalVisible) }}>
+                <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.5)' }} >
+                    <Image style={{ width: width * 0.97, resizeMode: 'contain', flex: 7 }} source={table} />
+                    <TouchableOpacity style={{ marginTop: 30, flex: 1 }} onPress={() => setModalVisible(false)}>
+                        <Text style={{ fontSize: 18, backgroundColor: '#fff', paddingHorizontal: 15, paddingVertical: 10, borderRadius: 15, }}>bağlamaq</Text>
+                    </TouchableOpacity>
+                </View>
+            </Modal>
             <View style={s.progressBar}>
-                <ProgressBar count={num} numOfTasks={10} learnMode={true} />
+                <ProgressBar count={num} numOfTasks={10} learnMode={false} theory={true} changeModalVisibleMode={changeModalVisibleMode} />
             </View>
             <View style={s.wrapper}>
                 <Animated.View style={[s.explainContainer, { opacity: descrAnim }]}>
                     <View style={{ alignItems: 'center' }} >
-                        {lesson.descr ? <Text style={s.explainDescr}>{lesson.descr}</Text> : null}
-                        <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>{lesson.expl.split(' ').map((w, i) => <Text key={i} style={[s.explainExample, verbs.some(e => e == w.replace('?', '')) ? s.verb : adverb.some(e => e == w.replace('?', '')) ? s.adverb : pronoun.some(e => e == w.replace('?', '')) ? s.pronoun : symbols.some(e => e == w.replace('?', '')) ? s.symbols : demPronouns.some(e => e == w.replace('?', '')) ? s.demPronouns : pPronouns.some(e => e == w.replace('?', '')) ? s.pPronouns : article.some(e => e == w.replace('?', '')) ? s.article : qWords.some(e => e == w.replace('?', '')) ? s.qWords : adjectives.some(e => e == w.replace('?', '')) ? s.adjectives : null]}>{w}</Text>)}</View>
+                        {lesson.descr && <Text style={s.explainDescr}>{lesson.descr}</Text>}
+                        <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+                            {lesson.expl.split(' ').map((w, i) => <Text key={i} style={[s.explainExample, verbs.some(e => e == w) ? s.verb : adverb.some(e => e == w) ? s.adverb : pronoun.some(e => e == w) ? s.pronoun : demPronouns.some(e => e == w) ? s.demPronouns : pPronouns.some(e => e == w) ? s.pPronouns : article.some(e => e == w) ? s.article : qWords.some(e => e == w) ? s.qWords : adjectives.some(e => e == w) ? s.adjectives :symbols.some(e=>e==w)?s.symbols: null]}>{w}</Text>)}
+                        </View>
                     </View>
                 </Animated.View>
                 <Animated.View style={[s.originContainer, { opacity: taskAnim }]}>
-                    <Award />
+                    <TouchableOpacity onPress={alert}>
+                        <Award />
+                    </TouchableOpacity>
                     <Text style={s.originHeader}>Cümləni topla</Text>
                     <Output value={sentence} />
                 </Animated.View>
                 <Animated.View style={[s.answerContainer, { opacity: outputAnim }]}>
                     <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
                         {outputArr.map((w, i) =>
-                            <Text key={i} style={[s.choice, pronoun.some(e => e == w.replace('?', '')) ? s.pronoun : null, adverb.some(e => e == w.replace('?', '')) ? s.adverb : null, verbs.some(e => e == w.replace('?', '')) ? s.verb : demPronouns.some(e => e == w.replace('?', '')) ? s.demPronouns : pPronouns.some(e => e == w.replace('?', '')) ? s.pPronouns : article.some(e => e == w.replace('?', '')) ? s.article : qWords.some(e => e == w.replace('?', '')) ? s.qWords : adjectives.some(e => e == w.replace('?', '')) ? s.adjectives : symbols.some(e => e == w.replace('?', '')) ? s.symbols : null]}>{w}
+                            <Text key={i} style={[s.choice, pronoun.some(e => e == w.replace('?', '')) ? s.pronoun : null, adverb.some(e => e == w.replace('?', '')) ? s.adverb : null, verbs.some(e => e == w.replace('?', '')) ? s.verb : demPronouns.some(e => e == w.replace('?', '')) ? s.demPronouns : pPronouns.some(e => e == w.replace('?', '')) ? s.pPronouns : article.some(e => e == w.replace('?', '')) ? s.article : qWords.some(e => e == w.replace('?', '')) ? s.qWords : adjectives.some(e => e == w.replace('?', '')) ? s.adjectives : null]}>{w}
                             </Text>
                         )}
                     </View>
                 </Animated.View>
                 <Animated.View style={[s.choiceContainer, { opacity: outputAnim }]}>
-                    <View style={{ flexDirection: 'row', flexWrap: 'wrap', flex: 2 }}>
+                    <View style={{ flexDirection: 'row', flexWrap: 'wrap', flex: 1 }}>
                         {choice.map((w, i) =>
                             <TouchableOpacity style={{ flexDirection: 'row', flexWrap: 'wrap' }} key={i} onPress={() => answer(w, i)} disabled={result || keyArray.some(id => id == i)}>
-                                <Text style={[s.choice, pronoun.some(e => e == w.replace('?', '')) ? s.pronoun : null, adverb.some(e => e == w.replace('?', '')) ? s.adverb : null, verbs.some(e => e == w.replace('?', '')) ? s.verb : demPronouns.some(e => e == w.replace('?', '')) ? s.demPronouns : pPronouns.some(e => e == w.replace('?', '')) ? s.pPronouns : article.some(e => e == w.replace('?', '')) ? s.article : qWords.some(e => e == w.replace('?', '')) ? s.qWords : adjectives.some(e => e == w.replace('?', '')) ? s.adjectives : symbols.some(e => e == w.replace('?', '')) ? s.symbols : null, keyArray.some(id => id == i) ? s.chosen : null]}>{w}</Text>
+                                <Text style={[s.choice, pronoun.some(e => e == w.replace('?', '')) ? s.pronoun : null, adverb.some(e => e == w.replace('?', '')) ? s.adverb : null, verbs.some(e => e == w.replace('?', '')) ? s.verb : demPronouns.some(e => e == w.replace('?', '')) ? s.demPronouns : pPronouns.some(e => e == w.replace('?', '')) ? s.pPronouns : article.some(e => e == w.replace('?', '')) ? s.article : qWords.some(e => e == w.replace('?', '')) ? s.qWords : adjectives.some(e => e == w.replace('?', '')) ? s.adjectives : null, keyArray.some(id => id == i) ? s.chosen : null]}>{w}</Text>
                             </TouchableOpacity>)}
                     </View>
-                    <Animated.View style={{ width: '100%', opacity: buttonAnim, position: 'absolute', bottom: 30 }}>
+                    {result && <Animated.View style={{ width: '100%', opacity: buttonAnim, position: 'absolute', bottom: 30 }}>
                         <TouchableOpacity disabled={!result} onPress={!isReady ? next : isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>
-                            <Text style={{ color: '#fff', fontSize: 25, backgroundColor: '#0881FF', padding: 10, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold', marginHorizontal: 20 }}>
+                            <Text style={{ color: '#fff', fontSize: 25, backgroundColor: '#1AB248', padding: 10, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold', marginHorizontal: 20 }}>
                                 {!isReady ? 'növbəti' : isReady ? 'dərslər' : null}
                             </Text>
                             <TouchableOpacity disabled={!result} onPress={play} style={{ position: 'absolute', transform: [{ translateY: 10 }], right: 30 }} >
                                 <Image style={{ width: 30, height: 30 }} source={require('../../img/speakerW.png')} />
                             </TouchableOpacity>
                         </TouchableOpacity>
-                    </Animated.View>
+                    </Animated.View>}
                 </Animated.View>
             </View>
         </ImageBackground>
@@ -245,16 +290,12 @@ const s = StyleSheet.create({
         backgroundColor: '#667D9C',
         color: 'rgba(0,0,0,0)'
     },
-    symbols: {
-        backgroundColor: '#E2BD01',
-        color: '#fff',
-    },
     pronoun: {
-        backgroundColor: '#F54000',
-        color: '#fff'
+        backgroundColor: '#FFFF00',
+        color: '#000'
     },
     adverb: {
-        backgroundColor: '#328FDE',
+        backgroundColor: '#044FDE',
         color: '#fff'
     },
     verb: {
@@ -262,7 +303,7 @@ const s = StyleSheet.create({
         color: '#fff'
     },
     demPronouns: {
-        backgroundColor: '#FF43f5',
+        backgroundColor: '#108B93',
         color: '#fff'
     },
     pPronouns: {
@@ -270,19 +311,19 @@ const s = StyleSheet.create({
         color: '#fff'
     },
     article: {
-        backgroundColor: '#9AED5E',
+        backgroundColor: '#328FDE',
         color: '#fff'
     },
     qWords: {
-        backgroundColor: '#108B93',
+        backgroundColor: '#2196F3',
         color: '#fff'
     },
     adjectives: {
         backgroundColor: '#E21152',
         color: '#fff'
     },
-    negative: {
-        backgroundColor: '#ED0000',
+    symbols:{
+        backgroundColor: '#E000EB',
         color: '#fff'
-    },
+    }
 })

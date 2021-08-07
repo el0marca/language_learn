@@ -3,7 +3,7 @@ import { View, Animated, Image, Text, ImageBackground, TouchableOpacity } from '
 import * as Progress from 'react-native-progress';
 import { Exit } from './Exit';
 
-export function ProgressBar({ count, numOfTasks, learnMode, mistakesBalance }) {
+export function ProgressBar({ count, numOfTasks, learnMode, mistakesBalance, theory, changeModalVisibleMode }) {
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
   const fadeIn = () => {
@@ -29,8 +29,8 @@ export function ProgressBar({ count, numOfTasks, learnMode, mistakesBalance }) {
         {show?<Text style={{ color: '#fff', position: 'absolute', backgroundColor: '#0881FF', padding: 10, fontFamily: 'SFUIDisplay-Regular', borderRadius: 20, fontSize: 15 }}>Növbəti tapsırıqı açmaq üçün 2 səhvdən artıq etməmək zəruridir</Text>:null}
       </View>
       {!learnMode ? 
-      <TouchableOpacity activeOpacity={0.5} onPress={showTask}>
-        <ImageBackground style={{ width: '10%', width: 35, height: 35, justifyContent: 'center', alignItems: 'center' }} source={mistakesBalance >= 0 ? require('../../img/heart.png') : require('../../img/heartBroken.png')} >
+      <TouchableOpacity activeOpacity={0.5} onPress={theory?changeModalVisibleMode:showTask}>
+        <ImageBackground style={{ width: '10%', width: theory&&30||35, height: theory&&30||35, justifyContent: 'center', alignItems: 'center' }} source={theory?require('../../img/table.png'): mistakesBalance >= 0 ? require('../../img/heart.png') : require('../../img/heartBroken.png')} >
         {mistakesBalance >= 0 ? <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold', marginBottom: 4 }}>{mistakesBalance}</Text> : null}
         </ImageBackground>
       </TouchableOpacity>

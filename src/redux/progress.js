@@ -26,12 +26,6 @@ export const downloadProgress = () => {
                 dispatch(setBeginnerProgress(beginner))
             } else {
                 try {
-                    // const beginner=['beginner', JSON.stringify(1)]
-                    // const elementary=['elementary', JSON.stringify(1)]
-                    // const preIntermediate=['preIntermediate', JSON.stringify(1)]
-                    // const intermediate=['intermediate', JSON.stringify(1)]
-                    // const upperIntermediate=['upperIntermediate', JSON.stringify(1)]
-
                     await AsyncStorage.setItem('beginner', JSON.stringify(1))
                     console.log('success')
                 } catch (e) {

@@ -6,7 +6,7 @@ import { TranslateFromEn } from '../components/TranslateFromLMode/TranslateFromE
 import { LearnWords } from '../components/LearnWords/LearnWords'
 import { Theory } from '../components/Theory/Theory'
 import { Levels } from '../components/Levels/Levels'
-import { Lessons } from '../components/Lessons/Lessons'
+import Lessons from '../components/Lessons/Lessons'
 import { ListenAndEnter } from '../components/Listening/ListenAndEnter'
 import { ListenAndTranslate } from '../components/Listening/ListenAndTranslate'
 import { MatchWordsEnAz } from '../components/MatchWords/MatchWordsEnAz'

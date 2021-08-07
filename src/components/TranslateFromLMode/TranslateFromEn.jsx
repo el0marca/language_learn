@@ -7,8 +7,8 @@ export const TranslateFromEn = ({ route, practice }) => {
     const [num, setNum] = useState(0)
     const sentences = useSelector(state => state.enAzSentences.sentences[route.params.lessonIndex][num])
 
-    const index = route.params.lessonIndex
-    const progressValue = practice && index * 7 + 5 || index * 7 + 3
+    const index = route.params.lessonIndex * 7
+    const progressValue = practice && index + 3 || index + 5
     function setNumCount() {
         setNum(prev => prev + 1)
     }

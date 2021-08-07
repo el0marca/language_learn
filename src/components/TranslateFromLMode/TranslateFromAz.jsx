@@ -9,8 +9,8 @@ export const TranslateFromAz = ({ route, practice }) => {
     function setNumCount() {
         setNum(prev => prev + 1)
     }
-    const index = route.params.lessonIndex
-    const progressValue = practice && index * 7 + 6 || index * 7 + 4
+    const index = route.params.lessonIndex * 7
+    const progressValue = practice && index + 4 || index + 6
 
     return (
         <TranslateFrom route={route} sentences={sentences} num={num} setNumCount={setNumCount} type={'azEn'} progressValue={progressValue} />

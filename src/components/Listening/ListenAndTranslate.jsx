@@ -14,6 +14,6 @@ export const ListenAndTranslate = ({ route }) => {
     const progressValue = route.params.lessonIndex * 7 + 8
 
     return (
-        <ListenFrom route={route} sentences={sentences} num={num} setNumCount={setNumCount} type={'enAz'} progressValue={progressValue} lessonIndex={route.params.lessonIndex} />
+        <ListenFrom route={route} sentences={sentences} num={num} setNumCount={setNumCount} type={'enAz'} progressValue={progressValue}/>
     )
 }

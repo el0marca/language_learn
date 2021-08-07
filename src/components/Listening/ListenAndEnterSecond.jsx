@@ -1,8 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { Text } from 'react-native'
 import { useSelector } from 'react-redux'
-// import { useEffect } from 'react/cjs/react.development'
 import { ListenFrom } from './ListenFrom'
 
 export const ListenAndEnterSecond = ({ route }) => {

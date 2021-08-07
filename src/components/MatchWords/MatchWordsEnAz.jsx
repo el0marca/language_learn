@@ -40,7 +40,7 @@ export const MatchWordsEnAz = ({ route, practice }) => {
 
     useEffect(() => { if (output.length === wordList.length) { setIsReady(true) } }, [output])
     const index = route.params.lessonIndex
-    const progressValue = practice && index * 7 + 3 || index * 7 + 2
+    const progressValue = practice && index * 7 + 2 || index * 7 + 3
 
     useEffect(() => {
         if (isReady && page === 1 && progressValue > progress) dispatch(updateProgress(progressValue, user))

@@ -18,7 +18,7 @@ export const SettingScreen = ({ navigation, route }) => {
       {/* <Button title='remooveValue' onPress={() => removeFew()} /> */}
       {/* <Button title='setCommonProgress' onPress={() => dispatch(downloadProgress())} /> */}
       <Button title='resetProgress' onPress={() => dispatch(updateBeginnerProgress(1))} />
-      <Button title='setProgress' onPress={() => dispatch(updateBeginnerProgress(564))} />
+      <Button title='setProgress' onPress={() => dispatch(updateBeginnerProgress(640))} />
       {/* <Button title='setelementary' onPress={() => dispatch(updateElementaryProgress(22))} />
       <Button title='setpreintermediate' onPress={() => dispatch(updatePreIntermediateProgress(1))} />
       <Button title='setintermediate' onPress={() => dispatch(updateIntermediateProgress(1))} />
