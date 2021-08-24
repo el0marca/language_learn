@@ -20,14 +20,14 @@ export const TranslateFrom = ({ sentences, setNumCount, num, type, progressValue
     const [output, setOutput] = useState('')
     const [sentence, setSentence] = useState(sentences.sntc)
     const [transSentence, setTransSentence] = useState(sentences.tr)
+    const [transSentenceTwo, setTransSentenceTwo] = useState(sentences.trt)
     const [choice, setChoice] = useState(shuffle([...sentences.ch.split(' ')]))
     const [result, setResult] = useState(false)
     const [isReady, setReady] = useState(false)
     const [mistakes, setMistakes] = useState(12)
-    const [keyArray,setKeyArray] = useState([])
+    const [keyArray, setKeyArray] = useState([])
     const [answered, setAnswered] = useState(false)
-    const errorData=type+' '+sentences.id
-    
+    const errorData = type + ' ' + sentences.id
     async function loadAudio() {
         try {
             SoundPlayer.stop()
@@ -62,7 +62,7 @@ export const TranslateFrom = ({ sentences, setNumCount, num, type, progressValue
     }
     function answer(word, id) {
         setOutput((prev) => (prev + ' ' + word).trim())
-        setKeyArray(prev=>[...prev, id])
+        setKeyArray(prev => [...prev, id])
     }
     const speakerAnim = useRef(new Animated.Value(0)).current
     const taskAnim = useRef(new Animated.Value(0)).current
@@ -76,13 +76,17 @@ export const TranslateFrom = ({ sentences, setNumCount, num, type, progressValue
             useNativeDriver: true
         }).start()
     }
-    useEffect(() => { setSentence(sentences.sntc), setTransSentence(sentences.tr), loadAudio() }, [num])
+    useEffect(() => {
+        setSentence(sentences.sntc),
+        setTransSentence(sentences.tr),
+        setTransSentenceTwo(sentences.trt),
+        loadAudio()
+    }, [num])
     useEffect(() => setChoice(shuffle(sentences.ch.split(' '))), [sentence])
     useEffect(() => {
         if (result) {
             setTimeout(() => {
                 fade(speakerAnim, 1, 500);
-                // play()
                 setTimeout(() => {
                     fade(buttonAnim, 1, 500);
                 }, 1000);
@@ -91,14 +95,15 @@ export const TranslateFrom = ({ sentences, setNumCount, num, type, progressValue
     }, [result])
 
     function check() {
-        setResult(transSentence == output)
-        if (!(transSentence == output)) { setMistakes(prev => prev - 1) }
+        if(transSentence == output||transSentenceTwo==output){setResult(true)}
+        else setResult(false)
+        if (!(transSentence == output||transSentenceTwo==output)) { setMistakes(prev => prev - 1) }
         setAnswered(true)
         if (num === 9) { setReady(true) }
     }
 
     useEffect(() => {
-        if (isReady && mistakes >= 0 && progressValue > progress) dispatch(updateProgress( progressValue, user))
+        if (isReady && mistakes >= 0 && progressValue > progress) dispatch(updateProgress(progressValue, user))
     }, [isReady])
 
     useEffect(() => {
@@ -131,9 +136,9 @@ export const TranslateFrom = ({ sentences, setNumCount, num, type, progressValue
                 <Animated.View style={[s.outputWrapper, { opacity: taskAnim }]}>
                     <TouchableOpacity disabled={answered} activeOpacity={0.5} onPress={remove}>
                         <View style={s.output}>
-                            {output.length>0?output.split(' ').map((w, i) =>
+                            {output.length > 0 ? output.split(' ').map((w, i) =>
                                 <Text key={i} style={[s.choice, answered && result ? { backgroundColor: '#4ba83e', color: '#fff' } : answered && transSentence.split(' ')[i] != w ? { backgroundColor: '#DB504B', color: '#fff' } : null]}>{w}</Text>
-                            ):null}
+                            ) : null}
                         </View>
                     </TouchableOpacity>
                 </Animated.View>
@@ -147,7 +152,7 @@ export const TranslateFrom = ({ sentences, setNumCount, num, type, progressValue
                     {answered ? <ResultModal result={result} sentence={sentence} transSentence={transSentence} errorData={errorData} /> : null}
                     <View style={{ width: '100%', justifyContent: 'flex-end' }}>
                         <TouchableOpacity disabled={!answered && output.length == 0} onPress={!answered ? () => { play(), check() } : answered && !isReady ? next : answered && isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>
-                            <Text style={[{ color: '#fff', fontSize: 25, backgroundColor: answered && !isReady&&'#1AB248'||'#0881FF', padding: 10, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold', marginHorizontal: 20, }, output.length == 0 ? { backgroundColor: '#7B97BC' } : null]}>
+                            <Text style={[{ color: '#fff', fontSize: 25, backgroundColor: answered && !isReady && '#1AB248' || '#0881FF', padding: 10, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold', marginHorizontal: 20, }, output.length == 0 ? { backgroundColor: '#7B97BC' } : null]}>
                                 {!answered ? 'yoxlamaq' : answered && !isReady ? 'növbəti' : answered && isReady ? 'dərslər' : null}
                             </Text>
                             {answered ? <TouchableOpacity disabled={!answered} onPress={play} style={{ position: 'absolute', transform: [{ translateY: 10 }], right: 30 }} >

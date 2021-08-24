@@ -39,12 +39,12 @@ export const Tasks = ({ route }) => {
                     </View> : null}
                     {!practice ? <Text style={{ textAlign: 'center', marginVertical: 20, fontSize: 22, fontFamily: 'SFUIDisplay-Bold', color: '#fff' }}>Özünü yoxla</Text> : null}
                     <View>
-                        <Task practice={practice} routeName={'TranslateFromEn'} header={'İngilis dilindən azərbaycan dilinə tərcümə'}
+                        <Task practice={practice} routeName={'TranslateFromEn'} header={'İngilis dilindən Azərbaycan dilinə tərcümə'}
                             setDisable={!practice ? progress < numForProgress + 4 : progress < numForProgress + 2} setSuccess={!practice ? progress < numForProgress + 5 : progress < numForProgress + 3}
                             lessonIndex={index} />
                     </View>
                     <View >
-                        <Task practice={practice} routeName={'TranslateFromAz'} header={!practice ? 'Azərbaycan dilindən ingilis dilinə tərcümə' : 'Azərbaycan dilindən İngilis dilinə tərcümə 1/2'} setDisable={!practice ? progress < numForProgress + 5 : progress < numForProgress + 3} setSuccess={!practice? progress < numForProgress + 6 : progress < numForProgress + 4}
+                        <Task practice={practice} routeName={'TranslateFromAz'} header={!practice ? 'Azərbaycan dilindən İngilis dilinə tərcümə' : 'Azərbaycan dilindən İngilis dilinə tərcümə 1/2'} setDisable={!practice ? progress < numForProgress + 5 : progress < numForProgress + 3} setSuccess={!practice? progress < numForProgress + 6 : progress < numForProgress + 4}
                             lessonIndex={index} />
                     </View>
                     <View >

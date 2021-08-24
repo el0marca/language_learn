@@ -13,7 +13,7 @@ export const Task = ({ routeName, setDisable, lessonIndex, setSuccess, header })
        <View style={{ borderWidth:5, borderColor:setDisable&&'#ffe3e0'||!setSuccess&&'#ccfff6'||setSuccess &&'#F7F9FA', borderStyle:'solid', borderRadius:999, justifyContent:'center', alignItems:'center', padding:2 }}>{setDisable && locked || !setSuccess && ready || setSuccess && studying }</View>
         <Text style={s.descr}>{header}</Text>
         <View style={{ paddingRight: 15 }}>
-          <View style={{borderWidth:4,borderStyle:'solid', borderRadius:999, justifyContent:'center', alignItems:'center', padding:2, borderColor:'#ccfff6'}}><Image style={{ height: 30, width: 30 }} source={require('../../img/next5.png')} /></View>
+          <View style={{borderWidth:4,borderStyle:'dotted', borderRadius:999, justifyContent:'center', alignItems:'center', padding:2, borderColor:'#ccfff6'}}><Image style={{ height: 30, width: 30 }} source={require('../../img/next5.png')} /></View>
         </View>
       </TouchableOpacity>
     </View>
@@ -27,10 +27,10 @@ const s = StyleSheet.create({
     backgroundColor: '#fff',
     height: 90,
     flexDirection: 'row',
-    paddingLeft: 15,
-    marginHorizontal: 20,
-    borderRadius: 30,
-    marginBottom: 2,
+    paddingLeft: 13,
+    marginHorizontal: 25,
+    borderRadius: 20,
+    marginBottom: 0.5,
   },
   touchble: {
     flex: 1,

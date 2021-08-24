@@ -99,8 +99,10 @@ export function Theory({ route }) {
             loadAudio()
     }, [num])
 
-    useEffect(() => setChoice(shuffle(transSentence.split(' '))), [sentence])
-    useEffect(() => { setOriginSentence([...transSentence.split(' ')]) }, [transSentence])
+    useEffect(() => {
+        setOriginSentence([...transSentence.split(' ')]),
+        setChoice(shuffle(transSentence.split(' ')))
+    }, [transSentence])
 
     const progressValue = route.params.lessonIndex * 7 + 4
 
@@ -137,7 +139,6 @@ export function Theory({ route }) {
         } else { fade(buttonAnim, 0, 500) }
     }, [result])
 
-    const symbols = useSelector(s => s.words.symbols)
     const adverb = useSelector(s => s.words.adverb)
     const verbs = useSelector(s => s.words.verbs)
     const demPronouns = useSelector(s => s.words.demPronouns)
@@ -174,7 +175,7 @@ export function Theory({ route }) {
                     <View style={{ alignItems: 'center' }} >
                         {lesson.descr && <Text style={s.explainDescr}>{lesson.descr}</Text>}
                         <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-                            {lesson.expl.split(' ').map((w, i) => <Text key={i} style={[s.explainExample, verbs.some(e => e == w) ? s.verb : adverb.some(e => e == w) ? s.adverb : pronoun.some(e => e == w) ? s.pronoun : demPronouns.some(e => e == w) ? s.demPronouns : pPronouns.some(e => e == w) ? s.pPronouns : article.some(e => e == w) ? s.article : qWords.some(e => e == w) ? s.qWords : adjectives.some(e => e == w) ? s.adjectives :symbols.some(e=>e==w)?s.symbols: null]}>{w}</Text>)}
+                            {lesson.expl.split(' ').map((w, i) => <Text key={i} style={[s.explainExample, verbs.some(e => e == w) ? s.verb : adverb.some(e => e == w) ? s.adverb : pronoun.some(e => e == w) ? s.pronoun : demPronouns.some(e => e == w) ? s.demPronouns : pPronouns.some(e => e == w) ? s.pPronouns : article.some(e => e == w) ? s.article : qWords.some(e => e == w) ? s.qWords : adjectives.some(e => e == w) ? s.adjectives : null]}>{w}</Text>)}
                         </View>
                     </View>
                 </Animated.View>
@@ -200,8 +201,8 @@ export function Theory({ route }) {
                                 <Text style={[s.choice, pronoun.some(e => e == w.replace('?', '')) ? s.pronoun : null, adverb.some(e => e == w.replace('?', '')) ? s.adverb : null, verbs.some(e => e == w.replace('?', '')) ? s.verb : demPronouns.some(e => e == w.replace('?', '')) ? s.demPronouns : pPronouns.some(e => e == w.replace('?', '')) ? s.pPronouns : article.some(e => e == w.replace('?', '')) ? s.article : qWords.some(e => e == w.replace('?', '')) ? s.qWords : adjectives.some(e => e == w.replace('?', '')) ? s.adjectives : null, keyArray.some(id => id == i) ? s.chosen : null]}>{w}</Text>
                             </TouchableOpacity>)}
                     </View>
-                    {result && <Animated.View style={{ width: '100%', opacity: buttonAnim, position: 'absolute', bottom: 30 }}>
-                        <TouchableOpacity disabled={!result} onPress={!isReady ? next : isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>
+                    {!result && <Animated.View style={{ width: '100%', opacity: 1, position: 'absolute', bottom: 30 }}>
+                        <TouchableOpacity disabled={result} onPress={!isReady ? next : isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>
                             <Text style={{ color: '#fff', fontSize: 25, backgroundColor: '#1AB248', padding: 10, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold', marginHorizontal: 20 }}>
                                 {!isReady ? 'növbəti' : isReady ? 'dərslər' : null}
                             </Text>
@@ -315,15 +316,14 @@ const s = StyleSheet.create({
         color: '#fff'
     },
     qWords: {
-        backgroundColor: '#2196F3',
+        backgroundColor: '#FF8209',
         color: '#fff'
     },
     adjectives: {
         backgroundColor: '#E21152',
         color: '#fff'
     },
-    symbols:{
-        backgroundColor: '#E000EB',
-        color: '#fff'
+    symbols: {
+        color: '#000'
     }
 })
