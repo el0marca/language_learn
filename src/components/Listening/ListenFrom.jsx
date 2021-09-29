@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { useEffect, useState } from 'react'
-import { View, Text, TouchableOpacity, StyleSheet, Animated, ImageBackground, Image } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, Animated, ImageBackground } from 'react-native'
 import SoundPlayer from 'react-native-sound-player'
 import storage from '@react-native-firebase/storage'
 import { shuffle } from '../../utils/shuffle'
@@ -12,13 +12,16 @@ import { useNavigation } from '@react-navigation/core'
 import { Speaker } from '../Common/Speaker'
 import { ResultModal } from '../Common/ResultModal'
 
-export const ListenFrom = ({ sentences, setNumCount, num, type, progressValue }) => {
+export const ListenFrom = ({ sentences, setNumCount, num, type, progressValue, route }) => {
+    const voice = useSelector(state=>state.voice.value)
+    const navigation = useNavigation()
     const dispatch = useDispatch()
     const user = useSelector(state => state.auth.user)
     const progress = useSelector(state => state.progress[0])
     const [output, setOutput] = useState('')
     const [sentence, setSentence] = useState(sentences.sntc)
     const [transSentence, setTransSentence] = useState(sentences.tr)
+    const [transSentenceTwo, setTransSentenceTwo] = useState(sentences.trt)
     const [choice, setChoice] = useState(shuffle([...sentences.ch.split(' ')]))
     const [result, setResult] = useState(false)
     const [isReady, setReady] = useState(false)
@@ -31,7 +34,7 @@ export const ListenFrom = ({ sentences, setNumCount, num, type, progressValue })
         try {
             SoundPlayer.stop()
             let url = await storage()
-                .ref(`${type}/${sentences.id}.ogg`)
+                .ref(`${voice}/${type}/${sentences.id}.ogg`)
                 .getDownloadURL()
             SoundPlayer.loadUrl(url)
         }
@@ -71,7 +74,12 @@ export const ListenFrom = ({ sentences, setNumCount, num, type, progressValue })
         if (num < 9) { setNumCount() }
     }
 
-    useEffect(() => { setSentence(sentences.sntc), setTransSentence(sentences.tr), loadAudio() }, [sentences])
+    useEffect(() => {
+        setSentence(sentences.sntc),
+        setTransSentence(sentences.tr),
+        setTransSentenceTwo(sentences.trt),
+        loadAudio()
+    }, [num])
 
     function answer(word, id) {
         setOutput((prev) => (prev + ' ' + word).trim())
@@ -90,17 +98,15 @@ export const ListenFrom = ({ sentences, setNumCount, num, type, progressValue })
     useEffect(() => setChoice(shuffle(sentences.ch.split(' '))), [sentence])
 
     function check() {
-        setResult(transSentence == output)
-        if (!(transSentence == output)) { setMistakes(prev => prev - 1) }
-        setAnswered(true)
-        if (num === 9) { setReady(true) }
+        if (transSentence.indexOf('?') >=0 && output.indexOf('?') < 1) { setOutput(p => p + '?') }
+        if (transSentence.replace('?', '') == output || transSentenceTwo&&transSentenceTwo.replace('?', '') == output ||transSentence ==output||transSentenceTwo&&transSentenceTwo==output) { setAnswered(true), setResult(true) }
+        else { setResult(false), setMistakes(prev => prev - 1), setAnswered(true) }
+        if (num === 9 || num === 4 && type == 'enAz') { setReady(true) }
     }
 
     useEffect(() => {
-        if (isReady && mistakes >= 0 && progressValue > progress) dispatch(updateProgress(progressValue, user))
+        if (isReady && mistakes >= 0 && progressValue > progress) {dispatch(updateProgress(progressValue, user))}
     }, [isReady])
-
-    const navigation = useNavigation()
     function remove() {
         setOutput((prev) => (prev.substring(0, prev.lastIndexOf(" "))))
         keyArray.pop()
@@ -108,7 +114,7 @@ export const ListenFrom = ({ sentences, setNumCount, num, type, progressValue })
     return (
         <ImageBackground source={require('../../img/bg/tasksBg.jpg')} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
             <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-                <ProgressBar count={num} mistakesBalance={mistakes} />
+                <ProgressBar numOfTasks={type==='enAz'&&5} count={num} mistakesBalance={mistakes} />
             </View>
             <View style={s.wrapper}>
                 <Animated.View style={[s.task, { opacity: taskAnim }]}>
@@ -133,9 +139,9 @@ export const ListenFrom = ({ sentences, setNumCount, num, type, progressValue })
                         </TouchableOpacity>)}
                     </View>
                     {answered ? <ResultModal result={result} sentence={sentence} transSentence={transSentence} errorData={errorData} /> : null}
-                    <View style={{ width: '100%', justifyContent: 'flex-end' }}>
+                    <View style={{ width: '100%', justifyContent: 'flex-end', paddingHorizontal:20 }}>
                         <TouchableOpacity disabled={!answered && output.length == 0} onPress={!answered ? check : answered && !isReady ? next : answered && isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>
-                            <Text style={[{ color: '#fff', fontSize: 25, backgroundColor: '#0881FF', padding: 10, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold', marginHorizontal: 20 }, output.length == 0 ? { backgroundColor: '#7B97BC' } : null]}>
+                            <Text style={[{ color: '#fff', fontSize: 25, backgroundColor: '#0881FF', padding: 12, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold' }, output.length == 0 ? { backgroundColor: '#7B97BC' } : null]}>
                                 {!answered ? 'yoxlamaq' : answered && !isReady ? 'növbəti' : answered && isReady ? 'dərslər' : null}
                             </Text>
                         </TouchableOpacity>
@@ -189,7 +195,7 @@ const s = StyleSheet.create({
         color: '#000',
         marginRight: 5,
         marginBottom: 5,
-        paddingVertical: 9,
+        paddingVertical: 10,
         paddingHorizontal: 15,
         backgroundColor: '#fff',
         fontFamily: 'SFUIDisplay-Regular'

@@ -11,6 +11,7 @@ import SoundPlayer from 'react-native-sound-player'
 import { useNavigation } from '@react-navigation/core';
 
 export function LearnWords({ route, practice }) {
+    const voice = useSelector(state=>state.voice.value)
     const navigation = useNavigation()
     const user = useSelector(state => state.auth.user)
     const progress = useSelector(state => state.progress[0])
@@ -31,7 +32,7 @@ export function LearnWords({ route, practice }) {
         SoundPlayer.stop()
         try {
             let url = await storage()
-                .ref(`words/${translatedWord}.ogg`)
+                .ref(`${voice}/words/${translatedWord}.ogg`)
                 .getDownloadURL()
             SoundPlayer.loadUrl(url)
         }
@@ -67,7 +68,7 @@ export function LearnWords({ route, practice }) {
     }, [output]
     )
     useEffect(() => { if (result && numberOfWord == 9) { setReady(true) } }, [result])
-    const progressValue = route.params.lessonIndex * 7 + 2;
+    const progressValue = route.params.lessonIndex * 8 + 2
     useEffect(() => {
         if (isReady && progressValue > progress) dispatch(updateProgress(progressValue, user))
     }, [isReady])
@@ -118,21 +119,6 @@ export function LearnWords({ route, practice }) {
                 <View style={{ flex: 1.1, justifyContent: 'center' }}>
                     <ProgressBar count={numberOfWord} learnMode={true} />
                 </View>
-                {/* <View style={[{ width: 250, height: 250, borderRadius: 999 },]}>
-                    <ImageBackground source={require('../../img/circle/2.png')} style={{ flex: 1 }} >
-                        <View style={{ flex: 0.3, justifyContent: 'center', alignItems: 'center' }}>
-                            <Text style={{ fontSize: 15, color: '#fff', textAlign: 'center', fontFamily: 'SFUIDisplay-Regular' }}>dərs #</Text>
-                        </View>
-                        <View style={{ flex: 0.5, paddingHorizontal: 30, alignItems: 'center', paddingTop: 15 }}>
-                            <Text style={[s.text]}>'subject'</Text>
-                        </View>
-                        <View style={{ justifyContent: 'center', alignItems: 'center', flex: 0.5 }}>
-                        </View>
-                        <View style={{ flex: 0.8, alignItems: 'center', justifyContent: 'flex-end', paddingBottom: 20 }}>
-                            <Text style={[{ color: '#999', fontSize: 19, padding: 10, backgroundColor: '#fff', paddingHorizontal: 25, borderRadius: 25, fontFamily: 'SFUIDisplay-Regular' }, progress ? { color: '#000' } : null]}></Text>
-                        </View>
-                    </ImageBackground>
-                </View> */}
                 <Animated.View style={{ flex: 3, alignItems: 'center', justifyContent: 'center', opacity: taskAnim }}>
                     <View style={s.task}>
                         <Text style={s.originWordText}>{originWord}</Text>

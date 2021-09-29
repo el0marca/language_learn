@@ -12,6 +12,7 @@ import store from './src/redux/store';
 import auth, { firebase } from '@react-native-firebase/auth';
 import { setUserInfo } from './src/redux/auth';
 import { downloadProgress } from './src/redux/progress';
+import { getVoice } from './src/redux/voice';
 
 const ProfileStack = createStackNavigator();
 
@@ -34,7 +35,7 @@ function SettingStackScreen ({navigation}){
     <SettingStack.Screen
       name="Setting"
       component={SettingScreen}
-      options={{ title: 'Settings' }}
+      options={{headerShown:false}}
     />
     </SettingStack.Navigator>)}
 
@@ -83,16 +84,16 @@ export default AppContainer = () => {
 
 function App() {
   const dispatch=useDispatch()  
-  const [initializing, setInitializing] = useState(true);
+  const [initializing, setInitializing] = useState(true)
   
-  dispatch(downloadProgress());
-
   function onAuthStateChanged(user) {
     dispatch(setUserInfo(user))
-    if (initializing) setInitializing(false);
+    if (initializing) setInitializing(false)
   }
   useEffect(() => {
-    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    dispatch(downloadProgress())
+    dispatch(getVoice())
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged)
     return subscriber
   }, [])
 

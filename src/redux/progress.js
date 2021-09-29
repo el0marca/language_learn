@@ -2,7 +2,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import database from '@react-native-firebase/database';
 
 let initialState = [
-    1
+    1,
+    false,
 ]
 
 const SET_BEGINNER_PROGRESS = 'SET_BEGINNER_PROGRESS';
@@ -17,11 +18,16 @@ export const setCommonProgress = value => ({
     value
 })
 
+const SET_CHANGED_PROGRESS = 'SET_CHANGED_PROGRESS'
+const setIfProgressChanged = value => ({
+    type: SET_CHANGED_PROGRESS,
+    value
+})
+
 export const downloadProgress = () => {
     return async (dispatch) => {
         try {
             const beginner = await AsyncStorage.getItem('beginner')
-
             if (beginner !== null) {
                 dispatch(setBeginnerProgress(beginner))
             } else {
@@ -38,7 +44,7 @@ export const downloadProgress = () => {
     }
 }
 
-export const updateProgress = ( progressValue, user) => {
+export const updateProgress = (progressValue, user) => {
     return async dispatch => {
         dispatch(updateBeginnerProgress(progressValue, user))
     }
@@ -49,6 +55,7 @@ export const updateBeginnerProgress = (value, user) => {
         try {
             await AsyncStorage.setItem('beginner', JSON.stringify(value))
             dispatch(setBeginnerProgress(value))
+            dispatch(setIfProgressChanged(true))
             if (user) {
                 database()
                     .ref(`/users/${user.uid}`)
@@ -56,9 +63,12 @@ export const updateBeginnerProgress = (value, user) => {
                         0: value,
                     })
                     .then(() => console.log('Data updated.'))
-            };
+            }
         } catch (e) {
             console.log(e)
+        }
+        finally {
+            dispatch(setIfProgressChanged(false))
         }
     }
 }
@@ -73,7 +83,10 @@ const progress = (state = initialState, action) => {
                 return {
                     ...state, 0: action.value
                 }
-
+            case SET_CHANGED_PROGRESS:
+                return {
+                    ...state, 1: action.value
+                }
                 default:
                     return state
     }

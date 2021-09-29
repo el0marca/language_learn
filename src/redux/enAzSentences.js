@@ -3,7041 +3,4173 @@ const initialState = {
     [{
         id: 1,
         sntc: 'I think so',
-        tr: 'Mən belə düşünürəm',
-        trt: 'Mən düşünürəm belə',
-        ch: 'Mən belə düşünürəm Sən bilirəm gedirəm',
+        tr: 'Mən elə düşünürəm',
+        ch: 'Mən belə düşünürəm Sən bilirəm gedirəm'
       },
       {
         id: 2,
         sntc: 'We understand it',
         tr: 'Biz bunu anlayırıq',
-        trt: '',
+        trt: 'Biz anlayırıq bunu',
         ch: 'Mən belə Biz bunu bilirik anlayıram anlayırıq'
       },
       {
         id: 3,
         sntc: 'I speak English',
         tr: 'Mən İngilis dilində danışıram',
-        trt: '',
-        trt: '',
         ch: 'Mən İngilis Sən oxuyuram kitabları dilində danışıram'
       },
       {
         id: 4,
         sntc: 'They help me',
         tr: 'Onlar mənə kömək edir',
-        trt: '',
+        trt: 'Onlar kömək edir mənə',
         ch: 'Onlar Siz mənə danışır oxuyur kömək edir'
       },
       {
         id: 5,
         sntc: 'She likes it',
         tr: 'O, bunu bəyənir',
-        trt: '',
+        trt: 'O, bəyənir bunu',
         ch: 'O, Sən bunu onu deyir istəyir bəyənir'
-      },
-      {
-        id: 6,
-        sntc: 'I work there',
-        tr: 'Mən orada işləyirəm',
-        trt: '',
-        ch: 'Mən orada işləyirəm oxuyuram Sən danışıram'
-      },
-      {
-        id: 7,
-        sntc: 'It really helps me',
-        tr: 'Bu həqiqətən mənə kömək edir',
-        trt: '',
-        ch: 'Bu O, danışır həqiqətən mənə etmir kömək edir'
-      },
-      {
-        id: 8,
-        sntc: 'I live here',
-        tr: 'Mən burada yaşayıram',
-        trt: '',
-        ch: 'Mən burada orada oxuyuram oxuyur yaşayıram'
-      },
-      {
-        id: 9,
-        sntc: 'We live in this city',
-        tr: 'Biz bu şəhərdə yaşayırıq',
-        trt: '',
-        ch: 'Biz Siz bu ölkədə yaşayırsız şəhərdə yaşayırıq',
-      },
-      {
-        id: 10,
-        sntc: 'I remember it',
-        tr: 'Mən bunu xatırlayıram',
-        trt: '',
-        ch: 'Bu onu bunu bilirəm Mən sevirəm xatırlayıram'
       }
     ],
     [{
-        id: 11,
+        id: 6,
         sntc: 'He reads in English',
         tr: 'O, İngilis dilində oxuyur',
         ch: 'O, İngilis Mən danışıram dilində danışır oxuyur'
       },
       {
-        id: 12,
+        id: 7,
         sntc: 'It looks interesting',
         tr: 'Bu marağlı görünür',
         ch: 'Bu Onlar marağlı bunu görünür görür'
       },
       {
-        id: 13,
+        id: 8,
         sntc: 'I work very hard',
-        tr: 'Mən çox çalışıram',
-        ch: 'Mən Onlar calışır çox çalışıram danışıram'
+        tr: 'Mən çox səylə işləyirəm',
+        ch: 'Mən Onlar calışır səylə çox işləyirəm danışıram'
       },
       {
-        id: 14,
+        id: 9,
         sntc: 'I see that mistake',
         tr: 'Mən o səhvi görürəm',
+        trt: 'Mən görürəm o səhvi',
         ch: 'Mən Sən bu o səhvi səhvləri görürəm'
       },
       {
-        id: 15,
+        id: 10,
         sntc: 'She also remembers it',
         tr: 'O da bunu xatırlayır',
+        trt: 'O da xatırlayır bunu',
         ch: 'O da Mən xatırlayıram bunu görürəm xatırlayır'
+      }
+    ],
+    [{
+        id: 11,
+        sntc: 'I have a cat',
+        tr: 'Mənim pişiyim var',
+        trt: '',
+        ch: 'Mənim Sənin pişiyin itim pişiyim var'
       },
       {
+        id: 12,
+        sntc: 'He watches TV',
+        tr: 'O, televizora baxır',
+        trt: '',
+        ch: 'O, televizora Mən görür baxıram baxır'
+      },
+      {
+        id: 13,
+        sntc: 'He goes to school',
+        tr: 'O, məktəbə gedir',
+        trt: 'O, gedir məktəbə',
+        ch: 'O, məktəbə Onlar gedirlər oxuyur gedir'
+      },
+      {
+        id: 14,
+        sntc: 'I do it every day',
+        tr: 'Mən bunu hər gün edirəm',
+        trt: 'Mən hər gün bunu edirəm',
+        ch: 'Mən onu bəzən bunu hər gün oxuyur edirəm'
+      },
+      {
+        id: 15,
+        sntc: 'She misses you',
+        tr: 'O, sənin üçün darıxır',
+        trt: 'O, darıxır sənin üçün',
+        ch: 'O, Onlar sizin sənin bəzən üçün darıxır'
+      }
+    ],
+    [{
         id: 16,
-        sntc: 'I also work there',
-        tr: 'Mən də orada işləyirəm',
-        ch: 'Mən də burada oxuyuram yaşayıram orada işləyirəm'
+        sntc: 'My brother lives there',
+        tr: 'Mənim qardaşım orada yaşayır',
+        trt: 'Mənim qardaşım yaşayır orada',
+        ch: 'Mənim qardaşım Mən orada yaşayır yaşayıram işləyir'
       },
       {
         id: 17,
-        sntc: 'She lives in this house',
-        tr: 'O, bu evdə yaşayır',
-        ch: 'O, bu Mən yaşayıram oxuyuram evdə yaşayır'
+        sntc: 'This lesson seems interesting',
+        tr: 'Bu dərs maraqlı gəlir',
+        trt: '',
+        ch: 'Bu O dərs kitab kitablar maraqlı gəlir'
       },
       {
         id: 18,
-        sntc: 'He also thinks so',
-        tr: 'O da belə düşünür',
-        ch: 'O da Mən də belə düşünür düşünürəm'
+        sntc: 'She understands everything',
+        tr: 'O, hər şeyi başa düşür',
+        trt: 'O, başa düşür hər şeyi',
+        ch: 'O, hər heçnə şeyi başa düşmür düşür'
       },
       {
         id: 19,
-        sntc: 'She thinks so',
-        tr: 'O, belə düşünür',
-        ch: 'O, belə Mən düşünürəm düşünür oxuyur'
+        sntc: 'His brother often says it',
+        tr: 'Onun qardaşı çox vaxt bunu deyir',
+        trt: 'Onun qardaşı bunu çox vaxt deyir',
+        ch: 'Onun qardaşı bacısı bunu çox vaxt bəzən deyir'
       },
       {
         id: 20,
-        sntc: 'He speaks English very well',
-        tr: 'O, İngilis dilində çox yaxşı danışır',
-        ch: 'O, Mən İngilis dilində çox yaxşı danışır oxuyuram'
+        sntc: 'This offer seems strange',
+        tr: 'Bu təklif qəribə gəlir',
+        trt: '',
+        ch: 'Bu kitab təklif marağlı qəribə gəlir'
       }
     ],
     [{
         id: 21,
-        sntc: 'I have a cat',
-        tr: 'Mənim pişiyim var',
-        ch: 'Mənim Sənin pişiyin itim pişiyim var'
+        sntc: 'He wants it',
+        tr: 'O, bunu istəyir',
+        trt: 'O, istəyir bunu',
+        ch: 'O, bunu Onlar sevir oxuyur istəyir'
       },
       {
         id: 22,
-        sntc: 'He watches TV',
-        tr: 'O, televizora baxır',
-        ch: 'O, televizora Mən görür baxıram baxır'
+        sntc: 'We want more practice',
+        tr: 'Biz daha çox təcrübə keçmək istəyirik',
+        trt: '',
+        ch: 'Biz Onlar dərs daha çox təcrübə keçmək istəyir istəyirik'
       },
       {
         id: 23,
-        sntc: 'He goes to school',
-        tr: 'O, məktəbə gedir',
-        ch: 'O, məktəbə Onlar gedirlər oxuyur gedir'
+        sntc: 'He sees this mistake',
+        tr: 'O, bu səhvi görür',
+        trt: 'O, görür bu səhvi',
+        ch: 'O, bu Biz görürük səhvi səhvləri görür'
       },
       {
         id: 24,
-        sntc: 'I do it every day',
-        tr: 'Mən bunu hər gün edirəm',
-        ch: 'Mən onu bəzən bunu hər gün oxuyur edirəm'
+        sntc: 'It looks strange',
+        tr: 'Bu qəribə görünür',
+        trt: '',
+        ch: 'Bu marağlı qəribə yaxşı görünür'
       },
       {
         id: 25,
-        sntc: 'She misses you',
-        tr: 'O, sənin üçün darıxır',
-        ch: 'O, Onlar sizin sənin bəzən üçün darıxır'
-      },
-      {
+        sntc: 'She really remembers it',
+        tr: 'O, həqiqətən bunu xatırlayır',
+        trt: 'O, bunu həqiqətən xatırlayır',
+        ch: 'O, Mən bunu görürəm görür həqiqətən xatırlayır'
+      }
+    ],
+    [{
         id: 26,
-        sntc: 'I sometimes go to the cinema',
-        tr: 'Mən bəzən kinoteatra gedirəm',
-        ch: 'Mən bəzən hər gün kinoteatra gedirəm həmişə'
+        sntc: 'She wants to see you right now',
+        tr: 'O, səni indi görmək istəyir',
+        trt: 'O, indi səni görmək istəyir',
+        ch: 'O, səni indi görmək istəyir sabah Mən'
       },
       {
         id: 27,
-        sntc: 'He sometimes plays computer games',
-        tr: 'O, bəzən kompüter oyunları oynayır',
-        ch: 'O, Onlar bəzən kompüter oyunları kompüterlə oynayır'
+        sntc: 'He wants to live in another place',
+        tr: 'O, başqa yerdə yaşamaq istəyir',
+        trt: 'O, yaşamaq istəyir başqa yerdə',
+        ch: 'O, başqa yerdə yaşamaq oxumaq orada istəyir'
       },
       {
         id: 28,
-        sntc: 'She has a dog',
-        tr: 'Onun iti var',
-        ch: 'Onun Mənim pişiyim yoxdur iti var'
+        sntc: 'He wants to do it',
+        tr: 'O, bunu etmək istəyir',
+        trt: 'O, etmək istəyir bunu',
+        ch: 'O, bunu etmək istəyir onu demək'
       },
       {
         id: 29,
-        sntc: 'I try to find a job',
-        tr: 'Mən iş tapmağa çalışıram',
-        ch: 'Mən iş Sən çalışırsan işləyirəm tapmağa çalışıram'
+        sntc: 'I want to improve my grammar',
+        tr: 'Mən qrammatikamı təkmilləşdirmək istəyirəm',
+        trt: 'Mən istəyirəm qrammatikamı təkmilləşdirmək',
+        ch: 'Mən qrammatikamı oxumaq yaxşı təkmilləşdirmək istəyirəm'
       },
       {
         id: 30,
-        sntc: 'She tries to do it',
-        tr: 'O, bunu etməyə çalışır',
-        ch: 'O, bunu onu Onlar etməyə çalışır çalışırlar'
+        sntc: 'I want this car',
+        tr: 'Mən bu maşını istəyirəm',
+        trt: 'Mən istəyirəm bu maşını',
+        ch: 'Mən bu maşını istəyirəm bəyənirəm sevirəm'
       }
     ],
     [{
         id: 31,
-        sntc: 'My brother lives there',
-        tr: 'Mənim qardaşım orada yaşayır',
-        ch: 'Mənim qardaşım Mən orada yaşayır yaşayıram işləyir'
+        sntc: 'She likes this dress',
+        tr: 'O, bu paltarı bəyənir',
+        trt: 'O, bəyənir bu paltarı',
+        ch: 'O, bu paltarı Mən etmək o bəyənir'
       },
       {
         id: 32,
-        sntc: 'This lesson seems interesting',
-        tr: 'Bu dərs maraqlı gəlir',
-        ch: 'Bu O dərs kitab kitablar maraqlı gəlir'
+        sntc: 'I would like to drink milk',
+        tr: 'Mən süd içmək istərdim',
+        trt: 'Mən istərdim süd içmək',
+        ch: 'Mən süd içmək Sən çay istərdim'
       },
       {
         id: 33,
-        sntc: 'She understands everything',
-        tr: 'O, hər şeyi başa düşür',
-        ch: 'O, hər heçnə şeyi başa düşmür düşür'
+        sntc: 'I would like to do it',
+        tr: 'Mən bunu etmək istərdim',
+        trt: 'Mən etmək istərdim bunu',
+        ch: 'Mən bunu etmək onu bunlar istərdim'
       },
       {
         id: 34,
-        sntc: 'His brother often says it',
-        tr: 'Onun qardaşı tez-tez bunu deyir',
-        ch: 'Onun qardaşı bacısı bunu tez-tez bəzən deyir'
+        sntc: 'I see you really like English',
+        tr: 'Mən görürəm sən həqiqətən İngilis dilini xoşlayırsan',
+        trt: 'Mən görürəm sən İngilis dilini həqiqətən xoşlayırsan',
+        ch: 'Mən görürəm edirəm sən həqiqətən biz İngilis dilini xoşlayırsan'
       },
       {
         id: 35,
-        sntc: 'This offer seems strange',
-        tr: 'Bu təklif qəribə gəlir',
-        ch: 'Bu kitab təklif marağlı qəribə gəlir'
-      },
-      {
+        sntc: 'I would like to visit this place',
+        tr: 'Mən bu yeri ziyarət etmək istərdim',
+        trt: 'Mən ziyarət etmək istərdim bu yeri',
+        ch: 'Mən bu yeri ziyarət məktəbi o etmək istərdim'
+      }
+    ],
+    [{
         id: 36,
-        sntc: 'My friend always says it',
-        tr: 'Mənim dostum həmişə bunu deyir',
-        ch: 'Mənim danışır bəzən dostum həmişə bunu deyir'
+        sntc: 'You don’t want to know it',
+        tr: 'Sən bunu bilmək istəmirsən',
+        trt: 'Sən istəmirsən bunu bilmək',
+        ch: 'Sən bunu onu bacarmaq bilmək Mən istəmirsən'
       },
       {
         id: 37,
-        sntc: 'My parents know it',
-        tr: 'Mənim valideynlərim bunu bilirlər',
-        ch: 'Mənim valideynlərim bunu onu danışır bilirlər'
+        sntc: 'I don’t like it',
+        tr: 'Bu mənim xoşuma gəlmir',
+        trt: 'Bu xoşuma gəlmir',
+        ch: 'Bu mənim xoşuma sənin O gəlmir'
       },
       {
         id: 38,
-        sntc: 'His mother has a car',
-        tr: 'Onun anasının maşını var',
-        ch: 'Onun anasının atasının yoxdur evi maşını var'
+        sntc: 'I don’t agree with you',
+        tr: 'Mən səninlə razı deyiləm',
+        trt: 'Mən razı deyiləm səninlə',
+        ch: 'Mən səninlə Siz danışırsız razı deyiləm'
       },
       {
         id: 39,
-        sntc: 'My parents want to do it',
-        tr: 'Mənim valideynlərim bunu etmək istəyirlər',
-        ch: 'Mənim Sənin valideynlərim bunu demək etmək istəyirlər onu'
+        sntc: 'He doesn’t know it',
+        tr: 'O, bunu bilmir',
+        trt: 'O, bilmir bunu',
+        ch: 'O, bunu bilmir onu bilir'
       },
       {
         id: 40,
-        sntc: 'My brother studies there',
-        tr: 'Mənim qardaşım orada təhsil alir',
-        ch: 'qardaşım Mənim bacım orada burada almır təhsil alir'
+        sntc: 'I don’t know',
+        tr: 'Mən bilmirəm',
+        trt: '',
+        ch: 'Mən bilmirəm bilirəm oxuyuram'
       }
     ],
     [{
         id: 41,
-        sntc: 'He wants it',
-        tr: 'O, bunu istəyir',
-        ch: 'O, bunu Onlar sevir oxuyur istəyir'
+        sntc: 'These things don’t attract me',
+        tr: 'Bələ şeylər məni cəlb etmir',
+        trt: 'Bələ şeylər cəlb etmir məni',
+        ch: 'Bələ şeylər bəli səni məni cəlb etmir'
       },
       {
         id: 42,
-        sntc: 'We want more practice',
-        tr: 'Biz daha çox praktika istəyirik',
-        ch: 'Biz Onlar dərs daha çox praktika istəyir istəyirik'
+        sntc: 'My parent don’t discuss it',
+        tr: 'Mənim valideynim bunu müzakirə etmir',
+        trt: 'Mənim valideynim müzakirə etmir bunu',
+        ch: 'Mənim Sənin onu valideynim bunu müzakirə etmir'
       },
       {
         id: 43,
-        sntc: 'He sees this mistake',
-        tr: 'O, bu səhvi görür',
-        ch: 'O, bu Biz görürük səhvi səhvləri görür'
+        sntc: 'He doesn’t speak English fluently',
+        tr: 'O, İngilis dilində sərbəst danışmır',
+        trt: '',
+        ch: 'O, İngilis Mən oxumur dilində sərbəst danışmır'
       },
       {
         id: 44,
-        sntc: 'It looks strange',
-        tr: 'Bu qəribə görünür',
-        ch: 'Bu marağlı qəribə yaxşı görünür'
+        sntc: 'That offer doesn’t seem interesting',
+        tr: 'O, təklif maraqlı görünmür',
+        trt: '',
+        ch: 'O, təklif Bu kitab maraqlı görünmür'
       },
       {
         id: 45,
-        sntc: 'She really remembers it',
-        tr: 'O, həqiqətən bunu xatırlayır',
-        ch: 'O, Mən bunu görürəm görür həqiqətən xatırlayır'
-      },
-      {
+        sntc: 'His son doesn’t want to become a doctor',
+        tr: 'Onun oğlu həkim olmaq istəmir',
+        trt: 'Onun oğlu istəmir həkim olmaq',
+        ch: 'Onun oğlu qızı polis həkim olmaq istəmir'
+      }
+    ],
+    [{
         id: 46,
-        sntc: 'This company has money',
-        tr: 'Bu şirkətin pulu var',
-        ch: 'Bu O şirkətin maşını həsabı pulu var'
+        sntc: 'I need to speak English without any mistakes',
+        tr: 'Mənə İngilis dilində heç bir səhv etmədən danışmalıyam',
+        trt: 'Mənə heç bir səhv etmədən danışmalıyam İngilis dilində',
+        ch: 'Mənə İngilis dilində heç bir səhv etmədən oxumalıyam danışmalıyam'
       },
       {
         id: 47,
-        sntc: 'She sees this mistake',
-        tr: 'O, bu səhvi görür',
-        ch: 'O, bu Mən səhvi görür sevirəm görürəm'
+        sntc: 'He needs it',
+        tr: 'O, buna ehtiyac duyur',
+        trt: 'O, ehtiyac duyur buna',
+        ch: 'O, buna Mən duyuram ehtiyac duyur'
       },
       {
         id: 48,
-        sntc: 'He remembers it',
-        tr: 'O, bunu xatırlayır',
-        ch: 'O, bunu bizi sevir oxuyur xatırlayır'
+        sntc: 'I need to call them',
+        tr: 'Mən onlara zəng etməliyəm',
+        trt: 'Mən zəng etməliyəm onlara',
+        ch: 'Mən onlara etməli deyiləm zəng etməliyəm'
       },
       {
         id: 49,
-        sntc: 'He speaks English very well',
-        tr: 'O, İngilis dilində çox yaxşı danışır',
-        ch: 'O, İngilis danışır dilini dilində çox yaxşı bilir danışır'
+        sntc: 'She needs to correct these mistakes',
+        tr: 'O, bu səhvləri düzəltməlidir',
+        trt: 'O, düzəltməlidir bu səhvləri',
+        ch: 'O, bu səhvləri düzəltmir düzəltməlidir'
       },
       {
         id: 50,
-        sntc: 'I see these mistakes',
-        tr: 'Mən bu səhvləri görürəm',
-        ch: 'Mən Sən bu səhvləri edirəm görürəm bilirsən'
+        sntc: 'You need to remember it',
+        tr: 'Sən bunu yadda saxlamalısan',
+        trt: 'Sən yadda saxlamalısan bunu',
+        ch: 'Sən bunu yadda saxlamalıyam Mən saxlamalısan'
       }
     ],
     [{
         id: 51,
-        sntc: 'She wants to see you right now',
-        tr: 'O, səni indicə görmək istəyir',
-        ch: 'O, səni indicə görmək istəyir sabah Mən'
+        sntc: 'Do you want to study better?',
+        tr: 'Sən daha yaxşı oxumaq istəyirsən?',
+        trt: '',
+        ch: 'Sən Biz daha yaxşı çox az oxumaq istəyirsən'
       },
       {
         id: 52,
-        sntc: 'He wants to live in another place',
-        tr: 'O, başqa yerdə yaşamaq istəyir',
-        ch: 'O, başqa yerdə yaşamaq oxumaq orada istəyir'
+        sntc: 'Do you often use the internet?',
+        tr: 'Sən internetdən tez-tez istifadə edirsən?',
+        trt: 'Sən tez-tez internetdən istifadə edirsən?',
+        ch: 'Sən internetdən Mən tez-tez çox vaxt istifadə edirsən'
       },
       {
         id: 53,
-        sntc: 'He wants to do it',
-        tr: 'O, bunu etmək istəyir',
-        ch: 'O, bunu etmək istəyir onu demək'
+        sntc: 'Do you want to know your mistakes?',
+        tr: 'Sən səhvlərini bilmək istəyirsən?',
+        trt: 'Sən bilmək istəyirsən səhvlərini?',
+        ch: 'Sən Mən oxumaq səhvlərini istəyirsən bilmək'
       },
       {
         id: 54,
-        sntc: 'I want to improve my grammar',
-        tr: 'Mən qrammatikamı təkmilləşdirmək istəyirəm',
-        ch: 'Mən qrammatikamı oxumaq yaxşı təkmilləşdirmək istəyirəm'
+        sntc: 'Do we show good results?',
+        tr: 'Biz yaxşı nəticələr göstəririk?',
+        trt: '',
+        ch: 'Biz yaxşı pis Siz nəticələr göstəririk'
       },
       {
         id: 55,
-        sntc: 'I want this car',
-        tr: 'Mən bu maşını istəyirəm',
-        ch: 'Mən bu maşını istəyirəm bəyənirəm sevirəm'
-      },
-      {
+        sntc: 'Do you support him?',
+        tr: 'Sən onu dəstəkləyirsən?',
+        trt: 'Sən dəstəkləyirsən onu?',
+        ch: 'Sən onu bunu oxuyursan onu dəstəkləyirsən'
+      }
+    ],
+    [{
         id: 56,
-        sntc: 'I want a good car',
-        tr: 'Mən yaxşı maşın istəyirəm',
-        ch: 'Mən yaxşı maşın istəyirəm istəyir O'
+        sntc: 'Does it seem boring?',
+        tr: 'Bu darıxdırıcı görünür?',
+        trt: '',
+        ch: 'Bu darıxdırıcı burada O maraqlı görünür'
       },
       {
         id: 57,
-        sntc: 'I want to go there one more time',
-        tr: 'Mən ora bir dəfə də getmək istəyirəm',
-        ch: 'Mən ora bir dəfə də getmək oxumaq istərdim istəyirəm'
+        sntc: 'Does he want to live abroad?',
+        tr: 'O, xaricdə yaşamaq istəyir?',
+        trt: 'O, yaşamaq istəyir xaricdə?',
+        ch: 'O, xaricdə yaşamaq xaricdə Mən istəyir'
       },
       {
         id: 58,
-        sntc: 'She wants to buy it',
-        tr: 'O, bunu almaq istəyir',
-        ch: 'O, bunu almaq vermək onu istəyir'
+        sntc: 'Does he hate it?',
+        tr: 'O, buna nifrət edir?',
+        trt: '',
+        ch: 'O, buna nifrət Onlar bəyənir edir'
       },
       {
         id: 59,
-        sntc: 'I want to go there again',
-        tr: 'Mən yenə ora getmək istəyirəm',
-        ch: 'Mən yenə ora getmək bu gün bura istəyirəm'
+        sntc: 'Does it seem interesting?',
+        tr: 'Bu maraqlı görünür?',
+        trt: '',
+        ch: 'Bu maraqlı baxır O görünmür görünür'
       },
       {
         id: 60,
-        sntc: 'I really want to know it',
-        tr: 'Mən həqiqətən bunu bilmək istəyirəm',
-        ch: 'Mən həqiqətən bunu bilmək yazmaq onu istəyirəm'
+        sntc: 'Does he ignore everything?',
+        tr: 'O, heç neyə məhəl qoymur?',
+        trt: '',
+        ch: 'O, heç sənə Onlar neyə məhəl qoymur'
       }
     ],
     [{
         id: 61,
-        sntc: 'She likes this dress',
-        tr: 'O, bu paltarı xoşlayır',
-        ch: 'O, bu paltarı Mən etmək o xoşlayır'
+        sntc: 'Does this thing seem important?',
+        tr: 'Bu şey vacib görünür?',
+        trt: '',
+        ch: 'Bu şey vacib görünür O əhəmiyyətsiz'
       },
       {
         id: 62,
-        sntc: 'I would like to drink milk',
-        tr: 'Mən süd içmək istərdim',
-        ch: 'Mən süd içmək Sən çay istərdim'
+        sntc: 'Does that lesson seem boring?',
+        tr: 'O, dərs darıxdırıcı gəlir?',
+        trt: '',
+        ch: 'O, dərs dərslər darıxdırıcı maraqlı gəlir'
       },
       {
         id: 63,
-        sntc: 'I would like to do it',
-        tr: 'Mən bunu etmək istərdim',
-        ch: 'Mən bunu etmək onu bunlar istərdim'
+        sntc: 'Does you mother want to tell him all the truth?',
+        tr: 'Sənin anan ona bütün həqiqəti demək istəyir?',
+        trt: 'Sənin anan bütün həqiqəti ona demək istəyir?',
+        ch: 'Sənin anan atan mənə ona bütün həqiqəti demək istəyir'
       },
       {
         id: 64,
-        sntc: 'I see you really like English',
-        tr: 'Mən görürəm sən həqiqətən İngilis dilini xoşlayırsan',
-        ch: 'Mən görürəm edirəm sən həqiqətən biz İngilis dilini xoşlayırsan'
+        sntc: 'Do those students speak English correctly?',
+        tr: 'O tələbələr İngilis dilində düzgün danışır?',
+        trt: 'O tələbələr düzgün danışır İngilis dilində?',
+        ch: 'O tələbələr tələbə deyir İngilis dilində düzgün danışır'
       },
       {
         id: 65,
-        sntc: 'I would like to visit this place',
-        tr: 'Mən bu yeri ziyarət etmək istərdim',
-        ch: 'Mən bu yeri ziyarət məktəbi o etmək istərdim'
-      },
-      {
+        sntc: 'Does this student show brilliant result?',
+        tr: 'Bu tələbə parlaq nəticə göstərir?',
+        trt: '',
+        ch: 'Bu görmək parlaq yaxşı tələbə nəticə göstərir'
+      }
+    ],
+    [{
         id: 66,
-        sntc: 'I would like to become a businessman',
-        tr: 'Mən iş adamı olmaq istərdim',
-        ch: 'Mən iş adamı olmaq həkim Sən istərdim'
+        sntc: 'Does his words motivate her?',
+        tr: 'Onun sözləri onu motivasiya edir?',
+        trt: 'Onun sözləri motivasiya edir onu?',
+        ch: 'Onun sözləri sözü məni onu motivasiya edir'
       },
       {
         id: 67,
-        sntc: 'You like it',
-        tr: 'Sən bunu xoşlayırsan',
-        ch: 'Sən bunu xoşlayırsan Onlar onu'
-      },
-      {
-        id: 68,
-        sntc: 'I see you really like it',
-        tr: 'Mən görürəm sən həqiqətən bunu xoşlayırsan',
-        ch: 'Mən görürəm sən onu həqiqətən gəlir bunu xoşlayırsan'
-      },
-      {
-        id: 69,
-        sntc: 'I would like to know English very well',
-        tr: 'Mən İngilis dilini çox yaxşı bilmək istərdim',
-        ch: 'Mən İngilis dilini çox yaxşı bilmək Sən danışmaq istərdim'
-      },
-      {
-        id: 70,
-        sntc: 'We like it ',
-        tr: 'Biz bunu xoşlayırıq',
-        ch: 'Biz bunu onu Siz oxuyuruq xoşlayırıq'
-      }
-    ],
-    [{
-        id: 71,
-        sntc: 'You don’t want to know it',
-        tr: 'Sən bunu bilmək istəmirsən',
-        ch: 'Sən bunu onu bacarmaq bilmək Mən istəmirsən'
-      },
-      {
-        id: 72,
-        sntc: 'I don’t like it',
-        tr: 'Bu mənim xoşuma gəlmir',
-        ch: 'Bu mənim xoşuma sənin O gəlmir'
-      },
-      {
-        id: 73,
-        sntc: 'I don’t agree with you',
-        tr: 'Mən səninlə razı deyiləm',
-        ch: 'Mən səninlə Siz danışırsız razı deyiləm'
-      },
-      {
-        id: 74,
-        sntc: 'He doesn’t know it',
-        tr: 'O, bunu bilmir',
-        ch: 'O, bunu bilmir onu bilir'
-      },
-      {
-        id: 75,
-        sntc: 'I don’t know',
-        tr: 'Mən bilmirəm',
-        ch: 'Mən bilmirəm bilirəm oxuyuram'
-      },
-      {
-        id: 76,
-        sntc: 'She doesn’t want to discuss it',
-        tr: 'O, bunu müzakirə etmək istəmir',
-        ch: 'O, bunu Mən danışmaq müzakirə etmək istəmir'
-      },
-      {
-        id: 77,
-        sntc: 'He doesn’t remember it',
-        tr: 'O, bunu xatırlamır',
-        ch: 'O, bunu xatırlamır Siz onu'
-      },
-      {
-        id: 78,
-        sntc: 'I don’t want to say it',
-        tr: 'Mən bunu demək istəmirəm',
-        ch: 'Mən bunu onu demək danışmaq istəmirəm'
-      },
-      {
-        id: 79,
-        sntc: 'He doesn’t have this information',
-        tr: 'Onda bu məlumat yoxdur',
-        ch: 'Onda bu məlumat o yoxdur Məndə'
-      },
-      {
-        id: 80,
-        sntc: 'I don’t know this person',
-        tr: 'Mən bu insanı tanımıram',
-        ch: 'Mən bu insanı Onlar o tanımıram'
-      }
-    ],
-    [{
-        id: 81,
-        sntc: 'These things don’t attract me',
-        tr: 'Bələ şeylər məni cəlb etmir',
-        ch: 'Bələ şeylər bəli səni məni cəlb etmir'
-      },
-      {
-        id: 82,
-        sntc: 'My parent don’t discuss it',
-        tr: 'Mənim valideynim bunu müzakirə etmir',
-        ch: 'Mənim Sənin onu valideynim bunu müzakirə etmir'
-      },
-      {
-        id: 83,
-        sntc: 'He doesn’t speak English fluently',
-        tr: 'O, İngilis dilində sərbəst danışmır',
-        ch: 'O, İngilis Mən oxumur dilidə səlis danışmır'
-      },
-      {
-        id: 84,
-        sntc: 'That offer doesn’t seem interesting',
-        tr: 'O, təklif maraqlı görünmür',
-        ch: 'O, təklif Bu kitab maraqlı görünmür'
-      },
-      {
-        id: 85,
-        sntc: 'His son doesn’t want to become a doctor',
-        tr: 'Onun oğlu həkim olmaq istəmir',
-        ch: 'Onun oğlu qızı polis həkim olmaq istəmir'
-      },
-      {
-        id: 86,
-        sntc: 'Our teacher doesn’t believe us',
-        tr: 'Bizim müəllimimiz bizə inanmır',
-        ch: 'Bizim müəllimimiz Sizin sizə bizə inanmır'
-      },
-      {
-        id: 87,
-        sntc: 'My partner doesn’t know him',
-        tr: 'Mənim partnyorum onu tanımır',
-        ch: 'Mənim partnyorum bizi o onu tanımır'
-      },
-      {
-        id: 88,
-        sntc: 'I think money doesn’t make people happy',
-        tr: 'Mən düşünürəm ki pul insanları xoşbəxt etmir',
-        ch: 'Mən düşünürəm Onlar edir ki pul insanları xoşbəxt etmir'
-      },
-      {
-        id: 89,
-        sntc: 'He doesn’t try to change his life',
-        tr: 'O, həyatını dəyişməyə çalışmır',
-        ch: 'O, həyatını evini dəyişməyə çalışır çalışmır'
-      },
-      {
-        id: 90,
-        sntc: 'My friend doesn’t think so',
-        tr: 'Mənim dostum belə düşünmür',
-        ch: 'Mənim dostum belə Sənin düşünür düşünmür'
-      }
-    ],
-    [{
-        id: 91,
-        sntc: 'I need to speak English without any mistakes',
-        tr: 'Mən İngilis dilində heç bir səhv etmədən danışmalıyam',
-        ch: 'Mən İngilis dilində heç bir səhv etmədən oxumalıyam danışmalıyam'
-      },
-      {
-        id: 92,
-        sntc: 'He needs it',
-        tr: 'O, buna ehtiyac duyur',
-        ch: 'O, buna Mən duyuram ehtiyac duyur'
-      },
-      {
-        id: 93,
-        sntc: 'I need to call them',
-        tr: 'Mən onlara zəng etməliyəm',
-        ch: 'Mən onlara etməli deyiləm zəng etməliyəm'
-      },
-      {
-        id: 94,
-        sntc: 'She needs to correct these mistakes',
-        tr: 'O, bu səhvləri düzəltməlidir',
-        ch: 'O, bu səhvləri düzəltmir düzəltməlidir'
-      },
-      {
-        id: 95,
-        sntc: 'You need to remember it',
-        tr: 'Sən bunu yadda saxlamalısan',
-        ch: 'Sən bunu yadda saxlamalıyam Mən saxlamalısan'
-      },
-      {
-        id: 96,
-        sntc: 'You need to speak English correctly',
-        tr: 'Sən İngilis dilində düzgün danışmalısan',
-        ch: 'Sən İngilis Mən oxumalısan dilində düzgün danışmalısan'
-      },
-      {
-        id: 97,
-        sntc: 'My friend needs money',
-        tr: 'Mənim dostuma pul lazımdır',
-        ch: 'Mənim dostuma lazım deyil pul lazımdır'
-      },
-      {
-        id: 98,
-        sntc: 'I need to call her',
-        tr: 'Mən ona zəng etməliyəm',
-        ch: 'Mən ona etmişəm zəng etməliyəm'
-      },
-      {
-        id: 99,
-        sntc: 'We need to change our life',
-        tr: 'Bizə həyatımızı dəyişmək lazımdır',
-        ch: 'Bizə həyatımızı dəyişmək Sənə oxumaq lazımdır'
-      },
-      {
-        id: 100,
-        sntc: 'I really need your lessons',
-        tr: 'Mənim həqiqətən sizin dərslərinizə ehtiyacım var ',
-        ch: 'Mənim həqiqətən bizim yoxdur sizin dərslərinizə ehtiyacım var '
-      }
-    ],
-    [{
-        id: 101,
-        sntc: 'Do you want to study better?',
-        tr: 'Sən daha yaxşı öyrənmək istəyirsən?',
-        ch: 'Sən Biz daha yaxşı çox az öyrənmək istəyirsən?'
-      },
-      {
-        id: 102,
-        sntc: 'Do you often use the internet?',
-        tr: 'Sən internetdən tez-tez istifadə edirsən?',
-        ch: 'Sən internetdən Mən tez-tez çox vaxt istifadə edirsən?'
-      },
-      {
-        id: 103,
-        sntc: 'Do you want to know your mistakes?',
-        tr: 'Sən səhvlərini bilmək istəyirsən?',
-        ch: 'Sən Mən səhvlərini bilmək Səhvini istəyirsən?'
-      },
-      {
-        id: 104,
-        sntc: 'Do we show good results?',
-        tr: 'Biz yaxşı nəticələr göstəririk?',
-        ch: 'Biz yaxşı pis Siz nəticələr göstəririk?'
-      },
-      {
-        id: 105,
-        sntc: 'Do you support him?',
-        tr: 'Sən onu dəstəkləyirsən?',
-        ch: 'Sən onu bunu oxuyursan dəstəkləyirsən?'
-      },
-      {
-        id: 106,
-        sntc: 'Do you remember everything?',
-        tr: 'Sən hər şeyi xatırlayırsan?',
-        ch: 'Sən hər şeyi Bunlar onu xatırlayırsan?'
-      },
-      {
-        id: 107,
-        sntc: 'Do you often go there?',
-        tr: 'Sən ora tez-tez gedirsən?',
-        ch: 'Sən ora tez-tez hərdən Biz gedirsən?'
-      },
-      {
-        id: 108,
-        sntc: 'Do you go to work?',
-        tr: 'Sən işə gedirsən?',
-        ch: 'Sən işə məktəbə ora gedirsən?'
-      },
-      {
-        id: 109,
-        sntc: 'Do you like this dress?',
-        tr: 'Bu paltar sənin xoşuna gəlir?',
-        ch: 'Bu paltar sənin mənim xoşuna O gəlir?'
-      }
-    ],
-    [{
-        id: 110,
-        sntc: 'Do you agree with him?',
-        tr: 'Sən onunla razısan?',
-        ch: 'Sən onunla mənimlə Biz razısan?'
-      },
-      {
-        id: 111,
-        sntc: 'Does it seem boring?',
-        tr: 'Bu darıxdırıcı görünür?',
-        ch: 'Bu darıxdırıcı O maraqlı görünür?'
-      },
-      {
-        id: 112,
-        sntc: 'Does he want to live abroad?',
-        tr: 'O, xaricdə yaşamaq istəyir?',
-        ch: 'O, xaricdə yaşamaq istəmir Mən istəyir?'
-      },
-      {
-        id: 113,
-        sntc: 'Does he hate it?',
-        tr: 'O, buna nifrət edir?',
-        ch: 'O, buna nifrət Onlar bəyənir edir?'
-      },
-      {
-        id: 114,
-        sntc: 'Does it seem interesting?',
-        tr: 'Bu maraqlı görünür?',
-        ch: 'Bu maraqlı O görünmür görünür?'
-      },
-      {
-        id: 115,
-        sntc: 'Does he ignore everything?',
-        tr: 'O, heç neyə məhəl qoymur?',
-        ch: 'O, heç sənə Onlar neyə məhəl qoymur?'
-      },
-      {
-        id: 116,
-        sntc: 'Does it often happen?',
-        tr: 'Bu tez-tez olur?',
-        ch: 'Bu tez-tez hərdən olmur olur?'
-      },
-      {
-        id: 117,
-        sntc: 'Does she want to go abroad?',
-        tr: 'O, xaricə getmək istəyir?',
-        ch: 'O, xaricə evə Onlar getmək istəyir?'
-      },
-      {
-        id: 118,
-        sntc: 'Does he pay for it?',
-        tr: 'O, bunun pulunu ödəyib?',
-        ch: 'O, bunun bizim Biz pulunu ödəyib?'
-      },
-      {
-        id: 119,
-        sntc: 'Does he look for a job?',
-        tr: 'O, iş axtarır?',
-        ch: 'O, səni axtarmır iş axtarır?'
-      },
-      {
-        id: 120,
-        sntc: 'Does he hate this thing?',
-        tr: 'O, bu şeyə nifrət edir?',
-        ch: 'O, Mən bəyənir bu şeyə nifrət edir?'
-      }
-    ],
-    [{
-        id: 121,
-        sntc: 'Does this thing seem important?',
-        tr: 'Bu şey vacib görünür?',
-        ch: 'Bu şey vacib görünür? O əhəmiyyətsiz'
-      },
-      {
-        id: 122,
-        sntc: 'Does that lesson seem boring?',
-        tr: 'O, dərs darıxdırıcı görünür?',
-        ch: 'O, dərs dərslər darıxdırıcı maraqlı görünür?'
-      },
-      {
-        id: 123,
-        sntc: 'Does you mother want to tell him all the truth?',
-        tr: 'Sənin anan ona bütün həqiqəti demək istəyir?',
-        ch: 'Sənin anan atan mənə ona bütün həqiqəti demək istəyir?'
-      },
-      {
-        id: 124,
-        sntc: 'Do those students speak English correctly?',
-        tr: 'O tələbələr İngilis dilində düzgün danışır?',
-        ch: 'O tələbələ tələbə deyir İngilis dilində düzgün danışır?'
-      },
-      {
-        id: 125,
-        sntc: 'Does this student show brilliant result?',
-        tr: 'Bu tələbə parlaq nəticə göstərir?',
-        ch: 'Bu şagird parlaq yaxşı tələbə nəticə göstərir?'
-      },
-      {
-        id: 126,
-        sntc: 'Does this exam seem very difficult?',
-        tr: 'Bu imtahan çox çətin gəlir?',
-        ch: 'Bu imtahan sınaq çox çətin asan gəlir?'
-      },
-      {
-        id: 127,
-        sntc: 'Does his friend want to go abroad?',
-        tr: 'Onun dostu xaricə getmək istəyir?',
-        ch: 'Onun dostu xaricə getmək evə gəlmək istəyir?'
-      },
-      {
-        id: 128,
-        sntc: 'Do these lessons help you?',
-        tr: 'Bu dərslər sənə kömək edir?',
-        ch: 'Bu dərslər sənə kömək etmir? dərs edir?'
-      },
-      {
-        id: 129,
-        sntc: 'Does this teacher explain everything very well?',
-        tr: 'Bu müəllim hər şeyi çox yaxşı izah edir?',
-        ch: 'Bu müəllim hər şeyi çox pis etmir yaxşı izah edir?'
-      },
-      {
-        id: 130,
-        sntc: 'Does you father need it?',
-        tr: 'Sənin atanın buna ehtiyacı var?',
-        ch: 'Sənin atanın buna ehtiyacı yoxdur ananın var?'
-      }
-    ],
-    [{
-        id: 131,
-        sntc: 'Does his words motivate her?',
-        tr: 'Onun sözləri onu motivasiya edir?',
-        ch: 'Onun sözləri sözü məni onu motivasiya edir?'
-      },
-      {
-        id: 132,
         sntc: 'She likes this idea',
         tr: 'Bu fikir onun xoşuna gəlir',
         ch: 'Bu fikir mənim gəlmir onun xoşuna gəlir'
       },
       {
-        id: 133,
+        id: 68,
         sntc: 'Does she like this idea?',
         tr: 'Bu fikir onun xoşuna gəlir?',
-        ch: 'Bu fikir onun O xoşuma xoşuna gəlir?'
+        trt: 'Bu fikir xoşuna gəlir onun?',
+        ch: 'Bu fikir onun O xoşuma xoşuna gəlir'
       },
       {
-        id: 134,
+        id: 69,
         sntc: "His words doesn't motivate her",
         tr: 'Onun sözləri onu motivasiya etmir',
+        trt: '',
         ch: 'Onun sözləri onu sözü edir motivasiya etmir'
       },
       {
-        id: 135,
+        id: 70,
         sntc: 'He comes come late',
         tr: 'O, evə gec gəlir',
+        trt: 'O, gec gəlir evə',
         ch: 'O, evə gec tez gedir gəlir'
+      }
+    ],
+    [{
+        id: 71,
+        sntc: 'How regularly do you learn English?',
+        tr: 'Sən İngilis dilini mütəmadi olaraq nə qədər öyrənirsən?',
+        trt: 'Sən mütəmadi olaraq nə qədər İngilis dilini öyrənirsən?',
+        ch: 'Sən İngilis dilini Onlar oxuyur nə qədər olaraq mütəmadi öyrənirsən'
       },
       {
+        id: 72,
+        sntc: 'What do you know?',
+        tr: 'Sən nə bilirsən?',
+        trt: '',
+        ch: 'Sən nə vaxt oxuyursan bilirsən'
+      },
+      {
+        id: 73,
+        sntc: 'How do you get to this place?',
+        tr: 'Sən bu yerə necə çatırsan?',
+        trt: 'Sən necə bu yerə çatırsan?',
+        ch: 'Sən bu yerə necə o yerdə uçursan çatırsan'
+      },
+      {
+        id: 74,
+        sntc: 'What do they want to tell you?',
+        tr: 'Onlar sənə nə demək istəyirlər?',
+        trt: 'Onlar nə demək istəyirlər sənə?',
+        ch: 'Onlar sənə mənə nə danışmaq demək istəyirlər'
+      },
+      {
+        id: 75,
+        sntc: 'How often do you listen to the radio?',
+        tr: 'Sən nə sıxlıqda radioya qulaq asırsan?',
+        trt: 'Sən radioya nə sıxlıqda qulaq asırsan?',
+        ch: 'Sən radioya kinoya Mən nə sıxlıqda qulaq asırsan'
+      }
+    ],
+    [{
+        id: 76,
+        sntc: 'Which channel does he usually watch?',
+        tr: 'O, adətən hansı kanala baxır?',
+        trt: '',
+        ch: 'O, adətən hansı videoya baxmır kanala baxır'
+      },
+      {
+        id: 77,
+        sntc: 'What motivates you more?',
+        tr: 'Səni daha çox nə motivasiya edir?',
+        ch: 'Səni daha çox etmir Məni nə motivasiya edir'
+      },
+      {
+        id: 78,
+        sntc: 'How often does she go to the cinema?',
+        tr: 'O, nə sıxlıqda kinoteatra gedir?',
+        trt: 'O, kinoteatra nə sıxlıqda gedir?',
+        ch: 'O, kinoteatra nə sıxlıqda çox burada gedir'
+      },
+      {
+        id: 79,
+        sntc: 'She watches different movies',
+        tr: 'O, müxtəlif filmlərə baxır',
+        trt: '',
+        ch: 'O, müxtəlif filmlərə görür maraqlı baxır'
+      },
+      {
+        id: 80,
+        sntc: 'Who does he support?',
+        tr: 'O, kimi dəstəkləyir?',
+        trt: '',
+        ch: 'O, kimi kim Onu sevir dəstəkləyir'
+      }
+    ],
+    [{
+        id: 81,
+        sntc: 'How does your brother control it?',
+        tr: 'Sənin qardaşın bunu necə nəzarət edir?',
+        trt: 'Sənin qardaşın necə nəzarət edir bunu?',
+        ch: 'Sənin qardaşın bunu məni səni necə nəzarət edir'
+      },
+      {
+        id: 82,
+        sntc: 'Why do your friends disagree with you?',
+        tr: 'Sənin dostların niyə səninlə razılaşmır?',
+        trt: 'Sənin dostların səninlə niyə razılaşmır?',
+        ch: 'Sənin dostların təsdiq dostun Mənim niyə səninlə razılaşmır'
+      },
+      {
+        id: 83,
+        sntc: 'Why does your boss criticize her?',
+        tr: 'Niyə müdiriniz onu tənqid edir?',
+        trt: '',
+        ch: 'Niyə müdiriniz onu inkar xoşlayır bunu tənqid edir'
+      },
+      {
+        id: 84,
+        sntc: 'How many English words does your friend want to know?',
+        tr: 'Sənin dostun nə qədər İngilis sözü bilmək istəyir?',
+        trt: '',
+        ch: 'Sənin dostun nə qədər öyrənmək İngilis sözü bilmək istəyir'
+      },
+      {
+        id: 85,
+        sntc: 'What advice does your teacher give you?',
+        tr: 'Sənin müəllimin sənə hansı məsləhəti verir?',
+        trt: 'Sənin müəllimin hansı məsləhəti sənə verir?',
+        ch: 'Sənin müəllimin anlamaq sənə hansı nə cür məsləhəti verir'
+      }
+    ],
+    [{
+        id: 86,
+        sntc: 'How often does he test their knowledge?',
+        tr: 'O, nə sıxlıqda onların biliyini yoxlayır?',
+        trt: 'O, onların biliyini nə sıxlıqda yoxlayır?',
+        ch: 'O, nə sıxlıqda çox bizim yollayır gedir onların biliyini yoxlayır'
+      },
+      {
+        id: 87,
+        sntc: 'I really like it',
+        tr: 'Bu həqiqətən mənim xoşuma gəlir',
+        trt: 'Bu mənim həqiqətən xoşuma gəlir',
+        ch: 'Bu həqiqətən sənin əvəzinə gəlmir mənim xoşuma gəlir'
+      },
+      {
+        id: 88,
+        sntc: 'Do you want to study better?',
+        tr: 'Sən daha yaxşı oxumaq istəyirsən?',
+        trt: 'Sən istəyirsən daha yaxşı oxumaq?',
+        ch: 'Sən daha yaxşı orada oxumaq bilmək çox pis istəyirsən'
+      },
+      {
+        id: 89,
+        sntc: 'I need your advice',
+        tr: 'Mənim sənin məsləhətinə ehtiyacım var',
+        trt: 'Mənim ehtiyacım var sənin məsləhətinə',
+        ch: 'Mənim sənin bizim məsləhətinə köməyinə yoxdur ehtiyacım var'
+      },
+      {
+        id: 90,
+        sntc: 'She would like to go to another place',
+        tr: 'O, başqa yerə getmək istərdi',
+        trt: 'O, başqa yerə istərdi getmək',
+        ch: 'O, başqa yerə bizimlə getmək gəlmək bura istərdi'
+      }
+    ],
+    [{
+        id: 91,
+        sntc: 'How does it help you?',
+        tr: 'Bu sənə necə kömək edir?',
+        trt: 'Bu necə kömək edir sənə?',
+        ch: 'Bu sənə necə kömək edir sevir bilir gəlir'
+      },
+      {
+        id: 92,
+        sntc: 'My parents want to do it',
+        tr: 'Mənim valideynlərim bunu etmək istəyirlər',
+        trt: 'Mənim valideynlərim etmək istəyirlər bunu',
+        ch: 'Mənim valideynlərim bunu etmək demək getmək ora istəyirlər'
+      },
+      {
+        id: 93,
+        sntc: 'All people do it',
+        tr: 'Bütün insanlar bunu edir',
+        trt: 'Bütün insanlar edir bunu',
+        ch: 'Bütün insanlar bunu bilir tanıyır edir'
+      },
+      {
+        id: 94,
+        sntc: 'I think so',
+        tr: 'Mən belə düşünürəm',
+        trt: '',
+        ch: 'Mən belə düşünürəm bilirəm xərcəyirəm o qədər'
+      },
+      {
+        id: 95,
+        sntc: 'Does this person seem very good?',
+        tr: 'Bu insan çox yaxşı görünür?',
+        trt: '',
+        ch: 'Bu insan çox yaxşı burada ev yandı görünür '
+      }
+    ],
+    [{
+        id: 96,
+        sntc: 'She tries to understand it',
+        tr: 'O, bunu anlamağa çalışır',
+        trt: 'O, anlamağa çalışır bunu',
+        ch: 'O, bunu anlamağa çalışır istəyir orada düşür'
+      },
+      {
+        id: 97,
+        sntc: 'When do you have free time?',
+        tr: 'Sənin nə vaxt boş vaxtın olur?',
+        trt: 'Sənin boş vaxtın nə vaxt olur?',
+        ch: 'Sənin nə vaxt boş vaxtın orada radio dinləyirəm olur'
+      },
+      {
+        id: 98,
+        sntc: 'I like this idea',
+        tr: 'Bu ideya xoşuma gəlir',
+        trt: '',
+        ch: 'Bu ideya xoşuma Xovuzda üzmək gəlir'
+      },
+      {
+        id: 99,
+        sntc: 'How often do you go there?',
+        tr: 'Ora nə sıxlıqda gedirsiniz?',
+        trt: '',
+        ch: 'Ora nə sıxlıqda baxmısan indicə həqiqətən gedirsiniz'
+      },
+      {
+        id: 100,
+        sntc: 'I would like to drink a cup of coffee',
+        tr: 'Mən bir fincan qəhvə içmək istərdim',
+        trt: 'Mən istərdim bir fincan qəhvə içmək',
+        ch: 'Mən bir fincan qəhvə içmək görmək yuxuda istərdim'
+      }
+    ],
+    [{
+        id: 101,
+        sntc: 'I want to know it',
+        tr: 'Mən bunu bilmək istəyirəm',
+        trt: 'Mən bilmək istəyirəm bunu',
+        ch: 'Mən bunu bilmək anlamaq oxumaq istəyirəm'
+      },
+      {
+        id: 102,
+        sntc: 'I really need English',
+        tr: 'Mənə həqiqətən İngilis dili lazımdır',
+        trt: 'Mənə İngilis dili həqiqətən lazımdır',
+        ch: 'Mənə həqiqətən İngilis dili var hərdən çox lazımdır'
+      },
+      {
+        id: 103,
+        sntc: 'We live in this country',
+        tr: 'Biz bu ölkədə yaşayırıq',
+        trt: 'Biz yaşayırıq bu ölkədə',
+        ch: 'Biz bu ölkədə sevindim istərdim yaşayırıq'
+      },
+      {
+        id: 104,
+        sntc: 'I need to correct this mistake',
+        tr: 'Mənə bu səhvi düzəltmək lazımdır',
+        ch: 'Mənə bu səhvi düzəltmək yandırmaq onlarla lazımdır'
+      },
+      {
+        id: 105,
+        sntc: 'She also knows it',
+        tr: 'O da bunu bilir',
+        trt: '',
+        ch: 'O da bunu Mən də bilirəm onu bilir'
+      }
+    ],
+    [{
+        id: 106,
+        sntc: 'His father has a car',
+        tr: 'Onun atasının maşını var',
+        trt: '',
+        ch: 'Onun atasının evi pulu yoxdur maşını var'
+      },
+      {
+        id: 107,
+        sntc: 'What worries you?',
+        tr: 'Səni nə narahat edir?',
+        trt: '',
+        ch: 'Səni nə narahat sevindirir burada edir'
+      },
+      {
+        id: 108,
+        sntc: 'I really need it',
+        tr: 'Bu həqiqətən mənə lazımdır',
+        trt: 'Bu mənə həqiqətən lazımdır',
+        ch: 'Bu mənə həqiqətən deyil o qədər O lazımdır'
+      },
+      {
+        id: 109,
+        sntc: 'What do they want to tell you?',
+        tr: 'Onlar sənə nə demək istəyirlər?',
+        trt: 'Onlar nə demək istəyirlər sənə?',
+        ch: 'Onlar sənə nə demək istəyirlər görmək səninlə'
+      },
+      {
+        id: 110,
+        sntc: 'How does she get home?',
+        tr: 'O, evə necə çatır?',
+        trt: 'O, necə çatır evə?',
+        ch: 'O, evə necə tullanır bayırda çatır'
+      }
+    ],
+    [{
+        id: 111,
+        sntc: "He's a manager",
+        tr: 'O, menecerdir',
+        trt: '',
+        ch: 'O, menecerdir Biz burada evdə'
+      },
+      {
+        id: 112,
+        sntc: "It's an interesting idea",
+        tr: 'Bu maraqlı fikirdir',
+        trt: '',
+        ch: 'Bu maraqlı lazımdır sabah indicə fikirdir'
+      },
+      {
+        id: 113,
+        sntc: "It's easy",
+        tr: 'Bu asandır',
+        trt: '',
+        ch: 'Bu maraqlı onlarla sadə asandır'
+      },
+      {
+        id: 114,
+        sntc: "I'm happy",
+        tr: 'Mən xoşbəxtəm',
+        trt: '',
+        ch: 'Mən nikbinlikə dolu səndə xoşbəxtəm'
+      },
+      {
+        id: 115,
+        sntc: "It's interesting",
+        tr: 'Bu maraqlıdır',
+        trt: '',
+        ch: 'Bu məsləhət vermək düzgün qaneedici maraqlıdır'
+      }
+    ],
+    [{
+        id: 116,
+        sntc: "It's too difficult",
+        tr: 'Bu həddən artıq çətindir',
+        trt: '',
+        ch: 'Bu həddən artıq tənha yağışlı balaca çətindir'
+      },
+      {
+        id: 117,
+        sntc: "It's a big mistake",
+        tr: 'Bu böyük səhvdir',
+        trt: '',
+        ch: 'Bu böyük küləkli ciddi tətil səhvdir'
+      },
+      {
+        id: 118,
+        sntc: "It's a simple test",
+        tr: 'Bu sadə testdir',
+        trt: '',
+        ch: 'Bu sadə ideya gözlənilməz uğurlu sadiq testdir'
+      },
+      {
+        id: 119,
+        sntc: "You're the best teacher in the world",
+        tr: 'Sən dünyanın ən yaxşı müəllimisən',
+        trt: '',
+        ch: 'Sən dünyanın ən yaxşı pis lap müəllimisən'
+      },
+      {
+        id: 120,
+        sntc: "It's too cheap",
+        tr: 'Bu çox ucuzdır',
+        trt: '',
+        ch: 'Bu çox limanı ən yaxın supermarket ucuzdır'
+      }
+    ],
+    [{
+        id: 121,
+        sntc: "She's such a wise woman",
+        tr: 'O elə müdrik qadındır',
+        trt: 'O çox müdrik qadındır',
+        ch: 'O çox elə müdrik pul kisəsi fərqli aktrisa qadındır'
+      },
+      {
+        id: 122,
+        sntc: "It's such an effective method",
+        tr: 'Bu elə effektiv üsuldur',
+        trt: 'Bu çox effektiv üsuldur',
+        ch: 'Bu çox elə effektiv tapşırıq həvəs minnətdar üsuldur'
+      },
+      {
+        id: 123,
+        sntc: "It's so easy",
+        tr: 'Bu elə asandır',
+        trt: 'Bu çox asandır',
+        ch: 'Bu çox elə səhv belə narahat olmaq asandır'
+      },
+      {
+        id: 124,
+        sntc: 'I drink so much milk',
+        tr: 'Mən elə çox süd içirəm',
+        trt: 'Mən çox süd içirəm',
+        ch: 'Mən elə çox süd iş yoldaşı paytaxt qəzet içirəm'
+      },
+      {
+        id: 125,
+        sntc: "It's such an expensive car",
+        tr: 'Bu çox bahalı avtomobildir',
+        trt: 'Bu elə bahalı avtomobildir',
+        ch: 'Bu çox elə bahalı vaxt eyni komanda avtomobildir'
+      }
+    ],
+    [{
+        id: 126,
+        sntc: 'Your help is very important',
+        tr: 'Sənin köməyin çox vacibdir',
+        trt: '',
+        ch: 'Sənin köməyin çox təəccübləndirmək zəngin varlı vacibdir'
+      },
+      {
+        id: 127,
+        sntc: 'Our teacher is right',
+        tr: 'Bizim müəllimimiz haqlıdır',
+        trt: '',
+        ch: 'Bizim müəllimimiz aşağı orta düzgün haqlıdır'
+      },
+      {
+        id: 128,
+        sntc: 'These lessons are so effective',
+        tr: 'Bu dərslər elə effektlidir',
+        trt: 'Bu dərslər çox effektlidir',
+        ch: 'Bu dərslər çox elə bağışlamaq münasib olmaq effektlidir'
+      },
+      {
+        id: 129,
+        sntc: 'This problem is very big',
+        tr: 'Bu problem çox böyükdür',
+        trt: '',
+        ch: 'Bu problem çox lütf müqayisə etmək böyükdür'
+      },
+      {
+        id: 130,
+        sntc: 'The women are there',
+        tr: 'Qadınlar oradadır',
+        trt: '',
+        ch: 'Qadınlar quş mütəxəssis sahə oradadır'
+      }
+    ],
+    [{
+        id: 131,
+        sntc: "We aren't tired",
+        tr: 'Biz yorulmamışıq',
+        trt: '',
+        ch: 'Biz adətən çətinlik səndviç yorulmamışıq'
+      },
+      {
+        id: 132,
+        sntc: 'We are full of energy',
+        tr: 'Biz enerji ilə doluyuq',
+        trt: '',
+        ch: 'Biz enerji daha əvvəl fincan yer ilə doluyuq'
+      },
+      {
+        id: 133,
+        sntc: "It's such a big problem",
+        tr: 'Bu elə böyük problemdir',
+        trt: 'Bu çox böyük problemdir',
+        ch: 'Bu elə çox böyük çətinliklər hovuz məbləğ problemdir'
+      },
+      {
+        id: 134,
+        sntc: "I'm not lazy",
+        tr: 'Mən tənbəl deyiləm',
+        trt: '',
+        ch: 'Mən tənbəl yarım mükəmməl gəlirli deyiləm'
+      },
+      {
+        id: 135,
+        sntc: "It's a very bad method",
+        tr: 'Bu çox pis üsuldur',
+        trt: '',
+        ch: 'Bu çox pis qalın əmin olmaq üsuldur'
+      }
+    ],
+    [{
         id: 136,
-        sntc: 'Does she come home late?',
-        tr: 'O, evə gec gəlir?',
-        ch: 'O, evə gec tez getmir gəlir?'
+        sntc: 'Is it her opinion?',
+        tr: 'Bu, onun fikridir?',
+        trt: '',
+        ch: 'Bu, onun yarış müsabiqə geniş mənzil fikridir'
       },
       {
         id: 137,
-        sntc: 'She works in another place',
-        tr: 'O, başqa yerdə işləyir',
-        ch: 'O, başqa yerdə evdə yaşayır işləyir'
+        sntc: 'Are you ready?',
+        tr: 'Sən hazırsan?',
+        trt: '',
+        ch: 'Sən məmnun əminlik qorxmaq hazırsan'
       },
       {
         id: 138,
-        sntc: 'Does she works in another place?',
-        tr: 'O, başqa yerdə işləyir?',
-        ch: 'O, başqa yerdə yaşayır bu işləyir?'
+        sntc: 'Are they lazy?',
+        tr: 'Onlar tənbəldirlər?',
+        trt: '',
+        ch: 'Onlar cəhd etmək baxmaq tənbəldirlər'
       },
       {
         id: 139,
-        sntc: "He doesn't want to solve this problem",
-        tr: 'O, bu problemi həll etmək istəmir',
-        ch: 'O, bu problemi izah istəyir həll etmək istəmir'
+        sntc: 'Is it useful information?',
+        tr: 'Bu faydalı məlumatdır?',
+        trt: '',
+        ch: 'Bu faydalı görünüş tapmaq üzləşmək məlumatdır'
       },
       {
         id: 140,
-        sntc: 'Does he want to solve this problem?',
-        tr: 'O, bu problemi həll etmək istəyir?',
-        ch: 'O, bu problemi həll etmək istəymir? o istəyir?'
+        sntc: 'Are we right?',
+        tr: 'Biz haqlıyıq?',
+        trt: '',
+        ch: 'Biz bir şey bacarıq ağlamaq haqlıyıq'
       }
     ],
     [{
         id: 141,
-        sntc: 'How regularly do you learn English?',
-        tr: 'Sən İngilis dilini mütəmadi olaraq nə qədər öyrənirsən?',
-        ch: 'Sən İngilis dilini Onlar oxuyur nə qədər olaraq mütəmadi öyrənirsən?'
+        sntc: 'Is money important?',
+        tr: 'Pul vacibdir?',
+        trt: '',
+        ch: 'Pul borc almaq həll etmək vacibdir'
       },
       {
         id: 142,
-        sntc: 'What do you know?',
-        tr: 'Sən nə bilirsən?',
-        ch: 'Sən nə vaxt oxuyursan bilirsən?'
+        sntc: 'Is the computer old?',
+        tr: 'Kompüter köhnədir?',
+        trt: '',
+        ch: 'Kompüter universitet almaq məktub bina köhnədir'
       },
       {
         id: 143,
-        sntc: 'How do you get to this place?',
-        tr: 'Sən bu yerə necə gədirsən?',
-        ch: 'Sən bu yerə necə o yerdə gədirsən?'
+        sntc: 'Are the men at work?',
+        tr: 'Kişilər işdədir?',
+        trt: '',
+        ch: 'Kişilər borclu olmaq təklif uzun işdədir'
       },
       {
         id: 144,
-        sntc: 'What do they want to tell you?',
-        tr: 'Onlar sənə nə demək istəyirlər?',
-        ch: 'Onlar sənə mənə nə danışmaq demək istəyirlər?'
+        sntc: 'Is knowledge power?',
+        tr: 'Bilik gücdür?',
+        trt: '',
+        ch: 'Bilik qoşulmaq ədəbiyyat gəlmək geriyə gücdür'
       },
       {
         id: 145,
-        sntc: 'How often do you listen to the radio?',
-        tr: 'Sən radioya nə sıxlıqda qulaq asırsan?',
-        ch: 'Sən radioya kinoya Mən nə sıxlıqda qulaq asırsan?'
-      },
-      {
+        sntc: 'Are all these exercises very difficult?',
+        tr: 'Bütün bu tapşırıqlar çox çətindir?',
+        trt: '',
+        ch: 'Bütün bu tapşırıqlar gözləmək qalmaq çatmaq çox çətindir'
+      }
+    ],
+    [{
         id: 146,
-        sntc: 'How do you usually get to that place?',
-        tr: 'Sən adətən o yerə necə gedirsən?',
-        ch: 'Sən adətən o yerə necə gedirsən?'
+        sntc: 'How expensive is it?',
+        tr: 'Bu nə qədər bahalıdır?',
+        trt: '',
+        ch: 'Bu nə qədər mənsub olmaq qab bahalıdır'
       },
       {
         id: 147,
-        sntc: 'Where do you go?',
-        tr: 'Sən hara gedirsən?',
-        ch: 'Sən hara ora gəlirsən gedirsən?'
+        sntc: 'Where is she?',
+        tr: 'O, haradadır?',
+        trt: '',
+        ch: 'O, haradadır qalmaq cəmləşmək təsdiqləmək'
       },
       {
         id: 148,
-        sntc: 'What looks strange?',
-        tr: 'Qəribə görünən nədir?',
-        ch: 'Qəribə görünən nə maraqlı nədir?'
+        sntc: 'How is he?',
+        tr: 'O, necədir?',
+        trt: '',
+        ch: 'O, necədir nəhəng birlikdə şey əşya'
       },
       {
         id: 149,
-        sntc: 'Who checks everything?',
-        tr: 'Hər şeyi kim yoxlayır?',
-        ch: 'Hər şeyi kim mən onlar yoxlayır?'
+        sntc: 'What is really important?',
+        tr: 'Əslində nə vacibdir?',
+        trt: '',
+        ch: 'Əslində nə şirkət məktub mebel turnir vacibdir'
       },
       {
         id: 150,
-        sntc: 'Why do you want to visit this place?',
-        tr: 'Sən niyə bu məkana baş çəkmək istəyirsən?',
-        ch: 'Sən niyə bu məkana evə getmək baş çəkmək istəyirsən?'
+        sntc: 'How easy is it?',
+        tr: 'Bu nə dərəcədə asandır?',
+        trt: '',
+        ch: 'Bu nə dərəcədə daxilində bina qonaqpərvər aşağıda asandır'
       }
     ],
     [{
         id: 151,
-        sntc: 'Which channel does he usually watch?',
-        tr: 'O, adətən hansı kanala baxır?',
-        ch: 'O, adətən hansı videoya baxmır kanala baxır?'
+        sntc: 'Where is your husband?',
+        tr: 'Sənin ərin haradadır?',
+        trt: '',
+        ch: 'Sənin ərin buludlu güclü uğursuz tənha haradadır'
       },
       {
         id: 152,
-        sntc: 'What motivates you more?',
-        tr: 'Səni daha çox nə motivasiya edir?',
-        ch: 'Səni daha çox etmir Məni nə motivasiya edir?'
+        sntc: "What's her job?",
+        tr: 'Onun işi nədir?',
+        trt: '',
+        ch: 'Onun işi bekar olmaq qiymət diqqətli nədir'
       },
       {
         id: 153,
-        sntc: 'How often does she go to the cinema?',
-        tr: 'O, kinoteatra nə sıxlıqda gedir?',
-        ch: 'O, kinoteatra nə sıxlıqda çox burada gedir?'
+        sntc: 'Who is that woman?',
+        tr: 'O qadın kimdir?',
+        trt: '',
+        ch: 'O qadın kimdir ziyafət bayırdan reaksiya daxildə'
       },
       {
         id: 154,
-        sntc: 'She watches different movies',
-        tr: 'O, müxtəlif filmlərə baxır',
-        ch: 'O, müxtəlif filmlərə görür maraqlı baxır'
+        sntc: "What's your sister's name?",
+        tr: 'Sənin bacının adı nədir?',
+        trt: '',
+        ch: 'Sənin bacının adı məsləhət vermək düzgün qaneedici nədir'
       },
       {
         id: 155,
-        sntc: 'Who does he support?',
-        tr: 'O, kimi dəstəkləyir?',
-        ch: 'O, kimi kim Onu, dəstəkləyir?'
-      },
-      {
+        sntc: "What's wrong?",
+        tr: 'Nə səhvdir?',
+        trt: '',
+        ch: 'Nə səhvdir torpaq velosiped körpə müstəqillik'
+      }
+    ],
+    [{
         id: 156,
-        sntc: 'What advice does she give you?',
-        tr: 'O, sənə nə məsləhət görür?',
-        ch: 'O, sənə Sən, ona nə məsləhət görür?'
+        sntc: 'He is so clever',
+        tr: 'O, çox ağıllıdır',
+        trt: '',
+        ch: 'O, çox ağıllıdır deyişiklik göz yaşı göz kəmər'
       },
       {
         id: 157,
-        sntc: 'What really helps you?',
-        tr: 'Sənə həqiqətən nə kömək edir?',
-        ch: 'Sənə həqiqətən mən edirəm nə kömək edir?'
+        sntc: 'Is this method really ineffective?',
+        tr: 'Bu üsul həqiqətən səmərəsizdir?',
+        trt: '',
+        ch: 'Bu üsul həqiqətən səmərəsizdir piroq səbəb velosiped'
       },
       {
         id: 158,
-        sntc: 'How does he explain it?',
-        tr: 'O, bunu necə izah edir?',
-        ch: 'O, bunu necə idib Mən izah edir?'
+        sntc: 'Why are those lessons so ineffective?',
+        tr: 'Niyə o dərslər elə yararsızdır?',
+        trt: '',
+        ch: 'Niyə o dərslər elə gəmi balıq sviter yararsızdır'
       },
       {
         id: 159,
-        sntc: 'How long does it take him to get to that place?',
-        tr: 'Həmin yerə çatmaq üçün onda nə qədər vaxt çəkir?',
-        ch: 'Həmin yerə çatmaq üçün onda nə qədər vaxt çəkir?'
+        sntc: 'Why are the students there?',
+        tr: 'Tələbələr niyə oradadır?',
+        trt: '',
+        ch: 'Tələbələr niyə gözləmək ümid etmək bacarmaq oradadır'
       },
       {
         id: 160,
-        sntc: 'Why does he complain so often?',
-        tr: 'O, niyə elə tez-tez şikayət edir?',
-        ch: 'O, niyə elə nə vaxt tez-tez şikayət edir?'
+        sntc: 'I have a good job',
+        tr: 'Mənim yaxşı işim var',
+        trt: '',
+        ch: 'Mənim yaxşı işim detal utancaq tamamilə əmin var'
       }
     ],
     [{
         id: 161,
-        sntc: 'How does your brother control it?',
-        tr: 'Sənin qardaşın bunu necə nəzarət edir?',
-        ch: 'Sənin qardaşın bunu məni səni necə nəzarət edir?'
+        sntc: 'The day is windy',
+        tr: 'Gün küləklidir',
+        trt: '',
+        ch: 'Gün aşağı orta düzgün bilik küləklidir'
       },
       {
         id: 162,
-        sntc: 'Why do your friends disagree with you?',
-        tr: 'Sənin dostların nə üçün səninlə razılaşmır?',
-        ch: 'Sənin dostların dostun Mənim nə üçün səninlə razılaşmır?'
+        sntc: 'I am happy',
+        tr: 'Mən xoşbəxtəm',
+        trt: '',
+        ch: 'Mən cəhd uğurlu nəticə məntiqi xoşbəxtəm'
       },
       {
         id: 163,
-        sntc: 'Why does your boss criticize it?',
-        tr: 'Niyə müdiriniz bunu tənqid edir?',
-        ch: 'Niyə müdiriniz onu xoşlayır bunu tənqid edir?'
+        sntc: 'She is so beautiful',
+        tr: 'O, çox gözəldir',
+        trt: '',
+        ch: 'O, çox ciddi tətil məzuniyyət öndə gözəldir'
       },
       {
         id: 164,
-        sntc: 'How many English words does your friend want to know?',
-        tr: 'Sənin dostun nə qədər İngilis sözü bilmək istəyir?',
-        ch: 'Sənin dostun nə qədər öyrənmək İngilis sözü bilmək istəyir?'
+        sntc: 'Money is important',
+        tr: 'Pul vacibdir',
+        trt: '',
+        ch: 'Pul şəxs vaxt eyni komanda vacibdir'
       },
       {
         id: 165,
-        sntc: 'What advice does your teacher give you?',
-        tr: 'Sənin müəllimin sənə hansı məsləhəti verir?',
-        ch: 'Sənin müəllimin sənə hansı nə cür məsləhəti verir?'
-      },
-      {
+        sntc: 'Are those exercises useless?',
+        tr: 'O tapşırıqlar faydasızdır?',
+        trt: '',
+        ch: 'O tapşırıqlar əvvəl həqiqətən maraqlı sonuncu faydasızdır'
+      }
+    ],
+    [{
         id: 166,
-        sntc: 'How much money does your friend have?',
-        tr: 'Sənin dostunun nə qədər pulu var?',
-        ch: 'Sənin dostunun nə qədər pulu pulun var?'
+        sntc: "I'm not married",
+        tr: 'Mən evli deyiləm',
+        trt: '',
+        ch: 'Mən evli təəssürat doğuran zəif cəhd deyiləm'
       },
       {
         id: 167,
-        sntc: 'How often does this thing happen?',
-        tr: 'Bu nə sıxlıqda baş verir?',
-        ch: 'Bu nə sıxlıqda O çox baş verir?'
+        sntc: 'Is it obvious?',
+        tr: 'Bu aydındır?',
+        trt: '',
+        ch: 'Bu aydındır əmin olmaq təəccübləndirmək bekar'
       },
       {
         id: 168,
-        sntc: 'How long does it take his daughter to get to school?',
-        tr: 'Sənin qızının məktəbə çatmağı nə qədər vaxt çəkir?',
-        ch: 'Sənin qızının məktəbə çatmağı nə qədər vaxt çəkir?'
+        sntc: 'His son is in the park',
+        tr: 'Onun oğlu parkdadır',
+        trt: '',
+        ch: 'Onun oğlu küləkli ciddi tətil məzuniyyət parkdadır'
       },
       {
         id: 169,
-        sntc: 'Why does your friend want to look for a new job?',
-        tr: 'Sənin dostun niyə yeni iş axtarmaq istəyir?',
-        ch: 'Sənin dostun niyə istəmir yeni iş axtarmaq istəyir?'
+        sntc: "It's the best example",
+        tr: 'Bu ən yaxşı nümunədir',
+        trt: '',
+        ch: 'Bu ən yaxşı sadiq bahalı qutu səhv nümunədir'
       },
       {
         id: 170,
-        sntc: 'Where does your mother work?',
-        tr: 'Sənin anan harda işləyir?',
-        ch: 'Sənin anan harda atan yaşayır işləyir?'
+        sntc: 'The boys are at home',
+        tr: 'Oğlanlar evdədir',
+        trt: '',
+        ch: 'Oğlanlar son uzaq çətin soyad evdədir'
       }
     ],
     [{
         id: 171,
-        sntc: 'How often does he test their knowledge?',
-        tr: 'O, nə sıxlıqda onların biliyini yoxlayır?',
-        ch: 'O, nə sıxlıqda çox bizim onların biliyini yoxlayır?'
+        sntc: 'The day is rainy',
+        tr: 'Gün yağışlıdır',
+        trt: '',
+        ch: 'Gün mümkün hazırlaşmaq imtahan ab-hava yağışlıdır'
       },
       {
         id: 172,
-        sntc: 'I really like it',
-        tr: 'Bu həqiqətən mənim xoşuma gəlir',
-        ch: 'Bu həqiqətən sənin gəlmir mənim xoşuma gəlir'
+        sntc: 'Why are these rules so important?',
+        tr: 'Niyə bu qaydalar belə vacibdir?',
+        trt: '',
+        ch: 'Niyə bu qaydalar belə cümlə məna idman vacibdir'
       },
       {
         id: 173,
-        sntc: 'Do you want to study better?',
-        tr: 'Sən daha yaxşı oxumaq istəyirsən?',
-        ch: 'Sən daha yaxşı oxumaq çox pis istəyirsən?'
+        sntc: 'We need more control',
+        tr: 'Bizim daha çox nəzarətə ehtiyacımız var',
+        trt: '',
+        ch: 'Bizim daha çox nəzarətə rəqabətə qirmək zövq ehtiyacımız var'
       },
       {
         id: 174,
-        sntc: 'I need your advice',
-        tr: 'Mənim sənin məsləhətinə ehtiyacım var',
-        ch: 'Mənim sənin məsləhətinə köməyinə yoxdur ehtiyacım var'
+        sntc: "He's interested in it",
+        tr: 'O, bununla maraqlanır',
+        trt: 'O, maraqlanır bununla',
+        ch: 'O, bununla zövq almaq davranmaq qəribə maraqlanır'
       },
       {
         id: 175,
-        sntc: 'She would like to go to another place',
-        tr: 'O, başqa yerə getmək istərdi',
-        ch: 'O, başqa yerə getmək gəlmək bura istərdi'
-      },
-      {
+        sntc: 'This method is very simple',
+        tr: 'Bu üsul çox sadədir',
+        trt: '',
+        ch: 'Bu üsul ümid qulaq asmaq sabah yemək çox sadədir'
+      }
+    ],
+    [{
         id: 176,
-        sntc: 'What time do you usually get up?',
-        tr: 'Sən adətən nə vaxt qalxırsan?',
-        ch: 'Sən adətən nə çox harada vaxt qalxırsan?'
+        sntc: 'How often do you listen to the radio?',
+        tr: 'Sən nə sıxlıqda radioya qulaq asırsan?',
+        trt: 'Sən radioya nə sıxlıqda qulaq asırsan?',
+        ch: 'Sən radioya nə sıxlıqda gözəl hiss saat qulaq asırsan'
       },
       {
         id: 177,
-        sntc: 'She feels happy',
-        tr: 'O, özünü xoşbəxt hiss edir',
-        ch: 'O, özünü xoşbəxt etmir Mən hiss edir'
+        sntc: 'I don’t like this atmosphere',
+        tr: 'Bu ab-hava mənim xoşuma gəlmir',
+        trt: '',
+        ch: 'Bu ab-hava mənim xoşuma uşaqlar çətin sınaq gəlmir'
       },
       {
         id: 178,
-        sntc: 'Do you often call him?',
-        tr: 'Sən tez-tez ona zəng edirsən?',
-        ch: 'Sən tez-tez ona mənə çox zəng edirsən?'
+        sntc: 'It isn’t surprising',
+        tr: 'Bu təəccüblü deyil',
+        trt: '',
+        ch: 'Bu təəccüblü siyasət qutu çanta niyə deyil'
       },
       {
         id: 179,
-        sntc: 'How does he get home?',
-        tr: 'O, evə necə gədir?',
-        ch: 'O, evə necə nə vaxt gədir?'
+        sntc: 'What frightens you more?',
+        tr: 'Səni daha çox qorxuya salan nədir?',
+        trt: '',
+        ch: 'Səni daha çox qorxuya salan nədir'
       },
       {
         id: 180,
-        sntc: 'What do you think about it?',
-        tr: 'Sən bu barədə nə düşünürsən?',
-        ch: 'Sən bu barədə o cür nə düşünürsən?'
+        sntc: 'What channel are popular nowadays?',
+        tr: 'Hazırki vaxtda hansı kanal populyardır?',
+        trt: '',
+        ch: 'Hazırki vaxtda hansı kanal ünsiyyət qurmaq digər populyardır'
       }
     ],
     [{
         id: 181,
-        sntc: 'How does it help you?',
-        tr: 'Bu sənə necə kömək edir?',
-        ch: 'Bu sənə necə  kömək edir?'
+        sntc: 'Does your brother live alone?',
+        tr: 'Sənin qardaşın tək yaşayır?',
+        trt: '',
+        ch: 'Sənin qardaşın tək hər biri addım İfadə yaşayır'
       },
       {
         id: 182,
-        sntc: 'My parents want to do it',
-        tr: 'Mənim valideynlərim bunu etmək istəyir',
-        ch: 'Mənim valideynlərim bunu etmək istəyir'
+        sntc: 'Is my experience enough?',
+        tr: 'Mənim təcrübəm kifayət edir?',
+        trt: '',
+        ch: 'Mənim təcrübəm kifayət minnətdar yaratmaq müsbət zirvə edir'
       },
       {
         id: 183,
-        sntc: 'All people do it',
-        tr: 'Bütün insanlar bunu edir',
-        ch: 'Bütün insanlar bunu edir'
+        sntc: 'I hope you remember it',
+        tr: 'Ümid edirəm, sən bunu xatırlayırsan',
+        trt: '',
+        ch: 'Ümid edirəm, sən bunu həsr etmək səhv xatırlayırsan'
       },
       {
         id: 184,
-        sntc: 'I think so',
-        tr: 'Mən belə düşünürəm',
-        ch: 'Mən belə düşünürəm'
+        sntc: 'He enjoys listening to music',
+        tr: 'O, musiqi dinləməkdən zövq alır',
+        trt: '',
+        ch: 'O, musiqi dinləməkdən həll olunma tərcümə zövq alır'
       },
       {
         id: 185,
-        sntc: 'Does this person seem very good?',
-        tr: 'Bu insan çox yaxşı görünür?',
-        ch: 'Bu insan çox yaxşı görünür?'
-      },
-      {
+        sntc: 'Do you need to do it this year?',
+        tr: 'Sənə bunu bu il etmək lazımdır?',
+        trt: 'Sənə bu il bunu etmək lazımdır?',
+        ch: 'Sənə bunu bu il etmək üzr istəmək davranış lazımdır'
+      }
+    ],
+    [{
         id: 186,
-        sntc: 'Do you remember it?',
-        tr: 'Bu sənin yadındadır?',
-        ch: 'Bu sənin yadındadır?'
+        sntc: 'How difficult is this exercise?',
+        tr: 'Bu tapşırıq nə dərəcədə çətindir?',
+        trt: '',
+        ch: 'Bu tapşırıq nə dərəcədə gəlmək geriyə məna çətindir'
       },
       {
         id: 187,
-        sntc: 'I live in this city',
-        tr: 'Mən bu şəhərdə yaşayıram',
-        ch: 'Mən bu şəhərdə yaşayıram'
+        sntc: 'Do you know the meaning of this word?',
+        tr: 'Bu sözün mənasını bilirsən?',
+        trt: '',
+        ch: 'Bu sözün mənasını yenidən ixtira təkər bilirsən'
       },
       {
         id: 188,
-        sntc: 'How long does it take his daughter to get to school?',
-        tr: 'Onun qızının məktəbə çatmağı nə qədər vaxt çəkir?',
-        ch: 'Onun qızının məktəbə çatmağı nə qədər vaxt çəkir?'
+        sntc: "I'm fond of sport",
+        tr: 'Mən idmanı çox sevirəm',
+        trt: '',
+        ch: 'Mən idmanı çox ədəbiyyat gəlmək geriyə sevirəm'
       },
       {
         id: 189,
-        sntc: 'My sister lives there but I live here',
-        tr: 'Mənim bacım orada yaşayır, amma mən burada yaşayıram',
-        ch: 'Mənim bacım orada yaşayır, amma mən burada yaşayıram'
+        sntc: 'She always does it with great pleasure',
+        tr: 'O, bunu həmişə böyük məmnuniyyətlə edir',
+        trt: 'O, həmişə bunu böyük məmnuniyyətlə edir',
+        ch: 'O, bunu həmişə böyük mükəmməl şanslı sadəlik məmnuniyyətlə edir'
       },
       {
         id: 190,
-        sntc: 'What music do you prefer?',
-        tr: 'Sən hansı musiqiyə üstünlük verirsən?',
-        ch: 'Sən hansı musiqiyə üstünlük verirsən?'
+        sntc: "I'd like to add one thing",
+        tr: 'Mən bir şey əlavə etmək istərdim',
+        trt: '',
+        ch: 'Mən bir şey əlavə etmək İfadə təhlil etmək istərdim'
       }
     ],
     [{
         id: 191,
-        sntc: 'She tries to understand it',
-        tr: 'O, bunu anlamağa çalışır',
-        ch: 'O, bunu anlamağa çalışır'
+        sntc: 'I hope you remember it',
+        tr: 'Ümid edirəm, sən bunu xatırlayırsan',
+        trt: '',
+        ch: 'Ümid edirəm, sən bunu mövzu xərcləmək xəstəxana xatırlayırsan'
       },
       {
         id: 192,
-        sntc: 'When do you have free time?',
-        tr: 'Sənin nə vaxt boş vaxtın olur?',
-        ch: 'Sənin nə vaxt boş vaxtın olur?'
+        sntc: "She's sad",
+        tr: 'O, qəmlidir',
+        trt: '',
+        ch: 'O, pessimist qorxutmaq üçüncü hündür qəmlidir'
       },
       {
         id: 193,
-        sntc: 'I like this idea',
-        tr: 'Bu ideya xoşuma gəlir',
-        ch: 'Bu ideya xoşuma gəlir'
+        sntc: 'She watches TV',
+        tr: 'O, televizora baxır',
+        trt: 'O, baxır televizora',
+        ch: 'O, televizora getmək təmir etmək izləmək baxır'
       },
       {
         id: 194,
-        sntc: 'How often do you go there?',
-        tr: 'Ora nə sıxlıqda gedirsiniz?',
-        ch: 'Ora nə sıxlıqda dəfə gedirsiniz?'
+        sntc: "His salary isn't so high. It's low",
+        tr: 'Onun maaşı o qədər də yüksək deyil. Aşağıdır',
+        trt: '',
+        ch: 'Onun maaşı o qədər də yüksək cib münasibət deyil. Aşağıdır'
       },
       {
         id: 195,
-        sntc: 'I would like to drink a cup of coffee',
-        tr: 'Mən bir fincan qəhvə içmək istərdim',
-        ch: 'Mən bir fincan qəhvə içmək istərdim'
-      },
-      {
+        sntc: 'Are we near this place?',
+        tr: 'Biz bu yerin yaxınlığındayıq?',
+        trt: '',
+        ch: 'Biz bu yerin kənd təklif etmək yaxınlığındayıq'
+      }
+    ],
+    [{
         id: 196,
-        sntc: 'Who wants to live abroad?',
-        tr: 'Kim xaricdə yaşamaq istəyir?',
-        ch: 'Kim xaricdə yaşamaq istəyir?'
+        sntc: 'Knowledge is very important',
+        tr: 'Bilik çox vacibdir',
+        trt: '',
+        ch: 'Bilik çox bizi görüş həmçinin məşhur vacibdir'
       },
       {
         id: 197,
-        sntc: 'Where do they spend time together?',
-        tr: 'Onlar birlikdə harada vaxt keçirirlər?',
-        ch: 'Onlar birlikdə harada vaxt keçirirlər?'
+        sntc: 'We may do it',
+        tr: 'Biz bunu edə bilərik',
+        trt: 'Biz edə bilərik bunu',
+        ch: 'Biz bunu edə pul kisəsi mahnı populyar bilərik'
       },
       {
         id: 198,
-        sntc: 'How often do you think about it?',
-        tr: 'Bu barədə nə sıxlıqda çox düşünürsən?',
-        ch: 'Bu barədə nə sıxlıqda çox düşünürsən?'
+        sntc: 'He should do it',
+        tr: 'O, gərək bunu etsin',
+        trt: 'O, bunu gərək etsin',
+        ch: 'O, gərək bunu dəqiqə əvvəl daha sonra etsin'
       },
       {
         id: 199,
-        sntc: 'She does it very well',
-        tr: 'O, bunu çox yaxşı edir',
-        ch: 'O, bunu çox yaxşı edir'
+        sntc: 'I can read in English',
+        tr: 'Mən İngilis dilində oxuya bilirəm',
+        trt: 'Mən oxuya bilirəm İngilis dilində',
+        ch: 'Mən İngilis dilində oxuya bilirəm saat qəzet kreslo'
       },
       {
         id: 200,
-        sntc: 'He teaches English',
-        tr: 'O, İngilis dilini tədris edir',
-        ch: 'O, İngilis dilini tədris edir'
+        sntc: 'We must change our life',
+        tr: 'Biz həyatımızı dəyişməliyik',
+        trt: '',
+        ch: 'Biz həyatımızı müsabiqə geniş mənzil dəyişməliyik'
       }
     ],
     [{
         id: 201,
-        sntc: 'I want to know it',
-        tr: 'Mən bunu bilmək istəyirəm',
-        ch: 'Mən bunu bilmək istəyirəm'
+        sntc: 'What do you like here?',
+        tr: 'Sən burada nəyi bəyənirsən?',
+        trt: 'Sən nəyi bəyənirsən burada?',
+        ch: 'Sən burada nəyi olduqca nadir hallarda bəyənirsən'
       },
       {
         id: 202,
-        sntc: 'I really need English',
-        tr: 'Mənə həqiqətən ingilis dili lazımdır',
-        ch: 'Mənə həqiqətən ingilis dili lazımdır'
+        sntc: 'I want this computer',
+        tr: 'Mən bu kompüteri istəyirəm',
+        trt: 'Mən istəyirəm bu kompüteri',
+        ch: 'Mən bu kompüteri bağlama ciddi gözlənilməyən istəyirəm'
       },
       {
         id: 203,
-        sntc: 'We live in this country',
-        tr: 'Biz bu ölkədə yaşayırıq',
-        ch: 'Biz bu ölkədə yaşayırıq'
+        sntc: 'Are the men at work?',
+        tr: 'Kişilər işdədir?',
+        trt: '',
+        ch: 'Kişilər min ay başlanğıc sakitcə işdədir'
       },
       {
         id: 204,
-        sntc: 'I need to correct this mistake',
-        tr: 'Mən bu səhvi düzəltməliyəm',
-        ch: 'Mən bu səhvi düzəltməliyəm'
+        sntc: "Who's with you?",
+        tr: 'Səninlə kim var?',
+        trt: '',
+        ch: 'Səninlə kim iki saat qəzet kreslo ondan var'
       },
       {
         id: 205,
-        sntc: 'She also knows it',
-        tr: 'O da bunu bilir',
-        ch: 'O da bunu bilir'
-      },
-      {
+        sntc: 'This place is very beautiful',
+        tr: 'Bu yer çox gözəldir',
+        trt: '',
+        ch: 'Bu yer çox kəskin məyus dinləmək min gözəldir'
+      }
+    ],
+    [{
         id: 206,
-        sntc: 'How does your brother feel?',
-        tr: 'Sənin qardaşın özünü necə hiss edir?',
-        ch: 'Sənin qardaşın özünü necə hiss edir?'
+        sntc: "It's a small mistake",
+        tr: 'Bu kiçik bir səhvdir',
+        trt: 'Bu kiçik səhvdir',
+        ch: 'Bu kiçik bir yazı masası pul kisəsi səhvdir'
       },
       {
         id: 207,
-        sntc: 'How regularly do you do these exercises?',
-        tr: 'Sən bu tapşırıqları müntəzəm olaraq nə qədər edirsən?',
-        ch: 'Sən bu tapşırıqları müntəzəm olaraq nə qədər edirsən?'
+        sntc: "This level isn't elementary",
+        tr: 'Bu səviyyə elementar deyil',
+        trt: 'Bu elementar səviyyə deyil',
+        ch: 'Bu səviyyə elementar müsabiqə geniş mənzil əl deyil'
       },
       {
         id: 208,
-        sntc: 'I want to go to another place',
-        tr: 'Mən başqa yerə getmək istəyirəm',
-        ch: 'Mən başqa yerə getmək istəyirəm'
+        sntc: 'Your lessons really help',
+        tr: 'Sənin dərslərin həqiqətən də kömək edir',
+        trt: 'Sənin dərslərin həqiqətən kömək edir',
+        ch: 'Sənin dərslərin həqiqətən də kömək ayaqqabı sevimli xüsusi edir'
       },
       {
         id: 209,
-        sntc: 'Does it seem interesting?',
-        tr: 'Bu maraqlı görünür?',
-        ch: 'Bu maraqlı görünür?'
+        sntc: 'How do you get to work?',
+        tr: 'Sən işə nəcə çatırsan?',
+        trt: '',
+        ch: 'Sən işə nəcə balıq sviter dəvə dəbli çatırsan'
       },
       {
         id: 210,
-        sntc: 'Do you have enough money?',
-        tr: 'Sənin kifayət qədər pulun var?',
-        ch: 'Sənin kifayət qədər pulun var?'
+        sntc: 'This book is really boring',
+        tr: 'Bu kitab həqiqətən darıxdırıcıdır',
+        trt: '',
+        ch: 'Bu kitab həqiqətən yarım mükəmməl gəlirli darıxdırıcıdır'
       }
     ],
     [{
         id: 211,
-        sntc: 'His father has a car',
-        tr: 'Onun atasının maşını var',
-        ch: 'Onun atasının maşını var'
+        sntc: 'How long does it take you to get to school?',
+        tr: 'Sənin məktəbə çatmağın nə qədər vaxt çəkir?',
+        trt: '',
+        ch: 'Sənin məktəbə çatmağın nə qədər özünə kreslo bəzi vaxt çəkir'
       },
       {
         id: 212,
-        sntc: 'What worries you?',
-        tr: 'Səni narahat edən nədir?',
-        ch: 'Səni narahat edən nədir?'
+        sntc: 'He needs to be more polite',
+        tr: 'O, daha nəzakətli olmalıdır',
+        trt: '',
+        ch: 'O, daha sözünü kəsmək təsir bağışlamaq nəzakətli olmalıdır'
       },
       {
         id: 213,
-        sntc: 'I really need it',
-        tr: 'Bu mənə həqiqətən lazımdır',
-        ch: 'Bu mənə həqiqətən lazımdır'
+        sntc: 'Who do you know?',
+        tr: 'Sən kimi tanıyırsan?',
+        trt: '',
+        ch: 'Sən kimi aşagıdakı sonraki möhtəşəm görkəmli tanıyırsan'
       },
       {
         id: 214,
-        sntc: 'What do they want to tell you?',
-        tr: 'Onlar sənə nə demək istəyirlər?',
-        ch: 'Onlar sənə nə demək istəyirlər?'
+        sntc: "I'm lazy",
+        tr: 'Mən tənbələm',
+        trt: '',
+        ch: 'Mən hissə təəcübləndirmək həsr etmək tənbələm'
       },
       {
         id: 215,
-        sntc: 'How does she get home?',
-        tr: 'O, evə necə gedir?',
-        ch: 'O, evə necə gedir?'
-      },
-      {
+        sntc: 'The lessons is really good',
+        tr: 'Dərslər həqiqətən yaxşıdır',
+        trt: '',
+        ch: 'Dərslər həqiqətən lütf müqayisə etmək pul yaxşıdır'
+      }
+    ],
+    [{
         id: 216,
-        sntc: 'My boss always says it',
-        tr: 'Mənim müdirim həmişə bunu deyir',
-        ch: 'Mənim müdirim həmişə bunu deyir'
+        sntc: "What's your friend's name?",
+        tr: 'Sənin dostunun adı nədir?',
+        trt: '',
+        ch: 'Sənin dostunun yol cığır sevimli qonaqpərvər adı nədir'
       },
       {
         id: 217,
-        sntc: 'She would like to become a teacher',
-        tr: 'O, müəllim olmaq istərdi',
-        ch: 'O, müəllim olmaq istərdi'
+        sntc: 'We live in Azerbaijan',
+        tr: 'Biz Azərbaycanda yaşayırıq',
+        trt: '',
+        ch: 'Biz Azərbaycanda qorxmaq çətinlik hazırda diqqətli yaşayırıq'
       },
       {
         id: 218,
-        sntc: 'I really need your lessons',
-        tr: 'Mənim həqiqətən sənin dərslərinə ehtiyacım var',
-        ch: 'Mənim həqiqətən sənin dərslərinə ehtiyacım var'
+        sntc: 'I enjoy speaking English',
+        tr: 'Mən İngilis dilində danışmağdan zövq alıram',
+        trt: '',
+        ch: 'Mən İngilis dilində danışmağdan vaxt eyni komanda zövq alıram'
       },
       {
         id: 219,
-        sntc: 'How often do you read English books?',
-        tr: 'Nə sıxlıqda İngilis dilində kitablar oxuyursan?',
-        ch: 'Nə sıxlıqda tez-tez İngilis dilində kitablar oxuyursan?'
+        sntc: "Those lessons aren't effective",
+        tr: 'O dərslər effektiv deyil',
+        trt: '',
+        ch: 'O dərslər effektiv içəridə diqqətli qayğıkeş alternativ deyil'
       },
       {
         id: 220,
-        sntc: 'I want to improve my English',
-        tr: 'Mən İngilis dilimi təkmilləşdirmək istəyirəm',
-        ch: 'Mən İngilis dilimi təkmilləşdirmək istəyirəm'
+        sntc: "What's really useful?",
+        tr: 'Əslində nə faydalıdır?',
+        trt: '',
+        ch: 'Əslində nə uzun fikir ideya gözlənilməz faydalıdır'
       }
     ],
     [{
         id: 221,
-        sntc: "He's a manager",
-        tr: 'O, menecerdir',
-        ch: 'O, menecerdir'
+        sntc: 'Do you try to improve this result?',
+        tr: 'Sən bu nəticəni yaxşılaşdırmağa çalışırsan?',
+        trt: '',
+        ch: 'Sən bu nəticəni yaxşılaşdırmağa məktəb böyük sadə asan çalışırsan'
       },
       {
         id: 222,
-        sntc: "It's an interesting idea",
-        tr: 'Bu maraqlı fikirdir',
-        ch: 'Bu maraqlı fikirdir'
+        sntc: "It isn't for this level",
+        tr: 'Bu, bu səviyyə üçün deyil',
+        trt: '',
+        ch: 'Bu, bu səviyyə sadə asan qutu çanta üçün deyil'
       },
       {
         id: 223,
-        sntc: "It's easy",
-        tr: 'Bu asandır',
-        ch: 'Bu asandır'
+        sntc: 'Where is our teacher?',
+        tr: 'Bizim müəllimimiz haradadır?',
+        trt: '',
+        ch: 'Bizim müəllimimiz klinika bitirmək sadəlik bahar haradadır'
       },
       {
         id: 224,
-        sntc: "I'm happy",
-        tr: 'Mən xoşbəxtəm',
-        ch: 'Mən xoşbəxtəm'
+        sntc: 'I can write it down',
+        tr: 'Mən bunu yaza bilərəm',
+        trt: 'Mən yaza bilərəm bunu',
+        ch: 'Mən bunu yaza qane qutu qorxmaq sonuncu bilərəm'
       },
       {
         id: 225,
-        sntc: "It's interesting",
-        tr: 'Bu maraqlıdır',
-        ch: 'Bu maraqlıdır'
-      },
-      {
+        sntc: 'How often does he test their knowledge?',
+        tr: 'O, onların biliyini nə sıxlıqda yoxlayır?',
+        trt: 'O, nə sıxlıqda onların biliyini yoxlayır?',
+        ch: 'O, onların biliyini asan indi növbəti qəribə nə sıxlıqda yoxlayır'
+      }
+    ],
+    [{
         id: 226,
-        sntc: "I'm lazy",
-        tr: 'Mən tənbələm',
-        ch: 'Mən tənbələm'
+        sntc: 'How is she?',
+        tr: 'O, necədir?',
+        trt: '',
+        ch: 'O, ən yaxşı nümunədir səmərəsiz necədir'
       },
       {
         id: 227,
-        sntc: "We're rich",
-        tr: 'Biz zənginik',
-        ch: 'Biz zənginik'
+        sntc: 'The lesson is interesting',
+        tr: 'Dərs maraqlıdır',
+        trt: '',
+        ch: 'Dərs zövq almaq davranmaq qəribədir maraqlıdır'
       },
       {
         id: 228,
-        sntc: "She's a doctor",
-        tr: 'O, həkimdir',
-        ch: 'O, həkimdir'
+        sntc: 'My friend and I live there in autumn',
+        tr: 'Mənim dostum və mən payızda orada yaşayırıq',
+        trt: 'Mənim dostum və mən orada payızda yaşayırıq',
+        ch: 'Mənim dostum və mən çox gözəl payızda orada yaşayırıq'
       },
       {
         id: 229,
-        sntc: "He's her husband",
-        tr: 'O, onun əridir',
-        ch: 'O, onun əridir'
+        sntc: 'Why are you here?',
+        tr: 'Sən niyə burdasan?',
+        trt: '',
+        ch: 'Sən niyə dərk etmək yaza masası ən uzun burdasan'
       },
       {
         id: 230,
-        sntc: "It's important",
-        tr: 'Bu vacibdir',
-        ch: 'Bu vacibdir'
+        sntc: 'Do I understand it correctly?',
+        tr: 'Mən bunu düzgün başa düşürəm?',
+        trt: 'Mən düzgün başa düşürəm bunu?',
+        ch: 'Mən bunu düzgün başa şərt tezliklə mümkün düşürəm'
       }
     ],
     [{
         id: 231,
-        sntc: "It's too difficult",
-        tr: 'Bu həddən artıq çətindir',
-        ch: 'Bu həddən artıq çətindir'
+        sntc: "I'm fond of this app thanks to my fantastic result",
+        tr: 'Fantastik nəticəm sayəsində bu tətbiqi çox sevirəm',
+        trt: '',
+        ch: 'Fantastik nəticəm sayəsində nəzərdə tutmaq bu tətbiqi çox sevirəm'
       },
       {
         id: 232,
-        sntc: "It's a big mistake",
-        tr: 'Bu böyük səhvdir',
-        ch: 'Bu böyük səhvdir'
+        sntc: "She isn't with us",
+        tr: 'O, bizimlə deyil',
+        trt: '',
+        ch: 'O, bizimlə rəqəmlər rəqabətə qirmək zövq almaq deyil'
       },
       {
         id: 233,
-        sntc: "It's a simple test",
-        tr: 'Bu sadə testdir',
-        ch: 'Bu sadə testdir'
+        sntc: "Who's in the park?",
+        tr: 'Parkda kimlər var?',
+        trt: '',
+        ch: 'Parkda kimlər effektiv uşaqlar çətin sınaq var'
       },
       {
         id: 234,
-        sntc: "You're the best teacher in the world",
-        tr: 'Sən dünyanın ən yaxşı müəllimisən',
-        ch: 'Sən dünyanın ən yaxşı müəllimisən'
+        sntc: "He isn't busy. He's free",
+        tr: 'O, məşğul deyil. O, azaddır',
+        trt: '',
+        ch: 'O, məşğul küləkli faydasız qayda deyil. O, azaddır'
       },
       {
         id: 235,
-        sntc: "It's too cheap",
-        tr: 'Bu çox ucuzdır',
-        ch: 'Bu çox ucuzdır'
-      },
-      {
+        sntc: "She's very optimistic",
+        tr: 'O çox optimistdir',
+        trt: '',
+        ch: 'O çox yaxşı öyrətmək oynamaq optimistdir'
+      }
+    ],
+    [{
         id: 236,
-        sntc: "He's a very good person",
-        tr: 'O çox yaxşı insandır',
-        ch: 'O çox yaxşı insandır'
+        sntc: 'Money is also important',
+        tr: 'Pul da vacibdir',
+        trt: '',
+        ch: 'Pul da nümunə səmərəsiz üsul nikbinllik vacibdir'
       },
       {
         id: 237,
-        sntc: "It's too cold",
-        tr: 'Çox soyuqdur',
-        ch: 'Çox soyuqdur'
+        sntc: 'Is it sunny?',
+        tr: 'Günəşlidir?',
+        trt: '',
+        ch: 'Günəşlidir aydın mümkün belə o qədər'
       },
       {
         id: 238,
-        sntc: "She's a very beautiful girl",
-        tr: 'O çox gözəl qızdır',
-        ch: 'O çox gözəl qızdır'
+        sntc: 'Are you there?',
+        tr: 'Sən ordasan?',
+        trt: '',
+        ch: 'Sən mümkün hazırlaşmaq imtahan ab-hava ordasan'
       },
       {
         id: 239,
-        sntc: "I'm fine",
-        tr: 'Mən yaxşıyam',
-        ch: 'Mən yaxşıyam'
+        sntc: 'They need your help',
+        tr: 'Onlara sənin köməyin lazımdır',
+        trt: '',
+        ch: 'Onlara sənin həftə stimullaşdırmaq mütəxəssis köməyin lazımdır'
       },
       {
         id: 240,
-        sntc: "It's worse",
-        tr: 'Bu daha pisdir',
-        ch: 'Bu daha pisdir'
+        sntc: 'How interesting is this magazine?',
+        tr: 'Bu jurnal nə dərəcədə maraqlıdır?',
+        trt: '',
+        ch: 'Bu jurnal nə dərəcədə davranmaq qəribə yaşlı maraqlıdır'
       }
     ],
     [{
         id: 241,
-        sntc: "She's such a wise woman",
-        tr: 'O çox müdrik qadındır',
-        ch: 'O çox müdrik qadındır'
+        sntc: "It isn't her recommendation",
+        tr: 'Bu onun tövsiyəsi deyil',
+        trt: '',
+        ch: 'Bu onun tövsiyəsi vəziyyət sadə qız hekayə deyil'
       },
       {
         id: 242,
-        sntc: "It's such an effective method",
-        tr: 'Bu çox effektiv üsuldur',
-        ch: 'Bu çox effektiv üsuldur'
+        sntc: 'Is the lesson useful?',
+        tr: 'Dərs faydalıdır?',
+        trt: '',
+        ch: 'Dərs yaddaş pis Məşq tənbəl faydalıdır'
       },
       {
         id: 243,
-        sntc: "It's so easy",
-        tr: 'Bu çox asandır',
-        ch: 'Bu çox asandır'
+        sntc: 'Do you go to them often?',
+        tr: 'Sən tez-tez onların yanına gedirsən?',
+        trt: 'Sən onların yanına tez-tez gedirsən?',
+        ch: 'Sən tez-tez onların yanına mətn otaq daha gedirsən'
       },
       {
         id: 244,
-        sntc: "I drink so much milk",
-        tr: 'Mən elə çox süd içirəm',
-        ch: 'Mən elə çox süd içirəm'
+        sntc: "He's keen on foreign languages",
+        tr: 'O, xarici dillərə həvəslidir',
+        trt: '',
+        ch: 'O, xarici dillərə problem məşq etmək yaddaş həvəslidir'
       },
       {
         id: 245,
-        sntc: "It's such an expensive car",
-        tr: 'Bu çox bahalı avtomobildir',
-        ch: 'Bu çox bahalı avtomobildir'
-      },
-      {
+        sntc: 'What helps you?',
+        tr: 'Sizə nə kömək edir?',
+        trt: '',
+        ch: 'Sizə nə kömək tənbəl qaranlıq isti edir'
+      }
+    ],
+    [{
         id: 246,
-        sntc: "She's so clever",
-        tr: 'O çox ağıllıdır',
-        ch: 'O çox ağıllıdır'
+        sntc: 'I like this advice',
+        tr: 'Bu məsləhət xoşuma gəlir',
+        trt: '',
+        ch: 'Bu məsləhət xoşuma həddən artıq ev zəngin gəlir'
       },
       {
         id: 247,
-        sntc: "It's very easy",
-        tr: 'Bu çox asandır',
-        ch: 'Bu çox asandır'
+        sntc: 'How do you usually spend your free time?',
+        tr: 'Adətən boş vaxtını necə keçirirsən?',
+        trt: '',
+        ch: 'Adətən boş vaxtını direktor uğurlu layihə necə keçirirsən'
       },
       {
         id: 248,
-        sntc: "He's so professional teacher",
-        tr: 'O çox peşəkar müəllimdir',
-        ch: 'O çox peşəkar müəllimdir'
+        sntc: "It's a very useful example",
+        tr: 'Bu çox faydalı nümunədir',
+        trt: '',
+        ch: 'Bu çox faydalı peşəkar ucuz istedadlı vəziyyət nümunədir'
       },
       {
         id: 249,
-        sntc: "It's such a cheap thing",
-        tr: 'Bu çox ucuz əşyadır',
-        ch: 'Bu çox qədər ucuz əşyadır'
+        sntc: 'Her husband is in hospital',
+        tr: 'Onun əri xəstəxanadadır',
+        trt: '',
+        ch: 'Onun əri bilik güc hava limanda xəstəxanadadır'
       },
       {
         id: 250,
-        sntc: "He's so talented",
-        tr: 'O çox istedadlıdır',
-        ch: 'O çox istedadlıdır'
+        sntc: 'Is this method new?',
+        tr: 'Bu üsul yenidir?',
+        trt: '',
+        ch: 'Bu üsul yenidir qutu çanta nə üçün'
       }
     ],
     [{
         id: 251,
-        sntc: 'Your help is very important',
-        tr: 'Sənin köməyin çox vacibdir',
-        ch: 'Sənin köməyin çox vacibdir'
+        sntc: "I'll be grateful to you for your help",
+        tr: 'Köməyinizə görə sizə minnətdar olacağam',
+        trt: 'Köməyinizə görə minnətdar olacağam sizə',
+        ch: 'Köməyinizə görə mənfəətli universitet məşhur sizə minnətdar olacağam'
       },
       {
         id: 252,
-        sntc: 'Our teacher is right',
-        tr: 'Bizim müəllimimiz haqlıdır',
-        ch: 'Bizim müəllimimiz haqlıdır'
+        sntc: "He'll say it again",
+        tr: 'O, bunu yenə deyəcək',
+        trt: 'O, yenə bunu deyəcək',
+        ch: 'O, bunu yenə məşğul səhv xoşbəxt deyəcək'
       },
       {
         id: 253,
-        sntc: 'These lessons are so effective',
-        tr: 'Bu dərslər elə effektlidir',
-        ch: 'Bu dərslər elə effektlidir'
+        sntc: "We'll go on holiday soon",
+        tr: 'Biz tezliklə bayrama gedəcəyik',
+        trt: 'Biz bayrama gedəcəyik tezliklə',
+        ch: 'Biz tezliklə bayrama cüt jurnal şalvar gedəcəyik'
       },
       {
         id: 254,
-        sntc: 'This problem is very big',
-        tr: 'Bu problem çox böyükdür',
-        ch: 'Bu problem çox böyükdür'
+        sntc: "We'll create a very positive atmosphere",
+        tr: 'Biz çox müsbət ab-hava yaradacıq',
+        trt: '',
+        ch: 'Biz çox müsbət ab-hava sahib mənzil oğlan yaradacıq'
       },
       {
         id: 255,
-        sntc: 'The women are there',
-        tr: 'Qadınlar oradadır',
-        ch: 'Qadınlar oradadır'
-      },
-      {
+        sntc: "I'll maximize the profit",
+        tr: 'Mən mənfəəti maksimuma çatdıracağam',
+        trt: '',
+        ch: 'Mən mənfəəti maksimuma tutmaq tənqid qiymət çatdıracağam'
+      }
+    ],
+    [{
         id: 256,
-        sntc: 'His daughter is in the park',
-        tr: 'Onun qızı parkdadır',
-        ch: 'Onun qızı parkdadır'
+        sntc: 'The authorities will regulate it somehow',
+        tr: 'Hökümət orqanları hansısa yolla bunu tənzimləyəcək',
+        trt: 'Hökümət orqanları bunu hansısa yolla tənzimləyəcək',
+        ch: 'Hökümət orqanları bunu hansısa yolla uzun çay yazmaq tənzimləyəcək'
       },
       {
         id: 257,
-        sntc: 'I have a house. The house is very big',
-        tr: 'Mənim evim var. Ev çox böyükdür',
-        ch: 'Mənim evim var. Ev çox böyükdür'
+        sntc: 'My friend and will hurry up',
+        tr: 'Mənim dostum və mən tələsəcəyik',
+        trt: '',
+        ch: 'Mənim dostum və mən tələsəcəyik'
       },
       {
         id: 258,
-        sntc: 'His parents are abroad now',
-        tr: 'Onun valideynləri hal-hazırda xaricdədir',
-        ch: 'Onun valideynləri hal-hazırda xaricdədir'
+        sntc: 'Everyone will refuse to do it',
+        tr: 'Hər kəs bunu etməkdən imtina edəcək',
+        trt: 'Hər kəs imtina edəcək bunu etməkdən',
+        ch: 'Hər kəs bunu etməkdən rəqəmlər rəqabətə qirmək imtina edəcək'
       },
       {
         id: 259,
-        sntc: 'I am thirty-two',
-        tr: 'Mənim otuz iki yaşım var',
-        ch: 'Mənim otuz iki yaşım var'
+        sntc: 'Our sales manager will calculate it',
+        tr: 'Bizim satış menecerimiz bunu hesablayacaq',
+        trt: 'Bizim satış menecerimiz hesablayacaq bunu',
+        ch: 'Bizim satış menecerimiz bunu hesablayacaq'
       },
       {
         id: 260,
-        sntc: 'The day is rainy',
-        tr: 'Gün yağışlıdır',
-        ch: 'Gün yağışlıdır'
+        sntc: 'Everyone will be shocked',
+        tr: 'Hamı şoka düşəcək',
+        trt: '',
+        ch: 'Hamı şoka sadəlik ümid qəmli maaş düşəcək'
       }
     ],
     [{
         id: 261,
-        sntc: "We aren't tired",
-        tr: 'Biz yorulmamışıq',
-        ch: 'Biz yorulmamışıq'
+        sntc: "It won't lead to success",
+        tr: 'Bu, uğura gətirib çıxarmayacaq',
+        trt: '',
+        ch: 'Bu, uğura gətirib mümkün hazırlaşmaq imtahan çıxarmayacaq'
       },
       {
         id: 262,
-        sntc: 'We are full of energy',
-        tr: 'Biz enerji ilə doluyuq',
-        ch: 'Biz enerji ilə doluyuq'
+        sntc: "We won't swim there",
+        tr: 'Biz orada üzməyəcəyik',
+        trt: 'Biz üzməyəcəyik orada',
+        ch: 'Biz orada uzun çay yazmaq üzməyəcəyik'
       },
       {
         id: 263,
-        sntc: "It's such a bad method",
-        tr: 'Bu çox pis metoddır',
-        ch: 'Bu çox pis metoddır'
+        sntc: "He won't pass this test",
+        tr: 'O, bu sınaqdan keçməyəcək',
+        trt: 'O, keçməyəcək bu sınaqdan',
+        ch: 'O, bu sınaqdan mövzu döşəmə heyran olmaq keçməyəcək'
       },
       {
         id: 264,
-        sntc: "I'm not a manager",
-        tr: 'Mən menecer deyiləm',
-        ch: 'Mən menecer deyiləm'
+        sntc: "They won't find a solution to such an important problem soon",
+        tr: 'Onlar belə bir vacib problemin həllini tezliklə tapmayacaqlar',
+        trt: 'Onlar belə bir vacib problemin tezliklə həllini tapmayacaqlar',
+        ch: 'Onlar belə bir vacib problemin film möhtəşəm tezliklə həllini tapmayacaqlar'
       },
       {
         id: 265,
-        sntc: "It's a very bad method",
-        tr: 'Bu çox pis üsuldur',
-        ch: 'Bu çox pis üsuldur'
-      },
-      {
+        sntc: "We won't complain about it",
+        tr: 'Biz bundan şikayət etmərik',
+        trt: '',
+        ch: 'Biz bundan şikayət getmək təmir etmək rədd etmərik'
+      }
+    ],
+    [{
         id: 266,
-        sntc: "It's a very ineffective method",
-        tr: 'Bu çox qeyri-effektiv metoddır',
-        ch: 'Bu çox qeyri-effektiv metoddır'
+        sntc: "The girl won't learn everything so quickly",
+        tr: 'Qız hər şeyi belə tez öyrənməyəcək',
+        trt: '',
+        ch: 'Qız hər şeyi belə tez vermək hazırlıq həll olunma öyrənməyəcək'
       },
       {
         id: 267,
-        sntc: "This woman isn't so wise",
-        tr: 'Bu qadın o qədər də müdrik deyil',
-        ch: 'Bu qadın o qədər də müdrik deyil'
+        sntc: "The day won't be rainy",
+        tr: 'Gün yağışlı olmayacaq',
+        trt: '',
+        ch: 'Gün yağışlı investisiya reaksiya qanuni məsləhət olmayacaq'
       },
       {
         id: 268,
-        sntc: "It isn't a difficult rule",
-        tr: 'Bu, çətin qayda deyil',
-        ch: 'Bu, çətin qayda deyil'
+        sntc: "His grandfather won't know it",
+        tr: 'Onun babası bunu bilməyəcək',
+        trt: 'Onun babası bilməyəcək bunu',
+        ch: 'Onun babası bunu bu gün yağışlı təşəbbüs qonaq bilməyəcək'
       },
       {
         id: 269,
-        sntc: "They aren't my colleagues",
-        tr: 'Onlar mənim həmkarlarım deyil',
-        ch: 'Onlar mənim həmkarlarım deyil'
+        sntc: "My colleagues won't support this initiative",
+        tr: 'Mənim həmkarlarım bu təşəbbüsü dəstəkləməyəcəklər',
+        trt: 'Mənim həmkarlarım dəstəkləməyəcəklər bu təşəbbüsü',
+        ch: 'Mənim həmkarlarım bu təşəbbüsü dəstəkləməyəcəklər'
       },
       {
         id: 270,
-        sntc: "It isn't a very bad situation",
-        tr: 'Bu çox pis vəziyyət deyil',
-        ch: 'Bu çox pis vəziyyət deyil'
+        sntc: "It won't be the only right method",
+        tr: 'Bu, yeganə düzgün üsul olmayacaq',
+        trt: '',
+        ch: 'Bu, yeganə düzgün üsul saat bişirmək sonra darıxmaq olmayacaq'
       }
     ],
     [{
         id: 271,
-        sntc: 'Is it her opinion?',
-        tr: 'Bu, onun fikridir?',
-        ch: 'Bu, onun fikridir?'
+        sntc: 'Will it be possible at the end of the meeting?',
+        tr: 'Bu, görüşün sonunda mümkün olacaq?',
+        trt: '',
+        ch: 'Bu, görüşün sonunda mümkün başlanğıc cib münasibət olacaq'
       },
       {
         id: 272,
-        sntc: 'Are you ready?',
-        tr: 'Sən hazırsan?',
-        ch: 'Sən hazırsan?'
+        sntc: 'Will you inform your assistant?',
+        tr: 'Köməkçinizə məlumat verəcəksiniz?',
+        trt: '',
+        ch: 'Köməkçinizə məlumat musiqiçi iştirak etməyən orada verəcəksiniz'
       },
       {
         id: 273,
-        sntc: 'Are they lazy?',
-        tr: 'Onlar tənbəldirlər?',
-        ch: 'Onlar tənbəldirlər?'
+        sntc: 'Will you celebrate your birthday?',
+        tr: 'Ad gününü qeyd edəcəksən?',
+        trt: '',
+        ch: 'Ad gününü qeyd uçmaq qiymət qoşulmaq ədəbiyyat edəcəksən'
       },
       {
         id: 274,
-        sntc: 'Is it a problem?',
-        tr: 'Bu, problemdir?',
-        ch: 'Bu, problemdir?'
+        sntc: 'She always criticizes him',
+        tr: 'O, həmişə onu tənqid edir',
+        trt: 'O, onu həmişə tənqid edir',
+        ch: 'O, həmişə onu tənqid xatırlatmaq asanlıqla saxlamaq sirr edir'
       },
       {
         id: 275,
-        sntc: 'Are we right?',
-        tr: 'Biz haqlıyıq?',
-        ch: 'Biz haqlıyıq?'
-      },
-      {
+        sntc: 'Will I have an advanced level in English?',
+        tr: 'Mən İngilis dilində qabaqcıl səviyyəyə malik olacam?',
+        trt: '',
+        ch: 'Mən İngilis dilində qabaqcıl səviyyəyə malik kəs tələffüz olacam'
+      }
+    ],
+    [{
         id: 276,
-        sntc: 'Is he a director?',
-        tr: 'O, direktordur?',
-        ch: 'O, direktordur?'
+        sntc: 'She reads English books',
+        tr: 'O, İngilis dilində kitablar oxuyur',
+        trt: '',
+        ch: 'O, İngilis dilində kitablar gərgin fəxr etmək daxil oxuyur'
       },
       {
         id: 277,
-        sntc: 'Is it a successful project?',
-        tr: 'Bu uğurlu layihədir?',
-        ch: 'Bu uğurlu layihədir?'
+        sntc: 'Will it change their attitude to health?',
+        tr: 'Bu, onların sağlamlığa münasibətini dəyişəcək?',
+        trt: '',
+        ch: 'Bu, onların sağlamlığa münasibətini dəyişəcək'
       },
       {
         id: 278,
-        sntc: 'Is it obvious?',
-        tr: 'Bu, açıq-aşkardır?',
-        ch: 'Bu, açıq-aşkardır?'
+        sntc: "It'll be necessary to check it one more time",
+        tr: 'Bunu bir dəfədə yoxlamaq lazım olacaq',
+        trt: '',
+        ch: 'Bunu bir dəfədə yoxlamaq lazım İzləmək ölmək yaratmaq olacaq'
       },
       {
         id: 279,
-        sntc: 'Are you here?',
-        tr: 'Sən burdasan?',
-        ch: 'Sən burdasan?'
+        sntc: "I'm interested in it",
+        tr: 'Bu məni maraqlıdırır',
+        trt: 'Bu maraqlıdırır məni',
+        ch: 'Bu məni məsrəf qismən səbəb ifadə maraqlıdırır'
       },
       {
         id: 280,
-        sntc: 'Is it a global problem?',
-        tr: 'Bu, qlobal problemdir?',
-        ch: 'Bu, qlobal problemdir?'
+        sntc: 'Will it be possible tomorrow?',
+        tr: 'Bu, sabah mümkün olacaq?',
+        trt: 'Bu, mümkün olacaq sabah?',
+        ch: 'Bu, sabah mümkün aydın sakit ziyafət təsvir olacaq'
       }
     ],
     [{
         id: 281,
-        sntc: 'Is money important?',
-        tr: 'Pul vacibdir?',
-        ch: 'Pul vacibdir?'
+        sntc: 'Why will you fly to another place?',
+        tr: 'Sən niyə başqa yerə uçacaqsan?',
+        trt: 'Sən başqa yerə niyə uçacaqsan?',
+        ch: 'Sən niyə başqa yerə səslənmək fürsət müqayisə etmək uçacaqsan'
       },
       {
         id: 282,
-        sntc: 'Is the computer old?',
-        tr: 'Kompüter köhnədir?',
-        ch: 'Kompüter köhnədir?'
+        sntc: 'How much will it cost?',
+        tr: 'Bu neçəyə başa gələcək?',
+        trt: '',
+        ch: 'Bu neçəyə başa təmin etmək əla şərait gələcək'
       },
       {
         id: 283,
-        sntc: 'Are the men at work?',
-        tr: 'Kişilər işdədir?',
-        ch: 'Kişilər işdədir?'
+        sntc: "I'll manage to solve this problem",
+        tr: 'Mən bu problemi həll etməyi bacararam',
+        trt: '',
+        ch: 'Mən bu problemi həll pul kisəsi mahnı populyar etməyi bacararam'
       },
       {
         id: 284,
-        sntc: 'Is knowledge power?',
-        tr: 'Bilik gücdür?',
-        ch: 'Bilik gücdür?'
+        sntc: 'When will she join us?',
+        tr: 'O, bizə nə vaxt qoşulacaq?',
+        trt: 'O, nə vaxt bizə qoşulacaq?',
+        ch: 'O, bizə nə vaxt qəzet kreslo ondan sonra qoşulacaq'
       },
       {
         id: 285,
-        sntc: 'Are all these exercises very difficult?',
-        tr: 'Bütün bu məşqlər çox çətindir?',
-        ch: 'Bütün bu məşqlər çox çətindir?'
-      },
-      {
+        sntc: 'How will you be able to solve this problem?',
+        tr: 'Sən bu problemi necə həll edə biləcəksən?',
+        trt: '',
+        ch: 'Sən bu problemi necə həll məyus dinləmək min ay edə biləcəksən'
+      }
+    ],
+    [{
         id: 286,
-        sntc: 'Are your friends online?',
-        tr: 'Snin dostların İnternetdədir?',
-        ch: 'Snin dostların İnternetdədir?'
+        sntc: 'Why will he regret it?',
+        tr: 'O, niyə buna görə peşman olacaq?',
+        trt: 'O, buna görə niyə peşman olacaq?',
+        ch: 'O, buna görə niyə peşman hər şey möhtəşəm qayıtmaq olacaq'
       },
       {
         id: 287,
-        sntc: 'Is the airport near?',
-        tr: 'Hava limanı yaxındır?',
-        ch: 'Hava limanı yaxındır?'
+        sntc: 'How regularly will the employees make this kind of reports?',
+        tr: 'İşçilər bu cür hesabatları nə qədər davamlı edəcəklər?',
+        trt: '',
+        ch: 'İşçilər bu cür hesabatları nə qədər davamlı göstərmək parlaq edəcəklər'
       },
       {
         id: 288,
-        sntc: 'Is this word new for you?',
-        tr: 'Bu söz sənin üçün yenidir?',
-        ch: 'Bu söz sənin üçün yenidir?'
+        sntc: 'How will the student be able to improve the result?',
+        tr: 'Şagird nəticəni necə yaxşılaşdıra biləcək?',
+        trt: '',
+        ch: 'Şagird nəticəni necə yaxşılaşdıra ziyafət məyus etmək biləcək'
       },
       {
         id: 289,
-        sntc: 'Is this level enough?',
-        tr: 'Bu səviyyə kifayət edir?',
-        ch: 'Bu səviyyə kifayət edir?'
+        sntc: 'How much money will your friend owe you?',
+        tr: 'Sənin dostun sənə nə qədər pul borclu olacaq?',
+        trt: 'Sənin dostun nə qədər pul borclu olacaq sənə?',
+        ch: 'Sənin dostun sənə nə qədər pul təmir etmək borclu olacaq'
       },
       {
         id: 290,
-        sntc: 'Are the boys at school?',
-        tr: 'Oğlanlar məktəbdədir?',
-        ch: 'Oğlanlar məktəbdədir?'
+        sntc: 'How many places will you visit?',
+        tr: 'Sən nə qədər yeri ziyarət edəcəksən?',
+        trt: '',
+        ch: 'Sən nə qədər yeri ziyarət möhtəşəm qayıtmaq dünən edəcəksən'
       }
     ],
     [{
         id: 291,
-        sntc: 'How expensive is it?',
-        tr: 'Bu nə qədər bahalıdır?',
-        ch: 'Bu nə qədər bahalıdır?'
+        sntc: 'I’ll continue working here',
+        tr: 'Mən burada işləməyə davam edəcəyəm',
+        trt: 'Mən davam edəcəyəm burada işləməyə',
+        ch: 'Mən burada işləməyə davam qayıtmaq dünən bizə edəcəyəm'
       },
       {
         id: 292,
-        sntc: 'Where is she?',
-        tr: 'O haradadır?',
-        ch: 'O haradadır?'
+        sntc: 'They’ll be able to resolve this conflict',
+        tr: 'Onlar bu münaqişəni həll edə biləcəklər',
+        trt: 'Onlar həll edə biləcəklər bu münaqişəni',
+        ch: 'Onlar bu münaqişəni həll edə bunlar sahib olmaq biləcəklər'
       },
       {
         id: 293,
-        sntc: 'How is he?',
-        tr: 'O necədir?',
-        ch: 'O necədir?'
+        sntc: 'You’ll hear it at the beginning of the movie',
+        tr: 'Sən bunu filmin əvvəlində eşidəcəksən',
+        trt: 'Sən filmin əvvəlində bunu eşidəcəksən',
+        ch: 'Sən bunu filmin əvvəlində faydalı içmək süd sənin eşidəcəksən'
       },
       {
         id: 294,
-        sntc: 'What is really important?',
-        tr: 'Əslində nə vacibdir?',
-        ch: 'Əslində nə vacibdir?'
+        sntc: 'You’ll see this advertisement there',
+        tr: 'Siz bu reklamı orada görəcəksiniz',
+        trt: 'Siz orada bu reklamı görəcəksiniz',
+        ch: 'Siz bu reklamı orada gəlmək haqqında başa düşün görəcəksiniz'
       },
       {
         id: 295,
-        sntc: 'How easy is it?',
-        tr: 'Bu nə qədər asandır?',
-        ch: 'Bu nə qədər asandır?'
-      },
-      {
+        sntc: "I won't reinvent the wheel",
+        tr: 'Mən təkəri yenidən icad etməyəcəm',
+        trt: 'Mən yenidən təkəri icad etməyəcəm',
+        ch: 'Mən təkəri yenidən internet göstərmək nəticə dəstək icad etməyəcəm'
+      }
+    ],
+    [{
         id: 296,
-        sntc: 'Why is he at work now?',
-        tr: 'O, nəyə görə indi işdədir?',
-        ch: 'O, nəyə görə indi işdədir?'
+        sntc: 'They’ll change their point of view',
+        tr: 'Onlar baxışlarını dəyişəcəklər',
+        trt: '',
+        ch: 'Onlar baxışlarını məmnuniyyət hər hansı fərqli dəyişəcəklər'
       },
       {
         id: 297,
-        sntc: 'How good is it?',
-        tr: 'Bu nə dərəcədə yaxşıdır?',
-        ch: 'Bu nə dərəcədə yaxşıdır?'
+        sntc: "I won't change my attitude to her",
+        tr: 'Mən ona olan münasibətimi dəyişməyəcəm',
+        trt: 'Mən ona münasibətimi dəyişməyəcəm',
+        ch: 'Mən ona olan münasibətimi həqiqətən düzgün həmçinin qardaş dəyişməyəcəm'
       },
       {
         id: 298,
-        sntc: 'How old is she?',
-        tr: 'Onun neçə yaşı var?',
-        ch: 'Onun neçə yaşı var?'
+        sntc: "We won't take part in this competition",
+        tr: 'Biz bu yarışda iştirak etməyəcik',
+        trt: 'Biz iştirak etməyəcik bu yarışda',
+        ch: 'Biz bu yarışda iştirak cəlb etmək demək etməyəcik'
       },
       {
         id: 299,
-        sntc: 'Who is next?',
-        tr: 'Növbəti kimdir?',
-        ch: 'Növbəti kimdir?'
+        sntc: 'Everyone has this kind of problems',
+        tr: 'Hər kəsin bu cür problemləri var',
+        trt: '',
+        ch: 'Hər kəsin bu cür effektiv uşaqlar çətin problemləri var'
       },
       {
         id: 300,
-        sntc: 'What is strange?',
-        tr: 'Qəribə olan nədir?',
-        ch: 'Qəribə olan nədir?'
+        sntc: 'Will it last for more than two hours?',
+        tr: 'Bu, iki saatdan çox davam edəcək?',
+        trt: '',
+        ch: 'Bu, iki saatdan çox davam optimist yeni üçün edəcək'
       }
     ],
     [{
         id: 301,
-        sntc: 'Where is your husband?',
-        tr: 'Sənin ərin haradadır?',
-        ch: 'Sənin ərin haradadır?'
+        sntc: 'Will it be a potential threat?',
+        tr: 'Bu, potensial təhlükə olacaq?',
+        trt: '',
+        ch: 'Bu, potensial təhlükə mətbəx darıxdırıcı qane etmək olacaq'
       },
       {
         id: 302,
-        sntc: "What's her job?",
-        tr: 'Onun işi nədir?',
-        ch: 'Onun işi nədir?'
+        sntc: 'I’ll be grateful to you for it',
+        tr: 'Mən sənə buna görə minnətdar olacam',
+        trt: 'Mən buna görə sənə minnətdar olacam',
+        ch: 'Mən buna görə sənə minnətdar bitirmək sadəlik bahar olacam'
       },
       {
         id: 303,
-        sntc: 'Who is that woman?',
-        tr: 'O qadın kimdir?',
-        ch: 'O qadın kimdir?'
+        sntc: 'Will I improve my English?',
+        tr: 'Mən İngilis dilimi təkmilləşdirəcəyəm?',
+        trt: '',
+        ch: 'Mən İngilis dilimi sabah yemək dadlı təkmilləşdirəcəyəm'
       },
       {
         id: 304,
-        sntc: "What's your sister's name?",
-        tr: 'Sənin bacının adı nədir?',
-        ch: 'Sənin bacının adı nədir?'
+        sntc: 'How much money will you spend on it?',
+        tr: 'Sən buna nə qədər pul xərcləyəcəksən?',
+        trt: 'Sən nə qədər pul xərcləyəcəksən buna?',
+        ch: 'Sən buna nə qədər pul münasib axşam hazırlaşmaq xərcləyəcəksən'
       },
       {
         id: 305,
-        sntc: "What's wrong?",
-        tr: 'Nə səhvdir?',
-        ch: 'Nə səhvdir?'
-      },
-      {
+        sntc: 'Will you have a high salary?',
+        tr: 'Sənin yüksək maaşın olacaq?',
+        trt: 'Sənin maaşın yüksək olacaq?',
+        ch: 'Sənin yüksək maaşın qurmaq təhlil etmək məlumat olacaq'
+      }
+    ],
+    [{
         id: 306,
-        sntc: "What's her father's job?",
-        tr: 'Onun atasının işi nədir?',
-        ch: 'Onun atasının işi nədir?'
+        sntc: 'I’ll be proud of your results',
+        tr: 'Mən sənin nəticələrinlə fəxr edəcəm',
+        trt: '',
+        ch: 'Mən sənin nəticələrinlə fəxr çay yazmaq həftə stimullaşdırmaq edəcəm'
       },
       {
         id: 307,
-        sntc: 'How is this result?',
-        tr: 'Bu nəticə nəcədir?',
-        ch: 'Bu nəticə nəcədir?'
+        sntc: 'How will you manage to find a solution to such a difficult problem?',
+        tr: 'Belə çətin bir problemin həllini necə tapa biləcəksən?',
+        trt: 'Belə çətin problemin həllini necə tapa biləcəksən?',
+        ch: 'Belə çətin bir problemin həllini necə ən uzun tapa biləcəksən'
       },
       {
         id: 308,
-        sntc: 'How old is your brother?',
-        tr: 'Sənin qardaşının neçə yaşı var?',
-        ch: 'Sənin qardaşının neçə yaşı var?'
+        sntc: 'We’ll support this initiative',
+        tr: 'Biz bu təşəbbüsü dəstəkləyəcəyik',
+        trt: 'Biz dəstəkləyəcəyik bu təşəbbüsü',
+        ch: 'Biz bu təşəbbüsü şərt tezliklə mümkün dəstəkləyəcəyik'
       },
       {
         id: 309,
-        sntc: 'Where is the boy?',
-        tr: 'Oğlan haradadır?',
-        ch: 'Oğlan haradadır?'
+        sntc: 'Will the students look this word up in a dictionary?',
+        tr: 'Tələbələr bu sözə lüğətdə baxacaqlar?',
+        trt: 'Tələbələr lüğətdə bu sözə baxacaqlar?',
+        ch: 'Tələbələr bu sözə lüğətdə soyuq gözəl qız yaxşı baxacaqlar'
       },
       {
         id: 310,
-        sntc: "What's his name?",
-        tr: 'Onun adı nədir?',
-        ch: 'Onun adı nədir?'
+        sntc: 'I’ll look up this phrase in a dictionary',
+        tr: 'Mən bu ifadəyə lüğətdə baxacam',
+        trt: 'Mən lüğətdə bu ifadəyə baxacam',
+        ch: 'Mən bu ifadəyə lüğətdə üzgün təkmilləşdirmək pul dəyişmək baxacam'
       }
     ],
     [{
         id: 311,
-        sntc: 'He is so clever',
-        tr: 'O, çox ağıllıdır',
-        ch: 'O, çox ağıllıdır'
+        sntc: 'He’ll miss her',
+        tr: 'O, onun üçün darıxacaq',
+        trt: 'O, darıxacaq onun üçün',
+        ch: 'O, onun üçün başa düşün bunlar xalq darıxacaq'
       },
       {
         id: 312,
-        sntc: 'Is this method really ineffective?',
-        tr: 'Bu üsul həqiqətən səmərəsizdir?',
-        ch: 'Bu üsul həqiqətən səmərəsizdir?'
+        sntc: 'My elder brother and I will be there',
+        tr: 'Mənim böyük qardaşım və mən orada olacağıq',
+        trt: '',
+        ch: 'Mənim böyük qardaşım və mən orada düzəltmək xalq olacağıq'
       },
       {
         id: 313,
-        sntc: 'Why are those lessons so ineffective?',
-        tr: 'Nəyə görə bu dərslər elə yararsızdır?',
-        ch: 'Nəyə görə bu dərslər elə yararsızdır?'
+        sntc: 'Will this movie last for two hours?',
+        tr: 'Bu film iki saat davam edəcək?',
+        trt: '',
+        ch: 'Bu film iki saat davam həqiqət onlar tələbə edəcək'
       },
       {
         id: 314,
-        sntc: 'Why are the students there?',
-        tr: 'Tələbələr nə üçün oradadır?',
-        ch: 'Tələbələr nə üçün oradadır?'
+        sntc: 'I think this musician won’t become popular',
+        tr: 'Məncə, bu musiqiçi populyar olmayacaq',
+        trt: '',
+        ch: 'Məncə, bu musiqiçi populyar mütəmadı qulaq asmaq olmayacaq'
       },
       {
         id: 315,
-        sntc: 'I have a car',
-        tr: 'Mənim maşınım var',
-        ch: 'Mənim maşınım var'
-      },
-      {
+        sntc: 'I’ll manage to double our sales despite the crisis',
+        tr: 'Böhrana baxmayaraq satışlarımızı ikiqat artırmağı bacaracam',
+        trt: '',
+        ch: 'Böhrana baxmayaraq satışlarımızı sevmək istəmək gəlmək ikiqat artırmağı bacaracam'
+      }
+    ],
+    [{
         id: 316,
-        sntc: 'How much is the book?',
-        tr: 'Kitab neçəyədir?',
-        ch: 'Kitab neçəyədir?'
+        sntc: 'I’ll spend so much money on it',
+        tr: 'Mən buna elə çox pul xərcləyəcəm',
+        trt: '',
+        ch: 'Mən buna elə çox pul hər hansı səhv xərcləyəcəm'
       },
       {
         id: 317,
-        sntc: 'It is easy',
-        tr: 'Bu asandır',
-        ch: 'Bu asandır'
+        sntc: 'Everyone will laugh at us',
+        tr: 'Hər kəs bizə güləcək',
+        trt: 'Hər kəs güləcək bizə',
+        ch: 'Hər kəs bizə bu xaricdə sən həqiqətən güləcək'
       },
       {
         id: 318,
-        sntc: "What's her name?",
-        tr: 'Onun adı nədir?',
-        ch: 'Onun adı nədir?'
+        sntc: 'The authorities will control it',
+        tr: 'Hökümət orqanları bunu idarə edəcək',
+        trt: 'Hökümət orqanları idarə edəcək bunu',
+        ch: 'Hökümət orqanları bunu adamlar maşın etmək idarə edəcək'
       },
       {
         id: 319,
-        sntc: 'It is sunny',
-        tr: 'Günəşlidir',
-        ch: 'Günəşlidir'
+        sntc: 'I think I’ll find the keys there',
+        tr: 'Məncə, mən açarları orada tapacam',
+        trt: 'Məncə, mən orada açarları tapacam',
+        ch: 'Məncə, mən açarları orada valideyn sınaq asan dost tapacam'
       },
       {
         id: 320,
-        sntc: 'Are you from England?',
-        tr: 'Sən İngiltərədənsən??',
-        ch: 'Sən İngiltərədənsən??'
+        sntc: 'How will you celebrate your birthday?',
+        tr: 'Sən ad gününü necə qeyd edəcəksən?',
+        trt: '',
+        ch: 'Sən ad gününü necə qeyd adamlar maşın cəlb etmək edəcəksən'
       }
     ],
     [{
         id: 321,
-        sntc: 'The day is windy',
-        tr: 'Gün küləklidir',
-        ch: 'Gün küləklidir'
+        sntc: "The guests won't notice our absence",
+        tr: 'Qonaqlar bizim yoxluğumuza fikir verməyəcəklər',
+        trt: '',
+        ch: 'Qonaqlar bizim yoxluğumuza fikir sonra hiss etmək gətirmək  verməyəcəklər'
       },
       {
         id: 322,
-        sntc: 'I am happy',
-        tr: 'Mən xoşbəxtəm',
-        ch: 'Mən xoşbəxtəm'
+        sntc: 'What do they want to tell you?',
+        tr: 'Onlar sənə nə demək istəyirlər?',
+        trt: 'Onlar nə demək istəyirlər sənə?',
+        ch: 'Onlar sənə nə demək etmək üstünlük vermək hansı istəyirlər'
       },
       {
         id: 323,
-        sntc: 'She is so beautiful',
-        tr: 'O, çox gözəldir',
-        ch: 'O, çox gözəldir'
+        sntc: 'Everyone will look happy',
+        tr: 'Hər kəs xoşbəxt görünəcək',
+        trt: '',
+        ch: 'Hər kəs xoşbəxt razılaşmamaq hansı ruhlandırmaq həzz görünəcək'
       },
       {
         id: 324,
-        sntc: 'Money is important',
-        tr: 'Pul vacibdir',
-        ch: 'Pul vacibdir'
+        sntc: 'She’ll keep this secret',
+        tr: 'O, bu sirri saxlayacaq',
+        trt: '',
+        ch: 'O, bu sirri musiqi çox həqiqətən düzgün saxlayacaq'
       },
       {
         id: 325,
-        sntc: 'Are those exercises useless?',
-        tr: 'O tapşırıqlar faydasızdır?',
-        ch: 'O tapşırıqlar faydasızdır?'
-      },
-      {
+        sntc: "They won't find a solution to this problem",
+        tr: 'Onlar bu problemin həllini tapmayacaqlar',
+        trt: '',
+        ch: 'Onlar bu problemin həllini qız hekayə görüş tapmayacaqlar'
+      }
+    ],
+    [{
         id: 326,
-        sntc: 'How much is this pair of jeans?',
-        tr: 'Bu cüt cins neçəyədir?',
-        ch: 'Bu cüt cins neçəyədir?'
+        sntc: 'She needed to get in touch with him',
+        tr: 'Onun onunla əlaqə qurmağa ehtiyacı var idi',
+        trt: '',
+        ch: 'Onun onunla əlaqə qurmağa ehtiyacı var aydın qlobal sahib idi'
       },
       {
         id: 327,
-        sntc: 'It is so cold',
-        tr: 'Çox soyuqdur',
-        ch: 'Çox soyuqdur'
+        sntc: 'He believed her',
+        tr: 'O, ona inandı',
+        trt: 'O, inandı ona',
+        ch: 'O, ona məşhur siyasət qutu bizə inandı'
       },
       {
         id: 328,
-        sntc: 'I am not tired',
-        tr: 'Mən yorulmamışam',
-        ch: 'Mən yorulmamışam'
+        sntc: 'I switched on the computer',
+        tr: 'Mən kompüteri qoşdum',
+        trt: 'Mən qoşdum kompüteri',
+        ch: 'Mən kompüteri asan indi növbəti qəribə qoşdum'
       },
       {
         id: 329,
-        sntc: 'Is she a poor woman?',
-        tr: 'O, kasıb qadındır?',
-        ch: 'O, kasıb qadındır?'
+        sntc: 'I really liked your lessons',
+        tr: 'Dərsləriniz həqiqətən xoşuma gəldi',
+        trt: 'Dərsləriniz xoşuma gəldi həqiqətən',
+        ch: 'Dərsləriniz həqiqətən cib məşğul səhv xoşbəxt xoşuma gəldi'
       },
       {
         id: 330,
-        sntc: 'This method is very simple',
-        tr: 'Bu üsul çox sadədir',
-        ch: 'Bu üsul çox sadədir'
+        sntc: 'He repeated that sentence',
+        tr: 'O, həmin cümləni təkrarladı',
+        trt: '',
+        ch: 'O, həmin cümləni jurnal şalvar dolu nikbinlik təkrarladı'
       }
     ],
     [{
         id: 331,
-        sntc: "I'm not married",
-        tr: 'Mən evli deyiləm',
-        ch: 'Mən evli deyiləm'
+        sntc: 'I remembered one very important thing',
+        tr: 'Çox vacib bir şey yadıma düşdü',
+        trt: '',
+        ch: 'Çox vacib bir şey yadıma düşdü'
       },
       {
         id: 332,
-        sntc: 'Is it obvious?',
-        tr: 'Bu açıq-aşkardır?',
-        ch: 'Bu açıq-aşkardır?'
+        sntc: 'I followed your recommendation',
+        tr: 'Mən sizin tövsiyənizə əməl etdim',
+        trt: 'Mən əməl etdim sizin tövsiyənizə',
+        ch: 'Mən sizin tövsiyənizə əməl etdim'
       },
       {
         id: 333,
-        sntc: 'His son is in the park',
-        tr: 'Onun oğlu parkdadır',
-        ch: 'Onun oğlu parkdadır'
+        sntc: 'I returned home',
+        tr: 'Mən evə qayıtdım',
+        trt: 'Mən qayıtdım evə',
+        ch: 'Mən evə müdrik qadın effektiv belə qayıtdım'
       },
       {
         id: 334,
-        sntc: "It's the best example",
-        tr: 'Bu ən yaxşı nümunədir',
-        ch: 'Bu ən yaxşı nümunədir'
+        sntc: 'Everything remained the same',
+        tr: 'Hər şey əvvəlki kimi qaldı',
+        trt: '',
+        ch: 'Hər şey əvvəlki kimi əla nəticə cəlb etmək qaldı'
       },
       {
         id: 335,
-        sntc: 'The boys are at home',
-        tr: 'Oğlanlar evdədir',
-        ch: 'Oğlanlar evdədir'
-      },
-      {
+        sntc: 'He reached such a high level',
+        tr: 'O, çox yüksək səviyyəyə çatdı',
+        trt: '',
+        ch: 'O, çox yüksək üçün şikayət etmək rədd səviyyəyə çatdı'
+      }
+    ],
+    [{
         id: 336,
-        sntc: 'Is it such an ineffective method',
-        tr: 'Bu çox qeyri-effektiv üsuldur',
-        ch: 'Bu çox qeyri-effektiv üsuldur'
+        sntc: 'He invited us to his birthday',
+        tr: 'O, bizi ad gününə dəvət etdi',
+        trt: 'O, ad gününə bizi dəvət etdi',
+        ch: 'O, bizi ad gününə dəvət məsləhət çox qərar təşəkkür etdi'
       },
       {
         id: 337,
-        sntc: "What's your father's job?",
-        tr: 'Sənin atanın işi nədir?',
-        ch: 'Sənin atanın işi nədir?'
+        sntc: 'I expressed my ideas',
+        tr: 'Mən fikirlərimi ifadə etdim',
+        trt: '',
+        ch: 'Mən fikirlərimi müdir həmişə olmaq oxumaq ifadə etdim'
       },
       {
         id: 338,
-        sntc: "You aren't optimistic",
-        tr: 'Sən optimistik deyilsən',
-        ch: 'Sən optimistik deyilsən'
+        sntc: 'I solved such a difficult task',
+        tr: 'Mən belə çətin bir tapşırıqı həll etdim',
+        trt: '',
+        ch: 'Mən belə çətin bir arvad kasıb dost məktəb tapşırıqı həll etdim'
       },
       {
         id: 339,
-        sntc: 'These words are new for me',
-        tr: 'Bu sözlər mənim üçün yenidir',
-        ch: 'Bu sözlər mənim üçün yenidir'
+        sntc: 'I disagreed with him',
+        tr: 'Mən onunla razılaşmadım',
+        trt: 'Mən razılaşmadım onunla',
+        ch: 'Mən onunla  ev musiqi çox həqiqətən razılaşmadım'
       },
       {
         id: 340,
-        sntc: 'Am I in the right place?',
-        tr: 'Mən düz yerdəyəm?',
-        ch: 'Mən düz yerdəyəm?'
+        sntc: 'I translated it from Azerbaijani into English',
+        tr: 'Mən bunu Azerbaycan dilindən İngilis dilinə tərcümə etmişəm',
+        trt: 'Mən Azerbaycan dilindən İngilis dilinə bunu tərcümə etmişəm',
+        ch: 'Mən bunu Azerbaycan dilindən İngilis dilinə görüş populyar tərcümə etmişəm'
       }
     ],
     [{
         id: 341,
-        sntc: 'The day is rainy',
-        tr: 'Gün yağışlıdır',
-        ch: 'Gün yağışlıdır'
+        sntc: 'I reached an Advanced level',
+        tr: 'Mən qabaqcıl səviyyəyə çatdım',
+        trt: 'Mən çatdım qabaqcıl səviyyəyə',
+        ch: 'Mən qabaqcıl səviyyəyə nəticə dəstək hər şey çatdım'
       },
       {
         id: 342,
-        sntc: 'Why are these rules so important?',
-        tr: 'Bu qaydalar niyə bu qədər vacibdir?',
-        ch: 'Bu qaydalar niyə bu qədər vacibdir?'
+        sntc: 'She often watched TV',
+        tr: 'O, çox vaxt televizora baxırdı',
+        ch: 'O, çox vaxt televizora vermək məşq yaddaş xərcləmək baxırdı'
       },
       {
         id: 343,
-        sntc: 'We need more control',
-        tr: 'Bizə daha çox nəzarət lazımdır',
-        ch: 'Bizə daha çox nəzarət lazımdır'
+        sntc: 'He owned this house',
+        tr: 'O, bu evin sahibi idi',
+        trt: '',
+        ch: 'O, bu evin sahibi zövq almaq davranmaq qəribə idi'
       },
       {
         id: 344,
-        sntc: "He's interested in it",
-        tr: 'O, bununla maraqlanır',
-        ch: 'O, bununla maraqlanır'
+        sntc: 'She really liked this place',
+        tr: 'O, həqiqətən bu yeri bəyəndi',
+        trt: 'O, bu yeri həqiqətən bəyəndi',
+        ch: 'O, həqiqətən bu yeri qəmli birlikdə məşğul uzaq bəyəndi'
       },
       {
         id: 345,
-        sntc: 'This method is very simple',
-        tr: 'Bu üsul çox sadədir',
-        ch: 'Bu üsul çox sadədir'
-      },
-      {
+        sntc: 'This house belonged to her',
+        tr: 'Bu ev ona məxsus idi',
+        trt: '',
+        ch: 'Bu ev ona məxsus faydasız qayda cins yorğun idi'
+      }
+    ],
+    [{
         id: 346,
-        sntc: 'When do you go to work?',
-        tr: 'Sən nə vaxt işə gedirsən?',
-        ch: 'Sən nə vaxt işə gedirsən?'
+        sntc: 'I prepared for the test',
+        tr: 'Mən imtahana hazırlaşdım',
+        trt: 'Mən hazırlaşdım imtahana',
+        ch: 'Mən imtahana sadəlik bahar eləyə bilmək hazırlaşdım'
       },
       {
         id: 347,
-        sntc: 'What does this word mean?',
-        tr: 'Bu sözün mənası nədir?',
-        ch: 'Bu sözün mənası nədir?'
+        sntc: 'She described this situation',
+        tr: 'O, bu vəziyyəti təsvir etdi',
+        trt: 'O, təsvir etdi bu vəziyyəti',
+        ch: 'O, bu vəziyyəti təsvir cümlə məna idman böyük etdi'
       },
       {
         id: 348,
-        sntc: 'Who criticizes him?',
-        tr: 'Onu kim tənqid edir?',
-        ch: 'Onu kim tənqid edir?'
+        sntc: 'He experienced so many difficulties',
+        tr: 'O, elə çox çətinliklər yaşayıb',
+        trt: '',
+        ch: 'O, elə çox çətinliklər məvacib aşagı gərəkli vacib yaşayıb'
       },
       {
         id: 349,
-        sntc: 'What do you mean?',
-        tr: 'Nəyi nəzərdə tutursan?',
-        ch: 'Nəyi nəzərdə tutursan?'
+        sntc: 'You calculated it incorrectly',
+        tr: 'Siz bunu səhv hesablamısınız',
+        trt: 'Siz səhv hesablamısınız bunu',
+        ch: 'Siz bunu səhv döşəmə heyran olmaq cümlə hesablamısınız'
       },
       {
         id: 350,
-        sntc: 'I want to speak English better',
-        tr: 'Mən İngilis dilində daha yaxşı danışmaq istəyirəm',
-        ch: 'Mən İngilis dilində daha yaxşı danışmaq istəyirəm'
+        sntc: 'The police arrested this thief',
+        tr: 'Polis bu oğrunu həbs etdi',
+        trt: 'Polis həbs etdi bu oğrunu',
+        ch: 'Polis bu oğrunu həbs etmək qutu qorxmaq sonuncuetdi'
       }
     ],
     [{
         id: 351,
-        sntc: 'How often do you listen to the radio?',
-        tr: 'Sən radioya nə sıxlıqda qulaq asırsan?',
-        ch: 'Sən radioya nə sıxlıqda qulaq asırsan?'
+        sntc: 'She married him',
+        tr: 'O, ona ərə getdi',
+        trt: '',
+        ch: 'O, ona ərə populyar mahnı oğlan kasıb getdi'
       },
       {
         id: 352,
-        sntc: 'I don’t like this atmosphere',
-        tr: 'Bu ab-hava mənim xoşuma gəlmir',
-        ch: 'Bu ab-hava mənim xoşuma gəlmir'
+        sntc: 'She remained calm',
+        tr: 'O, sakit qaldı',
+        trt: '',
+        ch: 'O, sakit yaxşı dünya ucuz soyuq qaldı'
       },
       {
         id: 353,
-        sntc: 'It isn’t surprising',
-        tr: 'Bu təəccüblü deyil',
-        ch: 'Bu təəccüblü deyil'
+        sntc: 'They required more experience',
+        tr: 'Onlar daha çox təcrübə tələb edirdilər',
+        trt: '',
+        ch: 'Onlar daha çox təcrübə tələb məşğul uzaq edirdilər'
       },
       {
         id: 354,
-        sntc: 'What frightens you more?',
-        tr: 'Səni daha çox qorxuya salan nədir?',
-        ch: 'Səni daha çox qorxuya salan nədir?'
+        sntc: 'He remained my friend',
+        tr: 'O, mənim dostum qaldı',
+        trt: '',
+        ch: 'O, mənim dostum otuz yorğun dolu enerji qaldı'
       },
       {
         id: 355,
-        sntc: 'What channel are popular nowadays?',
-        tr: 'Hal-hazırda hansı kanal populyardır?',
-        ch: 'Hal-hazırda hansı kanal populyardır?'
-      },
-      {
+        sntc: 'I passed such a difficult exam',
+        tr: 'Mən elə çətin imtahandan keçdim',
+        trt: 'Mən çox çətin imtahandan keçdim',
+        ch: 'Mən elə çətin imtahandan idarəçi çox gözəl keçdim'
+      }
+    ],
+    [{
         id: 356,
-        sntc: "What's really important?",
-        tr: 'Əslində nə vacibdir?',
-        ch: 'Əslində nə vacibdir?'
+        sntc: 'We faced a very big problem',
+        tr: 'Biz çox böyük problemlə üzləşdik',
+        trt: '',
+        ch: 'Biz çox böyük problemlə yaddaş pis məşq tənbəl üzləşdik'
       },
       {
         id: 357,
-        sntc: 'Are they lucky?',
-        tr: 'Onlar şanslıdırlar?',
-        ch: 'Onlar şanslıdırlar?'
+        sntc: 'I hated discussing it',
+        tr: 'Mən bunu müzakirə etməyə nifrət edirdim',
+        trt: 'Mən nifrət edirdim bunu müzakirə etməyə',
+        ch: 'Mən bunu müzakirə etməyə nifrət cüt jurnal şalvar edirdim'
       },
       {
         id: 358,
-        sntc: 'Is he tired?',
-        tr: 'O, yorğundur?',
-        ch: 'O, yorğundur?'
+        sntc: 'She pointed at my mistakes',
+        tr: 'O, mənim səhvlərimə işarə etdi',
+        trt: '',
+        ch: 'O, mənim səhvlərimə işarə qlobal sahib mənzil oğlan etdi'
       },
       {
         id: 359,
-        sntc: "I'm fine, thanks",
-        tr: 'Mən yaxşıyam, təşəkkürlər',
-        ch: 'Mən yaxşıyam, təşəkkürlər'
+        sntc: 'I perfectly realized it',
+        tr: 'Mən bunu mükəmməl dərk etdim',
+        trt: '',
+        ch: 'Mən bunu mükəmməl dərk günəşli qane etmək etdim'
       },
       {
         id: 360,
-        sntc: 'You know all the truth',
-        tr: 'Sən bütün həqiqəti bilirsən',
-        ch: 'Sən bütün həqiqəti bilirsən'
+        sntc: 'We discussed everything',
+        tr: 'Biz hər şeyi müzakirə etdik',
+        trt: 'Biz müzakirə etdik hər şeyi',
+        ch: 'Biz hər şeyi müzakirə şərt tezliklə mümkün hazırlaşmaq etdik'
       }
     ],
     [{
         id: 361,
-        sntc: 'Does your brother live alone',
-        tr: 'Sənin qardaşın tək yaşayır?',
-        ch: 'Sənin qardaşın tək yaşayır?'
+        sntc: 'They delivered the goods on time',
+        tr: 'Onlar malları vaxtında çatdırdılar',
+        trt: 'Onlar vaxtında çatdırdılar malları',
+        ch: 'Onlar malları vaxtında sabah yemək dadlı danışmaq çatdırdılar'
       },
       {
         id: 362,
-        sntc: 'Is my experience enough',
-        tr: 'Mənim təcrübəm kifayət edir?',
-        ch: 'Mənim təcrübəm kifayət edir?'
+        sntc: 'I promised to do it',
+        tr: 'Mən bunu etmeyə söz vermişəm',
+        trt: 'Mən söz vermişəm bunu etmeyə',
+        ch: 'Mən bunu etmeyə söz hiss otuz yer yorğun vermişəm'
       },
       {
         id: 363,
-        sntc: 'I hope you remember it',
-        tr: 'Ümid edirəm, sən bunu xatırlayırsan',
-        ch: 'Ümid edirəm, sən bunu xatırlayırsan'
+        sntc: 'I refused to take their offer',
+        tr: 'Mən onların təklifini qəbul etmədim',
+        trt: 'Mən qəbul etmədim onların təklifini',
+        ch: 'Mən onların təklifini qəbul həqiqət həll etmək etmədim'
       },
       {
         id: 364,
-        sntc: 'He enjoys listening to music ',
-        tr: 'O, musiqi dinləməkdən zövq alır ',
-        ch: 'O, musiqi dinləməkdən zövq alır '
+        sntc: 'He wasted time',
+        tr: 'O, vaxtını itirdi',
+        trt: '',
+        ch: 'O, vaxtını xərcləmək kəçirmək birlikdə haqqında itirdi'
       },
       {
         id: 365,
-        sntc: 'Do you need to do it this year?',
-        tr: 'Sənə bunu bu il etmək lazımdır?',
-        ch: 'Sənə bunu bu il etmək lazımdır?'
-      },
-      {
+        sntc: 'He promised to finish it',
+        tr: 'O, bunu bitirəcəyinə söz verdi',
+        trt: '',
+        ch: 'O, bunu bitirəcəyinə söz müdrik qadın effektiv belə verdi'
+      }
+    ],
+    [{
         id: 366,
-        sntc: 'Do you need to finish it by tomorrow?',
-        tr: 'Sənə bunu sabaha qədər bitirmək lazımdır?',
-        ch: 'Sənə bunu sabaha qədər bitirmək lazımdır?'
+        sntc: 'His speech inspired us',
+        tr: 'Onun çıxışı bizi ruhlandırdı',
+        trt: '',
+        ch: 'Onun çıxışı bizi gülməli müvəffəqiyyət uğur bina ruhlandırdı'
       },
       {
         id: 367,
-        sntc: 'Is the food tasty?',
-        tr: 'Yemək dadlıdır?',
-        ch: 'Yemək dadlıdır?'
+        sntc: 'He complained about that problem',
+        tr: 'O, həmin problemdən şikayət etdi',
+        trt: '',
+        ch: 'O, həmin problemdən şikayət sahib mənzil oğlan məzəli etdi'
       },
       {
         id: 368,
-        sntc: 'Do they often talk about politics?',
-        tr: 'Onlar tez-tez siyasətdən danışırlar?',
-        ch: 'Onlar tez-tez siyasətdən danışırlar?'
+        sntc: 'This example inspired me',
+        tr: 'Bu nümunə məni ruhlandırdı',
+        trt: '',
+        ch: 'Bu nümunə məni klinika bitirmək sadəlik bahar ruhlandırdı'
       },
       {
         id: 369,
-        sntc: "This subject isn't easy at all",
-        tr: 'Bu mövzu heç də asan deyil',
-        ch: 'Bu mövzu heç də asan deyil'
+        sntc: 'The lesson lasted for half an hour',
+        tr: 'Dərs yarım saat davam etdi',
+        trt: '',
+        ch: 'Dərs yarım saat davam ab-hava təəccüblü qorxutmaq etdi'
       },
       {
         id: 370,
-        sntc: "It's on the floor",
-        tr: 'Bu döşəmənin üstündədir',
-        ch: 'Bu döşəmənin üstündədir'
+        sntc: 'I preferred to stay at home',
+        tr: 'Mən evdə qalmağa üstünlük verdim',
+        trt: '',
+        ch: 'Mən evdə qalmağa üstünlük cümlə məna idman böyük verdim'
       }
     ],
     [{
         id: 371,
-        sntc: 'How difficult this exercise?',
-        tr: 'Bu tapşırıq nə dərəcədə çətindir?',
-        ch: 'Bu tapşırıq nə dərəcədə çətindir?'
+        sntc: 'I managed to improve my pronunciation considerably',
+        tr: 'Mən tələffüzümü xeyli yaxşılaşdırmağı bacardım',
+        trt: '',
+        ch: 'Mən tələffüzümü xeyli yaxşılaşdırmağı axşam hazırlaşmaq bacardım'
       },
       {
         id: 372,
-        sntc: 'Do you know the meaning of this word?',
-        tr: 'Bu sözün mənasını bilirsən?',
-        ch: 'Bu sözün mənasını bilirsən?'
+        sntc: 'She danced professionally',
+        tr: 'O, peşəkar rəqs etdi',
+        trt: '',
+        ch: 'O, peşəkar rəqs səyahət etmək möhtəşəm olar etdi'
       },
       {
         id: 373,
-        sntc: "I'm fond of sport",
-        tr: 'Mən idmanı çox sevirəm',
-        ch: 'Mən idmanı çox sevirəm'
+        sntc: 'I deleted this document by mistake',
+        tr: 'Mən bu sənədi səhvən sildim',
+        trt: 'Mən səhvən bu sənədi sildim',
+        ch: 'Mən bu sənədi səhvən video hekayə biznes gəlirli sildim'
       },
       {
         id: 374,
-        sntc: 'She always does it with great pleasure',
-        tr: 'O, bunu həmişə böyük məmnuniyyətlə edir',
-        ch: 'O, bunu həmişə böyük məmnuniyyətlə edir'
+        sntc: 'He deserved it',
+        tr: 'O, buna layiq idi',
+        trt: 'O, layiq idi buna',
+        ch: 'O, buna layiq əməkdaş müdir tənqid götürmək idi'
       },
       {
         id: 375,
-        sntc: "I'd like to add it",
-        tr: 'Mən bunu əlavə etmək istərdim',
-        ch: 'Mən bunu əlavə etmək istərdim'
-      },
-      {
+        sntc: 'I managed to do it',
+        tr: 'Mən bunu bacardım',
+        trt: 'Mən bacardım bunu',
+        ch: 'Mən bunu durmaq yataq kim müntəzəm bacardım'
+      }
+    ],
+    [{
         id: 376,
-        sntc: 'Her daughter is at school',
-        tr: 'Onun qızı məktəbdədir',
-        ch: 'Onun qızı məktəbdədir'
+        sntc: 'It often rained there',
+        tr: 'Orada tez-tez yağış yağırdı',
+        trt: '',
+        ch: 'Orada tez-tez yağış  nəzarət tərk etmək sifariş yağırdı'
       },
       {
         id: 377,
-        sntc: 'What time does he come to work?',
-        tr: 'O, işə nə vaxt gəlir?',
-        ch: 'O, işə nə vaxt gəlir?'
+        sntc: 'He prayed to this saint',
+        tr: 'O, bu müqəddəsə dua etdi',
+        trt: '',
+        ch: 'O, bu müqəddəsə dua xoşbəxt kifayət qədər praktika etdi'
       },
       {
         id: 378,
-        sntc: "I'm sure",
-        tr: 'Mən əminəm',
-        ch: 'Mən əminəm'
+        sntc: 'The police arrested him',
+        tr: 'Polis onu həbs etdi',
+        trt: 'Polis həbs etdi onu',
+        ch: 'Polis onu həbs sən həqiqətən şirkət ziyarət etdi'
       },
       {
         id: 379,
-        sntc: 'Is it his point of view?',
-        tr: 'Bu onun nöqteyi-nəzəridir?',
-        ch: 'Bu onun nöqteyi-nəzəridir?'
+        sntc: 'I participated in this competition',
+        tr: 'Mən bu yarışmada iştirak etmişəm',
+        trt: 'Mən iştirak etmişəm bu yarışmada',
+        ch: 'Mən bu yarışmada razılaşmaq ilə müzakirə demək iştirak etmişəm'
       },
       {
         id: 380,
-        sntc: 'Where do you usually go in summer?',
-        tr: 'Sən yayda adətən hara gedirsən?',
-        ch: 'Sən yayda adətən hara gedirsən?'
+        sntc: 'We analyzed this report',
+        tr: 'Biz bu hesabatı təhlil etdik',
+        trt: 'Biz təhlil etdik bu hesabatı',
+        ch: 'Biz bu hesabatı təhlil maraq şərik olmaq ilham vermək etdik'
       }
     ],
     [{
         id: 381,
-        sntc: 'I hope you remember it',
-        tr: 'Ümid edirəm, sən bunu xatırlayırsan',
-        ch: 'Ümid edirəm, sən bunu xatırlayırsan'
+        sntc: 'This example inspired me',
+        tr: 'Bu nümunə məni ruhlandırdı',
+        trt: '',
+        ch: 'Bu nümunə məni adamlar maşın cəlb etmək ruhlandırdı'
       },
       {
         id: 382,
-        sntc: "She's sad",
-        tr: 'O, qəmlidir',
-        ch: 'O, qəmlidir'
+        sntc: 'I hurried up',
+        tr: 'Mən tələsdim',
+        trt: '',
+        ch: 'Mən düzgün təşəkkür istəmək təkmilləşdirmək tələsdim'
       },
       {
         id: 383,
-        sntc: 'She watches TV',
-        tr: 'O, televizora baxır',
-        ch: 'O, televizora baxır'
+        sntc: 'She suggested going to the cinema',
+        tr: 'O, kinoteatra getməyi təklif etdi',
+        trt: '',
+        ch: 'O, kinoteatra getməyi təklif müəllim vermək nöw nümunə etdi'
       },
       {
         id: 384,
-        sntc: "His salary isn't so high. It's low",
-        tr: 'Onun maaşı o qədər də yüksək deyil. Aşağıdır.',
-        ch: 'Onun maaşı o qədər də yüksək deyil. Aşağıdır.'
+        sntc: 'I passed such a difficult exam',
+        tr: 'Mən elə çətin imtahandan keçdim',
+        trt: '',
+        ch: 'Mən elə çətin imtahandan mükəmməl faydasız söz onun keçdim'
       },
       {
         id: 385,
-        sntc: 'Are we near this place?',
-        tr: 'Biz bu yerin yaxınlığındayıq?',
-        ch: 'Biz bu yerin yaxınlığındayıq?'
-      },
-      {
+        sntc: 'I hated discussing it',
+        tr: 'Mən bunu müzakirə etməyə nifrət edirdim',
+        trt: '',
+        ch: 'Mən bunu müzakirə etməyə çox şəhər uzun nifrət edirdim'
+      }
+    ],
+    [{
         id: 386,
-        sntc: 'How do you usually prepare for your exams?',
-        tr: 'Sən adətən imtahanlarına necə hazırlaşırsan?',
-        ch: 'Sən adətən imtahanlarına necə hazırlaşırsan?'
+        sntc: 'I perfectly realized it',
+        tr: 'Mən bunu mükəmməl dərk etdim',
+        trt: '',
+        ch: 'Mən bunu mükəmməl dərk dünya ucuz soyuq etdim'
       },
       {
         id: 387,
-        sntc: "I don't want to drink",
-        tr: 'Mən içmək istəmirəm',
-        ch: 'Mən içmək istəmirəm'
+        sntc: 'She apologized for everything',
+        tr: 'O, hər şeyə görə üzr istədi',
+        trt: 'O, üzr istədi hər şeyə görə',
+        ch: 'O, hər şeyə görə üzr yaxın səviyyə məqalə istədi'
       },
       {
         id: 388,
-        sntc: 'Do you often call him?',
-        tr: 'Sən tez-tez ona zəng edirsən?',
-        ch: 'Sən tez-tez ona zəng edirsən?'
+        sntc: 'He invested all his money',
+        tr: 'O, bütün pullarını sərmayə qoydu',
+        trt: '',
+        ch: 'O, bütün pullarını məşhur siyasət qutu sərmayə qoydu'
       },
       {
         id: 389,
-        sntc: "It's necessary to remember it",
-        tr: 'Bunu xatırlamaq vacibdir',
-        ch: 'Bunu xatırlamaq vacibdir'
+        sntc: 'We solved all these problems',
+        tr: 'Biz bütün bu problemləri həll etdik',
+        trt: '',
+        ch: 'Biz bütün bu problemləri indi növbəti qəribə həll etdik'
       },
       {
         id: 390,
-        sntc: 'Is that information really useful?',
-        tr: 'O məlumat həqiqətən faydalıdır?',
-        ch: 'O məlumat həqiqətən faydalıdır?'
+        sntc: 'He remained my friend',
+        tr: 'O, mənim dostum qaldı',
+        trt: '',
+        ch: 'O, mənim dostum vacib asan indi növbəti qaldı'
       }
     ],
     [{
         id: 391,
-        sntc: 'Knowledge is very important',
-        tr: 'Bilik çox vacibdir',
-        ch: 'Bilik çox vacibdir'
+        sntc: 'I translated it from Azerbaijani into English',
+        tr: 'Mən bunu Azərbaycan dilindən İngilis dilinə tərcümə etmişəm',
+        trt: '',
+        ch: 'Mən bunu Azərbaycan dilindən İngilis dilinə tərcümə etmişəm'
       },
       {
         id: 392,
-        sntc: 'We may do it',
-        tr: 'Biz bunu edə bilərik',
-        ch: 'Biz bunu edə bilərik'
+        sntc: 'I revised this lesson',
+        tr: 'Mən bu dərsi tekrarladım',
+        trt: 'Mən tekrarladım bu dərsi',
+        ch: 'Mən bu dərsi cüt jurnal şalvar tekrarladım'
       },
       {
         id: 393,
-        sntc: 'He should do it',
-        tr: 'O, gərək bunu etsin',
-        ch: 'O, gərək bunu etsin'
+        sntc: 'We remained friends',
+        tr: 'Biz dost qaldıq',
+        trt: '',
+        ch: 'Biz dost uşaqlar çətin sınaq ata qaldıq'
       },
       {
         id: 394,
-        sntc: 'I can read in English',
-        tr: 'Mən ingilis dilində oxuya bilirəm',
-        ch: 'Mən ingilis dilində oxuya bilirəm'
+        sntc: 'He always supported us',
+        tr: 'O, həmişə bizə dəstək olub',
+        trt: 'O, həmişə dəstək olub bizə',
+        ch: 'O, həmişə bizə dəstək optimist güc tətil olub'
       },
       {
         id: 395,
-        sntc: 'We must change our life',
-        tr: 'Biz həyatımızı dəyişməliyik',
-        ch: 'Biz həyatımızı dəyişməliyik'
-      },
-      {
+        sntc: 'I included these examples',
+        tr: 'Mən bu nümunələri daxil etdim',
+        trt: 'Mən daxil etdim bu nümunələri',
+        ch: 'Mən bu nümunələri daxil yüksək səviyyə ədəb etdim'
+      }
+    ],
+    [{
         id: 396,
-        sntc: 'I enjoy doing it',
-        tr: 'Bunu etməkdən zövq alıram',
-        ch: 'Bunu etməkdən zövq alıram'
+        sntc: 'We participated in that championship',
+        tr: 'Biz o çempionatda iştirak etmişik',
+        trt: 'Biz iştirak etmişik o çempionatda',
+        ch: 'Biz o çempionatda iştirak bahar eləyə bilmək etmişik'
       },
       {
         id: 397,
-        sntc: 'I like living abroad',
-        tr: 'Mənim xaricdə yaşamaq xoşuma gəlir',
-        ch: 'Mənim xaricdə yaşamaq xoşuma gəlir'
+        sntc: 'We signed a very important document',
+        tr: 'Biz çox vacib sənədi imzaladıq',
+        trt: '',
+        ch: 'Biz çox vacib sənədi mətbəx darıxdırıcı qane imzaladıq'
       },
       {
         id: 398,
-        sntc: 'You must tell me about this problem',
-        tr: 'Sən bu problem haqqında mənə danışmalısan',
-        ch: 'Sən bu problem haqqında mənə danışmalısan'
+        sntc: 'They arrested those criminals',
+        tr: 'Onlar həmin cinayətkarları həbs etdilər',
+        trt: '',
+        ch: 'Onlar həmin cinayətkarları həbs qane etmək cavab yaddaş etdilər'
       },
       {
         id: 399,
-        sntc: 'I should call him tomorrow',
-        tr: 'Mən gərək sabah ona zəng edim',
-        ch: 'Mən gərək sabah ona zəng edim'
+        sntc: 'He ordered him to defend them',
+        tr: 'O, ona, onları müdafiə etməsini əmr verdi',
+        trt: '',
+        ch: 'O, ona, onları müdafiə etməsini əmr nəzərdə tutmaq verdi'
       },
       {
         id: 400,
-        sntc: 'She usually do it in the evening',
-        tr: 'O, adətən bunu axşamlar edir',
-        ch: 'O, adətən bunu axşamlar edir'
+        sntc: 'He borrowed more money',
+        tr: 'O, daha çox borc götürdü',
+        trt: '',
+        ch: 'O, daha çox borc üdir həmişə olmaq oxumaq götürdü'
       }
     ],
     [{
         id: 401,
-        sntc: 'What do you like here?',
-        tr: 'Sən burada nəyi bəyənirsən?',
-        ch: 'Sən burada nəyi bəyənirsən?'
+        sntc: 'I got a letter from her',
+        tr: 'Mən ondan məktub aldım',
+        trt: 'Mən məktub aldım ondan',
+        ch: 'Mən ondan məktub qəmli birlikdə məşğul uzaq aldım'
       },
       {
         id: 402,
-        sntc: 'I want this computer',
-        tr: 'Mən bu kompüteri istəyirəm',
-        ch: 'Mən bu kompüteri istəyirəm'
+        sntc: 'I knew him very well',
+        tr: 'Mən onu çox yaxşı tanıyırdım',
+        trt: 'Mən çox yaxşı tanıyırdım onu',
+        ch: 'Mən onu çox yaxşı məktəb böyük sadə tanıyırdım'
       },
       {
         id: 403,
-        sntc: 'Are the men at work?',
-        tr: 'Kişilər işdədir?',
-        ch: 'Kişilər işdədir?'
+        sntc: 'He said it very loudly',
+        tr: 'O, bunu çox ucadan dedi',
+        trt: 'O, çox ucadan dedi bunu',
+        ch: 'O, bunu çox ucadan enerji pis metod dedi'
       },
       {
         id: 404,
-        sntc: "Who's with you?",
-        tr: 'Səninlə kim var?',
-        ch: 'Səninlə kim var?'
+        sntc: 'He did me a favor',
+        tr: 'O, mənə bir lütf etdi',
+        trt: 'O, mənə lütf etdi',
+        ch: 'O, mənə bir lütf hirsli birinci köhnə etdi'
       },
       {
         id: 405,
-        sntc: 'This place is very beautiful',
-        tr: 'Bu yer çox gözəldir',
-        ch: 'Bu yer çox gözəldir'
-      },
-      {
+        sntc: 'I said it again',
+        tr: 'Mən bunu yenə dedim',
+        trt: 'Mən yenə bunu dedim',
+        ch: 'Mən bunu yenə uğur bina soyuq dedim'
+      }
+    ],
+    [{
         id: 406,
-        sntc: 'I do it to know English better',
-        tr: 'Mən bunu İngilis dilini daha yaxşı bilmək üçün edirəm',
-        ch: 'Mən bunu İngilis dilini daha yaxşı bilmək üçün edirəm'
+        sntc: 'I put it on the desk',
+        tr: 'Mən bunu masanın üstünə qoydum',
+        trt: 'Mən masanın üstünə qoydum bunu',
+        ch: 'Mən bunu masanın üstünə populyar dizayner otel qoydum'
       },
       {
         id: 407,
-        sntc: 'Is it a very important detail?',
-        tr: 'Bu çox vacib detaldır?',
-        ch: 'Bu çox vacib detaldır?'
+        sntc: 'I found my wallet',
+        tr: 'Mən pul kisəmi tapdım',
+        trt: '',
+        ch: 'Mən pul kisəmi qorxmaq sonuncu kifayət qədər tapdım'
       },
       {
         id: 408,
-        sntc: 'He has a company. Its profit is so big',
-        tr: 'Onun bir şirkəti var. Onun qazancı çox böyükdür',
-        ch: 'Onun bir şirkəti var. Onun qazancı çox böyükdür'
+        sntc: 'We found out all the truth',
+        tr: 'Biz bütün həqiqəti aydınlaşdırdıq',
+        trt: '',
+        ch: 'Biz bütün həqiqəti optimist güc tətil aydınlaşdırdıq'
       },
       {
         id: 409,
-        sntc: 'Do I need to call him?',
-        tr: 'Mənim ona zəng etməyim lazımdır?',
-        ch: 'Mənim ona zəng etməyim lazımdır?'
+        sntc: 'He gave me this advice',
+        tr: 'O, mənə bu məsləhəti verdi',
+        trt: 'O, bu məsləhəti verdi mənə',
+        ch: 'O, mənə bu məsləhəti payız musiqiçi həqiqət verdi'
       },
       {
         id: 410,
-        sntc: 'How much are these trousers?',
-        tr: 'Bu şalvarlar neçəyədir?',
-        ch: 'Bu şalvarlar neçəyədir?'
+        sntc: 'This song became very popular',
+        tr: 'Bu mahnı çox məşhur oldu',
+        trt: '',
+        ch: 'Bu mahnı çox məşhur sahə rahat münasib oldu'
       }
     ],
     [{
         id: 411,
-        sntc: "It's a small mistake",
-        tr: 'Bu kiçik bir səhvdir',
-        ch: 'Bu kiçik bir səhvdir'
+        sntc: 'He brought this thing to me',
+        tr: 'O, mənə bu əşyanı gətirdi',
+        trt: 'O, bu əşyanı gətirdi mənə',
+        ch: 'O, mənə bu əşyanı qiymətli tətbiq fantastik gətirdi'
       },
       {
         id: 412,
-        sntc: "This level isn't elementary",
-        tr: 'Bu səviyyə elementar deyil',
-        ch: 'Bu səviyyə elementar deyil'
+        sntc: 'I left for England',
+        tr: 'Mən İngiltərəyə yola düşdüm',
+        trt: '',
+        ch: 'Mən İngiltərəyə yola ayrılıqda səyahət etmək düşdüm'
       },
       {
         id: 413,
-        sntc: 'Your lessons really help',
-        tr: 'Dərslərin həqiqətən də kömək edir',
-        ch: 'Dərslərin həqiqətən də kömək edir'
+        sntc: 'I heard in on TV',
+        tr: 'Mən bunu televizorda eşitdim',
+        trt: 'Mən televizorda eşitdim bunu',
+        ch: 'Mən bunu televizorda etmək olmaq seçim eşitdim'
       },
       {
         id: 414,
-        sntc: 'How do you get to work?',
-        tr: 'İşə nəcə gedirsən?',
-        ch: 'İşə nəcə gedirsən?'
+        sntc: 'She ran very fast',
+        tr: 'O, çox sürətlə qaçdı',
+        trt: '',
+        ch: 'O, çox sürətlə hər biri addım İfadə qaçdı'
       },
       {
         id: 415,
-        sntc: 'This book is really boring',
-        tr: 'Bu kitab həqiqətən darıxdırıcıdır',
-        ch: 'Bu kitab həqiqətən darıxdırıcıdır'
-      },
-      {
+        sntc: 'He ran away',
+        tr: 'O, qaçıb getdi',
+        trt: '',
+        ch: 'O, qaçıb müsabiqə investisiya reaksiya qanuni getdi'
+      }
+    ],
+    [{
         id: 416,
-        sntc: 'Where does she usually go?',
-        tr: 'O, adətən hara gedir?',
-        ch: 'O, adətən hara gedir?'
+        sntc: 'He lost his wallet',
+        tr: 'O, pul kisəsini itirdi',
+        trt: '',
+        ch: 'O, pul kisəsini gün yağışlı təşəbbüs itirdi'
       },
       {
         id: 417,
-        sntc: 'He sees that mistake',
-        tr: 'O, bu səhvi görür',
-        ch: 'O, bu səhvi görür'
+        sntc: 'She felt unhappy',
+        tr: 'O, özünü bədbəxt hiss etdi',
+        trt: '',
+        ch: 'O, özünü bədbəxt hiss sonra darıxmaq məqalə etdi'
       },
       {
         id: 418,
-        sntc: 'I need to do it this year',
-        tr: 'Mənə bu il bunu etmək lazımdır',
-        ch: 'Mənə bu il bunu etmək lazımdır'
+        sntc: 'I met my classmate yesterday',
+        tr: 'Mən dünən sinif yoldaşımla görüşdüm',
+        trt: 'Mən sinif yoldaşımla dünən görüşdüm',
+        ch: 'Mən dünən sinif yoldaşımla müddətində məlumat vermək görüşdüm'
       },
       {
         id: 419,
-        sntc: "I'm interested in it",
-        tr: 'Mənə bununla maraqlanıram',
-        ch: 'Mənə bununla maraqlanıram'
+        sntc: 'I thought differently',
+        tr: 'Mən fərqli düşünürdüm',
+        trt: '',
+        ch: 'Mən fərqli qaranlıq tezliklə əsas düşünürdüm'
       },
       {
         id: 420,
-        sntc: "He'd like to write it down",
-        tr: 'Bunu yazmaq istərdim',
-        ch: 'Bunu yazmaq istərdim'
+        sntc: 'He set a glass of water on the table',
+        tr: 'O, stəkan suyu stolun üstünə qoydu',
+        trt: 'O, stolun üstünə stəkan suyu qoydu',
+        ch: 'O, stəkan suyu stolun üstünə gəmi balıq sviter qoydu'
       }
     ],
     [{
         id: 421,
-        sntc: 'How long does it take you to get to school?',
-        tr: 'Sənin məktəbə çatmağın nə qədər vaxt çəkir?',
-        ch: 'Sənin məktəbə çatmağın nə qədər vaxt çəkir?'
+        sntc: 'She sent me a message',
+        tr: 'O, mənə mesaj göndərdi',
+        trt: 'O, mesaj göndərdi mənə',
+        ch: 'O, mənə mesaj imzalamaq hesabat qulluqçu göndərdi'
       },
       {
         id: 422,
-        sntc: 'He needs to be more polite',
-        tr: 'O, daha nəzakətli olmalıdır',
-        ch: 'O, daha nəzakətli olmalıdır'
+        sntc: 'He gave me this thing',
+        tr: 'O, mənə bu əşyanı verdi',
+        trt: 'O, bu əşyanı mənə verdi',
+        ch: 'O, mənə bu əşyanı verdi olmaq şad nikbin məyus'
       },
       {
         id: 423,
-        sntc: 'Who do you know?',
-        tr: 'Sən kimi tanıyırsan?',
-        ch: 'Sən kimi tanıyırsan?'
+        sntc: 'I stood behind him',
+        tr: 'Mən onun arxasında dayandım',
+        trt: '',
+        ch: 'Mən onun arxasında diqqətli qayğıkeş dəhşətli dayandım'
       },
       {
         id: 424,
-        sntc: "I'm lazy",
-        tr: 'Mən tənbələm',
-        ch: 'Mən tənbələm'
+        sntc: 'He fell down and hurt his arm',
+        tr: 'O, yıxıldı və qolunu yaraladı',
+        trt: '',
+        ch: 'O, yıxıldı və qolunu məntiqi təəssürat doğuran yaraladı'
       },
       {
         id: 425,
-        sntc: 'The lessons is really good',
-        tr: 'Dərslər həqiqətən yaxşıdır',
-        ch: 'Dərslər həqiqətən yaxşıdır'
-      },
-      {
+        sntc: 'I read it in the article',
+        tr: 'Mən bunu məqalədə oxudum',
+        trt: '',
+        ch: 'Mən bunu məqalədə gözlənilməz uğurlu sadiq oxudum'
+      }
+    ],
+    [{
         id: 426,
-        sntc: 'Why do you like this video?',
-        tr: 'Bu videonu niyə bəyənirsən?',
-        ch: 'Bu videonu niyə bəyənirsən?'
+        sntc: 'He cut the meat into four pieces',
+        tr: 'O, əti dörd hissəyə böldü',
+        trt: 'O, dörd hissəyə böldü əti',
+        ch: 'O, əti dörd hissəyə aşağı orta düzgün böldü'
       },
       {
         id: 427,
-        sntc: 'The girl is so hard-working',
-        tr: 'Qız çox zəhmətkeşdir',
-        ch: 'Qız çox zəhmətkeşdir'
+        sntc: 'She wore very fashionable clothes',
+        tr: 'O, çox dəbli geyimlər geyindi',
+        trt: '',
+        ch: 'O, çox dəbli geyimlər detal utancaq tamamilə geyindi'
       },
       {
         id: 428,
-        sntc: 'I know they like it',
-        tr: 'Bilirəm, onlar bunu bəyənirlər',
-        ch: 'Bilirəm, onlar bunu bəyənirlər'
+        sntc: 'He taught me a lesson',
+        tr: 'O, mənə dərs verdi',
+        trt: 'O, dərs verdi mənə',
+        ch: 'O, mənə dərs lakin musiqi üstünlük verdi'
       },
       {
         id: 429,
-        sntc: "He's a professional teacher",
-        tr: 'O, peşəkar müəllimdir',
-        ch: 'O, peşəkar müəllimdir'
+        sntc: 'I’m afraid you understood me incorrectly',
+        tr: 'Mən qorxuram sən məni səhv başa düşmüsən',
+        trt: '',
+        ch: 'Mən qorxuram sən məni səhv biznes əməkdaş müdir başa düşmüsən'
       },
       {
         id: 430,
-        sntc: "It's interesting",
-        tr: 'Bu maraqlıdır',
-        ch: 'Bu maraqlıdır'
+        sntc: 'I lay in bed',
+        tr: 'Mən yataqda uzandım',
+        trt: 'Mən uzandım yataqda',
+        ch: 'Mən yataqda dəstək izah etmək tapşırıquzandım'
       }
     ],
     [{
         id: 431,
-        sntc: "What's your friend's name?",
-        tr: 'Dostunun adı nədir?',
-        ch: 'Dostunun adı nədir?'
+        sntc: 'We wore a school uniform',
+        tr: 'Biz məktəb forması geyinmişdik',
+        trt: '',
+        ch: 'Biz məktəb forması çox həqiqətən düzgün geyinmişdik'
       },
       {
         id: 432,
-        sntc: 'We live in Azerbaijan',
-        tr: 'Biz Azərbaycanda yaşayırıq',
-        ch: 'Biz Azərbaycanda yaşayırıq'
+        sntc: 'This dress fit you perfectly',
+        tr: 'Bu paltar sənə mükəmməl uyğun gəlir',
+        trt: '',
+        ch: 'Bu paltar sənə mükəmməl vermək almaq necə uyğun gəlir'
       },
       {
         id: 433,
-        sntc: 'I enjoy speaking English',
-        tr: 'İngilis dilində danışmağdan zövq alıram',
-        ch: 'İngilis dilində danışmağdan zövq alıram'
+        sntc: 'She taught this subject at university',
+        tr: 'O, bu mövzunu universitetdə tədris etdi',
+        trt: '',
+        ch: 'O, bu mövzunu pulsuz ideya necə içmək universitetdə tədris etdi'
       },
       {
         id: 434,
-        sntc: "Those lessons aren't effective",
-        tr: 'O dərslər effektiv deyil',
-        ch: 'O dərslər effektiv deyil'
+        sntc: 'He drank a glass of orange juice',
+        tr: 'O, bir stəkan portağal şirəsi içdi',
+        trt: '',
+        ch: 'O, bir stəkan portağal şirəsi indicə adətən qalxmaq içdi'
       },
       {
         id: 435,
-        sntc: "What's really useful?",
-        tr: 'Əslində faydalı olan nədir?',
-        ch: 'Əslində faydalı olan nədir?'
-      },
-      {
+        sntc: 'I flew back to Baku',
+        tr: 'Mən Bakıya qayıtdım',
+        trt: 'Mən qayıtdım Bakıya',
+        ch: 'Mən Bakıya müdrik qadın effektiv belə qayıtdım'
+      }
+    ],
+    [{
         id: 436,
-        sntc: 'Does he like it?',
-        tr: 'O, bunu bəyənir?',
-        ch: 'O, bunu bəyənir?'
+        sntc: 'He stole his wallet',
+        tr: 'O, onun pul kisəsini oğurladı',
+        trt: '',
+        ch: 'O, onun pul kisəsini idaya asan tənbəl həkim oğurladı'
       },
       {
         id: 437,
-        sntc: 'Do your friends like these lessons?',
-        tr: 'Bu dərsləri dostların bəyənir?',
-        ch: 'Bu dərsləri dostların bəyənir?'
+        sntc: 'He ate a piece of cake',
+        tr: 'O, bir tikə tort yedi',
+        trt: 'O, tort yedi bir tikə',
+        ch: 'O, bir tikə tort adam menecer maraqlı yedi'
       },
       {
         id: 438,
-        sntc: 'This result motivates us',
-        tr: 'Bu nəticə bizi hərəkətə təşviq edir',
-        ch: 'Bu nəticə bizi hərəkətə təşviq edir'
+        sntc: 'I woke up earlier',
+        tr: 'Mən daha tez oyandım',
+        trt: '',
+        ch: 'Mən daha tez həddən artıq ev zənginoyandım'
       },
       {
         id: 439,
-        sntc: 'I admire this singer',
-        tr: 'Bu müğənniyə heyranam',
-        ch: 'Bu müğənniyə heyranam'
+        sntc: 'I drank a cup of tea',
+        tr: 'Mən bir fincan çay içdim',
+        trt: 'Mən çay içdim bir fincan',
+        ch: 'Mən bir fincan çay oxumaq təkmilləşdirdim qrammatikamı içdim'
       },
       {
         id: 440,
-        sntc: 'I perfectly understand you',
-        tr: 'Mən səni əla başa düşürəm',
-        ch: 'Mən səni əla başa düşürəm'
+        sntc: 'They dug a hole in the ground',
+        tr: 'Onlar yerdə quyu qazdılar',
+        trt: 'Onlar quyu qazdılar yerdə',
+        ch: 'Onlar yerdə quyu həll etmək problem qazdılar'
       }
     ],
     [{
         id: 441,
-        sntc: 'Do you try to improve this result?',
-        tr: 'Sən bu nəticəni yaxşılaşdırmağa çalışırsan?',
-        ch: 'Sən bu nəticəni yaxşılaşdırmağa çalışırsan?'
+        sntc: 'They spoilt the food',
+        tr: 'Onlar yeməyi xarab elədilər',
+        trt: 'Onlar xarab elədilər yeməyi',
+        ch: 'Onlar yeməyi xarab hansı ruhlandırmaq həzz elədilər'
       },
       {
         id: 442,
-        sntc: "It isn't for this level",
-        tr: 'Bu, bu səviyyə üçün deyil',
-        ch: 'Bu, bu səviyyə üçün deyil'
+        sntc: 'I woke up later than usual',
+        tr: 'Mən həmişəkindən gec oyandım',
+        trt: '',
+        ch: 'Mən həmişəkindən gec kino qulaq asmaq oyandım'
       },
       {
         id: 443,
-        sntc: 'Where is our teacher?',
-        tr: 'Müəllimimiz haradadır?',
-        ch: 'Müəllimimiz haradadır?'
+        sntc: 'It smelt awful',
+        tr: 'Bu, dəhşətli qoxu verdi',
+        trt: '',
+        ch: 'Bu, dəhşətli durmaq hiss etmək qoxu verdi'
       },
       {
         id: 444,
-        sntc: 'I can write it down',
-        tr: 'Mən bunu yaza bilərəm',
-        ch: 'Mən bunu yaza bilərəm'
+        sntc: 'I slept for two hours',
+        tr: 'Mən iki saat yatdım',
+        trt: '',
+        ch: 'Mən iki saat görüş populyar mahnı yatdım'
       },
       {
         id: 445,
-        sntc: 'How often does he test their knowledge?',
-        tr: 'O, onların biliyini nə sıxlıqda yoxlayır?',
-        ch: 'O, onların biliyini nə sıxlıqda yoxlayır?'
-      },
-      {
+        sntc: 'He withdrew twenty thousand dollars from his account',
+        tr: 'O, hesabından iyirmi min dollar çıxardı',
+        trt: 'O, iyirmi min dollar hesabından çıxardı',
+        ch: 'O, hesabından iyirmi min dollar sahib olmaq ev çıxardı'
+      }
+    ],
+    [{
         id: 446,
-        sntc: "I know it's simple",
-        tr: 'Bilirəm, bu sadədir',
-        ch: 'Bilirəm, bu sadədir'
+        sntc: 'She often overslept',
+        tr: 'O, çox vaxt yatıb qalırdı',
+        trt: '',
+        ch: 'O, çox vaxt yatıb universitet məşhur siyasət qutu qalırdı'
       },
       {
         id: 447,
-        sntc: 'She realizes it',
-        tr: 'O, bunu dərk edir',
-        ch: 'O, bunu dərk edir'
+        sntc: 'I wore a belt',
+        tr: 'Mən kəmər taxdım',
+        trt: '',
+        ch: 'Mən kəmər səviyyə məqalə informativ müğənni taxdım'
       },
       {
         id: 448,
-        sntc: "It's such an effective method",
-        tr: 'Bu çox effektiv metoddur',
-        ch: 'Bu çox effektiv metoddur'
+        sntc: 'An angry dog bit him',
+        tr: 'Qəzəbli it onu dişlədi',
+        trt: 'Qəzəbli it dişlədi onu',
+        ch: 'Qəzəbli it onu dişlədi asan dərs düzgün'
       },
       {
         id: 449,
-        sntc: 'I really want it',
-        tr: 'Mən həqiqətən bunu istəyirəm',
-        ch: 'Mən həqiqətən bunu istəyirəm'
+        sntc: 'I drove home',
+        tr: 'Mən maşınla evə getdim',
+        trt: 'Mən evə getdim maşınla',
+        ch: 'Mən maşınla evə müdir tənqid götürmək getdim'
       },
       {
         id: 450,
-        sntc: "I don't like this joke at all",
-        tr: 'Bu zarafat heç xoşuma gəlmir',
-        ch: 'Bu zarafat heç xoşuma gəlmir'
+        sntc: 'He lit the candle',
+        tr: 'O, şamı yandırdı',
+        trt: 'O, yandırdı şamı',
+        ch: 'O, şamı menecer idarəçi çox gözəl yandırdı'
       }
     ],
     [{
         id: 451,
-        sntc: 'How is she?',
-        tr: 'O necədir?',
-        ch: 'O necədir?'
+        sntc: 'He lent her several hundred dollars',
+        tr: 'O, ona bir neçə yüz dollar borc verdi',
+        trt: '',
+        ch: 'O, ona bir neçə yüz dollar borc məktəb bacı yaşamaq verdi'
       },
       {
         id: 452,
-        sntc: 'The lesson is interesting',
-        tr: 'Dərslər maraqlıdır',
-        ch: 'Dərslər maraqlıdır'
+        sntc: 'He stole her bag',
+        tr: 'O, onun çantasını oğurladı',
+        trt: '',
+        ch: 'O, onun çantasını cəlb etmək demək oğurladı'
       },
       {
         id: 453,
-        sntc: 'My friend and I live there in autumn',
-        tr: 'Dostumla mən payızda orada yaşayırıq',
-        ch: 'Dostumla mən payızda orada yaşayırıq'
+        sntc: 'I swam in the sea',
+        tr: 'Mən dənizdə üzdüm',
+        trt: 'Mən üzdüm dənizdə',
+        ch: 'Mən dənizdə kitab oxumaq sahib olmaq üzdüm'
       },
       {
         id: 454,
-        sntc: 'Why are you here?',
-        tr: 'Niyə burdasan?',
-        ch: 'Niyə burdasan?'
+        sntc: 'I understood your point of view',
+        tr: 'Mən sizin nöqteyi-nəzərinizi başa düşdüm',
+        trt: '',
+        ch: 'Mən sizin nöqteyi-nəzərinizi ziyafət bayırdan reaksiya başa düşdüm'
       },
       {
         id: 455,
-        sntc: 'Do I understand it correctly?',
-        tr: 'Mən bunu düzgün başa düşürəm?',
-        ch: 'Mən bunu düzgün başa düşürəm?'
-      },
-      {
+        sntc: 'They met at last',
+        tr: 'Onlar nəhayət görüşdülər',
+        trt: '',
+        ch: 'Onlar nəhayət nailiyyət tətil məzuniyyət görüşdülər'
+      }
+    ],
+    [{
         id: 456,
-        sntc: "He's a musician",
-        tr: 'O, musiqiçidir',
-        ch: 'O, musiqiçidir'
+        sntc: 'They stole all his money',
+        tr: 'Onlar onun bütün pullarını oğurladılar',
+        trt: '',
+        ch: 'Onlar onun bütün pullarını daxildə içəridə diqqətli oğurladılar'
       },
       {
         id: 457,
-        sntc: 'Is time money?',
-        tr: 'Vaxt puludur?',
-        ch: 'Vaxt puludur?'
+        sntc: 'I overcame all these difficulties',
+        tr: 'Mən bütün bu çətinliklərin öhdəsindən gəldim',
+        trt: 'Mən öhdəsindən gəldim bütün bu çətinliklərin',
+        ch: 'Mən bütün bu çətinliklərin öhdəsindən şübhəli dünən fikirli gəldim'
       },
       {
         id: 458,
-        sntc: 'This lesson seems interesting',
-        tr: 'Bu dərs maraqlı görünür',
-        ch: 'Bu dərs maraqlı görünür'
+        sntc: 'He ate a sandwich',
+        tr: 'O, sendviç yedi',
+        trt: '',
+        ch: 'O, sendviç utancaq müsibət tamamilə yedi'
       },
       {
         id: 459,
-        sntc: 'She wants to go to the park',
-        tr: 'O, parka getmək istəyir',
-        ch: 'O, parka getmək istəyir'
+        sntc: 'I swam in the lake',
+        tr: 'Mən göldə üzdüm',
+        trt: 'Mən üzdüm göldə',
+        ch: 'Mən göldə hiss cəsarətlə günəş üzdüm'
       },
       {
         id: 460,
-        sntc: 'How is it?',
-        tr: 'Bu necədir?',
-        ch: 'Bu necədir?'
+        sntc: "It's dark",
+        tr: 'Qaranlıqdır',
+        trt: '',
+        ch: 'Qaranlıqdır İşıqlıdır idman zalı müntəzəm tapşırıq'
       }
     ],
     [{
         id: 461,
-        sntc: "I'm fond of this application thanks to my fantastic result",
-        tr: 'Fantastik nəticəm sayəsində bu tətbiqi çox sevirəm',
-        ch: 'Fantastik nəticəm sayəsində bu tətbiqi çox sevirəm'
+        sntc: 'I spent more than seven hundred dollars on it',
+        tr: 'Mən buna yeddi yüz dollardan çox pul xərclədim',
+        trt: 'Mən yeddi yüz dollardan çox pul buna xərclədim',
+        ch: 'Mən buna yeddi yüz dollardan çox pul düzəltmək cəlb etmək xərclədim'
       },
       {
         id: 462,
-        sntc: "She isn't with us",
-        tr: 'O bizimlə deyil',
-        ch: 'O bizimlə deyil'
+        sntc: 'I redid this exercise at last',
+        tr: 'Mən bu tapşırığı nəhayət yenidən etdim',
+        trt: 'Mən nəhayət bu tapşırığı yenidən etdim',
+        ch: 'Mən bu tapşırığı nəhayət yenidən tənha yağışlı balaca etdim'
       },
       {
         id: 463,
-        sntc: "Who's in the park?",
-        tr: 'Parkda kimlər var?',
-        ch: 'Parkda kimlər var?'
+        sntc: 'He lit the light',
+        tr: 'O, işıqı yandırdı',
+        trt: 'O, yandırdı işıqı',
+        ch: 'O, işıqı düzgün qaneedici yanlış yandırdı'
       },
       {
         id: 464,
-        sntc: "He isn't busy. He's free",
-        tr: 'O məşğul deyil. O azaddır',
-        ch: 'O məşğul deyil. O azaddır'
+        sntc: 'The dog bit her',
+        tr: 'İt onu dişlədi',
+        trt: 'İt dişlədi onu',
+        ch: 'İt onu məyus hava limanı dişlədi'
       },
       {
         id: 465,
-        sntc: "She's very optimistic",
-        tr: 'O çox optimistdir',
-        ch: 'O çox optimistdir'
-      },
-      {
+        sntc: 'He withdrew all the money',
+        tr: 'O, bütün pulları çıxardı',
+        trt: 'O, çıxardı bütün pulları',
+        ch: 'O, bütün pulları qayğıkeş alternativ konfrans çıxardı'
+      }
+    ],
+    [{
         id: 466,
-        sntc: 'This businessman is very rich',
-        tr: 'Bu iş adamı çox zəngindir',
-        ch: 'Bu iş adamı çox zəngindir'
+        sntc: 'She kept all her money in this bank',
+        tr: 'O, bütün pullarını bu bankda saxlayırdı',
+        trt: 'O, bu bankda bütün pullarını saxlayırdı',
+        ch: 'O, bütün pullarını küləkli ciddi tətil bu bankda saxlayırdı'
       },
       {
         id: 467,
-        sntc: "His wife doesn't do the shopping so often",
-        tr: 'Onun həyat yoldaşı elə də tez-tez alış-veriş etmir',
-        ch: 'Onun həyat yoldaşı elə də tez-tez alış-veriş etmir'
+        sntc: 'He sent me a parcel',
+        tr: 'O, mənə bağlama göndərdi',
+        trt: 'O, bağlama göndərdi mənə',
+        ch: 'O, mənə bağlama aşağı məmnun əminlik göndərdi'
       },
       {
         id: 468,
-        sntc: 'She needs it',
-        tr: 'O, buna ehtiyac duyur',
-        ch: 'O, buna ehtiyac duyur'
+        sntc: 'They sold their house for half a million',
+        tr: 'Onlar evlərini yarım milyona satdılar',
+        trt: 'Onlar evlərini satdılar yarım milyona',
+        ch: 'Onlar evlərini yarım milyona həsr etmək ləğv satdılar'
       },
       {
         id: 469,
-        sntc: 'How many English words does your friend want to know?',
-        tr: 'Dostunuz nə qədər ingilis sözü bilmək istəyir?',
-        ch: 'Dostunuz nə qədər ingilis sözü bilmək istəyir?'
+        sntc: 'They broke the window',
+        tr: 'Onlar pəncərəni sındırdılar',
+        trt: 'Onlar sındırdılar pəncərəni',
+        ch: 'Onlar pəncərəni stul bölmək görünmək sındırdılar'
       },
       {
         id: 470,
-        sntc: 'Money is important, too',
-        tr: 'Pul da vacibdir',
-        ch: 'Pul da vacibdir'
+        sntc: 'I held it in my arms',
+        tr: 'Mən bunu əllərimdə tutdum',
+        trt: 'Mən əllərimdə bunu tutdum',
+        ch: 'Mən bunu əllərimdə tapmaq üzləşmək səslənmək tutdum'
       }
     ],
     [{
         id: 471,
-        sntc: 'Money is also important',
-        tr: 'Pul da vacibdir',
-        ch: 'Pul da vacibdir'
+        sntc: 'I flew back to Los Angeles',
+        tr: 'Mən Los-Ancelesə qayıtdım',
+        trt: 'Mən qayıtdım Los-Ancelesə',
+        ch: 'Mən Los-Ancelesə qaldım cəmləşmək təsdiqləmək qayıtdım'
       },
       {
         id: 472,
-        sntc: 'Is it sunny?',
-        tr: 'Günəşlidir?',
-        ch: 'Günəşlidir?'
+        sntc: 'She drew a real masterpiece',
+        tr: 'O, əsl şah əsər çəkdi',
+        trt: '',
+        ch: 'O, əsl şah əsər getmək etibar etmək çəkdi'
       },
       {
         id: 473,
-        sntc: 'Are you there?',
-        tr: 'Sən ordasan?',
-        ch: 'Sən ordasan?'
+        sntc: 'We see it in the last sentence',
+        tr: 'Biz bunu son cümlədə görürük',
+        trt: '',
+        ch: 'Biz bunu son cümlədə dəvət etmək tapşırıq görürük'
       },
       {
         id: 474,
-        sntc: 'They need it',
-        tr: 'Bu onlara lazımdır',
-        ch: 'Bu onlara lazımdır'
+        sntc: 'I forgot to tell them this thing',
+        tr: 'Mən bu şeyi onlara demeyə unutdum',
+        trt: '',
+        ch: 'Mən bu şeyi onlara demeyə unutdum dünən təklif meyli'
       },
       {
         id: 475,
-        sntc: 'How interesting is this magazine?',
-        tr: 'Bu jurnal nə dərəcədə maraqlıdır?',
-        ch: 'Bu jurnal nə dərəcədə maraqlıdır?'
-      },
-      {
+        sntc: 'He fed his dog',
+        tr: 'O, itini yedizdirdi',
+        trt: 'O, yedizdirdi itini',
+        ch: 'O, itini borclu olmaq müsabiqə yedizdirdi'
+      }
+    ],
+    [{
         id: 476,
-        sntc: 'Are these things so important?',
-        tr: 'Bu şeylər çox vacibdir?',
-        ch: 'Bu şeylər çox vacibdir?'
+        sntc: 'I dreamt about different things',
+        tr: 'Mən müxtəlif şeylər haqqında xəyallar qurdum',
+        trt: '',
+        ch: 'Mən müxtəlif şeylər haqqında xəyallar qurdum'
       },
       {
         id: 477,
-        sntc: 'Is that decision worse?',
-        tr: 'Bu qərar daha betərdir?',
-        ch: 'Bu qərar daha betərdir?'
+        sntc: 'I woke up very early',
+        tr: 'Mən yuxudan çox tez oyandım',
+        trt: '',
+        ch: 'Mən yuxudan çox tez bacarmaq tövsiyə riayət oyandım'
       },
       {
         id: 478,
-        sntc: "We're in the park",
-        tr: 'Biz parkdayıq',
-        ch: 'Biz parkdayıq'
+        sntc: 'He lent her several thousand dollars',
+        tr: 'O, ona bir neçə min dollar borc verdi',
+        trt: '',
+        ch: 'O, ona bir neçə min dollar borc verdi investisiya'
       },
       {
         id: 479,
-        sntc: 'Is his video so funny?',
-        tr: 'Onun videosu çox əyləncəlidir?',
-        ch: 'Onun videosu çox əyləncəlidir?'
+        sntc: 'Where does he work?',
+        tr: 'O, harada işləyir?',
+        trt: '',
+        ch: 'O, harada işləyir çatdırmaq mənsub olmaq ittiham'
       },
       {
         id: 480,
-        sntc: 'Do you need to do it this year?',
-        tr: 'Sənə bunu bu il etmək lazımdır?',
-        ch: 'Sənə bunu bu il etmək lazımdır?'
+        sntc: 'The boys swam in the swimming pool',
+        tr: 'Oğlanlar hovuzda üzdülər',
+        trt: 'Oğlanlar üzdülər hovuzda',
+        ch: 'Oğlanlar hovuzda soruşmaq cüt sual üzdülər'
       }
     ],
     [{
         id: 481,
-        sntc: "It isn't her recommendation",
-        tr: 'Bu onun tövsiyəsi deyil',
-        ch: 'Bu onun tövsiyəsi deyil'
+        sntc: 'It smelt terrible',
+        tr: 'Bu, dəhşətli qoxu verdi',
+        trt: '',
+        ch: 'Bu, dəhşətli qoxu həll etmək qəza yumaq verdi'
       },
       {
         id: 482,
-        sntc: 'Is the lesson useful?',
-        tr: 'Dərs faydalıdır?',
-        ch: 'Dərs faydalıdır?'
+        sntc: 'I hung my coat on a hook',
+        tr: 'Mən paltomu qarmaqcıqdan asdım',
+        trt: '',
+        ch: 'Mən paltomu qarmaqcıqdan doldurmaq görünmək birdən-birə asdım'
       },
       {
         id: 483,
-        sntc: 'Do you often go there?',
-        tr: 'Sən tez-tez ora gedirsən?',
-        ch: 'Sən tez-tez ora gedirsən?'
+        sntc: 'This food smelt bad',
+        tr: 'Bu yemək pis iy verdi',
+        trt: '',
+        ch: 'Bu yemək pis iy verdi qalmaq çatmaq tələb etmək'
       },
       {
         id: 484,
-        sntc: "He's keen on foreign languages",
-        tr: 'O, xarici dillərə həvəslidir',
-        ch: 'O, xarici dillərə həvəslidir'
+        sntc: 'Where is the boy?',
+        tr: 'Oğlan haradadır?',
+        trt: '',
+        ch: 'Oğlan haradadır təkrar etmək cümlə yenidən'
       },
       {
         id: 485,
-        sntc: 'What helps you?',
-        tr: 'Sizə nə kömək edir?',
-        ch: 'Sizə nə kömək edir?'
-      },
-      {
+        sntc: 'He sang really well',
+        tr: 'O, həqiqətən yaxşı oxudu',
+        trt: '',
+        ch: 'O, həqiqətən hər kəs tələffüz yaxşı oxudu'
+      }
+    ],
+    [{
         id: 486,
-        sntc: 'What does your boss usually promise?',
-        tr: 'Müdiriniz adətən nə vəd edir?',
-        ch: 'Müdiriniz adətən nə vəd edir?'
+        sntc: 'I forgot to say it',
+        tr: 'Mən bunu deməyə unutdum',
+        trt: 'Mən unutdum bunu deməyə',
+        ch: 'Mən bunu deməyə gərgin fəxr etmək unutdum'
       },
       {
         id: 487,
-        sntc: 'I must write it down',
-        tr: 'Mən bunu yazmalıyam',
-        ch: 'Mən bunu yazmalıyam'
+        sntc: 'We overcame those difficulties',
+        tr: 'Biz o çətinliklərin öhdəsindən gəldik',
+        trt: '',
+        ch: 'Biz o çətinliklərin öhdəsindən bölmək görünmək daxil gəldik'
       },
       {
         id: 488,
-        sntc: 'She also works there',
-        tr: 'O da orada işləyir',
-        ch: 'O da orada işləyir'
+        sntc: 'He hurt her feelings',
+        tr: 'O, onun hisslərini incitdi',
+        trt: '',
+        ch: 'O, onun hisslərini tamamilə diqqəti yönəltmək incitdi'
       },
       {
         id: 489,
-        sntc: "He's on a business trip",
-        tr: 'O, işgüzar səfərdədir',
-        ch: 'O, işgüzar səfərdədir'
+        sntc: 'He dug a big hole',
+        tr: 'O, böyük quyu qazdı',
+        trt: '',
+        ch: 'O, böyük quyu qazdı silmək fayl bölmək'
       },
       {
         id: 490,
-        sntc: 'Do I have enough money?',
-        tr: 'Mənim kifayət qədər pulum var?',
-        ch: 'Mənim kifayət qədər pulum var?'
+        sntc: 'I really like this place',
+        tr: 'Mən bu yeri həqiqətən çox bəyənirəm',
+        trt: 'Mən həqiqətən bu yeri çox bəyənirəm',
+        ch: 'Mən bu yeri həqiqətən çox bəyənirəm diqqət dərhal ətraflı'
       }
     ],
     [{
         id: 491,
-        sntc: 'I like this advice',
-        tr: 'Bu məsləhət xoşuma gəlir',
-        ch: 'Bu məsləhət xoşuma gəlir'
+        sntc: "What's your husband's name?",
+        tr: 'Sənin ərinin adı nədir?',
+        trt: '',
+        ch: 'Sənin ərinin adı nədir bacarıq ağlamaq birdən-birə'
       },
       {
         id: 492,
-        sntc: 'How do you usually spend your free time?',
-        tr: 'Adətən boş vaxtını necə keçirirsən?',
-        ch: 'Adətən boş vaxtını necə keçirirsən?'
+        sntc: 'We slept more than enough',
+        tr: 'Biz kifayət qədər yatdıq',
+        trt: '',
+        ch: 'Biz kifayət qədər yatdıq xeyli layiq olmaq'
       },
       {
         id: 493,
-        sntc: "It's a very useful example",
-        tr: 'Bu çox faydalı nümunədir',
-        ch: 'Bu çox faydalı nümunədir'
+        sntc: 'She fed the cat',
+        tr: 'O, pişiyi yedizdirdi',
+        trt: '',
+        ch: 'O, pişiyi yedizdirdi iştirak etmək cəmləşmək'
       },
       {
         id: 494,
-        sntc: 'Her husband is in hospital',
-        tr: 'Onun əri xəstəxanadadır',
-        ch: 'Onun əri xəstəxanadadır'
+        sntc: 'They burnt the house',
+        tr: 'Onlar evi yandırdılar',
+        trt: '',
+        ch: 'Onlar evi məsrəf qismən səbəb yandırdılar'
       },
       {
         id: 495,
-        sntc: 'Is this method new?',
-        tr: 'Bu üsul yenidir?',
-        ch: 'Bu üsul yenidir?'
-      },
-      {
+        sntc: 'I drove to the park',
+        tr: 'Mən parka maşınla getdim',
+        trt: '',
+        ch: 'Mən parka maşınla borclu olmaq təklif getdim'
+      }
+    ],
+    [{
         id: 496,
-        sntc: "She'd like to live in another place",
-        tr: 'O, başqa bir yerdə yaşamaq istərdi',
-        ch: 'O, başqa bir yerdə yaşamaq istərdi'
+        sntc: 'My brother is sixteen',
+        tr: 'Mənim qardaşımın on altı yaşı var',
+        trt: '',
+        ch: 'Mənim qardaşımın on altı yaşı əbədi saat bişirmək var'
       },
       {
         id: 497,
-        sntc: 'Her words inspire us',
-        tr: 'Onun sözləri bizi ruhlandırır',
-        ch: 'Onun sözləri bizi ruhlandırır'
+        sntc: 'I said it again',
+        tr: 'Mən bunu yenə dedim',
+        trt: '',
+        ch: 'Mən bunu yenə tənzimləmək hansısa yolla dedim'
       },
       {
         id: 498,
-        sntc: 'What kind of examples does his teacher give?',
-        tr: 'Onun müəllimi necə nümunələr verir?',
-        ch: 'Onun müəllimi necə nümunələr verir?'
+        sntc: 'He had a very interesting idea',
+        tr: 'Onun, çox maraqlı fikri var idi',
+        trt: '',
+        ch: 'Onun, çox maraqlı minnətdar yaratmaq müsbət fikri var idi'
       },
       {
         id: 499,
-        sntc: 'How often does she go to the cinema?',
-        tr: 'O, kinoteatra nə sıxlıqda gedir?',
-        ch: 'O, kinoteatra nə sıxlıqda gedir?'
+        sntc: 'My friend did him a favor',
+        tr: 'Mənim dostum ona lütf etdi',
+        trt: '',
+        ch: 'Mənim dostum hündür cavab tövsiyə ona lütf etdi'
       },
       {
         id: 500,
-        sntc: 'I want to speak English fluently and correctly',
-        tr: 'İngilis dilində səlis və düzgün danışmaq istəyirəm',
-        ch: 'İngilis dilində səlis və düzgün danışmaq istəyirəm'
+        sntc: 'I could do it for hours',
+        tr: 'Mən bunu saatlarla edə bilərdim',
+        trt: '',
+        ch: 'Mən bunu saatlarla edə bilərdim əmək haqqı lüğət'
       }
     ],
     [{
         id: 501,
-        sntc: "I'll be grateful to you for your help",
-        tr: 'Köməyinizə görə sizə minnətdar olacağam',
-        ch: 'Köməyinizə görə sizə minnətdar olacağam'
+        sntc: 'He gave her four hundred dollars',
+        tr: 'O, ona dörd yüz dollar verdi',
+        trt: '',
+        ch: 'O, ona dörd yüz dollar verdi daxil olmaq nüfuzlu'
       },
       {
         id: 502,
-        sntc: "He'll say it again",
-        tr: 'O, bunu yenə deyəcək',
-        ch: 'O, bunu yenə deyəcək'
+        sntc: 'He became a very famous actor',
+        tr: 'O, çox məşhur aktyor oldu',
+        trt: '',
+        ch: 'O, çox məşhur aktyor oldu təkid unutmaq göndərmək qonaq'
       },
       {
         id: 503,
-        sntc: "We'll go on holiday soon",
-        tr: 'Tezliklə bayrama gedəcəyik',
-        ch: 'Tezliklə bayrama gedəcəyik'
+        sntc: 'We need to solve this problem',
+        tr: 'Bizə bu problemi həll etmək lazımdır',
+        trt: '',
+        ch: 'Bizə bu problemi həll etmək lazımdır nümunə cəhd etmək'
       },
       {
         id: 504,
-        sntc: "We'll create a very positive atmosphere",
-        tr: 'Biz çox müsbət ab-hava yaradacıq',
-        ch: 'Biz çox müsbət ab-hava yaradacıq'
+        sntc: 'We left America',
+        tr: 'Biz Amerikanı tərk etdik',
+        trt: '',
+        ch: 'Biz Amerikanı tərk etdik ifadə etdik hər yerdə'
       },
       {
         id: 505,
-        sntc: "I'll maximize the profit",
-        tr: 'Mənfəəti maksimum dərəcədə artıracağam',
-        ch: 'Mənfəəti maksimum dərəcədə artıracağam'
-      },
-      {
+        sntc: 'I wrote down everything',
+        tr: 'Mən hər şeyi yazdım',
+        trt: '',
+        ch: 'Mən hər şeyi yazdım riayət etdim müntəzəm məşq'
+      }
+    ],
+    [{
         id: 506,
-        sntc: "It'll depend not only on us",
-        tr: 'Bu yalnız bizdən asılı olmayacaq',
-        ch: 'Bu yalnız bizdən asılı olmayacaq'
+        sntc: 'I sat down',
+        tr: 'Mən oturdum',
+        trt: '',
+        ch: 'Mən oturdum zarafat seçim tələbə qalxdım'
       },
       {
         id: 507,
-        sntc: "He'll create something new",
-        tr: 'O, yeni bir şey yaradacaq',
-        ch: 'O, yeni bir şey yaradacaq'
+        sntc: 'He set up a very successful company',
+        tr: 'O, çox uğurlu şirkət qurdu',
+        trt: '',
+        ch: 'O, çox uğurlu şirkət qurdu söyləmək dərk etmək'
       },
       {
         id: 508,
-        sntc: "It'll change your point of view",
-        tr: 'Bu, baxışınızı dəyişəcək',
-        ch: 'Bu, baxışınızı dəyişəcək'
+        sntc: "What's your friend's name?",
+        tr: 'Sənin dostunun adı nədir?',
+        trt: '',
+        ch: 'Sənin dostunun adı nədir hansısa yolla rədd etmək'
       },
       {
         id: 509,
-        sntc: "I think I'll have more free time",
-        tr: 'Düşünürəm ki, daha çox boş vaxtım olacaq',
-        ch: 'Düşünürəm ki, daha çox boş vaxtım olacaq'
+        sntc: 'I paid for him',
+        tr: 'Mən onun yerinə pul ödədim',
+        trt: '',
+        ch: 'Mən onun yerinə pul ödədim nəzakətli zəhmətkeş sınaq'
       },
       {
         id: 510,
-        sntc: "They'll have another alternative",
-        tr: 'Onların başqa bir alternativi olacaq',
-        ch: 'Onların başqa bir alternativi olacaq'
+        sntc: 'They understood each other',
+        tr: 'Onlar bir-birini başa düşdülər',
+        trt: '',
+        ch: 'Onlar bir-birini başa düşdülər mükəmməl danışmaq bacarmaq'
       }
     ],
     [{
         id: 511,
-        sntc: 'The authorities will regulate it somehow',
-        tr: 'Hakimiyyət bunu hansısa yolla tənzimləyəcək',
-        ch: 'Hakimiyyət bunu hansısa yolla tənzimləyəcək'
+        sntc: 'He came to the meeting',
+        tr: 'O, görüşə gəldi',
+        trt: '',
+        ch: 'O, görüşə gəldi şalvar turist müvəffəqiyyət'
       },
       {
         id: 512,
-        sntc: 'My friend and will hurry up',
-        tr: 'Dostum və mən tələsəcəyik',
-        ch: 'Dostum və mən tələsəcəyik'
+        sntc: 'They spoke Italian',
+        tr: 'Onlar italyanca danışırdılar',
+        trt: '',
+        ch: 'Onlar italyanca danışırdılar şanslı sadəlik ümid etmek'
       },
       {
         id: 513,
-        sntc: 'Everyone will refuse to do it',
-        tr: 'Hər kəs bunu etməkdən imtina edəcək',
-        ch: 'Hər kəs bunu etməkdən imtina edəcək'
+        sntc: 'He taught English',
+        tr: 'O, İngilis dilini öyrətirdi',
+        trt: '',
+        ch: 'O, İngilis dilini öyrətirdi reklam rəy fikir'
       },
       {
         id: 514,
-        sntc: 'Our sales manager will calculate it',
-        tr: 'Satış menecerimiz bunu hesablayacaq',
-        ch: 'Satış menecerimiz bunu hesablayacaq'
+        sntc: 'He broke this rule',
+        tr: 'O, bu qaydanı pozdu',
+        trt: '',
+        ch: 'O, bu qaydanı pozdu məmnuniyyətlə uçmaq hadisə peşman'
       },
       {
         id: 515,
-        sntc: 'Everyone will be shocked',
-        tr: 'Hamı şoka düşəcək',
-        ch: 'Hamı şoka düşəcək'
-      },
-      {
+        sntc: 'She grew up in England',
+        tr: 'O, İngiltərədə böyüyüb',
+        trt: '',
+        ch: 'O, İngiltərədə böyüyüb qiymət qoşulmaq ədəbiyyat'
+      }
+    ],
+    [{
         id: 516,
-        sntc: 'His father will borrow this money',
-        tr: 'Atası bu pulu borc alacaq',
-        ch: 'Atası bu pulu borc alacaq'
+        sntc: 'I found my keys',
+        tr: 'Mən açarlarımı tapdım',
+        trt: '',
+        ch: 'Mən açarlarımı tapdım məşq mövcud yenə səhər'
       },
       {
         id: 517,
-        sntc: 'My boss will forget it soon',
-        tr: 'Mənim müdirim tezliklə bunu unudacaq',
-        ch: 'Mənim müdirim tezliklə bunu unudacaq'
+        sntc: 'He taught me a lesson',
+        tr: 'O, mənə dərs verdi',
+        trt: '',
+        ch: 'O, mənə dərs verdi üçüncü hündür cavab'
       },
       {
         id: 518,
-        sntc: 'My friend and I will devote more free time to our health',
-        tr: 'Dostumla mən sağlamlığımıza daha çox boş vaxt ayıracağıq',
-        ch: 'Dostumla mən sağlamlığımıza daha çox boş vaxt ayıracağıq'
+        sntc: 'They fought for their rights',
+        tr: 'Onlar öz hüquqları uğrunda mübarizə aparırdılar',
+        trt: '',
+        ch: 'Onlar öz hüquqları uğrunda mübarizə aparırdılar vermək sonra darıxmaq '
       },
       {
         id: 519,
-        sntc: 'Everyone will be disappointed',
-        tr: 'Hər kəs məyus olacaq',
-        ch: 'Hər kəs məyus olacaq'
+        sntc: 'I lay in bed',
+        tr: 'Mən yataqda uzandım',
+        trt: '',
+        ch: 'Mən yataqda uzandım gün yağışlı təşəbbüs bişirdim'
       },
       {
         id: 520,
-        sntc: "You know it isn't in the last place",
-        tr: 'Sən bilirsən bu axırıncı yerdə deyil',
-        ch: 'Sən bilirsən bu axırıncı yerdə deyil'
+        sntc: 'He felt very disappointed',
+        tr: 'O, özünü çox məyus hiss etmişdi',
+        trt: '',
+        ch: 'O, özünü çox məyus hiss etmişdi məzəli gülməli sadə'
       }
     ],
     [{
         id: 521,
-        sntc: "It won't lead to success",
-        tr: 'Bu uğura gətirib çıxarmayacaq',
-        ch: 'Bu uğura gətirib çıxarmayacaq'
+        sntc: 'The soldiers fought very bravely and courageously',
+        tr: 'Əsgərlər çox cürətlə və cəsarətlə döyüşdülər',
+        trt: 'Əsgərlər çox cəsarətlə və cürətlə döyüşdülər',
+        ch: 'Əsgərlər çox cürətlə və cəsarətlə döyüşdülər pessimist qorxutmaq üçüncü'
       },
       {
         id: 522,
-        sntc: "We won't swim there",
-        tr: 'Biz orada üzməyəcəyik',
-        ch: 'Biz orada üzməyəcəyik'
+        sntc: 'I threw this thing away',
+        tr: 'Mən bu əşyanı tulladım',
+        trt: 'Mən tulladım bu əşyanı',
+        ch: 'Mən bu əşyanı tulladım iki balaca dərk'
       },
       {
         id: 523,
-        sntc: "He won't pass this test",
-        tr: 'O, bu sınaqdan keçməyəcək',
-        ch: 'O, bu sınaqdan keçməyəcək'
+        sntc: 'He paid for us',
+        tr: 'O, bizim yerimizə pul ödədi',
+        trt: '',
+        ch: 'O, bizim yerimizə pul ödədi tələbə bahar zəngin'
       },
       {
         id: 524,
-        sntc: "They won't find a solution to such an important problem soon",
-        tr: 'Onlar belə bir vacib problemin tezliklə həllini tapmayacaqlar',
-        ch: 'Onlar belə bir vacib problemin tezliklə həllini tapmayacaqlar'
+        sntc: 'Who controls it?',
+        tr: 'Bunu kim idarə edir?',
+        trt: '',
+        ch: 'Bunu kim idarə edir səyahət etmək pessimist'
       },
       {
         id: 525,
-        sntc: "We won't complain about it",
-        tr: 'Biz bundan şikayət etmərik',
-        ch: 'Biz bundan şikayət etmərik'
-      },
-      {
+        sntc: 'I grew up in the capital of our country',
+        tr: 'Mən ölkəmizin paytaxtında böyümüşəm',
+        trt: '',
+        ch: 'Mən ölkəmizin paytaxtında böyümüşəm həsr etmək səhv'
+      }
+    ],
+    [{
         id: 526,
-        sntc: "I won't see her anymore",
-        tr: 'Daha onu görməyəcəm',
-        ch: 'Daha onu görməyəcəm'
+        sntc: 'I didn’t devote much time to English',
+        tr: 'Mən İngilis dilinə çox vaxt ayırmadım',
+        trt: '',
+        ch: 'Mən İngilis dilinə çox vaxt ayırmadım imtahan vermək hazırlıq'
       },
       {
         id: 527,
-        sntc: "We won't stop",
-        tr: 'Biz dayanmayacağıq',
-        ch: 'Biz dayanmayacağıq'
+        sntc: 'You didn’t tell me the second thing',
+        tr: 'Sən mənə ikinci şeyi demədin',
+        trt: 'Sən ikinci şeyi mənə demədin',
+        ch: 'Sən mənə ikinci şeyi demədin etmək axırıncı əbədi'
       },
       {
         id: 528,
-        sntc: "I won't recommend this book",
-        tr: 'Bu kitabı tövsiyə etmərəm',
-        ch: 'Bu kitabı tövsiyə etmərəm'
+        sntc: 'They didn’t get divorced',
+        tr: 'Onlar boşanmadılar',
+        trt: '',
+        ch: 'Onlar boşanmadılar yaratmaq müsbət zirvə'
       },
       {
         id: 529,
-        sntc: "I won't deny it",
-        tr: 'Bunu inkar etmərəm',
-        ch: 'Bunu inkar etmərəm'
+        sntc: 'You didn’t show it to me',
+        tr: 'Sən bunu mənə göstərmədin',
+        trt: '',
+        ch: 'Sən bunu mənə göstərmədin yemək dadlı kifayət'
       },
       {
         id: 530,
-        sntc: "He won't guarantee it",
-        tr: 'O buna zəmanət verməyəcək',
-        ch: 'O buna zəmanət verməyəcək'
+        sntc: 'We didn’t see him yesterday',
+        tr: 'Biz dünən onu görmədik',
+        trt: 'Biz onu dünən görmədik',
+        ch: 'Biz dünən onu görmədik fikir müğənni əla'
       }
     ],
     [{
         id: 531,
-        sntc: "The girl won't learn everything so quickly",
-        tr: 'Qız hər şeyi belə tez öyrənməyəcək',
-        ch: 'Qız hər şeyi belə tez öyrənməyəcək'
+        sntc: 'She didn’t have such a feeling',
+        tr: 'Onun belə bir hissi yox idi',
+        trt: 'Onun belə hissi yox idi',
+        ch: 'Onun belə bir hissi yox idi zəngin qiymət'
       },
       {
         id: 532,
-        sntc: "The day won't be rainy",
-        tr: 'Gün yağışlı olmayacaq',
-        ch: 'Gün yağışlı olmayacaq'
+        sntc: 'Did it really worry you?',
+        tr: 'Bu sizi doğrudan da narahat edirdi?',
+        trt: 'Bu sizi doğrudan narahat edirdi?',
+        ch: 'Bu sizi doğrudan da narahat edirdi təhlil etmək'
       },
       {
         id: 533,
-        sntc: "His grandfather won't know it",
-        tr: 'Onun babası bunu bilməyəcək',
-        ch: 'Onun babası bunu bilməyəcək'
+        sntc: 'Did she advise you to do it?',
+        tr: 'O, sənə bunu etməyi məsləhət gördü?',
+        trt: 'O, bunu etməyi sənə məsləhət gördü?',
+        ch: 'O, bunu etməyi sənə məsləhət gördü rədd etmək'
       },
       {
         id: 534,
-        sntc: "My colleagues won't support this initiative",
-        tr: 'Həmkarlarım bu təşəbbüsü dəstəkləməyəcəklər',
-        ch: 'Həmkarlarım bu təşəbbüsü dəstəkləməyəcəklər'
+        sntc: 'Did I say it rightly?',
+        tr: 'Mən bunu düz dedim?',
+        trt: '',
+        ch: 'Mən bunu düz dedim məqalə müddətində məlumat'
       },
       {
         id: 535,
-        sntc: "It won't be the only right method",
-        tr: 'Bu yeganə düzgün metod olmayacaq',
-        ch: 'Bu yeganə düzgün metod olmayacaq'
-      },
-      {
+        sntc: 'We didn’t try to do it',
+        tr: 'Biz bunu etməyə çalışmadıq',
+        trt: '',
+        ch: 'Biz bunu etməyə razılaşmamaq hansı ruhlandırmaq çalışmadıq'
+      }
+    ],
+    [{
         id: 536,
-        sntc: "This time won't be convenient for me",
-        tr: 'Bu vaxt mənim üçün əlverişli olmayacaq',
-        ch: 'Bu vaxt mənim üçün əlverişli olmayacaq'
+        sntc: 'What videos did you watch?',
+        tr: 'Sən hansı videolara baxdın?',
+        trt: '',
+        ch: 'Sən hansı videolara baxdın həddən artıq ev zəngin'
       },
       {
         id: 537,
-        sntc: "This profession won't be popular any longer",
-        tr: 'Bu sənət daha populyar olmayacaq',
-        ch: 'Bu sənət daha populyar olmayacaq'
+        sntc: 'How often did you go to the gym?',
+        tr: 'Sən idman zalına nə sıxlıqda gedirdin?',
+        trt: '',
+        ch: 'Sən idman zalına nə sıxlıqda otuz yağmurlu sual gedirdin'
       },
       {
         id: 538,
-        sntc: "This money won't be enough",
-        tr: 'Bu pul kifayət etməyəcək',
-        ch: 'Bu pul kifayət etməyəcək'
+        sntc: 'I sat on a chair',
+        tr: 'Mən stulda oturdum',
+        trt: '',
+        ch: 'Mən stulda oturdum xoşbəxt növbəti ad'
       },
       {
         id: 539,
-        sntc: "Other people won't help you now",
-        tr: 'Digər insanlar indi sizə kömək etməyəcək',
-        ch: 'Digər insanlar indi sizə kömək etməyəcək'
+        sntc: 'Did she decide not to do it?',
+        tr: 'O, bunu etməmək qərarına gəldi?',
+        trt: '',
+        ch: 'O, bunu etməmək qərarına gəldi hava limanı yaxın'
       },
       {
         id: 540,
-        sntc: "The students won't laugh at it",
-        tr: 'Şagirdlər buna gülməyəcəklər',
-        ch: 'Şagirdlər buna gülməyəcəklər'
+        sntc: 'How much did it cost?',
+        tr: 'Bu neçəyə başa gəldi?',
+        trt: '',
+        ch: 'Bu neçəyə başa gəldi müdrik əməkdaş vəziyyət'
       }
     ],
     [{
         id: 541,
-        sntc: 'Will it be possible at the end of the meeting?',
-        tr: 'Bu görüşün sonunda mümkün olacaq?',
-        ch: 'Bu görüşün sonunda mümkün olacaq?'
+        sntc: 'We were glad to see her',
+        tr: 'Biz onu görməyə şad idik',
+        trt: '',
+        ch: 'Biz onu görməyə şad idik istedadlı vəziyyət sadə'
       },
       {
         id: 542,
-        sntc: 'Will you inform your assistant?',
-        tr: 'Köməkçinizə məlumat verəcəksiniz?',
-        ch: 'Köməkçinizə məlumat verəcəksiniz?'
+        sntc: 'He was lucky',
+        tr: 'Onun bəxti getirdi',
+        trt: '',
+        ch: 'Onun bəxti küləkli məşğul kişilər getirdi'
       },
       {
         id: 543,
-        sntc: 'Will you celebrate your birthday?',
-        tr: 'Ad gününü qeyd edəcəksən?',
-        ch: 'Ad gününü qeyd edəcəksən?'
+        sntc: 'They were together',
+        tr: 'Onlar bir yerdə idilər',
+        trt: '',
+        ch: 'Onlar bir yerdə ad günü tərəqqi zövq idilər'
       },
       {
         id: 544,
-        sntc: 'She always criticizes him',
-        tr: 'O, həmişə onu tənqid edir',
-        ch: 'O, həmişə onu tənqid edir'
+        sntc: 'You were very optimistic',
+        tr: 'Sən çox optimist idin',
+        trt: '',
+        ch: 'Sən çox optimist idin sadəlik ümid qəmli'
       },
       {
         id: 545,
-        sntc: 'Will I have an advanced level in English?',
-        tr: 'İngilis dilində qabaqcıl səviyyəyə malik olacam?',
-        ch: 'İngilis dilində qabaqcıl səviyyəyə malik olacam?'
-      },
-      {
+        sntc: 'We were really surprised',
+        tr: 'Biz həqiqətən təəccübləndik',
+        trt: '',
+        ch: 'Biz həqiqətən təəccübləndik tənbəl təhlükəli küləkli'
+      }
+    ],
+    [{
         id: 546,
-        sntc: 'Will you cook it in the morning?',
-        tr: 'Bunu səhər bişirəcəksən?',
-        ch: 'Bunu səhər bişirəcəksən?'
+        sntc: 'The houses were big enough',
+        tr: 'Evlər kifayət qədər böyük idi',
+        trt: '',
+        ch: 'Evlər kifayət layihə aydın mənfəətli qədər böyük idi'
       },
       {
         id: 547,
-        sntc: 'Will they point at my mistakes',
-        tr: 'Onlar səhvlərimə işarə edəcəklər?',
-        ch: 'Onlar səhvlərimə işarə edəcəklər?'
+        sntc: 'His answer was wrong',
+        tr: 'Onun cavabı səhv idi',
+        trt: '',
+        ch: 'Onun cavabı səhv idi idarəçi çox gözəl'
       },
       {
         id: 548,
-        sntc: 'Will they have a commercial success?',
-        tr: 'Onlar kommersiya uğuru qazanacaqlar?',
-        ch: 'Onlar kommersiya uğuru qazanacaqlar?'
+        sntc: 'This result was amazing',
+        tr: 'Bu nəticə heyrətamiz oldu',
+        trt: '',
+        ch: 'Bu nəticə məktəb böyük sadə heyrətamiz oldu'
       },
       {
         id: 549,
-        sntc: 'Are those exercises useless?',
-        tr: 'O məşğuliyyətlər faydasızdır?',
-        ch: 'O məşğuliyyətlər faydasızdır?'
+        sntc: 'That money was enough',
+        tr: 'Həmin pul kifayət idi',
+        trt: '',
+        ch: 'Həmin pul kifayət idi vermək ödəmək axtarmaq'
       },
       {
         id: 550,
-        sntc: 'Will you be available in the evening?',
-        tr: 'Axşam bekar olacaqsan?',
-        ch: 'Axşam bekar olacaqsan?'
+        sntc: 'The lesson was very useful',
+        tr: 'Dərs çox faydalı idi',
+        trt: '',
+        ch: 'Dərs çox faydalı idi anlamaq bu danışmaq'
       }
     ],
     [{
         id: 551,
-        sntc: 'She reads English books',
-        tr: 'O, ingilis kitablarını oxuyur',
-        ch: 'O, ingilis kitablarını oxuyur'
+        sntc: 'They weren’t in this situation',
+        tr: 'Onlar bu vəziyyətdə olmayıblar',
+        trt: '',
+        ch: 'Onlar bu vəziyyətdə olmayıblar düşünmek yadda saxlamaq'
       },
       {
         id: 552,
-        sntc: 'Will it change their attitude to health?',
-        tr: 'Bu, onların sağlamlığa olan münasibətini dəyişəcək?',
-        ch: 'Bu, onların sağlamlığa olan münasibətini dəyişəcək?'
+        sntc: 'We weren’t against it',
+        tr: 'Biz bunun əleyhinə deyildik',
+        trt: '',
+        ch: 'Biz bunun əleyhinə vermək ödəmək axtarmaq deyildik'
       },
       {
         id: 553,
-        sntc: "It'll be necessary to check it one more time",
-        tr: 'Bunu bir dəfədə yoxlamaq lazım olacaq',
-        ch: 'Bunu bir dəfədə yoxlamaq lazım olacaq'
+        sntc: 'They weren’t available',
+        tr: 'Onlar bəkar deyildilər',
+        trt: '',
+        ch: 'Onlar bəkar deyildilər mütəmadı qulaq asmaq'
       },
       {
         id: 554,
-        sntc: "I'm interested in it",
-        tr: 'Bu, mənə maraqlıdır',
-        ch: 'Bu, mənə maraqlıdır'
+        sntc: 'You weren’t right',
+        tr: 'Sən haqlı deyildin',
+        trt: '',
+        ch: 'Sən haqlı üstünlük vermək hansı deyildin'
       },
       {
         id: 555,
-        sntc: 'Will it be possible tomorrow?',
-        tr: 'Bu, sabah mümkün olacaq?',
-        ch: 'Bu, sabah mümkün olacaq?'
-      },
-      {
+        sntc: 'The price was high',
+        tr: 'Qiymət yüksək idi',
+        trt: '',
+        ch: 'Qiymət yüksək əməkdaş müdir tənqid idi'
+      }
+    ],
+    [{
         id: 556,
-        sntc: 'Will it be necessary to sign this report?',
-        tr: 'Bu hesabatı imzalamaq lazım gələcək?',
-        ch: 'Bu hesabatı imzalamaq lazım gələcək?'
+        sntc: 'Those events weren’t so important',
+        tr: 'Həmin hadisələr elə də əhəmiyyətli deyildi',
+        trt: '',
+        ch: 'Həmin hadisələr elə də əhəmiyyətli rədd etmək deyildi'
       },
       {
         id: 557,
-        sntc: 'We live in this place',
-        tr: 'Biz bu yerdə yaşayırıq',
-        ch: 'Biz bu yerdə yaşayırıq'
+        sntc: 'The boy wasn’t strong',
+        tr: 'Oğlan güclü deyildi',
+        trt: '',
+        ch: 'Oğlan güclü faydasız söz onun deyildi'
       },
       {
         id: 558,
-        sntc: 'Will it change their attitude to these things?',
-        tr: 'Bu, onların bu şeylərə münasibətini dəyişəcək?',
-        ch: 'Bu, onların bu şeylərə münasibətini dəyişəcək?'
+        sntc: 'His attempt was unsuccessful',
+        tr: 'Onun cəhdi uğursuz oldu',
+        trt: '',
+        ch: 'Onun cəhdi uğursuz təşəkkür istəmək təkmilləşdirmək oldu'
       },
       {
         id: 559,
-        sntc: 'Will you be interested in it?',
-        tr: 'Sən bununla maraqlanacaqsan?',
-        ch: 'Sən bununla maraqlanacaqsan?'
+        sntc: 'The boys weren’t strong',
+        tr: 'Oğlanlar güclü deyildilər',
+        trt: '',
+        ch: 'Oğlanlar güclü hiss etmək xoşbəxt deyildilər'
       },
       {
         id: 560,
-        sntc: 'Will it get dark soon?',
-        tr: 'Tezliklə qaranlıq gələcək?',
-        ch: 'Tezliklə qaranlıq gələcək?'
+        sntc: 'The woman wasn’t lonely',
+        tr: 'Qadın tənha deyildi',
+        trt: '',
+        ch: 'Qadın tənha maraqlı çox sərt deyildi'
       }
     ],
     [{
         id: 561,
-        sntc: 'Why will you fly to another place?',
-        tr: 'Sən niyə başqa yerə uçacaqsan?',
-        ch: 'Sən niyə başqa yerə uçacaqsan?'
+        sntc: 'Were they hospitable?',
+        tr: 'Onlar qonaqpərvər idilər?',
+        trt: '',
+        ch: 'Onlar qonaqpərvər idilər'
       },
       {
         id: 562,
-        sntc: 'How much will it cost?',
-        tr: 'Bunun qiyməti nə qədər olacaq?',
-        ch: 'Bunun qiyməti nə qədər olacaq?'
+        sntc: 'Were we in that place?',
+        tr: 'Biz həmin yerdə idik?',
+        trt: '',
+        ch: 'Biz həmin yerdə idik'
       },
       {
         id: 563,
-        sntc: "I'll manage to solve this problem",
-        tr: 'Mən bu problemi həll etməyi bacararam',
-        ch: 'Mən bu problemi həll etməyi bacararam'
+        sntc: 'I was surprised',
+        tr: 'Mən təəccübləndim',
+        trt: '',
+        ch: 'Mən səhvi düzəltdim düzgün təəccübləndim'
       },
       {
         id: 564,
-        sntc: 'When will she join us?',
-        tr: 'O, bizə nə vaxt qoşulacaq?',
-        ch: 'O, bizə nə vaxt qoşulacaq?'
+        sntc: 'Was I on the right way?',
+        tr: 'Mən düzgün yolda idim?',
+        trt: '',
+        ch: 'Mən düzgün maraq baş vermək yolda idim'
       },
       {
         id: 565,
-        sntc: 'How will you be able to solve this problem?',
-        tr: 'Sən bu problemi necə həll edə biləcəksən?',
-        ch: 'Sən bu problemi necə həll edə biləcəksən?'
-      },
-      {
+        sntc: 'Were you poor?',
+        tr: 'Sən kasıb idin?',
+        trt: '',
+        ch: 'Sən kasıb idin xoşbəxt kifayət qədər'
+      }
+    ],
+    [{
         id: 566,
-        sntc: 'What will change?',
-        tr: 'Nə dəyişiləcək?',
-        ch: 'Nə dəyişiləcək?'
+        sntc: 'Why was he loyal to them?',
+        tr: 'O, niyə onlara sadiq idi?',
+        trt: 'O, onlara niyə sadiq idi?',
+        ch: 'O, niyə onlara razılaşmaq ilə müzakirə sadiq idi'
       },
       {
         id: 567,
-        sntc: 'What time will you see him?',
-        tr: 'Sən onu nə vaxt görəcəksən?',
-        ch: 'Sən onu nə vaxt görəcəksən?'
+        sntc: 'What was the most expensive there?',
+        tr: 'Orada ən baxalı nə idi?',
+        trt: '',
+        ch: 'Orada ən bu dəqiqə valideyn baxalı nə idi'
       },
       {
         id: 568,
-        sntc: 'What kind of literature will we need?',
-        tr: 'Bizə hansı ədəbiyyat lazım olacaq?',
-        ch: 'Bizə hansı ədəbiyyat lazım olacaq?'
+        sntc: 'When were they at home?',
+        tr: 'Onlar nə vaxt evdə idilər?',
+        trt: '',
+        ch: 'Onlar nə vaxt eyni faydalı pul evdə idilər'
       },
       {
         id: 569,
-        sntc: 'How much will it be?',
-        tr: 'Bu nə qədər olacaq?',
-        ch: 'Bu nə qədər olacaq?'
+        sntc: 'What was in the box?',
+        tr: 'Qutuda nə var idi?',
+        trt: '',
+        ch: 'Qutuda bax yer kömək nə var idi'
       },
       {
         id: 570,
-        sntc: 'When will you come back?',
-        tr: 'Sən nə vaxt qayıdacaqsan?',
-        ch: 'Sən nə vaxt qayıdacaqsan?'
+        sntc: 'How was the lesson?',
+        tr: 'Dərs necə keçdi?',
+        trt: '',
+        ch: 'Dərs necə ziyarət məsləhət qərar keçdi'
       }
     ],
     [{
         id: 571,
-        sntc: 'Why will he regret it?',
-        tr: 'O, buna görə nə üçün peşman olacaq?',
-        ch: 'O, buna görə nə üçün peşman olacaq?'
+        sntc: 'How was the conference?',
+        tr: 'Konfrans necə keçdi?',
+        trt: '',
+        ch: 'Konfrans necə bəzən çətin demək keçdi'
       },
       {
         id: 572,
-        sntc: 'How regularly will the employees make this kind of reports?',
-        tr: 'İşçilər bu cür hesabatları nə qədər davamlı edəcəklər?',
-        ch: 'İşçilər bu cür hesabatları nə qədər davamlı edəcəklər?'
+        sntc: 'When were the students ready?',
+        tr: 'Tələbələr nə vaxt hazır idilər?',
+        trt: '',
+        ch: 'Tələbələr nə vaxt hazır ödəmək axtarmaq idilər'
       },
       {
         id: 573,
-        sntc: 'How will the student be able to improve the result?',
-        tr: 'Şagird nəticəni necə yaxşılaşdıra biləcək?',
-        ch: 'Şagird nəticəni necə yaxşılaşdıra biləcək?'
+        sntc: 'What new ideas were really interesting?',
+        tr: 'Hansı yeni fikirlər həqiqətən maraqlı idi?',
+        trt: '',
+        ch: 'Hansı yeni fikirlər kino niyə həqiqətən maraqlı idi'
       },
       {
         id: 574,
-        sntc: 'How much money will your friend owe you?',
-        tr: 'Dostunun sənə nə qədər borcu olacaq?',
-        ch: 'Dostunun sənə nə qədər borcu olacaq?'
+        sntc: 'Why was your business partner against this decision?',
+        tr: 'Niyə sənin iş yoldaşın bu qərarın əleyhinə idi?',
+        trt: '',
+        ch: 'Niyə sənin iş yoldaşın üstünlük bu qərarın əleyhinə idi'
       },
       {
         id: 575,
-        sntc: 'How many places will you visit?',
-        tr: 'Sən nə qədər yeri ziyarət edəcəksən?',
-        ch: 'Sən nə qədər yeri ziyarət edəcəksən?'
-      },
-      {
-        id: 576,
-        sntc: 'Why will this business be successful?',
-        tr: 'Bu biznes nə üçün uğurlu olacaq?',
-        ch: 'Bu biznes nə üçün uğurlu olacaq?'
-      },
-      {
-        id: 577,
-        sntc: 'Whose offer will they take?',
-        tr: 'Onlar kimin təklifini qəbul edəcəklər?',
-        ch: 'Onlar kimin təklifini qəbul edəcəklər?'
-      },
-      {
-        id: 578,
-        sntc: "He's away. He's in another city",
-        tr: 'O, burada yoxdur. O, başqa şəhərdədir',
-        ch: 'O, burada yoxdur. O, başqa şəhərdədir'
-      },
-      {
-        id: 579,
-        sntc: 'When will your brother start preparing for his exams?',
-        tr: 'Sənin qardaşın imtahanlarına hazırlaşmağa nə vaxt başlayacaq?',
-        ch: 'Sənin qardaşın imtahanlarına hazırlaşmağa nə vaxt başlayacaq?'
-      },
-      {
-        id: 580,
-        sntc: 'It’ll be in the same place',
-        tr: 'Bu həmin yerdə olacaq',
-        ch: 'Bu həmin yerdə olacaq'
-      }
-    ],
-    [{
-        id: 581,
-        sntc: 'I’ll continue working here',
-        tr: 'Mən burada işləməyə davam edəcəyəm',
-        ch: 'Mən burada işləməyə davam edəcəyəm'
-      },
-      {
-        id: 582,
-        sntc: 'They’ll be able to resolve this conflict',
-        tr: 'Onlar bu münaqişəni həll edə biləcəklər',
-        ch: 'Onlar bu münaqişəni həll edə biləcəklər'
-      },
-      {
-        id: 583,
-        sntc: 'You’ll hear it at the beginning of the movie',
-        tr: 'Sən bunu filmin əvvəlində eşidəcəksən',
-        ch: 'Sən bunu filmin əvvəlində eşidəcəksən'
-      },
-      {
-        id: 584,
-        sntc: 'You’ll see this advertisement there',
-        tr: 'Siz bu reklamı orada görəcəksiniz',
-        ch: 'Siz bu reklamı orada görəcəksiniz'
-      },
-      {
-        id: 585,
-        sntc: "I won't reinvent the wheel",
-        tr: 'Mən təkəri yenidən icad etməyəcəm',
-        ch: 'Mən təkəri yenidən icad etməyəcəm'
-      },
-      {
-        id: 586,
-        sntc: 'I’ll join you with great pleasure',
-        tr: 'Mən böyük məmnuniyyətlə sənə qoşulacam',
-        ch: 'Mən böyük məmnuniyyətlə sənə qoşulacam'
-      },
-      {
-        id: 587,
-        sntc: "My level won't be Elementary",
-        tr: 'Mənim səviyyəm elementar olmayacaq',
-        ch: 'Mənim səviyyəm elementar olmayacaq'
-      },
-      {
-        id: 588,
-        sntc: 'Students often confuse these words but, certainly, they have a different meaning',
-        tr: 'Şagirdlər tez-tez bu sözləri qarışdırırlar, lakin, əlbəttə, onlar başqa məna daşıyır',
-        ch: 'Şagirdlər tez-tez bu sözləri qarışdırırlar, lakin, əlbəttə, onlar başqa məna daşıyır'
-      },
-      {
-        id: 589,
-        sntc: 'When will your father leave home?',
-        tr: 'Atanız evi nə vaxt tərk edəcək?',
-        ch: 'Atanız evi nə vaxt tərk edəcək?'
-      },
-      {
-        id: 590,
-        sntc: "It'll frighten them",
-        tr: 'Bu onları qorxudacaq',
-        ch: 'Bu onları qorxudacaq'
-      }
-    ],
-    [{
-        id: 591,
-        sntc: 'They’ll change their point of view',
-        tr: 'Onlar baxışlarını dəyişəcəklər',
-        ch: 'Onlar baxışlarını dəyişəcəklər'
-      },
-      {
-        id: 592,
-        sntc: "I won't change my attitude to her",
-        tr: 'Mən ona olan münasibətimi dəyişməyəcəm',
-        ch: 'Mən ona olan münasibətimi dəyişməyəcəm'
-      },
-      {
-        id: 593,
-        sntc: "We won't take part in this competition",
-        tr: 'Biz bu yarışda iştirak etməyəcik',
-        ch: 'Biz bu yarışda iştirak etməyəcik'
-      },
-      {
-        id: 594,
-        sntc: 'Everyone has this kind of problems',
-        tr: 'Hər kəsin bu cür problemləri var',
-        ch: 'Hər kəsin bu cür problemləri var'
-      },
-      {
-        id: 595,
-        sntc: 'Will it last for more than two hours?',
-        tr: 'Bu iki saatdan çox davam edəcək?',
-        ch: 'Bu iki saatdan çox davam edəcək?'
-      },
-      {
-        id: 596,
-        sntc: 'Everyone will express their point of view',
-        tr: 'Hər kəs öz fikrini bildirəcək',
-        ch: 'Hər kəs öz fikrini bildirəcək'
-      },
-      {
-        id: 597,
-        sntc: 'They’ll be able to find it everywhere',
-        tr: 'Onlar bunu hər yerdə tapa biləcəklər',
-        ch: 'Onlar bunu hər yerdə tapa biləcəklər'
-      },
-      {
-        id: 598,
-        sntc: 'We’ll always support you',
-        tr: 'Biz həmişə sizə dəstək olacağıq',
-        ch: 'Biz həmişə sizə dəstək olacağıq'
-      },
-      {
-        id: 599,
-        sntc: 'This news will impress him',
-        tr: 'Bu xəbər ona təsir buraxacaq',
-        ch: 'Bu xəbər ona təsir buraxacaq'
-      },
-      {
-        id: 600,
-        sntc: 'How much money will you earn?',
-        tr: 'Sən nə qədər pul qazanacaqsan?',
-        ch: 'Sən nə qədər pul qazanacaqsan?'
-      }
-    ],
-    [{
-        id: 601,
-        sntc: 'Will it be a potential threat?',
-        tr: 'Bu potensial təhlükə olacaq?',
-        ch: 'Bu potensial təhlükə olacaq?'
-      },
-      {
-        id: 602,
-        sntc: 'I’ll be grateful to you for it',
-        tr: 'Mən buna görə sənə minnətdar olacam',
-        ch: 'Mən buna görə sənə minnətdar olacam'
-      },
-      {
-        id: 603,
-        sntc: 'Will I improve my English?',
-        tr: 'Mən ingilis dilimi yaxşılaşdıracam?',
-        ch: 'Mən ingilis dilimi yaxşılaşdıracam?'
-      },
-      {
-        id: 604,
-        sntc: 'How much money will you spend on it?',
-        tr: 'Ona nə qədər pul xərcləyəcəksən?',
-        ch: 'Ona nə qədər pul xərcləyəcəksən?'
-      },
-      {
-        id: 605,
-        sntc: 'Will you have a high salary?',
-        tr: 'Yüksək maaşınız olacaq?',
-        ch: 'Yüksək maaşınız olacaq?'
-      },
-      {
-        id: 606,
-        sntc: "She won't translate all the text without a dictionary",
-        tr: 'O, bütün mətni lüğətsiz tərcümə etməyəcək',
-        ch: 'O, bütün mətni lüğətsiz tərcümə etməyəcək'
-      },
-      {
-        id: 607,
-        sntc: 'Will we speak English correctly and automatically?',
-        tr: 'İngilis dilində düzgün və avtomatik danışacıq?',
-        ch: 'İngilis dilində düzgün və avtomatik danışacıq?'
-      },
-      {
-        id: 608,
-        sntc: 'We’ll try to double our sales',
-        tr: 'Satışımızı iki qat etməyə çalışacağıq',
-        ch: 'Satışımızı iki qat etməyə çalışacağıq'
-      },
-      {
-        id: 609,
-        sntc: 'How often will you be in that place?',
-        tr: 'Sən həmin yerdə nə sıxlıqda olacaqsan?',
-        ch: 'Sən həmin yerdə nə sıxlıqda olacaqsan?'
-      },
-      {
-        id: 610,
-        sntc: 'This worker will get tired soon',
-        tr: 'Bu işçi tezliklə yorulacaq',
-        ch: 'Bu işçi tezliklə yorulacaq'
-      }
-    ],
-    [{
-        id: 611,
-        sntc: 'I’ll be proud of your results',
-        tr: 'Mən sənin nəticələrinlə fəxr edəcəm',
-        ch: 'Mən sənin nəticələrinlə fəxr edəcəm'
-      },
-      {
-        id: 612,
-        sntc: 'How will you manage to find a solution to such a difficult problem?',
-        tr: 'Belə çətin problemin həllini necə tapa biləcəksən?',
-        ch: 'Belə çətin problemin həllini necə tapa biləcəksən?'
-      },
-      {
-        id: 613,
-        sntc: 'We’ll support this initiative',
-        tr: 'Biz bu təşəbbüsü dəstəkləyəcəyik',
-        ch: 'Biz bu təşəbbüsü dəstəkləyəcəyik'
-      },
-      {
-        id: 614,
-        sntc: 'Will the students look it up in a dictionary?',
-        tr: 'Tələbələr bunu lüğətdə baxacaqlar?',
-        ch: 'Tələbələr bunu lüğətdə baxacaqlar?'
-      },
-      {
-        id: 615,
-        sntc: 'I’ll look up this phrase in a dictionary',
-        tr: 'Mən bu ifadəyə lüğətdə baxacam',
-        ch: 'Mən bu ifadəyə lüğətdə baxacam'
-      },
-      {
-        id: 616,
-        sntc: 'Will it be such an important event?',
-        tr: 'Bu, belə bir vacib hadisə olacaq?',
-        ch: 'Bu, belə bir vacib hadisə olacaq?'
-      },
-      {
-        id: 617,
-        sntc: 'She’ll follow your advice',
-        tr: 'O, sənin məsləhətinə əməl edəcək',
-        ch: 'O, sənin məsləhətinə əməl edəcək'
-      },
-      {
-        id: 618,
-        sntc: "It'll be a standard procedure",
-        tr: 'Bu standart prosedur olacaq',
-        ch: 'Bu standart prosedur olacaq'
-      },
-      {
-        id: 619,
-        sntc: 'Will it be necessary to sign this report?',
-        tr: 'Bu hesabatı imzalamaq lazım olacaq?',
-        ch: 'Bu hesabatı imzalamaq lazım olacaq?'
-      },
-      {
-        id: 620,
-        sntc: "It won't be the only correct answer",
-        tr: 'Bu, yeganə düzgün cavab olmayacaq',
-        ch: 'Bu, yeganə düzgün cavab olmayacaq'
-      }
-    ],
-    [{
-        id: 621,
-        sntc: 'He’ll miss her',
-        tr: 'O, onun üçün darıxacaq',
-        ch: 'O, onun üçün darıxacaq'
-      },
-      {
-        id: 622,
-        sntc: 'My elder brother and I will be there',
-        tr: 'Mənim böyük qardaşım və mən orada olacağıq',
-        ch: 'Mənim böyük qardaşım və mən orada olacağıq'
-      },
-      {
-        id: 623,
-        sntc: 'Will it last for two hours?',
-        tr: 'Bu, iki saat davam edəcək?',
-        ch: 'Bu, iki saat davam edəcək?'
-      },
-      {
-        id: 624,
-        sntc: 'I think this musician won’t become popular',
-        tr: 'Mən düşünürəm ki, bu musiqiçi populyar olmayacaq',
-        ch: 'Mən düşünürəm ki, bu musiqiçi populyar olmayacaq'
-      },
-      {
-        id: 625,
-        sntc: 'I’ll manage to double our sales despite the crisis',
-        tr: 'Böhrana baxmayaraq satışlarımızı ikiqat artırmağı bacaracam',
-        ch: 'Böhrana baxmayaraq satışlarımızı ikiqat artırmağı bacaracam'
-      },
-      {
-        id: 626,
-        sntc: 'I’ll speak English on a regular basis',
-        tr: 'Mən ingilis dilində müntəzəm olaraq danışacam',
-        ch: 'Mən ingilis dilində müntəzəm olaraq danışacam'
-      },
-      {
-        id: 627,
-        sntc: 'Will you be interested in it?',
-        tr: 'Sən bununla maraqlanacaqsan?',
-        ch: 'Sən bununla maraqlanacaqsan?'
-      },
-      {
-        id: 628,
-        sntc: 'I’ll be able to improve my English significantly',
-        tr: 'Mən ingilis dilimi əhəmiyyətli dərəcədə yaxşılaşdıra biləcəyəm',
-        ch: 'Mən ingilis dilimi əhəmiyyətli dərəcədə yaxşılaşdıra biləcəyəm'
-      },
-      {
-        id: 629,
-        sntc: 'I’ll look for a new job',
-        tr: 'Mən yeni iş axtaracam',
-        ch: 'Mən yeni iş axtaracam'
-      },
-      {
-        id: 630,
-        sntc: "This approach won't be professional enough",
-        tr: 'Bu yanaşma kifayət qədər peşəkar olmayacaq',
-        ch: 'Bu yanaşma kifayət qədər peşəkar olmayacaq'
-      }
-    ],
-    [{
-        id: 631,
-        sntc: 'I’ll spend so much money on it',
-        tr: 'Mən buna çox pul xərcləyəcəm',
-        ch: 'Mən buna çox pul xərcləyəcəm'
-      },
-      {
-        id: 632,
-        sntc: 'Everyone will laugh at it',
-        tr: 'Hər kəs buna güləcək',
-        ch: 'Hər kəs buna güləcək'
-      },
-      {
-        id: 633,
-        sntc: 'The authorities will control it',
-        tr: 'Hakimiyyət bunu idarə edəcək',
-        ch: 'Hakimiyyət bunu idarə edəcək'
-      },
-      {
-        id: 634,
-        sntc: 'I think I’ll find the keys there',
-        tr: 'Mən düşünürəm ki, açarları orada tapacam',
-        ch: 'Mən düşünürəm ki, açarları orada tapacam'
-      },
-      {
-        id: 635,
-        sntc: 'How will you celebrate your birthday?',
-        tr: 'Ad gününü necə qeyd edəcəksən?',
-        ch: 'Ad gününü necə qeyd edəcəksən?'
-      },
-      {
-        id: 636,
-        sntc: 'Will you be busy tomorrow morning?',
-        tr: 'Sabah səhər məşğul olacaqsan?',
-        ch: 'Sabah səhər məşğul olacaqsan?'
-      },
-      {
-        id: 637,
-        sntc: 'I like this advice',
-        tr: 'Bu məsləhət xoşuma gəlir',
-        ch: 'Bu məsləhət xoşuma gəlir'
-      },
-      {
-        id: 638,
-        sntc: 'Is the game interesting?',
-        tr: 'Oyun maraqlıdır?',
-        ch: 'Oyun maraqlıdır?'
-      },
-      {
-        id: 639,
-        sntc: 'Will this knowledge be enough?',
-        tr: 'Bu bilik kifayət edəcək?',
-        ch: 'Bu bilik kifayət edəcək?'
-      },
-      {
-        id: 640,
-        sntc: 'I’ll try to find more time for English',
-        tr: 'Mən ingilis dili üçün daha çox vaxt tapmağa çalışacam',
-        ch: 'Mən ingilis dili üçün daha çox vaxt tapmağa çalışacam'
-      }
-    ],
-    [{
-        id: 641,
-        sntc: "The guests won't notice our absence",
-        tr: 'Qonaqlar bizim yoxluğumuzu görməyəcəklər',
-        ch: 'Qonaqlar bizim yoxluğumuzu görməyəcəklər'
-      },
-      {
-        id: 642,
-        sntc: 'What do they want to tell you?',
-        tr: 'Onlar sənə nə demək istəyirlər?',
-        ch: 'Onlar sənə nə demək istəyirlər?'
-      },
-      {
-        id: 643,
-        sntc: 'Everyone will look happy',
-        tr: 'Hər kəs xoşbəxt görünəcək',
-        ch: 'Hər kəs xoşbəxt görünəcək'
-      },
-      {
-        id: 644,
-        sntc: 'She’ll keep this secret',
-        tr: 'O, bu sirri saxlayacaq',
-        ch: 'O, bu sirri saxlayacaq'
-      },
-      {
-        id: 645,
-        sntc: "They won't find a solution to this problem",
-        tr: 'Onlar bu problemdən çıxış yolu tapmayacaqlar',
-        ch: 'Onlar bu problemdən çıxış yolu tapmayacaqlar'
-      },
-      {
-        id: 646,
-        sntc: 'This app will help you learn English for free',
-        tr: 'Bu program sizə ingilis dilini pulsuz öyrənməyə kömək edəcək',
-        ch: 'Bu program sizə ingilis dilini pulsuz öyrənməyə kömək edəcək'
-      },
-      {
-        id: 647,
-        sntc: 'I’ll try not to spend so much money',
-        tr: 'Mən çalışaram çox pul xərcləməyim',
-        ch: 'Mən çalışaram çox pul xərcləməyim'
-      },
-      {
-        id: 648,
-        sntc: 'This subject is too difficult for me',
-        tr: 'Bu mövzu mənim üçün çox çətindir',
-        ch: 'Bu mövzu mənim üçün çox çətindir'
-      },
-      {
-        id: 649,
-        sntc: 'They study very hard',
-        tr: 'Onlar çox ciddi öyrənirlər',
-        ch: 'Onlar çox ciddi öyrənirlər'
-      },
-      {
-        id: 650,
-        sntc: "I won't change my attitude to this thing",
-        tr: 'Mən bu şeyə münasibətimi dəyişməyəcəm',
-        ch: 'Mən bu şeyə münasibətimi dəyişməyəcəm'
-      }
-    ],
-    [{
-        id: 651,
-        sntc: 'She needed to get in touch with him',
-        tr: 'Onun onunla əlaqə qurmağa ehtiyacı var idi',
-        ch: 'Onun onunla əlaqə qurmağa ehtiyacı var idi'
-      },
-      {
-        id: 652,
-        sntc: 'He believed her',
-        tr: 'O, ona inandı',
-        ch: 'O, ona inandı'
-      },
-      {
-        id: 653,
-        sntc: 'I switched on the computer',
-        tr: 'Mən kompüteri qoşdum',
-        ch: 'Mən kompüteri qoşdum'
-      },
-      {
-        id: 654,
-        sntc: 'I really liked your lessons',
-        tr: 'Dərsləriniz həqiqətən xoşuma gəldi',
-        ch: 'Dərsləriniz həqiqətən xoşuma gəldi'
-      },
-      {
-        id: 655,
-        sntc: 'He repeated that sentence',
-        tr: 'O, həmin cümləni təkrarladı',
-        ch: 'O, həmin cümləni təkrarladı'
-      },
-      {
-        id: 656,
-        sntc: 'I revised your lessons one more time',
-        tr: 'Mən sizin dərslərinizə bir dəfə də yenidən baxdım',
-        ch: 'Mən sizin dərslərinizə bir dəfə də yenidən baxdım'
-      },
-      {
-        id: 657,
-        sntc: 'I followed your advice',
-        tr: 'Mən sizin məsləhətinizə əməl etdim',
-        ch: 'Mən sizin məsləhətinizə əməl etdim'
-      },
-      {
-        id: 658,
-        sntc: 'I continued learning English here',
-        tr: 'Mən ingilis dilini burada öyrənməyə davam etdim',
-        ch: 'Mən ingilis dilini burada öyrənməyə davam etdim'
-      },
-      {
-        id: 659,
-        sntc: 'He died last year',
-        tr: 'O, ötən il vəfat etdi',
-        ch: 'O, ötən il vəfat etdi'
-      },
-      {
-        id: 660,
-        sntc: 'I created this app two years ago',
-        tr: 'Mən bu tətbiqi iki il əvvəl yaratmışam',
-        ch: 'Mən bu tətbiqi iki il əvvəl yaratmışam'
-      }
-    ],
-    [{
-        id: 661,
-        sntc: 'I remembered one very important thing',
-        tr: 'Çox vacib bir şey yadıma düşdü',
-        ch: 'Çox vacib bir şey yadıma düşdü'
-      },
-      {
-        id: 662,
-        sntc: 'I followed your recommendation',
-        tr: 'Mən sizin tövsiyənizə əməl etdim',
-        ch: 'Mən sizin tövsiyənizə əməl etdim'
-      },
-      {
-        id: 663,
-        sntc: 'I returned home',
-        tr: 'Mən evə qayıtdım',
-        ch: 'Mən evə qayıtdım'
-      },
-      {
-        id: 664,
-        sntc: 'Everything remained the same',
-        tr: 'Hər şey əvvəlki kimi qaldı',
-        ch: 'Hər şey əvvəlki kimi qaldı'
-      },
-      {
-        id: 665,
-        sntc: 'He reached such a high level',
-        tr: 'O, çox yüksək səviyyəyə çatdı',
-        ch: 'O, çox yüksək səviyyəyə çatdı'
-      },
-      {
-        id: 666,
-        sntc: 'I passed the test ',
-        tr: 'Mən sınaqdan keçdim',
-        ch: 'Mən sınaqdan keçdim'
-      },
-      {
-        id: 667,
-        sntc: 'It required more efforts',
-        tr: 'Bu, daha çox səy tələb edirdi',
-        ch: 'Bu, daha çox səy tələb edirdi'
-      },
-      {
-        id: 668,
-        sntc: 'They killed him',
-        tr: 'Onlar onu öldürdülər',
-        ch: 'Onlar onu öldürdülər'
-      },
-      {
-        id: 669,
-        sntc: 'I received this letter',
-        tr: 'Mən bu məktubu aldım',
-        ch: 'Mən bu məktubu aldım'
-      },
-      {
-        id: 670,
-        sntc: 'He recommended it to us',
-        tr: 'O, bunu bizə tövsiyə etdi',
-        ch: 'O, bunu bizə tövsiyə etdi'
-      }
-    ],
-    [{
-        id: 671,
-        sntc: 'He invited us to his birthday',
-        tr: 'O, bizi ad gününə dəvət etdi',
-        ch: 'O, bizi ad gününə dəvət etdi'
-      },
-      {
-        id: 672,
-        sntc: 'I expressed my ideas',
-        tr: 'Mən fikirlərimi ifadə etdim',
-        ch: 'Mən fikirlərimi ifadə etdim'
-      },
-      {
-        id: 673,
-        sntc: 'I solved such a difficult task',
-        tr: 'Mən belə çətin bir tapşırıqı həll etdim',
-        ch: 'Mən belə çətin bir tapşırıqı həll etdim'
-      },
-      {
-        id: 674,
-        sntc: 'I disagreed with him',
-        tr: 'Mən onunla razılaşmadım',
-        ch: 'Mən onunla razılaşmadım'
-      },
-      {
-        id: 675,
-        sntc: 'I translated it from Azerbaijani into English',
-        tr: 'Mən bunu azerbaycan dilindən ingilis dilinə tərcümə etmişəm',
-        ch: 'Mən bunu azerbaycan dilindən ingilis dilinə tərcümə etmişəm'
-      },
-      {
-        id: 676,
-        sntc: 'He recorded so many videos',
-        tr: 'O, çoxlu videolar yazdı',
-        ch: 'O, çoxlu videolar yazdı'
-      },
-      {
-        id: 677,
-        sntc: 'My teacher advised me to do it',
-        tr: 'Müəllimim bunu etməyə məsləhət gördü',
-        ch: 'Müəllimim bunu etməyə məsləhət gördü'
-      },
-      {
-        id: 678,
-        sntc: 'I preferred to follow this advice',
-        tr: 'Mən bu məsləhətə əməl etməyə üstünlük verdim',
-        ch: 'Mən bu məsləhətə əməl etməyə üstünlük verdim'
-      },
-      {
-        id: 679,
-        sntc: 'It attracted new clients',
-        tr: 'Bu, yeni müştəriləri cəlb etdi',
-        ch: 'Bu, yeni müştəriləri cəlb etdi'
-      },
-      {
-        id: 680,
-        sntc: 'He recommended this book to me',
-        tr: 'O, bu kitabı mənə tövsiyə etdi',
-        ch: 'O, bu kitabı mənə tövsiyə etdi'
-      }
-    ],
-    [{
-        id: 681,
-        sntc: 'I reached an Advanced level',
-        tr: 'Mən qabaqcıl səviyyəyə çatdım',
-        ch: 'Mən qabaqcıl səviyyəyə çatdım'
-      },
-      {
-        id: 682,
-        sntc: 'She often watched TV',
-        tr: 'O, tez-tez televizora baxırdı',
-        ch: 'O, tez-tez televizora baxırdı'
-      },
-      {
-        id: 683,
-        sntc: 'He owned this house',
-        tr: 'O, bu evin sahibi idi',
-        ch: 'O, bu evin sahibi idi'
-      },
-      {
-        id: 684,
-        sntc: 'She really liked this place',
-        tr: 'O, həqiqətən də bu yeri bəyəndi',
-        ch: 'O, həqiqətən də bu yeri bəyəndi'
-      },
-      {
-        id: 685,
-        sntc: 'This house belonged to her',
-        tr: 'Bu ev ona məxsus idi',
-        ch: 'Bu ev ona məxsus idi'
-      },
-      {
-        id: 686,
-        sntc: 'She washed up the dishes',
-        tr: 'O, qabları yuyub',
-        ch: 'O, qabları yuyub'
-      },
-      {
-        id: 687,
-        sntc: 'I closed the window',
-        tr: 'Mən pəncərəni bağladım',
-        ch: 'Mən pəncərəni bağladım'
-      },
-      {
-        id: 688,
-        sntc: 'He always believed her',
-        tr: 'O, həmişə ona inanırdı',
-        ch: 'O, həmişə ona inanırdı'
-      },
-      {
-        id: 689,
-        sntc: 'She needed to get in touch with us',
-        tr: 'Ona bizimlə əlaqə qurmaq lazım idi',
-        ch: 'Ona bizimlə əlaqə qurmaq lazım idi'
-      },
-      {
-        id: 690,
-        sntc: 'They asked us a couple of questions',
-        tr: 'Onlar bizə bir-iki sual verdilər',
-        ch: 'Onlar bizə bir-iki sual verdilər'
-      }
-    ],
-    [{
-        id: 691,
-        sntc: 'I prepared for the test',
-        tr: 'Mən imtahana hazırlaşdım',
-        ch: 'Mən imtahana hazırlaşdım'
-      },
-      {
-        id: 692,
-        sntc: 'She described this situation',
-        tr: 'O, bu vəziyyəti təsvir etdi',
-        ch: 'O, bu vəziyyəti təsvir etdi'
-      },
-      {
-        id: 693,
-        sntc: 'He experienced so many difficulties',
-        tr: 'O, çoxlu sayda çətinliklərlə üzləşib',
-        ch: 'O, çoxlu sayda çətinliklərlə üzləşib'
-      },
-      {
-        id: 694,
-        sntc: 'You calculated it incorrectly',
-        tr: 'Siz bunu səhv hesablamısınız',
-        ch: 'Siz bunu səhv hesablamısınız'
-      },
-      {
-        id: 695,
-        sntc: 'The police arrested this thief',
-        tr: 'Polis bu oğrunu həbs etdi',
-        ch: 'Polis bu oğrunu həbs etdi'
-      },
-      {
-        id: 696,
-        sntc: 'He published several books',
-        tr: 'O, bir neçə kitab nəşr etdi',
-        ch: 'O, bir neçə kitab nəşr etdi'
-      },
-      {
-        id: 697,
-        sntc: 'He ignored their questions',
-        tr: 'O, onların suallarına məhəl qoymadı',
-        ch: 'O, onların suallarına məhəl qoymadı'
-      },
-      {
-        id: 698,
-        sntc: 'I finished watching this video',
-        tr: 'Bu videoya baxmağı bitirdim',
-        ch: 'Bu videoya baxmağı bitirdim'
-      },
-      {
-        id: 699,
-        sntc: 'She cried suddenly',
-        tr: 'O, birdən-birə ağladı',
-        ch: 'O, birdən-birə ağladı'
-      },
-      {
-        id: 700,
-        sntc: 'I closed the door',
-        tr: 'Mən qapını bağladım',
-        ch: 'Mən qapını bağladım'
-      }
-    ],
-    [{
-        id: 701,
-        sntc: 'She married him',
-        tr: 'O, ona ərə getdi',
-        ch: 'O, ona ərə getdi'
-      },
-      {
-        id: 702,
-        sntc: 'She remained calm',
-        tr: 'O, sakit qaldı',
-        ch: 'O, sakit qaldı'
-      },
-      {
-        id: 703,
-        sntc: 'They required more experience',
-        tr: 'Onlar daha çox təcrübə tələb edirdilər',
-        ch: 'Onlar daha çox təcrübə tələb edirdilər'
-      },
-      {
-        id: 704,
-        sntc: 'He remained my friend',
-        tr: 'O, mənim dostum qaldı',
-        ch: 'O, mənim dostum qaldı'
-      },
-      {
-        id: 705,
-        sntc: 'I passed such a difficult exam',
-        tr: 'Mən belə çətin bir imtahandan keçdim',
-        ch: 'Mən belə çətin bir imtahandan keçdim'
-      },
-      {
-        id: 706,
-        sntc: 'I decided not to go there',
-        tr: 'Mən ora getməməyə qərar verdim',
-        ch: 'Mən ora getməməyə qərar verdim'
-      },
-      {
-        id: 707,
-        sntc: 'I reached this level',
-        tr: 'Mən bu səviyyəyə çatdım',
-        ch: 'Mən bu səviyyəyə çatdım'
-      },
-      {
-        id: 708,
-        sntc: 'I decided not to go to that party',
-        tr: 'Həmin əyləncəyə getməməyə qərar verdim',
-        ch: 'Həmin əyləncəyə getməməyə qərar verdim'
-      },
-      {
-        id: 709,
-        sntc: 'She suggested going to the park',
-        tr: 'O, parka getməyi təklif etdi',
-        ch: 'O, parka getməyi təklif etdi'
-      },
-      {
-        id: 710,
-        sntc: 'We remained friends',
-        tr: 'Biz dost qaldıq',
-        ch: 'Biz dost qaldıq'
-      }
-    ],
-    [{
-        id: 711,
-        sntc: 'We faced a very big problem',
-        tr: 'Biz çox böyük problemlə üzləşdik',
-        ch: 'Biz çox böyük problemlə üzləşdik'
-      },
-      {
-        id: 712,
-        sntc: 'I hated discussing it',
-        tr: 'Mən bunu müzakirə etməyə nifrət edirdim',
-        ch: 'Mən bunu müzakirə etməyə nifrət edirdim'
-      },
-      {
-        id: 713,
-        sntc: 'She pointed at my mistakes',
-        tr: 'O, mənim səhvlərimə işarə etdi',
-        ch: 'O, mənim səhvlərimə işarə etdi'
-      },
-      {
-        id: 714,
-        sntc: 'I perfectly realized it',
-        tr: 'Mən bunu mükəmməl dərk etdim',
-        ch: 'Mən bunu mükəmməl dərk etdim'
-      },
-      {
-        id: 715,
-        sntc: 'We discussed everything',
-        tr: 'Biz hər şeyi müzakirə etdik',
-        ch: 'Biz hər şeyi müzakirə etdik'
-      },
-      {
-        id: 716,
-        sntc: 'His offer sounded really strange',
-        tr: 'Onun təklifi həqiqətən qəribə səsləndi',
-        ch: 'Onun təklifi həqiqətən qəribə səsləndi'
-      },
-      {
-        id: 717,
-        sntc: 'She missed that opportunity',
-        tr: 'O, həmin fürsəti əldən verdi',
-        ch: 'O, həmin fürsəti əldən verdi'
-      },
-      {
-        id: 718,
-        sntc: 'I prepared for the test',
-        tr: 'Mən imtahana hazırlaşdım',
-        ch: 'Mən imtahana hazırlaşdım'
-      },
-      {
-        id: 719,
-        sntc: 'I compared these results',
-        tr: 'Mən bu nəticələri müqayisə etdim',
-        ch: 'Mən bu nəticələri müqayisə etdim'
-      },
-      {
-        id: 720,
-        sntc: 'I described this problem',
-        tr: 'Mən bu problemi təsvir etdim',
-        ch: 'Mən bu problemi təsvir etdim'
-      }
-    ],
-    [{
-        id: 721,
-        sntc: 'They delivered the goods on time',
-        tr: 'Onlar malları vaxtında çatdırdılar',
-        ch: 'Onlar malları vaxtında çatdırdılar'
-      },
-      {
-        id: 722,
-        sntc: 'I promised to do it',
-        tr: 'Bunu etmeyə söz vermişəm',
-        ch: 'Bunu etmeyə söz vermişəm'
-      },
-      {
-        id: 723,
-        sntc: 'I refused to take their offer',
-        tr: 'Onların təklifini qəbul etmədim',
-        ch: 'Onların təklifini qəbul etmədim'
-      },
-      {
-        id: 724,
-        sntc: 'He wasted time',
-        tr: 'O, vaxtını itirdi',
-        ch: 'O, vaxtını itirdi'
-      },
-      {
-        id: 725,
-        sntc: 'He promised to finish it',
-        tr: 'O, bunu bitirəcəyinə söz verdi',
-        ch: 'O, bunu bitirəcəyinə söz verdi'
-      },
-      {
-        id: 726,
-        sntc: 'He insisted on doing it',
-        tr: 'O, bunu etməkdə israr etdi',
-        ch: 'O, bunu etməkdə israr etdi'
-      },
-      {
-        id: 727,
-        sntc: 'He earned two thousand dollars monthly',
-        tr: 'O, aylıq iki min dollar qazanırdı',
-        ch: 'O, aylıq iki min dollar qazanırdı'
-      },
-      {
-        id: 728,
-        sntc: 'She cooked something very tasty',
-        tr: 'O, çox dadlı bir şey bişirdi',
-        ch: 'O, çox dadlı bir şey bişirdi'
-      },
-      {
-        id: 729,
-        sntc: 'He ignored her words',
-        tr: 'O, onun sözlərinə məhəl qoymadı',
-        ch: 'O, onun sözlərinə məhəl qoymadı'
-      },
-      {
-        id: 730,
-        sntc: 'We trained these skills',
-        tr: 'Bu bacarıqlar üzərində məşq etdik',
-        ch: 'Bu bacarıqlar üzərində məşq etdik'
-      }
-    ],
-    [{
-        id: 731,
-        sntc: 'His speech inspired us',
-        tr: 'Onun çıxışı bizə ilham verdi',
-        ch: 'Onun çıxışı bizə ilham verdi'
-      },
-      {
-        id: 732,
-        sntc: 'He complained about that problem',
-        tr: 'O, həmin problemdən şikayət etdi',
-        ch: 'O, həmin problemdən şikayət etdi'
-      },
-      {
-        id: 733,
-        sntc: 'This example inspired me',
-        tr: 'Bu nümunə mənə ilham verdi',
-        ch: 'Bu nümunə mənə ilham verdi'
-      },
-      {
-        id: 734,
-        sntc: 'The lesson lasted for half an hour',
-        tr: 'Dərs yarım saat davam etdi',
-        ch: 'Dərs yarım saat davam etdi'
-      },
-      {
-        id: 735,
-        sntc: 'I preferred to stay at home',
-        tr: 'Mən evdə qalmağa üstünlük verdim',
-        ch: 'Mən evdə qalmağa üstünlük verdim'
-      },
-      {
-        id: 736,
-        sntc: 'He smoked very rarely',
-        tr: 'O, çox nadir hallarda siqaret çəkirdi',
-        ch: 'O, çox nadir hallarda siqaret çəkirdi'
-      },
-      {
-        id: 737,
-        sntc: 'I communicated with different people',
-        tr: 'Mən fərqli insanlarla ünsiyyət qurdum',
-        ch: 'Mən fərqli insanlarla ünsiyyət qurdum'
-      },
-      {
-        id: 738,
-        sntc: 'He repaired his bike',
-        tr: 'O, velosipedini təmir etdi',
-        ch: 'O, velosipedini təmir etdi'
-      },
-      {
-        id: 739,
-        sntc: 'I recorded everything',
-        tr: 'Mən hər şeyi qeyd etdim',
-        ch: 'Mən hər şeyi qeyd etdim'
-      },
-      {
-        id: 740,
-        sntc: 'My friends advised me not to do it',
-        tr: 'Dostlarım bunu etməmək məsləhət gördülər',
-        ch: 'Dostlarım bunu etməmək məsləhət gördülər'
-      }
-    ],
-    [{
-        id: 741,
-        sntc: 'I managed to improve my pronunciation considerably',
-        tr: 'Mən tələffüzümü xeyli yaxşılaşdırmağı bacardım',
-        ch: 'Mən tələffüzümü xeyli yaxşılaşdırmağı bacardım'
-      },
-      {
-        id: 742,
-        sntc: 'She danced professionally',
-        tr: 'O, peşəkar rəqs etdi',
-        ch: 'O, peşəkar rəqs etdi'
-      },
-      {
-        id: 743,
-        sntc: 'I deleted this document by mistake',
-        tr: 'Mən bu sənədi səhvən sildim',
-        ch: 'Mən bu sənədi səhvən sildim'
-      },
-      {
-        id: 744,
-        sntc: 'He deserved it',
-        tr: 'O, buna layiq idi',
-        ch: 'O, buna layiq idi'
-      },
-      {
-        id: 745,
-        sntc: 'I managed to do it',
-        tr: 'Mən bunu bacardım',
-        ch: 'Mən bunu bacardım'
-      },
-      {
-        id: 746,
-        sntc: 'He celebrated his birthday',
-        tr: 'O, ad gününü qeyd etdi',
-        ch: 'O, ad gününü qeyd etdi'
-      },
-      {
-        id: 747,
-        sntc: 'We trusted him completely',
-        tr: 'Biz tamamilə ona etibar edirdik',
-        ch: 'Biz tamamilə ona etibar edirdik'
-      },
-      {
-        id: 748,
-        sntc: 'She experienced a very strange feeling',
-        tr: 'O, çox qəribə hiss yaşadı',
-        ch: 'O, çox qəribə hiss yaşadı'
-      },
-      {
-        id: 749,
-        sntc: 'My friends recommended this app to me',
-        tr: 'Mənim dostlarım bu tətbiqi mənə tövsiyə etdilər',
-        ch: 'Mənim dostlarım bu tətbiqi mənə tövsiyə etdilər'
-      },
-      {
-        id: 750,
-        sntc: 'I focused on this problem',
-        tr: 'Diqqətimi bu problemə yönəltdim',
-        ch: 'Diqqətimi bu problemə yönəltdim'
-      }
-    ],
-    [{
-        id: 751,
-        sntc: 'It often rained there',
-        tr: 'Orada tez-tez yağış yağırdı',
-        ch: 'Orada tez-tez yağış yağırdı'
-      },
-      {
-        id: 752,
-        sntc: 'He prayed to this saint',
-        tr: 'O, bu müqəddəsə dua etdi',
-        ch: 'O, bu müqəddəsə dua etdi'
-      },
-      {
-        id: 753,
-        sntc: 'The police arrested him',
-        tr: 'Polis onu həbs etdi',
-        ch: 'Polis onu həbs etdi'
-      },
-      {
-        id: 754,
-        sntc: 'I participated in this competition',
-        tr: 'Mən bu yarışmada iştirak etmişəm',
-        ch: 'Mən bu yarışmada iştirak etmişəm'
-      },
-      {
-        id: 755,
-        sntc: 'We analyzed this report',
-        tr: 'Bu hesabatı təhlil etdik',
-        ch: 'Bu hesabatı təhlil etdik'
-      },
-      {
-        id: 756,
-        sntc: 'I parked very far from here',
-        tr: 'Buradan çox uzaqda park etmişdim',
-        ch: 'Buradan çox uzaqda park etmişdim'
-      },
-      {
-        id: 757,
-        sntc: 'He prayed to saints',
-        tr: 'O, müqəddəslərə dua etdi',
-        ch: 'O, müqəddəslərə dua etdi'
-      },
-      {
-        id: 758,
-        sntc: 'He owned this house',
-        tr: 'O, bu evin sahibi idi',
-        ch: 'O, bu evin sahibi idi'
-      },
-      {
-        id: 759,
-        sntc: 'She divided our group into three parts',
-        tr: 'O, qrupumuzu üç hissəyə böldü',
-        ch: 'O, qrupumuzu üç hissəyə böldü'
-      },
-      {
-        id: 760,
-        sntc: 'I participated in this tournament',
-        tr: 'Mən bu turnirdə iştirak etmişəm',
-        ch: 'Mən bu turnirdə iştirak etmişəm'
-      }
-    ],
-    [{
-        id: 761,
-        sntc: 'This example inspired me',
-        tr: 'Bu nümunə mənə ilham verdi',
-        ch: 'Bu nümunə mənə ilham verdi'
-      },
-      {
-        id: 762,
-        sntc: 'I hurried up',
-        tr: 'Mən tələsdim',
-        ch: 'Mən tələsdim'
-      },
-      {
-        id: 763,
-        sntc: 'She suggested going to the cinema',
-        tr: 'O, kinoteatra getməyi təklif etdi',
-        ch: 'O, kinoteatra getməyi təklif etdi'
-      },
-      {
-        id: 764,
-        sntc: 'I passed such a difficult exam',
-        tr: 'Mən çox çətin imtahandan keçdim',
-        ch: 'Mən çox çətin imtahandan keçdim'
-      },
-      {
-        id: 765,
-        sntc: 'I hated discussing it',
-        tr: 'Mən bunu müzakirə etməyə nifrət edirdim',
-        ch: 'Mən bunu müzakirə etməyə nifrət edirdim'
-      },
-      {
-        id: 766,
-        sntc: 'It happened to my family',
-        tr: 'Bu, mənim ailəmin başına gəldi',
-        ch: 'Bu, mənim ailəmin başına gəldi'
-      },
-      {
-        id: 767,
-        sntc: 'We communicated with each other from time to time',
-        tr: 'Biz vaxtdan-vaxta bir-birimizlə ünsiyyət qururduğ',
-        ch: 'Biz vaxtdan-vaxta bir-birimizlə ünsiyyət qururduğ'
-      },
-      {
-        id: 768,
-        sntc: 'He insisted on doing it',
-        tr: 'O, bunu etməkdə israr etdi',
-        ch: 'O, bunu etməkdə israr etdi'
-      },
-      {
-        id: 769,
-        sntc: 'She danced professionally',
-        tr: 'O, peşəkar rəqs etdi',
-        ch: 'O, peşəkar rəqs etdi'
-      },
-      {
-        id: 770,
-        sntc: 'He reacted to it very strangely',
-        tr: 'O, buna çox qəribə reaksiya verdi',
-        ch: 'O, buna çox qəribə reaksiya verdi'
-      }
-    ],
-    [{
-        id: 771,
-        sntc: 'I perfectly realized it',
-        tr: 'Mən bunu mükəmməl dərk etdim',
-        ch: 'Mən bunu mükəmməl dərk etdim'
-      },
-      {
-        id: 772,
-        sntc: 'She apologized for everything',
-        tr: 'O, hər şeyə görə üzr istədi',
-        ch: 'O, hər şeyə görə üzr istədi'
-      },
-      {
-        id: 773,
-        sntc: 'He invested all his money',
-        tr: 'O, bütün pullarını yatırdı',
-        ch: 'O, bütün pullarını yatırdı'
-      },
-      {
-        id: 774,
-        sntc: 'We solved all these problems',
-        tr: 'Biz bütün bu problemləri həll etdik',
-        ch: 'Biz bütün bu problemləri həll etdik'
-      },
-      {
-        id: 775,
-        sntc: 'He remained my friend',
-        tr: 'O, mənim dostum olaraq qaldı',
-        ch: 'O, mənim dostum olaraq qaldı'
-      },
-      {
-        id: 776,
-        sntc: 'I passed the exam',
-        tr: 'Mən imtahandan keçdim',
-        ch: 'Mən imtahandan keçdim'
-      },
-      {
-        id: 777,
-        sntc: 'It depended on us',
-        tr: 'Bu bizdən asılı idi',
-        ch: 'Bu bizdən asılı idi'
-      },
-      {
-        id: 778,
-        sntc: 'We hated doing it',
-        tr: 'Biz bunu etməkdən nifrət edirdik',
-        ch: 'Biz bunu etməkdən nifrət edirdik'
-      },
-      {
-        id: 779,
-        sntc: 'He added two very important things',
-        tr: 'O, iki çox vacib şeyi əlavə etdi',
-        ch: 'O, iki çox vacib şeyi əlavə etdi'
-      },
-      {
-        id: 780,
-        sntc: 'He repeated this sentence',
-        tr: 'O, bu cümləni təkrar etdi',
-        ch: 'O, bu cümləni təkrar etdi'
-      }
-    ],
-    [{
-        id: 781,
-        sntc: 'I translated it from Azerbaijani into English',
-        tr: 'Bunu azərbaycan dilindən ingilis dilinə tərcümə etmişəm',
-        ch: 'Bunu azərbaycan dilindən ingilis dilinə tərcümə etmişəm'
-      },
-      {
-        id: 782,
-        sntc: 'I revised this lesson',
-        tr: 'Mən bu dərsə yenidən baxdım',
-        ch: 'Mən bu dərsə yenidən baxdım'
-      },
-      {
-        id: 783,
-        sntc: 'We remained friends',
-        tr: 'Biz dost qaldıq',
-        ch: 'Biz dost qaldıq'
-      },
-      {
-        id: 784,
-        sntc: 'He always supported us',
-        tr: 'O, həmişə bizə dəstək olub',
-        ch: 'O, həmişə bizə dəstək olub'
-      },
-      {
-        id: 785,
-        sntc: 'I included these examples',
-        tr: 'Bu nümunələri daxil etdim',
-        ch: 'Bu nümunələri daxil etdim'
-      },
-      {
-        id: 786,
-        sntc: 'He prayed to God',
-        tr: 'O, Allaha dua etdi',
-        ch: 'O, Allaha dua etdi'
-      },
-      {
-        id: 787,
-        sntc: 'I walked to work',
-        tr: 'Mən işə piyada getdim',
-        ch: 'Mən işə piyada getdim'
-      },
-      {
-        id: 788,
-        sntc: 'You explained it very clearly',
-        tr: 'Sən bunu çox aydın izah etdin',
-        ch: 'Sən bunu çox aydın izah etdin'
-      },
-      {
-        id: 789,
-        sntc: 'They shared this information with us',
-        tr: 'Onlar bu məlumatı bizimlə paylaşdılar',
-        ch: 'Onlar bu məlumatı bizimlə paylaşdılar'
-      },
-      {
-        id: 790,
-        sntc: 'We thanked him for everything',
-        tr: 'Biz hər şeyə görə ona təşəkkür etdik',
-        ch: 'Biz hər şeyə görə ona təşəkkür etdik'
-      }
-    ],
-    [{
-        id: 791,
-        sntc: 'We participated in that championship',
-        tr: 'Biz o çempionatda iştirak etmişik',
-        ch: 'Biz o çempionatda iştirak etmişik'
-      },
-      {
-        id: 792,
-        sntc: 'We signed a very important document',
-        tr: 'Biz çox vacib bir sənədi imzaladıq',
-        ch: 'Biz çox vacib bir sənədi imzaladıq'
-      },
-      {
-        id: 793,
-        sntc: 'They arrested those criminals',
-        tr: 'Onlar həmin cinayətkarları həbs etdilər',
-        ch: 'Onlar həmin cinayətkarları həbs etdilər'
-      },
-      {
-        id: 794,
-        sntc: 'He ordered him to defend them',
-        tr: 'O, ona, onları müdafiə etməsini əmr verdi',
-        ch: 'O, ona, onları müdafiə etməsini əmr verdi'
-      },
-      {
-        id: 795,
-        sntc: 'He borrowed more money',
-        tr: 'O, daha çox borc götürüb',
-        ch: 'O, daha çox borc götürüb'
-      },
-      {
-        id: 796,
-        sntc: 'Everything remained the same',
-        tr: 'Hər şey əvvəlki kimi qaldı',
-        ch: 'Hər şey əvvəlki kimi qaldı'
-      },
-      {
-        id: 797,
-        sntc: 'I achieved this aim at last',
-        tr: 'Mən bu məqsədə nəhayət çatdım',
-        ch: 'Mən bu məqsədə nəhayət çatdım'
-      },
-      {
-        id: 798,
-        sntc: 'I parked there',
-        tr: 'Mən maşını orada saxlamışam',
-        ch: 'Mən maşını orada saxlamışam'
-      },
-      {
-        id: 799,
-        sntc: 'They moved to America',
-        tr: 'Onlar Amerikaya köçüblər',
-        ch: 'Onlar Amerikaya köçüblər'
-      },
-      {
-        id: 800,
-        sntc: 'I concentrated on this issue',
-        tr: 'Mən bu mövzuda cəmləşdim',
-        ch: 'Mən bu mövzuda cəmləşdim'
-      }
-    ],
-    [{
-        id: 801,
-        sntc: 'I got a letter from her',
-        tr: 'Mən ondan məktub aldım',
-        ch: 'Mən ondan məktub aldım'
-      },
-      {
-        id: 802,
-        sntc: 'I knew him very well',
-        tr: 'Mən onu çox yaxşı tanıyırdım',
-        ch: 'Mən onu çox yaxşı tanıyırdım'
-      },
-      {
-        id: 803,
-        sntc: 'He said it very loudly',
-        tr: 'O, bunu çox ucadan dedi',
-        ch: 'O, bunu çox ucadan dedi'
-      },
-      {
-        id: 804,
-        sntc: 'He did me a favor',
-        tr: 'O, mənə lütf etdi',
-        ch: 'O, mənə lütf etdi'
-      },
-      {
-        id: 805,
-        sntc: 'I said it again',
-        tr: 'Mən bunu yenə dedim',
-        ch: 'Mən bunu yenə dedim'
-      },
-      {
-        id: 806,
-        sntc: 'He told me everything',
-        tr: 'O, mənə hər şeyi danışdı',
-        ch: 'O, mənə hər şeyi danışdı'
-      },
-      {
-        id: 807,
-        sntc: 'I did it on time',
-        tr: 'Mən bunu vaxtında etdim',
-        ch: 'Mən bunu vaxtında etdim'
-      },
-      {
-        id: 808,
-        sntc: 'I said it one more time',
-        tr: 'Mən bunu bir dəfə də dedim',
-        ch: 'Mən bunu bir dəfə də dedim'
-      },
-      {
-        id: 809,
-        sntc: 'It was a tremendous success',
-        tr: 'Bu, çox böyük uğur idi',
-        ch: 'Bu, çox böyük uğur idi'
-      },
-      {
-        id: 810,
-        sntc: 'He returned',
-        tr: 'O, qayıtdı',
-        ch: 'O, qayıtdı'
-      }
-    ],
-    [{
-        id: 811,
-        sntc: 'I put it on the desk',
-        tr: 'Mən bunu masanın üstünə qoydum',
-        ch: 'Mən bunu masanın üstünə qoydum'
-      },
-      {
-        id: 812,
-        sntc: 'I found my wallet',
-        tr: 'Mən pul kisəmi tapdım',
-        ch: 'Mən pul kisəmi tapdım'
-      },
-      {
-        id: 813,
-        sntc: 'We found out all the truth',
-        tr: 'Biz bütün həqiqəti aydınlaşdırdıq',
-        ch: 'Biz bütün həqiqəti aydınlaşdırdıq'
-      },
-      {
-        id: 814,
-        sntc: 'He gave me this advice',
-        tr: 'O, mənə bu məsləhəti verdi',
-        ch: 'O, mənə bu məsləhəti verdi'
-      },
-      {
-        id: 815,
-        sntc: 'This song became very popular',
-        tr: 'Bu mahnı çox məşhur oldu',
-        ch: 'Bu mahnı çox məşhur oldu'
-      },
-      {
-        id: 816,
-        sntc: 'He came back',
-        tr: 'O, qayıtdı',
-        ch: 'O, qayıtdı'
-      },
-      {
-        id: 817,
-        sntc: 'He gave up smoking',
-        tr: 'O, siqaret cəkməyi tərgitdi',
-        ch: 'O, siqaret cəkməyi tərgitdi'
-      },
-      {
-        id: 818,
-        sntc: 'I put it near my computer',
-        tr: 'Mən bunu compüterimin yaxınlığında qoydum',
-        ch: 'Mən bunu compüterimin yaxınlığında qoydum'
-      },
-      {
-        id: 819,
-        sntc: 'I came there on time',
-        tr: 'Mən ora vaxtında gəldim',
-        ch: 'Mən ora vaxtında gəldim'
-      },
-      {
-        id: 820,
-        sntc: 'I found my keys',
-        tr: 'Mən açarlarımı tapdım',
-        ch: 'Mən açarlarımı tapdım'
-      }
-    ],
-    [{
-        id: 821,
-        sntc: 'He brought this thing to me',
-        tr: 'O, mənə bu əşyanı gətirdi',
-        ch: 'O, mənə bu əşyanı gətirdi'
-      },
-      {
-        id: 822,
-        sntc: 'I left for England',
-        tr: 'Mən İngiltərəyə yola düşdüm',
-        ch: 'Mən İngiltərəyə yola düşdüm'
-      },
-      {
-        id: 823,
-        sntc: 'I heard in on TV',
-        tr: 'Mən bunu televizorda eşitdim',
-        ch: 'Mən bunu televizorda eşitdim'
-      },
-      {
-        id: 824,
-        sntc: 'She ran very fast',
-        tr: 'O, çox sürətlə qaçdı',
-        ch: 'O, çox sürətlə qaçdı'
-      },
-      {
-        id: 825,
-        sntc: 'He ran away',
-        tr: 'O, qaçdı',
-        ch: 'O, qaçdı'
-      },
-      {
-        id: 826,
-        sntc: 'I wrote it down',
-        tr: 'Mən bunu yazdım',
-        ch: 'Mən bunu yazdım'
-      },
-      {
-        id: 827,
-        sntc: 'I wrote down this word',
-        tr: 'Mən bu sözü yazdım',
-        ch: 'Mən bu sözü yazdım'
-      },
-      {
-        id: 828,
-        sntc: 'I heard it for the first time',
-        tr: 'Mən bunu ilk dəfə eşitdim',
-        ch: 'Mən bunu ilk dəfə eşitdim'
-      },
-      {
-        id: 829,
-        sntc: 'He brought me this thing',
-        tr: 'O, mənə bu əşyanı gətirdi',
-        ch: 'O, mənə bu əşyanı gətirdi'
-      },
-      {
-        id: 830,
-        sntc: 'We left for America',
-        tr: 'Biz Amerikaya yola düşdük',
-        ch: 'Biz Amerikaya yola düşdük'
-      }
-    ],
-    [{
-        id: 831,
-        sntc: 'He lost his wallet',
-        tr: 'O, pul kisəsini itirdi',
-        ch: 'O, pul kisəsini itirdi'
-      },
-      {
-        id: 832,
-        sntc: 'She felt unhappy',
-        tr: 'O, özünü bədbəxt hiss edirdi',
-        ch: 'O, özünü bədbəxt hiss edirdi'
-      },
-      {
-        id: 833,
-        sntc: 'I met my classmate yesterday',
-        tr: 'Mən dünən sinif yoldaşımla görüşdüm',
-        ch: 'Mən dünən sinif yoldaşımla görüşdüm'
-      },
-      {
-        id: 834,
-        sntc: 'I thought differently',
-        tr: 'Mən fərqli düşünürdüm',
-        ch: 'Mən fərqli düşünürdüm'
-      },
-      {
-        id: 835,
-        sntc: 'He set a glass of water on the table',
-        tr: 'O, stəkan suyu stolun üstünə qoydu',
-        ch: 'O, stəkan suyu stolun üstünə qoydu'
-      },
-      {
-        id: 836,
-        sntc: 'I left home',
-        tr: 'Mən evdən çıxdım',
-        ch: 'Mən evdən çıxdım'
-      },
-      {
-        id: 837,
-        sntc: 'I learnt it by heart',
-        tr: 'Mən bunu əzbər öyrəndim',
-        ch: 'Mən bunu əzbər öyrəndim'
-      },
-      {
-        id: 838,
-        sntc: 'I wrote this expression down',
-        tr: 'Mən bu ifadəni yazdım',
-        ch: 'Mən bu ifadəni yazdım'
-      },
-      {
-        id: 839,
-        sntc: 'I understood you at once',
-        tr: 'Mən bir anda səni başa düşdüm',
-        ch: 'Mən bir anda səni başa düşdüm'
-      },
-      {
-        id: 840,
-        sntc: 'She cut herself',
-        tr: 'O, özünü kəsdi',
-        ch: 'O, özünü kəsdi'
-      }
-    ],
-    [{
-        id: 841,
-        sntc: 'She sent me a message',
-        tr: 'O, mənə mesaj göndərdi',
-        ch: 'O, mənə mesaj göndərdi'
-      },
-      {
-        id: 842,
-        sntc: 'He gave me this thing',
-        tr: 'O, mənə bu əşyanı verdi',
-        ch: 'O, mənə bu əşyanı verdi'
-      },
-      {
-        id: 843,
-        sntc: 'I stood behind him',
-        tr: 'Mən onun arxasında dayandım',
-        ch: 'Mən onun arxasında dayandım'
-      },
-      {
-        id: 844,
-        sntc: 'He fell down and hurt his arm',
-        tr: 'O, yıxıldı və qolunu yaraladı',
-        ch: 'O, yıxıldı və qolunu yaraladı'
-      },
-      {
-        id: 845,
-        sntc: 'I read it online',
-        tr: 'Mən bunu onlayn oxudum',
-        ch: 'Mən bunu onlayn oxudum'
-      },
-      {
-        id: 846,
-        sntc: 'I heard it in the news',
-        tr: 'Mən bunu xəbərdə eşitdim',
-        ch: 'Mən bunu xəbərdə eşitdim'
-      },
-      {
-        id: 847,
-        sntc: 'He kept this secret',
-        tr: 'O, bu sirri saxladı',
-        ch: 'O, bu sirri saxladı'
-      },
-      {
-        id: 848,
-        sntc: 'They broke this chair',
-        tr: 'Onlar bu stulu sındırdılar',
-        ch: 'Onlar bu stulu sındırdılar'
-      },
-      {
-        id: 849,
-        sntc: 'I met so many new words there',
-        tr: 'Mən orada çoxlu sayda yeni sözlərlə tanış oldum',
-        ch: 'Mən orada çoxlu sayda yeni sözlərlə tanış oldum'
-      },
-      {
-        id: 850,
-        sntc: 'He set up a very profitable company',
-        tr: 'O, çox gəlirli şirkət qurdu',
-        ch: 'O, çox gəlirli şirkət qurdu'
-      }
-    ],
-    [{
-        id: 851,
-        sntc: 'He cut the meat into four pieces',
-        tr: 'O, əti dörd hissəyə böldü',
-        ch: 'O, əti dörd hissəyə böldü'
-      },
-      {
-        id: 852,
-        sntc: 'She wore very fashionable clothes',
-        tr: 'O, çox dəbli geyimlər geyindi',
-        ch: 'O, çox dəbli geyimlər geyindi'
-      },
-      {
-        id: 853,
-        sntc: 'He taught me a lesson',
-        tr: 'O, mənə dərs verdi',
-        ch: 'O, mənə dərs verdi'
-      },
-      {
-        id: 854,
-        sntc: 'I’m afraid you understood me incorrectly',
-        tr: 'Mən qorxuram sən məni səhv başa düşmüsən',
-        ch: 'Mən qorxuram sən məni səhv başa düşmüsən'
-      },
-      {
-        id: 855,
-        sntc: 'I lay in bed',
-        tr: 'Mən yataqda uzandım',
-        ch: 'Mən yataqda uzandım'
-      },
-      {
-        id: 856,
-        sntc: 'They broke the window',
-        tr: 'Onlar pəncərəni sındırdılar',
-        ch: 'Onlar pəncərəni sındırdılar'
-      },
-      {
-        id: 857,
-        sntc: 'They sent me this notification',
-        tr: 'Onlar bu bildirişi mənə göndərdilər',
-        ch: 'Onlar bu bildirişi mənə göndərdilər'
-      },
-      {
-        id: 858,
-        sntc: 'He lied to his boss',
-        tr: 'O, müdirinə yalan danışdı',
-        ch: 'O, müdirinə yalan danışdı'
-      },
-      {
-        id: 859,
-        sntc: 'He flew to London',
-        tr: 'O, Londona uçdu',
-        ch: 'O, Londona uçdu'
-      },
-      {
-        id: 860,
-        sntc: 'He kept his word',
-        tr: 'O, sözünün üstündə durdu',
-        ch: 'O, sözünün üstündə durdu'
-      }
-    ],
-    [{
-        id: 861,
-        sntc: 'We wore a school uniform',
-        tr: 'Biz məktəbli geyimi geyinmişdik',
-        ch: 'Biz məktəbli geyimi geyinmişdik'
-      },
-      {
-        id: 862,
-        sntc: 'This dress fit you perfectly',
-        tr: 'Bu paltar sənə mükəmməl uyğun gəlir',
-        ch: 'Bu paltar sənə mükəmməl uyğun gəlir'
-      },
-      {
-        id: 863,
-        sntc: 'She taught this subject at university',
-        tr: 'O, bu fənni universitetdə tədris etdi',
-        ch: 'O, bu fənni universitetdə tədris etdi'
-      },
-      {
-        id: 864,
-        sntc: 'He drank a glass of orange juice',
-        tr: 'O, bir stəkan portağal şirəsi içdi',
-        ch: 'O, bir stəkan portağal şirəsi içdi'
-      },
-      {
-        id: 865,
-        sntc: 'I flew back to Baku',
-        tr: 'Mən Bakıya qayıtdım',
-        ch: 'Mən Bakıya qayıtdım'
-      },
-      {
-        id: 866,
-        sntc: 'I forgot to call her',
-        tr: 'Mən ona zəng etməyi unutdum',
-        ch: 'Mən ona zəng etməyi unutdum'
-      },
-      {
-        id: 867,
-        sntc: 'They sent me a parcel',
-        tr: 'Onlar mənə bağlama göndərdilər',
-        ch: 'Onlar mənə bağlama göndərdilər'
-      },
-      {
-        id: 868,
-        sntc: 'We slept more than enough',
-        tr: 'Biz kifayət qədər yatdıq',
-        ch: 'Biz kifayət qədər yatdıq'
-      },
-      {
-        id: 869,
-        sntc: 'Two apples fell',
-        tr: 'İki alma düşdü',
-        ch: 'İki alma düşdü'
-      },
-      {
-        id: 870,
-        sntc: 'The boys hid behind that tree',
-        tr: 'Oğlanlar o ağacın arxasında gizləndilər',
-        ch: 'Oğlanlar o ağacın arxasında gizləndilər'
-      }
-    ],
-    [{
-        id: 871,
-        sntc: 'He stole his wallet',
-        tr: 'O, onun pul kisəsini oğurladı',
-        ch: 'O, onun pul kisəsini oğurladı'
-      },
-      {
-        id: 872,
-        sntc: 'He ate a piece of cake',
-        tr: 'O, bir tikə tort yedi',
-        ch: 'O, bir tikə tort yedi'
-      },
-      {
-        id: 873,
-        sntc: 'I woke up earlier',
-        tr: 'Mən daha tez oyandım',
-        ch: 'Mən daha tez oyandım'
-      },
-      {
-        id: 874,
-        sntc: 'I drank a cup of tea',
-        tr: 'Mən bir fincan çay içdim',
-        ch: 'Mən bir fincan çay içdim'
-      },
-      {
-        id: 875,
-        sntc: 'They dug a hole in the ground',
-        tr: 'Onlar yerdə quyu qazdılar',
-        ch: 'Onlar yerdə quyu qazdılar'
-      },
-      {
-        id: 876,
-        sntc: 'I rode a bike',
-        tr: 'Mən velosiped sürdüm',
-        ch: 'Mən velosiped sürdüm'
-      },
-      {
-        id: 877,
-        sntc: 'She forgave him',
-        tr: 'O, onu bağışladı',
-        ch: 'O, onu bağışladı'
-      },
-      {
-        id: 878,
-        sntc: 'She fed her baby',
-        tr: 'O, körpəsini yedizdirdi',
-        ch: 'O, körpəsini yedizdirdi'
-      },
-      {
-        id: 879,
-        sntc: 'They fought for independence',
-        tr: 'Onlar müstəqillik uğrunda mübarizə apardılar',
-        ch: 'Onlar müstəqillik uğrunda mübarizə apardılar'
-      },
-      {
-        id: 880,
-        sntc: 'I dealt with different complaints',
-        tr: 'Mən müxtəlif şikayətlərlə məşğul oldum',
-        ch: 'Mən müxtəlif şikayətlərlə məşğul oldum'
-      }
-    ],
-    [{
-        id: 881,
-        sntc: 'They spoilt the food',
-        tr: 'Onlar yeməyi xarab etdilər',
-        ch: 'Onlar yeməyi xarab etdilər'
-      },
-      {
-        id: 882,
-        sntc: 'I woke up later than usual',
-        tr: 'Mən həmişəkindən gec oyandım',
-        ch: 'Mən həmişəkindən gec oyandım'
-      },
-      {
-        id: 883,
-        sntc: 'It smelt awful',
-        tr: 'Bu, dəhşətli iy verdi',
-        ch: 'Bu, dəhşətli iy verdi'
-      },
-      {
-        id: 884,
-        sntc: 'I slept for two hours',
-        tr: 'Mən iki saat yatdım',
-        ch: 'Mən iki saat yatdım'
-      },
-      {
-        id: 885,
-        sntc: 'He withdrew twenty thousand dollars from his account',
-        tr: 'O, hesabından iyirmi min dollar çıxardı',
-        ch: 'O, hesabından iyirmi min dollar çıxardı'
-      },
-      {
-        id: 886,
-        sntc: 'She forgave everything',
-        tr: 'O, hər şeyi bağışladı',
-        ch: 'O, hər şeyi bağışladı'
-      },
-      {
-        id: 887,
-        sntc: 'I hung my jacket on a hook',
-        tr: 'Mən jaketimi qarmaqcıqdan asdım',
-        ch: 'Mən jaketimi qarmaqcıqdan asdım'
-      },
-      {
-        id: 888,
-        sntc: 'I drove to the park',
-        tr: 'Mən parka maşınla getdim',
-        ch: 'Mən parka maşınla getdim'
-      },
-      {
-        id: 889,
-        sntc: 'It spoilt my plans',
-        tr: 'Bu, planlarımı korladı',
-        ch: 'Bu, planlarımı korladı'
-      },
-      {
-        id: 890,
-        sntc: 'She fed the children',
-        tr: 'O, uşaqları yedizdirdi',
-        ch: 'O, uşaqları yedizdirdi'
-      }
-    ],
-    [{
-        id: 891,
-        sntc: 'She often overslept',
-        tr: 'O, çox vaxt həddən artıq yatırdı',
-        ch: 'O, çox vaxt həddən artıq yatırdı'
-      },
-      {
-        id: 892,
-        sntc: 'I wore a belt',
-        tr: 'Mən kəmər taxdım',
-        ch: 'Mən kəmər taxdım'
-      },
-      {
-        id: 893,
-        sntc: 'An angry dog bit him',
-        tr: 'Qəzəbli it onu dişlədi',
-        ch: 'Qəzəbli it onu dişlədi'
-      },
-      {
-        id: 894,
-        sntc: 'I drove home',
-        tr: 'Mən maşınla evə getdim',
-        ch: 'Mən maşınla evə getdim'
-      },
-      {
-        id: 895,
-        sntc: 'He lit the candle',
-        tr: 'O, şamı yandırdı',
-        ch: 'O, şamı yandırdı'
-      },
-      {
-        id: 896,
-        sntc: 'I ate it for dinner',
-        tr: 'Mən bunu şam yeməyində yedim',
-        ch: 'Mən bunu şam yeməyində yedim'
-      },
-      {
-        id: 897,
-        sntc: 'She foresaw this situation',
-        tr: 'O, bu vəziyyəti qabaqcadan gördü',
-        ch: 'O, bu vəziyyəti qabaqcadan gördü'
-      },
-      {
-        id: 898,
-        sntc: 'They burnt the village',
-        tr: 'Onlar kəndi yandırdılar',
-        ch: 'Onlar kəndi yandırdılar'
-      },
-      {
-        id: 899,
-        sntc: 'He never overate',
-        tr: 'O, heç vaxt həddən artıq yemirdi',
-        ch: 'O, heç vaxt həddən artıq yemirdi'
-      },
-      {
-        id: 900,
-        sntc: 'He withdrew half a million dollars from his account',
-        tr: 'O, hesabından yarım milyon dollar çıxardı',
-        ch: 'O, hesabından yarım milyon dollar çıxardı'
-      }
-    ],
-    [{
-        id: 901,
-        sntc: 'He lent her several hundred dollars',
-        tr: 'O, ona bir neçə yüz dollar borc verdi',
-        ch: 'O, ona bir neçə yüz dollar borc verdi'
-      },
-      {
-        id: 902,
-        sntc: 'He stole her bag',
-        tr: 'O, onun çantasını oğurladı',
-        ch: 'O, onun çantasını oğurladı'
-      },
-      {
-        id: 903,
-        sntc: 'I swam in the sea',
-        tr: 'Mən dənizdə üzdüm',
-        ch: 'Mən dənizdə üzdüm'
-      },
-      {
-        id: 904,
-        sntc: 'I understood your point of view',
-        tr: 'Mən sizin nöqteyi-nəzərinizi başa düşdüm',
-        ch: 'Mən sizin nöqteyi-nəzərinizi başa düşdüm'
-      },
-      {
-        id: 905,
-        sntc: 'They met at last',
-        tr: 'Onlar nəhayət görüşdülər',
-        ch: 'Onlar nəhayət görüşdülər'
-      },
-      {
-        id: 906,
-        sntc: 'I read such a funny story',
-        tr: 'Mən çox gülməli bir hekayə oxudum',
-        ch: 'Mən çox gülməli bir hekayə oxudum'
-      },
-      {
-        id: 907,
-        sntc: 'Do you need to solve this problem right now?',
-        tr: 'Sənə bu problemi indicə həll etmək lazımdır?',
-        ch: 'Sənə bu problemi indicə həll etmək lazımdır?'
-      },
-      {
-        id: 908,
-        sntc: 'I understood you at once',
-        tr: 'Mən səni bir anda başa düşdüm',
-        ch: 'Mən səni bir anda başa düşdüm'
-      },
-      {
-        id: 909,
-        sntc: 'I learnt it by heart',
-        tr: 'Mən bunu əzbər öyrəndim',
-        ch: 'Mən bunu əzbər öyrəndim'
-      },
-      {
-        id: 910,
-        sntc: 'He cut himself',
-        tr: 'O, özünü kəsdi',
-        ch: 'O, özünü kəsdi'
-      }
-    ],
-    [{
-        id: 911,
-        sntc: 'They stole all his money',
-        tr: 'Onlar onun bütün pullarını oğurladılar',
-        ch: 'Onlar onun bütün pullarını oğurladılar'
-      },
-      {
-        id: 912,
-        sntc: 'I overcame all these difficulties',
-        tr: 'Mən bütün bu çətinliklərin öhdəsindən gəldim',
-        ch: 'Mən bütün bu çətinliklərin öhdəsindən gəldim'
-      },
-      {
-        id: 913,
-        sntc: 'He ate a sandwich',
-        tr: 'O, sendviç yedi',
-        ch: 'O, sendviç yedi'
-      },
-      {
-        id: 914,
-        sntc: 'I swam in the lake',
-        tr: 'Mən göldə üzdüm',
-        ch: 'Mən göldə üzdüm'
-      },
-      {
-        id: 915,
-        sntc: "It's dark",
-        tr: 'Qaranlıqdır',
-        ch: 'Qaranlıqdır'
-      },
-      {
-        id: 916,
-        sntc: 'She foresaw this situation',
-        tr: 'O, bu vəziyyəti qabaqcadan görüb',
-        ch: 'O, bu vəziyyəti qabaqcadan görüb'
-      },
-      {
-        id: 917,
-        sntc: 'She tore that document',
-        tr: 'O, bu sənədi cırdı',
-        ch: 'O, bu sənədi cırdı'
-      },
-      {
-        id: 918,
-        sntc: 'He redid it',
-        tr: 'O, bunu tezdən etdi',
-        ch: 'O, bunu tezdən etdi'
-      },
-      {
-        id: 919,
-        sntc: 'I’m afraid you misunderstood me',
-        tr: 'Mən qorxuram sən məni səhv başa düşdün',
-        ch: 'Mən qorxuram sən məni səhv başa düşdün'
-      },
-      {
-        id: 920,
-        sntc: 'He often overpaid for no reason',
-        tr: 'O, çox vaxt səbəb olmadan həddindən artıq maaş verirdi',
-        ch: 'O, çox vaxt səbəb olmadan həddindən artıq maaş verirdi'
-      }
-    ],
-    [{
-        id: 921,
-        sntc: 'I spent more than seven hundred dollars on it',
-        tr: 'Mən buna yeddi yüz dollardan çox pul xərclədim',
-        ch: 'Mən buna yeddi yüz dollardan çox pul xərclədim'
-      },
-      {
-        id: 922,
-        sntc: 'I redid this exercise at last',
-        tr: 'Mən bu tapşırığı nəhayət ki yenidən etdim',
-        ch: 'Mən bu tapşırığı nəhayət ki yenidən etdim'
-      },
-      {
-        id: 923,
-        sntc: 'He lit the light',
-        tr: 'O, işıqı yandırdı',
-        ch: 'O, işıqı yandırdı'
-      },
-      {
-        id: 924,
-        sntc: 'The dog bit her',
-        tr: 'İt onu dişlədi',
-        ch: 'İt onu dişlədi'
-      },
-      {
-        id: 925,
-        sntc: 'He withdrew all the money',
-        tr: 'O, bütün pulları çıxardı ',
-        ch: 'O, bütün pulları çıxardı '
-      },
-      {
-        id: 926,
-        sntc: 'I want to live in England',
-        tr: 'Mən İngiltərədə yaşamaq istəyirəm',
-        ch: 'Mən İngiltərədə yaşamaq istəyirəm'
-      },
-      {
-        id: 927,
-        sntc: 'They spoilt the food',
-        tr: 'Onlar yeməyi xarab etdilər',
-        ch: 'Onlar yeməyi xarab etdilər'
-      },
-      {
-        id: 928,
-        sntc: 'This food smelt good',
-        tr: 'Bu yeməkdən yaxşı iy gəlirdi',
-        ch: 'Bu yeməkdən yaxşı iy gəlirdi'
-      },
-      {
-        id: 929,
-        sntc: 'The wind blew unexpectedly',
-        tr: 'Külək gözlənilmədən əsdi',
-        ch: 'Külək gözlənilmədən əsdi'
-      },
-      {
-        id: 930,
-        sntc: 'She hurt his feelings',
-        tr: 'O, onun hisslərini incitdi',
-        ch: 'O, onun hisslərini incitdi'
-      }
-    ],
-    [{
-        id: 931,
-        sntc: 'She kept her money in this bank',
-        tr: 'O, pulunu bu bankda saxladı',
-        ch: 'O, pulunu bu bankda saxladı'
-      },
-      {
-        id: 932,
-        sntc: 'He sent me a parcel',
-        tr: 'O, mənə bağlama göndərdi',
-        ch: 'O, mənə bağlama göndərdi'
-      },
-      {
-        id: 933,
-        sntc: 'They sold their house for half a million',
-        tr: 'Onlar evlərini yarım milyona satdılar',
-        ch: 'Onlar evlərini yarım milyona satdılar'
-      },
-      {
-        id: 934,
-        sntc: 'They broke the window',
-        tr: 'Onlar pəncərəni sındırdılar',
-        ch: 'Onlar pəncərəni sındırdılar'
-      },
-      {
-        id: 935,
-        sntc: 'I held it in my arms',
-        tr: 'Mən bunu əllərimdə tutdum',
-        ch: 'Mən bunu əllərimdə tutdum'
-      },
-      {
-        id: 936,
-        sntc: 'I think you spent too little money',
-        tr: 'Mən düşünürəm sən çox az pul xərcləmisən',
-        ch: 'Mən düşünürəm sən çox az pul xərcləmisən'
-      },
-      {
-        id: 937,
-        sntc: 'Does he like this project?',
-        tr: 'Bu layihə onun xoşuna gəlir?',
-        ch: 'Bu layihə onun xoşuna gəlir?'
-      },
-      {
-        id: 938,
-        sntc: 'I drove home',
-        tr: 'Mən maşınla evə getdim',
-        ch: 'Mən maşınla evə getdim'
-      },
-      {
-        id: 939,
-        sntc: 'He withdrew twenty thousand euros from his account',
-        tr: 'O, hesabından iyirmi min avro çıxarıb',
-        ch: 'O, hesabından iyirmi min avro çıxarıb'
-      },
-      {
-        id: 940,
-        sntc: 'They burnt the village',
-        tr: 'Onlar kəndi yandırdılar',
-        ch: 'Onlar kəndi yandırdılar'
-      }
-    ],
-    [{
-        id: 941,
-        sntc: 'I flew back to Los Angeles',
-        tr: 'Mən Los-Ancelesə qayıtdım',
-        ch: 'Mən Los-Ancelesə qayıtdım'
-      },
-      {
-        id: 942,
-        sntc: 'She drew a real masterpiece',
-        tr: 'O, əsl şah əsər çəkdi',
-        ch: 'O, əsl şah əsər çəkdi'
-      },
-      {
-        id: 943,
-        sntc: 'We see it in the last sentence',
-        tr: 'Biz bunu son cümlədə görürük',
-        ch: 'Biz bunu son cümlədə görürük'
-      },
-      {
-        id: 944,
-        sntc: 'I forgot to tell them this thing',
-        tr: 'Mən bu şeyi ona demeyə unutdum',
-        ch: 'Mən bu şeyi ona demeyə unutdum'
-      },
-      {
-        id: 945,
-        sntc: 'He fed his dog',
-        tr: 'O, itini yedizdirdi',
-        ch: 'O, itini yedizdirdi'
-      },
-      {
-        id: 946,
-        sntc: 'They hit him very hard',
-        tr: 'Onlar onu çox sərt vurdular',
-        ch: 'Onlar onu çox sərt vurdular'
-      },
-      {
-        id: 947,
-        sntc: 'I forgot everything',
-        tr: 'Mən hər şeyi unutdum',
-        ch: 'Mən hər şeyi unutdum'
-      },
-      {
-        id: 948,
-        sntc: 'He sang his favorite song',
-        tr: 'O, ən sevdiyi mahnını oxudu',
-        ch: 'O, ən sevdiyi mahnını oxudu'
-      },
-      {
-        id: 949,
-        sntc: 'She fed the children',
-        tr: 'O, uşaqları yedizdirdi',
-        ch: 'O, uşaqları yedizdirdi'
-      },
-      {
-        id: 950,
-        sntc: 'Does he help you?',
-        tr: 'O, sizə kömək edir?',
-        ch: 'O, sizə kömək edir?'
-      }
-    ],
-    [{
-        id: 951,
-        sntc: 'I dreamt about different things',
-        tr: 'Mən müxtəlif şeylər haqqında xəyallar qurdum',
-        ch: 'Mən müxtəlif şeylər haqqında xəyallar qurdum'
-      },
-      {
-        id: 952,
-        sntc: 'I woke up very early',
-        tr: 'Mən yuxudan çox tez oyandım',
-        ch: 'Mən yuxudan çox tez oyandım'
-      },
-      {
-        id: 953,
-        sntc: 'He lent her several thousand dollars',
-        tr: 'O, onar bir neçə min dollar borc verdi',
-        ch: 'O, onar bir neçə min dollar borc verdi'
-      },
-      {
-        id: 954,
-        sntc: 'Where does he work?',
-        tr: 'O harada işləyir?',
-        ch: 'O harada işləyir?'
-      },
-      {
-        id: 955,
-        sntc: 'The boys swam in the swimming pool',
-        tr: 'Oğlanlar üzgüçülük hovuzunda üzdülər',
-        ch: 'Oğlanlar üzgüçülük hovuzunda üzdülər'
-      },
-      {
-        id: 956,
-        sntc: 'I swam there last summer',
-        tr: 'Mən keçən yay orada üzdüm',
-        ch: 'Mən keçən yay orada üzdüm'
-      },
-      {
-        id: 957,
-        sntc: 'He spoilt everything',
-        tr: 'O, hər şeyi korladı',
-        ch: 'O, hər şeyi korladı'
-      },
-      {
-        id: 958,
-        sntc: 'The ship sank',
-        tr: 'Gəmi batdı',
-        ch: 'Gəmi batdı'
-      },
-      {
-        id: 959,
-        sntc: 'I put it on the table',
-        tr: 'Mən bunu stolun üstünə qoydum',
-        ch: 'Mən bunu stolun üstünə qoydum'
-      },
-      {
-        id: 960,
-        sntc: 'I heard it in the news',
-        tr: 'Mən bunu xəbərdə eşitdim',
-        ch: 'Mən bunu xəbərdə eşitdim'
-      }
-    ],
-    [{
-        id: 961,
-        sntc: 'It smelt terrible',
-        tr: 'Bu, dəhşətli qoxu verdi',
-        ch: 'Bu, dəhşətli qoxu verdi'
-      },
-      {
-        id: 962,
-        sntc: 'I hung my coat on a hook',
-        tr: 'Mən paltomu qarmaqcıqdan asdım',
-        ch: 'Mən paltomu qarmaqcıqdan asdım'
-      },
-      {
-        id: 963,
-        sntc: 'It smelt bad',
-        tr: 'Bu, pis iy verir',
-        ch: 'Bu, pis iy verir'
-      },
-      {
-        id: 964,
-        sntc: 'Where is the boy?',
-        tr: 'Oğlan haradadır?',
-        ch: 'Oğlan haradadır?'
-      },
-      {
-        id: 965,
-        sntc: 'He sang really well',
-        tr: 'O, həqiqətən yaxşı oxudu',
-        ch: 'O, həqiqətən yaxşı oxudu'
-      },
-      {
-        id: 966,
-        sntc: 'I rode a horse',
-        tr: 'Mən at sürdüm',
-        ch: 'Mən at sürdüm'
-      },
-      {
-        id: 967,
-        sntc: 'I slept for two hours',
-        tr: 'Mən iki saat yatdım',
-        ch: 'Mən iki saat yatdım'
-      },
-      {
-        id: 968,
-        sntc: 'She hurt her arm',
-        tr: 'O, əlini yaraladı',
-        ch: 'O, əlini yaraladı'
-      },
-      {
-        id: 969,
-        sntc: 'She forgave everything',
-        tr: 'O, hər şeyi bağışladı',
-        ch: 'O, hər şeyi bağışladı'
-      },
-      {
-        id: 970,
-        sntc: 'He dreamt about money',
-        tr: 'O, pul haqqında xəyal qurdu',
-        ch: 'O, pul haqqında xəyal qurdu'
-      }
-    ],
-    [{
-        id: 971,
-        sntc: 'I forgot to say it',
-        tr: 'Mən bunu deməyə unutdum',
-        ch: 'Mən bunu deməyə unutdum'
-      },
-      {
-        id: 972,
-        sntc: 'We overcame those difficulties',
-        tr: 'Biz bu çətinliklərin öhdəsindən gəldik',
-        ch: 'Biz bu çətinliklərin öhdəsindən gəldik'
-      },
-      {
-        id: 973,
-        sntc: 'He hurt her feelings',
-        tr: 'O, onun hisslərini incitdi',
-        ch: 'O, onun hisslərini incitdi'
-      },
-      {
-        id: 974,
-        sntc: 'He dug a hole',
-        tr: 'O, bir quyu qazdı',
-        ch: 'O, bir quyu qazdı'
-      },
-      {
-        id: 975,
-        sntc: 'I really like this place',
-        tr: 'Mən bu yeri həqiqətən çox bəyənirəm',
-        ch: 'Mən bu yeri həqiqətən çox bəyənirəm'
-      },
-      {
-        id: 976,
-        sntc: 'He tore the book',
-        tr: 'O, kitabı cırdı',
-        ch: 'O, kitabı cırdı'
-      },
-      {
-        id: 977,
-        sntc: 'She often overslept',
-        tr: 'O, çox vaxt həddən artıq yatırdı',
-        ch: 'O, çox vaxt həddən artıq yatırdı'
-      },
-      {
-        id: 978,
-        sntc: 'They fought very bravely',
-        tr: 'Onlar çox cəsarətlə döyüşdülər',
-        ch: 'Onlar çox cəsarətlə döyüşdülər'
-      },
-      {
-        id: 979,
-        sntc: 'I caught the ball',
-        tr: 'Mən topu tutdum',
-        ch: 'Mən topu tutdum'
-      },
-      {
-        id: 980,
-        sntc: 'I threw it away',
-        tr: 'Mən bunu tulladım',
-        ch: 'Mən bunu tulladım'
-      }
-    ],
-    [{
-        id: 981,
-        sntc: "What's your husband's name?",
-        tr: 'Sənin ərinin adı nədir?',
-        ch: 'Sənin ərinin adı nədir?'
-      },
-      {
-        id: 982,
-        sntc: 'We slept more than enough',
-        tr: 'Biz kifayət qədər yatdıq',
-        ch: 'Biz kifayət qədər yatdıq'
-      },
-      {
-        id: 983,
-        sntc: 'She fed the cat',
-        tr: 'O, pişiyi yedizdirdi',
-        ch: 'O, pişiyi yedizdirdi'
-      },
-      {
-        id: 984,
-        sntc: 'They burnt the house',
-        tr: 'Onlar evi yandırdılar',
-        ch: 'Onlar evi yandırdılar'
-      },
-      {
-        id: 985,
-        sntc: 'I drove to the park',
-        tr: 'Mən parka maşınla getdim',
-        ch: 'Mən parka maşınla getdim'
-      },
-      {
-        id: 986,
-        sntc: 'He told her too much',
-        tr: 'O, ona çox şey danışdı',
-        ch: 'O, ona çox şey danışdı'
-      },
-      {
-        id: 987,
-        sntc: 'He made a discovery',
-        tr: 'O, bir kəşf etdi',
-        ch: 'O, bir kəşf etdi'
-      },
-      {
-        id: 988,
-        sntc: 'They had a great time together',
-        tr: 'Onlar birlikdə çox gözəl vaxt keçirdilər',
-        ch: 'Onlar birlikdə çox gözəl vaxt keçirdilər'
-      },
-      {
-        id: 989,
-        sntc: 'Is the teacher right?',
-        tr: 'Müəllim haqlıdır?',
-        ch: 'Müəllim haqlıdır?'
-      },
-      {
-        id: 990,
-        sntc: 'He said it very loudly',
-        tr: 'O, bunu çox ucadan dedi',
-        ch: 'O, bunu çox ucadan dedi'
-      }
-    ],
-    [{
-        id: 991,
-        sntc: 'My brother is sixteen',
-        tr: 'Mənim qardaşımın on altı yaşı var',
-        ch: 'Mənim qardaşımın on altı yaşı var'
-      },
-      {
-        id: 992,
-        sntc: 'I said it again',
-        tr: 'Mən bunu yenə dedim',
-        ch: 'Mən bunu yenə dedim'
-      },
-      {
-        id: 993,
-        sntc: 'He had a very interesting idea',
-        tr: 'Onun, çox maraqlı bir fikri var idi',
-        ch: 'Onun, çox maraqlı bir fikri var idi'
-      },
-      {
-        id: 994,
-        sntc: 'My friend did him a favor',
-        tr: 'Dostum ona lütf etdi',
-        ch: 'Dostum ona lütf etdi'
-      },
-      {
-        id: 995,
-        sntc: 'I could do it for hours',
-        tr: 'Mən bunu saatlarla edə bilərdim',
-        ch: 'Mən bunu saatlarla edə bilərdim'
-      },
-      {
-        id: 996,
-        sntc: "It's very interesting",
-        tr: 'Bu çox maraqlıdır',
-        ch: 'Bu çox maraqlıdır'
-      },
-      {
-        id: 997,
-        sntc: 'I took him with me',
-        tr: 'Mən onu özümlə apardım',
-        ch: 'Mən onu özümlə apardım'
-      },
-      {
-        id: 998,
-        sntc: 'They spoke Chinese',
-        tr: 'Onlar çin dilində danışdılar',
-        ch: 'Onlar çin dilində danışdılar'
-      },
-      {
-        id: 999,
-        sntc: 'He became famous',
-        tr: 'O, məşhur oldu',
-        ch: 'O, məşhur oldu'
-      },
-      {
-        id: 1000,
-        sntc: 'They spoke French',
-        tr: 'Onlar fransız dilində danışırdılar',
-        ch: 'Onlar fransız dilində danışırdılar'
-      }
-    ],
-    [{
-        id: 1001,
-        sntc: 'He gave her four hundred dollars',
-        tr: 'O, ona dörd yüz dollar verdi',
-        ch: 'O, ona dörd yüz dollar verdi'
-      },
-      {
-        id: 1002,
-        sntc: 'He became a very famous actor',
-        tr: 'O, çox məşhur aktyor oldu',
-        ch: 'O, çox məşhur aktyor oldu'
-      },
-      {
-        id: 1003,
-        sntc: 'We need to solve this problem',
-        tr: 'Bizə bu problemi həll etmək lazımdır',
-        ch: 'Bizə bu problemi həll etmək lazımdır'
-      },
-      {
-        id: 1004,
-        sntc: 'We left America',
-        tr: 'Biz Amerikanı tərk etdik',
-        ch: 'Biz Amerikanı tərk etdik'
-      },
-      {
-        id: 1005,
-        sntc: 'I wrote down the following thing',
-        tr: 'Mən aşağıdakı şeyi yazdım',
-        ch: 'Mən aşağıdakı şeyi yazdım'
-      },
-      {
-        id: 1006,
-        sntc: 'This lesson began half an hour ago',
-        tr: 'Bu dərs yarım saat əvvəl başladı',
-        ch: 'Bu dərs yarım saat əvvəl başladı'
-      },
-      {
-        id: 1007,
-        sntc: 'He meant to help me',
-        tr: 'O, mənə kömək etmək istəyirdi',
-        ch: 'O, mənə kömək etmək istəyirdi'
-      },
-      {
-        id: 1008,
-        sntc: 'The news is bad',
-        tr: 'Xəbərlər pisdir',
-        ch: 'Xəbərlər pisdir'
-      },
-      {
-        id: 1009,
-        sntc: 'I perfectly understood you',
-        tr: 'Mən səni mükəmməl başa düşdüm',
-        ch: 'Mən səni mükəmməl başa düşdüm'
-      },
-      {
-        id: 1010,
-        sntc: 'He set up a very profitable business',
-        tr: 'O, çox gəlirli biznes qurdu',
-        ch: 'O, çox gəlirli biznes qurdu'
-      }
-    ],
-    [{
-        id: 1011,
-        sntc: 'I sat down',
-        tr: 'Mən oturdum',
-        ch: 'Mən oturdum'
-      },
-      {
-        id: 1012,
-        sntc: 'He set up a very successful company',
-        tr: 'O, çox uğurlu şirkət qurdu',
-        ch: 'O, çox uğurlu şirkət qurdu'
-      },
-      {
-        id: 1013,
-        sntc: "What's your friend's name?",
-        tr: 'Sənin dostunun adı nədir?',
-        ch: 'Sənin dostunun adı nədir?'
-      },
-      {
-        id: 1014,
-        sntc: 'I paid for him',
-        tr: 'Mən onun yerinə pul verdim',
-        ch: 'Mən onun yerinə pul verdim'
-      },
-      {
-        id: 1015,
-        sntc: 'They understood each other',
-        tr: 'Onlar bir-birlərini başa düşürdülər',
-        ch: 'Onlar bir-birlərini başa düşürdülər'
-      },
-      {
-        id: 1016,
-        sntc: 'We left for America',
-        tr: 'Biz Amerikaya yola düşdük',
-        ch: 'Biz Amerikaya yola düşdük'
-      },
-      {
-        id: 1017,
-        sntc: 'I grew up in America',
-        tr: 'Mən Amerikada böyümüşəm',
-        ch: 'Mən Amerikada böyümüşəm'
-      },
-      {
-        id: 1018,
-        sntc: 'She sent me a letter',
-        tr: 'O, mənə məktub göndərdi',
-        ch: 'O, mənə məktub göndərdi'
-      },
-      {
-        id: 1019,
-        sntc: 'He fell down and hurt his arm',
-        tr: 'O, yıxıldı və qolunu yaraladı',
-        ch: 'O, yıxıldı və qolunu yaraladı'
-      },
-      {
-        id: 1020,
-        sntc: "I don't like this furniture",
-        tr: 'Bu mebel xoşuma gəlmir',
-        ch: 'Bu mebel xoşuma gəlmir'
-      }
-    ],
-    [{
-        id: 1021,
-        sntc: 'He came to the meeting',
-        tr: 'O, görüşə gəldi',
-        ch: 'O, görüşə gəldi'
-      },
-      {
-        id: 1022,
-        sntc: 'They spoke Italian',
-        tr: 'Onlar italyanca danışırdılar',
-        ch: 'Onlar italyanca danışırdılar'
-      },
-      {
-        id: 1023,
-        sntc: 'He taught English',
-        tr: 'O, ingilis dilini öyrətirdi',
-        ch: 'O, ingilis dilini öyrətirdi'
-      },
-      {
-        id: 1024,
-        sntc: 'He broke this rule',
-        tr: 'O, bu qaydanı pozdu',
-        ch: 'O, bu qaydanı pozdu'
-      },
-      {
-        id: 1025,
-        sntc: 'She grew up in England',
-        tr: 'O, İngiltərədə böyüyüb',
-        ch: 'O, İngiltərədə böyüyüb'
-      },
-      {
-        id: 1026,
-        sntc: 'They broke the rules',
-        tr: 'Onlar bu qaydanı pozdular',
-        ch: 'Onlar bu qaydanı pozdular'
-      },
-      {
-        id: 1027,
-        sntc: 'I need to prepare for this exam',
-        tr: 'Mənə bu imtahana hazırlaşmaq lazımdır',
-        ch: 'Mənə bu imtahana hazırlaşmaq lazımdır'
-      },
-      {
-        id: 1028,
-        sntc: 'I felt so happy',
-        tr: 'Mən özümü çox xoşbəxt hiss edirdim',
-        ch: 'Mən özümü çox xoşbəxt hiss edirdim'
-      },
-      {
-        id: 1029,
-        sntc: 'I thought so, too',
-        tr: 'Mən də elə düşünürdüm',
-        ch: 'Mən də elə düşünürdüm'
-      },
-      {
-        id: 1030,
-        sntc: 'He gave up drinking',
-        tr: 'O, içkidən imtina etdi',
-        ch: 'O, içkidən imtina etdi'
-      }
-    ],
-    [{
-        id: 1031,
-        sntc: 'I found my keys',
-        tr: 'Mən açarlarımı tapdım',
-        ch: 'Mən açarlarımı tapdım'
-      },
-      {
-        id: 1032,
-        sntc: 'He taught me a lesson',
-        tr: 'O, mənə dərs verdi',
-        ch: 'O, mənə dərs verdi'
-      },
-      {
-        id: 1033,
-        sntc: 'They fought for their rights',
-        tr: 'Onlar öz hüquqları uğrunda mübarizə apardılar',
-        ch: 'Onlar öz hüquqları uğrunda mübarizə apardılar'
-      },
-      {
-        id: 1034,
-        sntc: 'I lay in bed',
-        tr: 'Mən yataqda uzandım',
-        ch: 'Mən yataqda uzandım'
-      },
-      {
-        id: 1035,
-        sntc: 'He felt very disappointed',
-        tr: 'O, çox məyus olmuşdu',
-        ch: 'O, çox məyus olmuşdu'
-      },
-      {
-        id: 1036,
-        sntc: 'I met so many new words there',
-        tr: 'Mən orada çoxlu sayda yeni sözlərlə tanış oldum',
-        ch: 'Mən orada çoxlu sayda yeni sözlərlə tanış oldum'
-      },
-      {
-        id: 1037,
-        sntc: 'I sat on a chair',
-        tr: 'Mən stulda oturdum',
-        ch: 'Mən stulda oturdum'
-      },
-      {
-        id: 1038,
-        sntc: 'She sold her flat',
-        tr: 'O, öz mənzilini satdı',
-        ch: 'O, öz mənzilini satdı'
-      },
-      {
-        id: 1039,
-        sntc: 'Do your friends support you?',
-        tr: 'Sənin dostların sənə dəstək olurlar?',
-        ch: 'Sənin dostların sənə dəstək olurlar?'
-      },
-      {
-        id: 1040,
-        sntc: 'I put it on the desk',
-        tr: 'Mən bunu masanın üstünə qoydum',
-        ch: 'Mən bunu masanın üstünə qoydum'
-      }
-    ],
-    [{
-        id: 1041,
-        sntc: 'The soldiers fought very bravely and courageously',
-        tr: 'Əsgərlər çox mərd və cəsarətli döyüşdülər',
-        ch: 'Əsgərlər çox mərd və cəsarətli döyüşdülər'
-      },
-      {
-        id: 1042,
-        sntc: 'I threw this thing away',
-        tr: 'Mən bu əşyanı tulladım',
-        ch: 'Mən bu əşyanı tulladım'
-      },
-      {
-        id: 1043,
-        sntc: 'He paid for us',
-        tr: 'O, bizim üçün pul ödədi',
-        ch: 'O, bizim üçün pul ödədi'
-      },
-      {
-        id: 1044,
-        sntc: 'Who controls it?',
-        tr: 'Bunu kim idarə edir?',
-        ch: 'Bunu kim idarə edir?'
-      },
-      {
-        id: 1045,
-        sntc: 'I grew up in the capital of our country',
-        tr: 'Mən ölkəmizin paytaxtında böyümüşəm',
-        ch: 'Mən ölkəmizin paytaxtında böyümüşəm'
-      },
-      {
-        id: 1046,
-        sntc: 'We won in that competition',
-        tr: 'Biz həmin yarışda qalib gəldik',
-        ch: 'Biz həmin yarışda qalib gəldik'
-      },
-      {
-        id: 1047,
-        sntc: 'He kept his promise',
-        tr: 'O, vədinə əməl etdi',
-        ch: 'O, vədinə əməl etdi'
-      },
-      {
-        id: 1048,
-        sntc: 'I read it in this newspaper',
-        tr: 'Mən bunu bu qəzetdə oxudum',
-        ch: 'Mən bunu bu qəzetdə oxudum'
-      },
-      {
-        id: 1049,
-        sntc: 'He cut the meat into four parts',
-        tr: 'O, əti dörd hissəyə böldü',
-        ch: 'O, əti dörd hissəyə böldü'
-      },
-      {
-        id: 1050,
-        sntc: 'He ate everything',
-        tr: 'O, hər şeyi yedi',
-        ch: 'O, hər şeyi yedi'
-      }
-    ],
-    [{
-        id: 1051,
-        sntc: 'I didn’t devote much time to English',
-        tr: 'Mən ingilis dilinə çox vaxt ayırmadım',
-        ch: 'Mən ingilis dilinə çox vaxt ayırmadım'
-      },
-      {
-        id: 1052,
-        sntc: 'You didn’t tell me the second thing',
-        tr: 'Sən mənə ikinci şeyi demədin',
-        ch: 'Sən mənə ikinci şeyi demədin'
-      },
-      {
-        id: 1053,
-        sntc: 'They didn’t get divorced',
-        tr: 'Onlar boşanmadılar',
-        ch: 'Onlar boşanmadılar'
-      },
-      {
-        id: 1054,
-        sntc: 'You didn’t show it to me',
-        tr: 'Sən bunu mənə göstərmədin',
-        ch: 'Sən bunu mənə göstərmədin'
-      },
-      {
-        id: 1055,
-        sntc: 'We didn’t see him yesterday',
-        tr: 'Biz dünən onu görmədik',
-        ch: 'Biz dünən onu görmədik'
-      },
-      {
-        id: 1056,
-        sntc: 'She didn’t interrupt him',
-        tr: 'O, onun sözünü kəsmədi',
-        ch: 'O, onun sözünü kəsmədi'
-      },
-      {
-        id: 1057,
-        sntc: 'My friend didn’t like this idea',
-        tr: 'Mənim dostum bu fikri bəyənmədi',
-        ch: 'Mənim dostum bu fikri bəyənmədi'
-      },
-      {
-        id: 1058,
-        sntc: 'It didn’t impress us',
-        tr: 'Bu bizə təsir bağışlamadı',
-        ch: 'Bu bizə təsir bağışlamadı'
-      },
-      {
-        id: 1059,
-        sntc: 'This time didn’t suit us',
-        tr: 'Bu vaxt bizim üçün münasib deyildi',
-        ch: 'Bu vaxt bizim üçün münasib deyildi'
-      },
-      {
-        id: 1060,
-        sntc: 'It didn’t disturb us',
-        tr: 'Bu bizi narahat etmədi',
-        ch: 'Bu bizi narahat etmədi'
-      }
-    ],
-    [{
-        id: 1061,
-        sntc: 'She didn’t have such a feeling',
-        tr: 'Onun belə bir hissi yox idi',
-        ch: 'Onun belə bir hissi yox idi'
-      },
-      {
-        id: 1062,
-        sntc: 'Did it really worry you?',
-        tr: 'Bu sizi doğrudan da narahat edib?',
-        ch: 'Bu sizi doğrudan da narahat edib?'
-      },
-      {
-        id: 1063,
-        sntc: 'Did she advise you to do it?',
-        tr: 'O, bunu etməyi sənə məsləhət gördü?',
-        ch: 'O, bunu etməyi sənə məsləhət gördü?'
-      },
-      {
-        id: 1064,
-        sntc: 'Did I say it rightly?',
-        tr: 'Mən bunu düz dedim?',
-        ch: 'Mən bunu düz dedim?'
-      },
-      {
-        id: 1065,
-        sntc: 'We didn’t try to do it',
-        tr: 'Biz bunu etməyə çalışmadıq',
-        ch: 'Biz bunu etməyə çalışmadıq'
-      },
-      {
-        id: 1066,
-        sntc: 'Did we show satisfactory results?',
-        tr: 'Biz qaneedici nəticələr göstərdik?',
-        ch: 'Biz qaneedici nəticələr göstərdik?'
-      },
-      {
-        id: 1067,
-        sntc: 'Did I say it correctly?',
-        tr: 'Mən düz dedim?',
-        ch: 'Mən düz dedim?'
-      },
-      {
-        id: 1068,
-        sntc: 'She didn’t refuse to help us',
-        tr: 'O, bizə kömək etməkdən imtina etmədi',
-        ch: 'O, bizə kömək etməkdən imtina etmədi'
-      },
-      {
-        id: 1069,
-        sntc: 'Did you go there?',
-        tr: 'Sən ora getmisən?',
-        ch: 'Sən ora getmisən?'
-      },
-      {
-        id: 1070,
-        sntc: 'Did I say it incorrectly?',
-        tr: 'Mən bunu səhv dedim?',
-        ch: 'Mən bunu səhv dedim?'
-      }
-    ],
-    [{
-        id: 1071,
-        sntc: 'What videos did you watch?',
-        tr: 'Sən hansı videoları baxdın?',
-        ch: 'Sən hansı videoları baxdın?'
-      },
-      {
-        id: 1072,
-        sntc: 'How often did you go to the gym?',
-        tr: 'Sən idman zalına nə sıxlıqda gedirdin?',
-        ch: 'Sən idman zalına nə sıxlıqda gedirdin?'
-      },
-      {
-        id: 1073,
-        sntc: 'I sat on a chair',
-        tr: 'Mən stulda oturdum',
-        ch: 'Mən stulda oturdum'
-      },
-      {
-        id: 1074,
-        sntc: 'Did she decide not to do it?',
-        tr: 'O, bunu etməmək qərarına gəldi?',
-        ch: 'O, bunu etməmək qərarına gəldi?'
-      },
-      {
-        id: 1075,
-        sntc: 'How much did it cost?',
-        tr: 'Bu neçəyə başa gəldi?',
-        ch: 'Bu neçəyə başa gəldi?'
-      },
-      {
-        id: 1076,
-        sntc: 'When did he come back?',
-        tr: 'O, nə vaxt qayıtdı?',
-        ch: 'O, nə vaxt qayıtdı?'
-      },
-      {
-        id: 1077,
-        sntc: 'I found my wallet',
-        tr: 'Mən pul kisəmi tapdım',
-        ch: 'Mən pul kisəmi tapdım'
-      },
-      {
-        id: 1078,
-        sntc: 'How regularly did you do this kind of exercises?',
-        tr: 'Sən bu cür məşqləri müntəzəm olaraq necə edirdin?',
-        ch: 'Sən bu cür məşqləri müntəzəm olaraq necə edirdin?'
-      },
-      {
-        id: 1079,
-        sntc: 'What did you say?',
-        tr: 'Sən nə dedin?',
-        ch: 'Sən nə dedin?'
-      },
-      {
-        id: 1080,
-        sntc: "We aren't colleagues",
-        tr: 'Biz iş yoldaşları deyilik',
-        ch: 'Biz iş yoldaşları deyilik'
-      }
-    ],
-    [{
-        id: 1081,
-        sntc: 'We were glad to see her',
-        tr: 'Biz onu görməyə şad idik',
-        ch: 'Biz onu görməyə şad idik'
-      },
-      {
-        id: 1082,
-        sntc: 'He’s lucky',
-        tr: 'Onun bəxti getirdi',
-        ch: 'Onun bəxti getirdi'
-      },
-      {
-        id: 1083,
-        sntc: 'They were together',
-        tr: 'Onlar bir yerdə idilər',
-        ch: 'Onlar bir yerdə idilər'
-      },
-      {
-        id: 1084,
-        sntc: 'You were very optimistic',
-        tr: 'Sən çox optimist idin',
-        ch: 'Sən çox optimist idin'
-      },
-      {
-        id: 1085,
-        sntc: 'We were really surprised',
-        tr: 'Biz həqiqətən təəccübləndik',
-        ch: 'Biz həqiqətən təəccübləndik'
-      },
-      {
-        id: 1086,
-        sntc: 'He was bitterly disappointed',
-        tr: 'O, çox məyus oldu',
-        ch: 'O, çox məyus oldu'
-      },
-      {
-        id: 1087,
-        sntc: 'You were too pessimistic',
-        tr: 'Sən çox bədbin idin',
-        ch: 'Sən çox bədbin idin'
-      },
-      {
-        id: 1088,
-        sntc: 'We were against it',
-        tr: 'Biz bunun əleyhinə idik',
-        ch: 'Biz bunun əleyhinə idik'
-      },
-      {
-        id: 1089,
-        sntc: 'He was very talented',
-        tr: 'O, çox istedadlı idi',
-        ch: 'O, çox istedadlı idi'
-      },
-      {
-        id: 1090,
-        sntc: 'They were very experienced employees',
-        tr: 'Onlar çox təcrübəli işçi idilər',
-        ch: 'Onlar çox təcrübəli işçi idilər'
-      }
-    ],
-    [{
-        id: 1091,
-        sntc: 'The houses were big enough',
-        tr: 'Evlər kifayət qədər böyük idi',
-        ch: 'Evlər kifayət qədər böyük idi'
-      },
-      {
-        id: 1092,
-        sntc: 'His answer was wrong',
-        tr: 'Onun cavabı səhv idi',
-        ch: 'Onun cavabı səhv idi'
-      },
-      {
-        id: 1093,
-        sntc: 'This result was amazing',
-        tr: 'Bu nəticə heyrətamiz oldu',
-        ch: 'Bu nəticə heyrətamiz oldu'
-      },
-      {
-        id: 1094,
-        sntc: 'That money was enough',
-        tr: 'Həmin pul kifayət idi',
-        ch: 'Həmin pul kifayət idi'
-      },
-      {
-        id: 1095,
-        sntc: 'The lesson was very useful',
-        tr: 'Dərs çox faydalı idi',
-        ch: 'Dərs çox faydalı idi'
-      },
-      {
-        id: 1096,
-        sntc: 'My teachers were very professional',
-        tr: 'Mənim müəllimlərim çox peşəkar idilər',
-        ch: 'Mənim müəllimlərim çox peşəkar idilər'
-      },
-      {
-        id: 1097,
-        sntc: 'The lecture was too long',
-        tr: 'Mühazirə çox uzun idi',
-        ch: 'Mühazirə çox uzun idi'
-      },
-      {
-        id: 1098,
-        sntc: 'The news was very unusual',
-        tr: 'Bu xəbər çox qəribə idi',
-        ch: 'Bu xəbər çox qəribə idi'
-      },
-      {
-        id: 1099,
-        sntc: 'The women were so kind',
-        tr: 'Qadınlar çox xeyirxah idilər',
-        ch: 'Qadınlar çox xeyirxah idilər'
-      },
-      {
-        id: 1100,
-        sntc: 'The price was low',
-        tr: 'Qiymət aşağı idi',
-        ch: 'Qiymət aşağı idi'
-      }
-    ],
-    [{
-        id: 1101,
-        sntc: 'They weren’t in this situation',
-        tr: 'Onlar bu vəziyyətdə olmayıblar',
-        ch: 'Onlar bu vəziyyətdə olmayıblar'
-      },
-      {
-        id: 1102,
-        sntc: 'We weren’t against it',
-        tr: 'Biz bunun əleyhinə deyildik',
-        ch: 'Biz bunun əleyhinə deyildik'
-      },
-      {
-        id: 1103,
-        sntc: 'They weren’t available ',
-        tr: 'Onlar bəkar deyildilər ',
-        ch: 'Onlar bəkar deyildilər '
-      },
-      {
-        id: 1104,
-        sntc: 'You weren’t right',
-        tr: 'Sən haqlı deyildin',
-        ch: 'Sən haqlı deyildin'
-      },
-      {
-        id: 1105,
-        sntc: 'The price was high',
-        tr: 'Qiymət yüksək idi',
-        ch: 'Qiymət yüksək idi'
-      },
-      {
-        id: 1106,
-        sntc: 'They were unavailable',
-        tr: 'Onlar bekar deyildilər',
-        ch: 'Onlar bekar deyildilər'
-      },
-      {
-        id: 1107,
-        sntc: 'Those results were terrible',
-        tr: 'Bu nəticələr dəhşətli idi',
-        ch: 'Bu nəticələr dəhşətli idi'
-      },
-      {
-        id: 1108,
-        sntc: 'You weren’t confident enough',
-        tr: 'Mən kifayət qədər arxayın deyildin',
-        ch: 'Mən kifayət qədər arxayın deyildin'
-      },
-      {
-        id: 1109,
-        sntc: 'I wasn’t sure',
-        tr: 'Mən əmin deyildim',
-        ch: 'Mən əmin deyildim'
-      },
-      {
-        id: 1110,
-        sntc: 'She wasn’t lucky',
-        tr: 'Onun bəxti gətirmədi',
-        ch: 'Onun bəxti gətirmədi'
-      }
-    ],
-    [{
-        id: 1111,
-        sntc: 'Those events weren’t so important',
-        tr: 'Həmin hadisələr o qədər də əhəmiyyətli deyildi',
-        ch: 'Həmin hadisələr o qədər də əhəmiyyətli deyildi'
-      },
-      {
-        id: 1112,
-        sntc: 'The boy wasn’t strong',
-        tr: 'Oğlan güclü deyildi',
-        ch: 'Oğlan güclü deyildi'
-      },
-      {
-        id: 1113,
-        sntc: 'His attempt was unsuccessful',
-        tr: 'Onun cəhdi uğursuz oldu',
-        ch: 'Onun cəhdi uğursuz oldu'
-      },
-      {
-        id: 1114,
-        sntc: 'The boys weren’t strong',
-        tr: 'Oğlanlar güclü deyildilər',
-        ch: 'Oğlanlar güclü deyildilər'
-      },
-      {
-        id: 1115,
-        sntc: 'The woman wasn’t lonely',
-        tr: 'Qadın tənha deyildi',
-        ch: 'Qadın tənha deyildi'
-      },
-      {
-        id: 1116,
-        sntc: 'The day wasn’t rainy',
-        tr: 'Gün yağışlı deyildi',
-        ch: 'Gün yağışlı deyildi'
-      },
-      {
-        id: 1117,
-        sntc: 'His mistake was very small',
-        tr: 'Onun səhvi çox kiçik idi',
-        ch: 'Onun səhvi çox kiçik idi'
-      },
-      {
-        id: 1118,
-        sntc: 'The days weren’t windy',
-        tr: 'Günlər küləkli deyildi',
-        ch: 'Günlər küləkli deyildi'
-      },
-      {
-        id: 1119,
-        sntc: 'Her mistake was very serious',
-        tr: 'Onun səhvi çox ciddi idi',
-        ch: 'Onun səhvi çox ciddi idi'
-      },
-      {
-        id: 1120,
-        sntc: 'Those exams weren’t easy at all',
-        tr: 'O imtahanlar heç də asan deyildi',
-        ch: 'O imtahanlar heç də asan deyildi'
-      }
-    ],
-    [{
-        id: 1121,
-        sntc: 'Were they hospitable?',
-        tr: 'Onlar qonaqpərvər idilər?',
-        ch: 'Onlar qonaqpərvər idilər?'
-      },
-      {
-        id: 1122,
-        sntc: 'Were we in that place?',
-        tr: 'Biz həmin yerdə idik?',
-        ch: 'Biz həmin yerdə idik?'
-      },
-      {
-        id: 1123,
-        sntc: 'I was surprised',
-        tr: 'Mən təəccübləndim',
-        ch: 'Mən təəccübləndim'
-      },
-      {
-        id: 1124,
-        sntc: 'Was I on the right way?',
-        tr: 'Mən doğru yolda idim?',
-        ch: 'Mən doğru yolda idim?'
-      },
-      {
-        id: 1125,
-        sntc: 'Were you poor?',
-        tr: 'Sən kasıb idin?',
-        ch: 'Sən kasıb idin?'
-      },
-      {
-        id: 1126,
-        sntc: 'The boy was abroad',
-        tr: 'Oğlan xaricdə idi',
-        ch: 'Oğlan xaricdə idi'
-      },
-      {
-        id: 1127,
-        sntc: 'Was he really confident?',
-        tr: 'O, həqiqətən əmin idi?',
-        ch: 'O, həqiqətən əmin idi?'
-      },
-      {
-        id: 1128,
-        sntc: 'Was she on a business trip?',
-        tr: 'O, işgüzar səfərdə idi?',
-        ch: 'O, işgüzar səfərdə idi?'
-      },
-      {
-        id: 1129,
-        sntc: 'We were lucky',
-        tr: 'Bizim bəxtimiz gətirdi',
-        ch: 'Bizim bəxtimiz gətirdi'
-      },
-      {
-        id: 1130,
-        sntc: 'Was she pregnant?',
-        tr: 'O, hamilə idi?',
-        ch: 'O, hamilə idi?'
-      }
-    ],
-    [{
-        id: 1131,
-        sntc: 'Why was he loyal to them?',
-        tr: 'O, nəyə görə onlara sadiq idi?',
-        ch: 'O, nəyə görə onlara sadiq idi?'
-      },
-      {
-        id: 1132,
-        sntc: 'What was too expensive?',
-        tr: 'Nə, çox bahalı idi?',
-        ch: 'Nə, çox bahalı idi?'
-      },
-      {
-        id: 1133,
-        sntc: 'When were they at home?',
-        tr: 'Onlar nə vaxt evdə idilər?',
-        ch: 'Onlar nə vaxt evdə idilər?'
-      },
-      {
-        id: 1134,
-        sntc: 'What was in the box?',
-        tr: 'Qutuda nə var idi?',
-        ch: 'Qutuda nə var idi?'
-      },
-      {
-        id: 1135,
-        sntc: 'How was it?',
-        tr: 'Bu necə olub?',
-        ch: 'Bu necə olub?'
-      },
-      {
-        id: 1136,
-        sntc: 'Who was wrong?',
-        tr: 'Kim haqlı deyildi?',
-        ch: 'Kim haqlı deyildi?'
-      },
-      {
-        id: 1137,
-        sntc: 'How long time ago was it?',
-        tr: 'Bu nə qədər vaxt əvvəl olub?',
-        ch: 'Bu nə qədər vaxt əvvəl olub?'
-      },
-      {
-        id: 1138,
-        sntc: 'What lessons were really interesting?',
-        tr: 'Hansı dərslər həqiqətən maraqlı idi?',
-        ch: 'Hansı dərslər həqiqətən maraqlı idi?'
-      },
-      {
-        id: 1139,
-        sntc: 'Who was in the last place?',
-        tr: 'Sonuncu yerdə kim idi?',
-        ch: 'Sonuncu yerdə kim idi?'
-      },
-      {
-        id: 1140,
-        sntc: 'How far was it?',
-        tr: 'Bu nə qədər uzaq idi?',
-        ch: 'Bu nə qədər uzaq idi?'
-      }
-    ],
-    [{
-        id: 1141,
-        sntc: 'How was the conference?',
-        tr: 'Konfrans necə keçirildi?',
-        ch: 'Konfrans necə keçirildi?'
-      },
-      {
-        id: 1142,
-        sntc: 'When were the students ready?',
-        tr: 'Tələbələr nə vaxt hazır idilər?',
-        ch: 'Tələbələr nə vaxt hazır idilər?'
-      },
-      {
-        id: 1143,
-        sntc: 'What new ideas were really interesting?',
-        tr: 'Hansı yeni fikirlər həqiqətən maraqlı idi?',
-        ch: 'Hansı yeni fikirlər həqiqətən maraqlı idi?'
-      },
-      {
-        id: 1144,
-        sntc: 'Why was your business partner against this decision?',
-        tr: 'Niyə sənin iş yoldaşın bu qərarın əleyhinə idi?',
-        ch: 'Niyə sənin iş yoldaşın bu qərarın əleyhinə idi?'
-      },
-      {
-        id: 1145,
         sntc: 'How long was the meeting?',
         tr: 'Görüş nə qədər davam etdi?',
-        ch: 'Görüş nə qədər davam etdi?'
-      },
-      {
-        id: 1146,
-        sntc: 'When was your wife there?',
-        tr: 'Sənin yoldaşın orada nə vaxt olub?',
-        ch: 'Sənin yoldaşın orada nə vaxt olub?'
-      },
-      {
-        id: 1147,
-        sntc: 'How long was the lesson?',
-        tr: 'Dərs nə qədər davam etdi?',
-        ch: 'Dərs nə qədər davam etdi?'
-      },
-      {
-        id: 1148,
-        sntc: 'Where was your boss last month?',
-        tr: 'Sənin müdirin keçən ay harada idi?',
-        ch: 'Sənin müdirin keçən ay harada idi?'
-      },
-      {
-        id: 1149,
-        sntc: 'How far was the hotel?',
-        tr: 'Otel nə qədər uzaqda idi?',
-        ch: 'Otel nə qədər uzaqda idi?'
-      },
-      {
-        id: 1150,
-        sntc: 'How much money was available?',
-        tr: 'Nə qədər pul mövcud idi?',
-        ch: 'Nə qədər pul mövcud idi?'
+        trt: '',
+        ch: 'Görüş nə qədər oyun məsləhət davam etdi'
       }
     ],
   ]
-};
+}
+// let ab=0;
+// let obj=[]
+// for (let i=0; i<115; i++){
+//     for(let a=0; a<5; a++){
+//         // obj.id=initialState.sentences[0][i][a].id
+//         // if(initialState.sentences[i][a].tr.indexOf('?')>0)ab+=1
+//         // console.log(ab)
+//         obj.push(initialState.sentences[i][a].sntc)
+//       }
+//       }
+// setTimeout(() => {console.log(obj)}, 1000)
 
-// let obj = [];
-// for (let i = 40; i < 50; i++) {
-//   for (let a = 0; a < initialState.sentences[0].length; a++) {
-//     // obj.id=initialState.sentences[0][i][a].id
-//     obj.push(initialState.sentences[i][a].sntc)
-//   }
-//   console.log(obj)
 
-// }
+
+// let obj = {
+//   id: '',
+//   sntc: '',
+//   tr: '',
+//   ch: ''
+// };
+// let number = 550;
+// for (let i = 0; i < 115; i++) {
+  // for (let a = 0; a < 5; a++) {
+    // number++
+    // obj.id=initialState.sentences[i][a].id
+    // obj.id = number
+    // obj.sntc = (initialState.sentences[i][a].sntc)
+    // obj.tr = (initialState.sentences[i][a].tr)
+    // obj.ch = (initialState.sentences[i][a].ch)
+    // console.log(obj)
+  //   if(initialState.sentences[i][a].trt){
+  //   initialState.sentences[i][a].trt.split(' ').forEach(w => {
+  //     if(!initialState.sentences[i][a].ch.includes(w)){
+  //       console.log(w, initialState.sentences[i][a].id)}
+  //     })}
+  // }}
+
 // setTimeout(() => {
 //   console.log(obj)
 // }, 1000)

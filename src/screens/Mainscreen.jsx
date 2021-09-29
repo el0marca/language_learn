@@ -5,7 +5,7 @@ import { TranslateFromAz } from '../components/TranslateFromLMode/TranslateFromA
 import { TranslateFromEn } from '../components/TranslateFromLMode/TranslateFromEn'
 import { LearnWords } from '../components/LearnWords/LearnWords'
 import { Theory } from '../components/Theory/Theory'
-import { Levels } from '../components/Levels/Levels'
+// import { Levels } from '../components/Levels/Levels'
 import Lessons from '../components/Lessons/Lessons'
 import { ListenAndEnter } from '../components/Listening/ListenAndEnter'
 import { ListenAndTranslate } from '../components/Listening/ListenAndTranslate'
@@ -13,6 +13,7 @@ import { MatchWordsEnAz } from '../components/MatchWords/MatchWordsEnAz'
 import { useSelector } from 'react-redux'
 import { TranslateFromAzSecond } from '../components/TranslateFromLMode/TranslateFromAzSecond'
 import { ListenAndEnterSecond } from '../components/Listening/ListenAndEnterSecond'
+import { completeSentence } from '../components/CompleteSentence/CompleteSentence'
 
 const MainStack = createStackNavigator()
 
@@ -22,7 +23,7 @@ export function MainStackscreen({navigation }) {
     navigation.setOptions({
       tabBarVisible: tabVisible
     });
-  }, [navigation,tabVisible]);
+  }, [navigation, tabVisible]);
   return (
     <MainStack.Navigator>
       <MainStack.Screen
@@ -80,22 +81,10 @@ export function MainStackscreen({navigation }) {
         component={ListenAndTranslate}
         options={{headerShown:false}}
       />
+      <MainStack.Screen
+        name="completeSentence"
+        component={completeSentence}
+        options={{headerShown:false}}
+      />
     </MainStack.Navigator>)
 }
-// const LearnWordsStack = createStackNavigator()
-// function LearnWordsStackScreen ({navigation}){
-//   React.useLayoutEffect(() => {
-//     navigation.setOptions({
-//       tabBarVisible: false
-//     })
-//   }, [navigation])
-//   return (
-//     <LearnWordsStack.Navigator>
-//     <LearnWordsStack.Screen
-//     name="LearnWordsS"
-//     component={LearnWords}
-//     // options={{headerShown:false}}
-//     />
-//     </LearnWordsStack.Navigator>
-//   )
-// }

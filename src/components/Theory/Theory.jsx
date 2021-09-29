@@ -16,6 +16,7 @@ import database from '@react-native-firebase/database'
 const { width } = Dimensions.get('window')
 
 export function Theory({ route }) {
+    const voice = useSelector((state) => state.voice.value)
     const user = useSelector(state => state.auth.user)
     const progress = useSelector(state => state.progress[0])
     const dispatch = useDispatch()
@@ -34,7 +35,7 @@ export function Theory({ route }) {
 
     function report() {
         database()
-            .ref(`/theory/${lesson.id}`)
+            .ref(`theory/${lesson.id}`)
             .update({
                 mistake: true
             })
@@ -56,7 +57,7 @@ export function Theory({ route }) {
         try {
             SoundPlayer.stop()
             let url = await storage()
-                .ref(`theory/${lesson.id}.ogg`)
+                .ref(`${voice}/theory/${lesson.id}.ogg`)
                 .getDownloadURL()
             SoundPlayer.loadUrl(url)
         }
@@ -101,10 +102,10 @@ export function Theory({ route }) {
 
     useEffect(() => {
         setOriginSentence([...transSentence.split(' ')]),
-        setChoice(shuffle(transSentence.split(' ')))
+            setChoice(shuffle(transSentence.split(' ')))
     }, [transSentence])
 
-    const progressValue = route.params.lessonIndex * 7 + 4
+    const progressValue = route.params.lessonIndex * 8 + 4
 
     useEffect(() => {
         if (isReady && progressValue > progress) dispatch(updateProgress(progressValue, user))
@@ -197,17 +198,17 @@ export function Theory({ route }) {
                 <Animated.View style={[s.choiceContainer, { opacity: outputAnim }]}>
                     <View style={{ flexDirection: 'row', flexWrap: 'wrap', flex: 1 }}>
                         {choice.map((w, i) =>
-                            <TouchableOpacity style={{ flexDirection: 'row', flexWrap: 'wrap' }} key={i} onPress={() => answer(w, i)} disabled={result || keyArray.some(id => id == i)}>
+                            <TouchableOpacity activeOpacity={0.7} style={{ flexDirection: 'row', flexWrap: 'wrap' }} key={i} onPress={() => answer(w, i)} disabled={result || keyArray.some(id => id == i)}>
                                 <Text style={[s.choice, pronoun.some(e => e == w.replace('?', '')) ? s.pronoun : null, adverb.some(e => e == w.replace('?', '')) ? s.adverb : null, verbs.some(e => e == w.replace('?', '')) ? s.verb : demPronouns.some(e => e == w.replace('?', '')) ? s.demPronouns : pPronouns.some(e => e == w.replace('?', '')) ? s.pPronouns : article.some(e => e == w.replace('?', '')) ? s.article : qWords.some(e => e == w.replace('?', '')) ? s.qWords : adjectives.some(e => e == w.replace('?', '')) ? s.adjectives : null, keyArray.some(id => id == i) ? s.chosen : null]}>{w}</Text>
                             </TouchableOpacity>)}
                     </View>
-                    {!result && <Animated.View style={{ width: '100%', opacity: 1, position: 'absolute', bottom: 30 }}>
-                        <TouchableOpacity disabled={result} onPress={!isReady ? next : isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>
-                            <Text style={{ color: '#fff', fontSize: 25, backgroundColor: '#1AB248', padding: 10, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold', marginHorizontal: 20 }}>
+                    {result && <Animated.View style={{ width: '100%', opacity: 1, position: 'absolute', bottom: 30, paddingHorizontal:20, opacity:buttonAnim }}>
+                        <TouchableOpacity activeOpacity={0.7} disabled={!result} onPress={!isReady ? next : isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>
+                            <Text style={{ color: '#fff', fontSize: 25, backgroundColor: '#1AB248', padding: 12, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold' }}>
                                 {!isReady ? 'növbəti' : isReady ? 'dərslər' : null}
                             </Text>
-                            <TouchableOpacity disabled={!result} onPress={play} style={{ position: 'absolute', transform: [{ translateY: 10 }], right: 30 }} >
-                                <Image style={{ width: 30, height: 30 }} source={require('../../img/speakerW.png')} />
+                            <TouchableOpacity activeOpacity={0.7} disabled={!result} onPress={play} style={{ position: 'absolute', transform: [{ translateY: 6 }], right: 10 }} >
+                                <Image style={{ width: 40, height: 40 }} source={require('../../img/speakerW.png')} />
                             </TouchableOpacity>
                         </TouchableOpacity>
                     </Animated.View>}
@@ -282,7 +283,7 @@ const s = StyleSheet.create({
         color: '#000',
         marginRight: 5,
         marginBottom: 5,
-        paddingVertical: 9,
+        paddingVertical: 10,
         paddingHorizontal: 15,
         backgroundColor: '#F7F9FA',
         fontFamily: 'SFUIDisplay-Regular'

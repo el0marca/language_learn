@@ -35,7 +35,6 @@ export function ResultModal({ result, transSentence, sentence, errorData }) {
                 </TouchableOpacity>
                 </View>
             <Text style={{ color: '#fff', fontSize: 18, fontFamily: 'SFUIDisplay-Regular', marginTop: 5, marginRight: 15 }}>{transSentence} — {sentence}</Text>
-
         </View>
     )
 }

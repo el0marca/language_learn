@@ -2,7 +2,7 @@ const initialState = {
   lessons: [
     [{
         id: '1',
-        descr: 'İngilis dilində ən sadə cümlələr mübtəda + feil (xəbər) köməyi ilə formalaşır. İngilis dilində zamanlar haqqında ümümi anlayış əldə etmək üçün cədvələ baxmaq məsləhətdir',
+        descr: 'İngilis dilində ən sadə cümlələr mübtəda + feil (xəbər) köməyi ilə formalaşır. Ümümi anlayış əldə etmək üçün zamanlar cədvəlinə baxmaq məsləhətdir',
         expl: 'I/You/We/They feil ...',
         sntc: 'Mən burada təhsil alıram',
         tr: 'I study here'
@@ -58,7 +58,7 @@ const initialState = {
       },
       {
         id: '9',
-        descr: 'İsimlərin cəm halını bildirmək üçün -s əlavə olunur. Really əksər hallarda mübtədadan sonra yer tutur',
+        descr: 'İsimlərin cəm halını bildirmək üçün -s əlavə olunur. Really adətən mübtədadan sonra yerləşir',
         expl: 'He/She/It really feil+s isim+s',
         sntc: 'O, həqiqətən kitabları xoşlayır',
         tr: 'He really likes books'
@@ -395,7 +395,7 @@ const initialState = {
         descr: 'Bir şey etmək istəyini ifadə etmək üçün:',
         expl: 'mübtəda want to feil ...',
         sntc: 'Mən bunu bilmək istəyirəm',
-        tr: 'I want to know i\u202Et'
+        tr: 'I wants to know i\u202Et'
       },
       {
         id: '57',
@@ -777,7 +777,7 @@ const initialState = {
         id: 110,
         descr: 'İngilis dilində sual vermək üçün do və yaxud does köməkçi feil tələb olunur',
         expl: 'Do I/you/we/they feil ... ?',
-        sntc: 'Bizim kifayət qədər praktikamız var?',
+        sntc: 'Bizim kifayət qədər təcrübəmiz var?',
         tr: 'Do we have enough practice?'
       }
     ],
@@ -1500,21 +1500,21 @@ const initialState = {
       },
       {
         id: 212,
-        descr: 'İngilis dilində bəzi söz və ifadəler cümlədə müyyən yer tuturlar. Very ilə işlənən ifadələr adətən cümlənin sonunda yerləşir',
+        descr: 'Very ilə işlənən ifadələr adətən cümlənin sonunda yerləşir',
         expl: '... very well',
         sntc: 'Mən İngilis dilində çox yaxşı danışmaq istəyirəm',
         tr: 'I want to speak English very well'
       },
       {
         id: 213,
-        descr: 'İngilis dilində bəzi söz və ifadəler cümlədə müyyən yer tuturlar. Very ilə işlənən ifadələr cümlənin sonunda yerləşir',
+        descr: 'Very ilə işlənən ifadələr cümlənin sonunda yerləşir',
         expl: '... very hard',
-        sntc: 'Mən səylə işləyirəm',
+        sntc: 'Mən çox səylə işləyirəm',
         tr: 'I work very hard'
       },
       {
         id: 214,
-        descr: 'İngilis dilində bəzi söz və ifadəler cümlədə müyyən yer tuturlar. Always/often/usually mübtədadan sonra və feildən əvvəl yerləşirlər',
+        descr: 'Always/often/usually mübtədadan sonra və feildən əvvəl yerləşirlər',
         expl: 'mübtəda often feil ...',
         sntc: 'O, çox vaxt bu barədə məndən soruşur',
         tr: 'He often asks me about i\u202Et'
@@ -1691,14 +1691,14 @@ const initialState = {
       },
       {
         id: 239,
-        descr: 'İngilis dilində bəzi feillər (be, seem, become, look, feel, sound, taste, smell) yalnız sifətlər ilə istifadə olunurlar. Bu səbəbdən to be feil köməyi ilə cümlə qurduğda biz həmişə adjective (sifət) istifadə edirik',
+        descr: 'İngilis dilində bəzi feillər ilə (be, seem, become, look, feel, sound, taste, smell) birlikdə zərf istifadə oluna bilməz. Bu səbəbdən be feil köməyi ilə cümlə qurarkən biz həmişə adjective (sifət) istifadə edirik',
         expl: 'It is ...',
         sntc: 'Bu aydındır',
         tr: 'It is obvious'
       },
       {
         id: 240,
-        descr: 'İngilis dilində bəzi feillər (be, seem, become, look, feel, sound, taste, smell) köməyi ilə cümlə qurarkən zərf istifadə oluna bilməz. Bu səbəbdən be feil köməyi ilə cümlə qurarkən biz həmişə adjective (sifət) istifadə edirik',
+        descr: 'İngilis dilində bəzi feillər ilə (be, seem, become, look, feel, sound, taste, smell) birlikdə zərf istifadə oluna bilməz. Bu səbəbdən be feil köməyi ilə cümlə qurarkən biz həmişə adjective (sifət) istifadə edirik',
         expl: 'It is ...',
         sntc: 'Bu qeyri-mümkündir',
         tr: 'It is impossible'
@@ -1706,35 +1706,35 @@ const initialState = {
     ],
     [{
         id: 241,
-        descr: 'So/such - elə, belə (çox) tərcümə olunurlar, və mənalarına görə bir-biri ilə yaxın olmasına baxmayaraq fərqlı formada işlənirlər. So - sifət və zərflərin qarşısında işlənir, such - yalnız isimin qaşısında',
+        descr: 'So/such - elə, belə (çox) tərcümə olunurlar, və mənalarına görə bir-biri ilə yaxın olmasına baxmayaraq fərqlı formada işlənirlər. So - sifət və zərflərin önündə, such - yalnız isimin',
         expl: '... so sifət',
         sntc: 'Bu elə (çox) maraqlıdır',
         tr: 'It’s so interesting'
       },
       {
         id: 242,
-        descr: 'So/such - elə, belə (çox) tərcümə olunurlar, və mənalarına görə bir-biri ilə yaxın olmasına baxmayaraq fərqlı formada işlənirlər. So - sifət və zərflərin qarşısında işlənir, such - yalnız isimin qaşısında',
+        descr: 'So - sifət və zərflərin önündə işlənir, such - yalnız isimin',
         expl: '... such isim',
         sntc: 'Mən belə şeyləri xoşlamıram',
         tr: 'I don’t like such things'
       },
       {
         id: 243,
-        descr: 'So/such - elə, belə (çox) tərcümə olunurlar, və mənalarına görə bir-biri ilə yaxın olmasına baxmayaraq fərqlı formada işlənirlər. So - sifət və zərflərin qarşısında işlənir, such - yalnız isimin qaşısında',
+        descr: 'So - sifət və zərflərin önündə işlənir, such - yalnız isimin',
         expl: '... so sifət',
         sntc: 'Bu elə (çox) vacibdir',
         tr: 'It’s so important'
       },
       {
         id: 244,
-        descr: 'So/such - elə, belə (çox) tərcümə olunurlar, və mənalarına görə bir-biri ilə yaxın olmasına baxmayaraq fərqlı formada işlənirlər. So - sifət və zərflərin qarşısında işlənir, such - yalnız isimin qaşısında, əgər ismin önündə sifət varsa such sifətin önünə keçir',
+        descr: 'So - sifət və zərflərin önündə işlənir, such - yalnız isimin, əgər ismin önündə sifət varsa such sifətin önünə keçir',
         expl: '... such artikl sifət isim',
         sntc: 'Bu elə (çox) vacib görüşdür',
         tr: 'It’s such an important meeting'
       },
       {
         id: 245,
-        descr: 'So/such - elə, belə (çox) tərcümə olunurlar, və mənalarına görə bir-biri ilə yaxın olmasına baxmayaraq fərqlı formada işlənirlər. So - sifət və zərflərin qarşısında işlənir, such - yalnız isimin qaşısında',
+        descr: 'So - sifət və zərflərin önündə işlənir, such - yalnız isimin',
         expl: '... so sifət',
         sntc: 'Bu elə (çox) populyardı',
         tr: 'It’s so popular'
@@ -1748,28 +1748,28 @@ const initialState = {
       },
       {
         id: 247,
-        descr: 'So/such - elə, belə tərcümə olunurlar, və mənalarına görə bir-biri ilə yaxın olmasına baxmayaraq fərqlı formada işlənirlər. So - sifət və zərflərin qarşısında işlənir, such - yalnız isimin qaşısında, əgər ismin önündə sifət varsa such sözü sifətin önünə keçir',
+        descr: 'So - sifət və zərflərin önündə işlənir, such - yalnız isimin, əgər ismin önündə sifət varsa such sifətin önünə keçir',
         expl: '... such artikl sifət isim',
         sntc: 'O, elə (çox) gözəl qızdır',
         tr: 'She’s such a beautiful girl'
       },
       {
         id: 248,
-        descr: 'So/such - elə, belə tərcümə olunurlar, və mənalarına görə bir-biri ilə yaxın olmasına baxmayaraq fərqlı formada işlənirlər. ‘So’ - sifət və zərflərin qarşısında işlənir, such - yalnız isimin qaşısında, əgər ismin önündə sifət varsa such sözü sifətin önünə keçir',
+        descr: 'So - sifət və zərflərin önündə işlənir, such - yalnız isimin, əgər ismin önündə sifət varsa such sifətin önünə keçir',
         expl: '... such artikl sifət isim',
         sntc: 'O, elə (çox) ağıllı oğlandır',
         tr: 'He’s such a clever boy'
       },
       {
         id: 249,
-        descr: 'So/such - elə, belə tərcümə olunurlar, və mənalarına görə bir-biri ilə yaxın olmasına baxmayaraq fərqlı formada işlənirlər. So - sifət və zərflərin qarşısında işlənir, such - yalnız isimin qaşısında, əgər ismin önündə sifət varsa such sözü sifətin önünə keçir',
+        descr: 'So - sifət və zərflərin önündə işlənir, such - yalnız isimin, əgər ismin önündə sifət varsa such sifətin önünə keçir',
         expl: '... such artikl sifət isim',
         sntc: 'O, elə (çox) kasıb oğlandır',
         tr: 'He’s such a poor boy'
       },
       {
         id: 250,
-        descr: 'So/such - elə, belə tərcümə olunurlar, və mənalarına görə bir-biri ilə yaxın olmasına baxmayaraq fərqlı formada işlənirlər. So - sifət və zərflərin qarşısında işlənir, such - yalnız isimin qaşısında, əgər ismin önündə sifət varsa such sözü sifətin önünə keçir',
+        descr: 'So - sifət və zərflərin önündə işlənir, such - yalnız isimin, əgər ismin önündə sifət varsa such sifətin önünə keçir',
         expl: '... such artikl sifət isim',
         sntc: 'O, elə (çox) xeyirxah qadındır',
         tr: 'She’s such a kind woman'
@@ -1991,9 +1991,9 @@ const initialState = {
     [{
         id: 281,
         descr: 'Aşağıdakı tapşırıqda mübtəda (videos) = they və ona görə to be feilin ‘are’ forması işlənir',
-        expl: 'Is yiyəlik⁣⁣⁣⁣⁣\u00A0əvəzliyi mübtəda ... ?',
+        expl: 'Are yiyəlik⁣⁣⁣⁣⁣\u00A0əvəzliyi mübtəda ... ?',
         sntc: 'Onun videoları gülməlidir?',
-        tr: 'Is his video\u202Es funny?'
+        tr: 'Are his video\u202Es funny?'
       },
       {
         id: 282,
@@ -2161,183 +2161,183 @@ const initialState = {
       {
         id: 305,
         descr: 'To be feil köməyi ilə xüsusi sual',
-        expl: 'How to\u00A0be\u00A0feil ... ?',
+        expl: 'How is ... ?',
         sntc: 'Dərs necədir?',
         tr: 'How is the lesson?'
       },
       {
         id: 306,
         descr: 'To be feil köməyi ilə xüsusi sual',
-        expl: 'How to\u00A0be\u00A0feil ... ?',
+        expl: 'How is ... ?',
         sntc: 'Film necədir?',
         tr: 'How is the movie?'
       },
       {
         id: 307,
         descr: 'To be feil köməyi ilə xüsusi sual',
-        expl: 'Where to\u00A0be\u00A0feil ... ?',
+        expl: 'Where is ... ?',
         sntc: 'Sənin otağın haradadır?',
         tr: 'Where is your room?'
       },
       {
         id: 308,
         descr: 'To be feil köməyi ilə xüsusi sual',
-        expl: 'Where to\u00A0be\u00A0feil ... ?',
+        expl: 'Where is ... ?',
         sntc: 'Bu yer haradadır?',
         tr: 'Where is this place?'
       },
       {
         id: 309,
         descr: 'To be feil köməyi ilə xüsusi sual',
-        expl: 'Who to\u00A0be\u00A0feil ... ?',
+        expl: 'Who is ... ?',
         sntc: 'O qadın kimdir?',
         tr: 'Who is that woman?'
       },
       {
         id: 310,
         descr: 'To be feil köməyi ilə xüsusi sual',
-        expl: 'Who to\u00A0be\u00A0feil ... ?',
-        sntc: 'Bu adamlar kimlərdir?',
+        expl: 'Who are ... ?',
+        sntc: 'Bu adamlar kimdir?',
         tr: 'Who are these people?'
       }
     ],
     [{
         id: 311,
         descr: 'To be feil köməyi ilə xüsusi sual',
-        expl: 'Why to\u00A0be\u00A0feil işarə\u00A0əvəzliyi mübtəda ... ?',
+        expl: 'Why is ... mübtəda ... ?',
         sntc: 'Niyə bu qayda bələ vacibdir?',
         tr: 'Why is this rul\u202Ee so important?'
       },
       {
         id: 312,
         descr: 'To be feil köməyi ilə xüsusi sual',
-        expl: 'Why to\u00A0be\u00A0feil mübtəda ... ?',
+        expl: 'Why ... you ... ?',
         sntc: 'Sən niyə burdasan?',
         tr: 'Why are you here?'
       },
       {
         id: 313,
         descr: 'To be feil köməyi ilə xüsusi sual',
-        expl: 'What to\u00A0be\u00A0feil ... ?',
+        expl: 'What is ... ?',
         sntc: 'Onun işi nədir?',
         tr: 'What is her job?'
       },
       {
         id: 314,
         descr: 'To be feil köməyi ilə xüsusi sual',
-        expl: 'How interesting to\u00A0be\u00A0feil işarə\u00A0əvəzliyi ... ?',
+        expl: 'How interesting is ... ?',
         sntc: 'Bu jurnal nə dərəcədə maraqlıdır?',
         tr: 'How interesting is this magazine?'
       },
       {
         id: 315,
         descr: 'To be feil köməyi ilə xüsusi sual',
-        expl: 'How useful to\u00A0be\u00A0feil artikl ... ?',
+        expl: 'How useful is ... ?',
         sntc: 'Dərs nə dərəcədə faydalıdır?',
         tr: 'How useful is the lesson?'
       },
       {
         id: 316,
         descr: 'To be feil köməyi ilə xüsusi sual',
-        expl: 'How much to\u00A0be\u00A0feil işarə\u00A0əvəzliyi pair of ... ?',
+        expl: 'How much is ... pair of ... ?',
         sntc: 'Bu cüt şalvar neçəyədir?',
         tr: 'How much is this pair of trousers?'
       },
       {
         id: 317,
         descr: 'To be feil köməyi ilə təsdiq',
-        expl: 'mübtəda to\u00A0be\u00A0feil full of ...',
+        expl: 'You/We/They are full of ...',
         sntc: 'Biz nikbinliklə doluyuq',
         tr: 'We are full of optimism'
       },
       {
         id: 318,
         descr: 'To be feil köməyi ilə təsdiq',
-        expl: 'mübtəda to\u00A0be\u00A0feil full of ...',
+        expl: 'I am ...',
         sntc: 'Mən güclə doluyam',
         tr: 'I am full of power'
       },
       {
         id: 319,
         descr: 'To be feil köməyi ilə təsdiq',
-        expl: 'mübtəda to\u00A0be\u00A0feil on holiday',
+        expl: 'He/She/It is ...',
         sntc: 'O, məzuniyyətdədir',
         tr: 'He is on holiday'
       },
       {
         id: 320,
         descr: 'To be feil köməyi ilə təsdiq',
-        expl: 'mübtəda to\u00A0be\u00A0feil on vacation',
+        expl: 'You/We/They are ...',
         sntc: 'Biz məzuniyyətdəyik',
-        tr: 'We are on holiday'
+        tr: 'We are on vacation'
       }
     ],
     [{
         id: 321,
         descr: 'To be feil köməyi ilə inkar',
-        expl: 'mübtəda to\u00A0be\u00A0qısa\u00A0forma in the ...',
+        expl: 'He/She/It isn’t in the ...',
         sntc: 'O, hamamda deyil',
         tr: 'He isn’t in the bathroom'
       },
       {
         id: 322,
         descr: 'To be feil köməyi ilə inkar',
-        expl: 'mübtəda to\u00A0be\u00A0qısa\u00A0forma in the ...',
+        expl: 'He/She/It isn’t in the ...',
         sntc: 'O, mətbəxdə deyil',
         tr: 'She isn’t in the kitchen'
       },
       {
         id: 323,
         descr: 'İdiom: at all - heç',
-        expl: 'mübtəda to\u00A0be\u00A0qısa\u00A0forma ... at all',
+        expl: 'You/We/They aren’t ... at all',
         sntc: 'Biz heç yorulmamışıq',
         tr: 'We aren’t tired at all'
       },
       {
         id: 324,
         descr: 'İdiom: at all - heç',
-        expl: 'artikl mübtəda to\u00A0be\u00A0qısa\u00A0forma ... at all',
+        expl: '... mübtəda isn’t ... at all',
         sntc: 'Kitab heç darıxdırıcı deyil',
         tr: 'The boo\u202Ek isn’t boring at all'
       },
       {
         id: 325,
         descr: 'To be feil köməyi ilə təsdiq',
-        expl: 'to\u00A0be\u00A0qısa\u00A0forma satisfied with ...',
+        expl: 'to\u00A0be\u00A0feil satisfied with ...',
         sntc: 'Bu nəticə məni qane edir',
         tr: "I'm satisfied with this result"
       },
       {
         id: 326,
         descr: 'To be feil köməyi ilə inkar',
-        expl: 'mübtəda to\u00A0be\u00A0qısa\u00A0forma in the ...',
+        expl: '... mübtəda isn’t in the ...',
         sntc: 'Bu əşya qutuda deyil',
-        tr: 'This thing isn’t in the box'
+        tr: 'This thin\u202Eg isn’t in the box'
       },
       {
         id: 327,
         descr: 'To be feil köməyi ilə sual',
-        expl: 'to\u00A0be\u00A0feil mübtəda afraid of ...',
+        expl: 'Are you/we/they ...',
         sntc: 'Onlar bundan qorxurlar?',
         tr: 'Are they afraid of it\u202E?'
       },
       {
         id: 328,
         descr: 'To be feil köməyi ilə sual',
-        expl: 'to\u00A0be\u00A0feil mübtəda in the ...',
+        expl: 'Is he/she/it in the ...',
         sntc: 'O, axırıncı yerdədir?',
         tr: 'Is he in the last place?'
       },
       {
         id: 329,
-        descr: 'İngilis dilində yalnız tək və cəm halda işlənən sözlər var. Money sözü yalnız tək halda işlənir',
+        descr: 'İngilis dilində yalnız tək və cəm halda işlənən sözlər var. Money həmişə tək halda istifadə olunur',
         expl: 'to\u00A0be\u00A0feil this money ...',
         sntc: 'Bu pullar kifayət edir?',
         tr: 'Is this money enough?'
       },
       {
         id: 330,
-        descr: 'News sözü İngilis dilində yalnız tək halda işlənir',
+        descr: 'News həmişə tək halda istifadə olunur',
         expl: 'to\u00A0be\u00A0feil artikl news ...',
         sntc: 'Xəbərlər maraqlıdır?',
         tr: 'Is the news interesting?'
@@ -2346,63 +2346,63 @@ const initialState = {
     [{
         id: 331,
         descr: 'To be feil köməyi ilə təsdiq',
-        expl: 'to\u00A0be\u00A0qısa\u00A0forma ... işarə\u00A0əvəzliyi ...',
+        expl: 'You’re/We’re/They’re ...',
         sntc: 'Onlar bu qərarın əleyhinədir',
         tr: "They're against this decision"
       },
       {
         id: 332,
         descr: 'To be feil köməyi ilə inkar',
-        expl: 'mübtəda to\u00A0be\u00A0qısa\u00A0forma ...',
+        expl: 'You/We/They aren’t ...',
         sntc: 'Onlar bu qərarın əleyhinə deyillər',
         tr: "They aren't against this decision"
       },
       {
         id: 333,
         descr: 'To be feil köməyi ilə sual',
-        expl: 'to\u00A0be\u00A0feil mübtəda ... ?',
+        expl: 'Are you/we/they ... ?',
         sntc: 'Onlar bu qərarın əleyhinədir?',
         tr: 'Are they against this decision?'
       },
       {
         id: 334,
         descr: 'To be feil köməyi ilə təsdiq',
-        expl: 'to\u00A0be\u00A0qısa\u00A0forma artikl ...',
-        sntc: 'Bu eynidir',
-        tr: "It's the same"
+        expl: 'He’s/She’s/It’s ...',
+        sntc: 'Bu həmin maşındır',
+        tr: "It's the same car"
       },
       {
         id: 335,
         descr: 'To be feil köməyi ilə inkar',
-        expl: 'mübtəda to\u00A0be\u00A0qısa\u00A0forma ...',
-        sntc: 'Bu eyni deyil',
-        tr: "It isn't the same"
+        expl: 'He/She/It isn’t ...',
+        sntc: 'Bu həmin maşın deyil',
+        tr: "It isn't the same car"
       },
       {
         id: 336,
         descr: 'To be feil köməyi ilə sual',
-        expl: 'to\u00A0be\u00A0feil mübtəda ...',
-        sntc: 'Bu eynidir?',
-        tr: 'Is it the same?'
+        expl: 'Is he/she/it ...',
+        sntc: 'Bu həmin maşındır?',
+        tr: 'Is it the same car?'
       },
       {
         id: 337,
         descr: 'To be feil köməyi ilə təsdiq',
-        expl: 'to\u00A0be\u00A0qısa\u00A0forma ... feil ...',
+        expl: 'He’s/She’s/It’s ... feil ...',
         sntc: 'O, onu görməyə şaddır',
         tr: "He's glad to see her"
       },
       {
         id: 338,
         descr: 'To be feil köməyi ilə inkar',
-        expl: 'mübtəda to\u00A0be\u00A0qısa\u00A0forma ... feil ...',
+        expl: 'He/She/It isn’t ...',
         sntc: 'O, onu görməyə şad deyil',
         tr: "He isn't glad to see her"
       },
       {
         id: 339,
         descr: 'To be feil köməyi ilə sual',
-        expl: 'to\u00A0be\u00A0feil mübtəda ... feil ...',
+        expl: 'Is he/she/it ...',
         sntc: 'O, onu görməyə şaddır?',
         tr: 'Is he glad to see her?'
       },
@@ -2411,41 +2411,41 @@ const initialState = {
         descr: 'To be feil köməyi ilə təsdiq',
         expl: '... mübtəda to\u00A0be\u00A0feil ...',
         sntc: 'Qapı açıqdır',
-        tr: 'The door is open'
+        tr: 'The doo\u202Er is open'
       }
     ],
     [{
         id: 341,
         descr: 'İdiom: on time - vaxtında',
-        expl: 'mübtəda ... on time',
+        expl: 'You/We/They ... on time',
         sntc: 'Biz həmişə vaxtında bitiririk',
         tr: 'We always finish on time'
       },
       {
         id: 342,
         descr: 'İdiom: on time - vaxtında',
-        expl: 'mübtəda ... feil on time',
+        expl: '... on time',
         sntc: 'O, adətən vaxtında gəlir',
         tr: 'He usually comes on time'
       },
       {
         id: 343,
         descr: 'İngilis dilində feillərin əksəriyyəti ilə müyəyyən sözönü işlənir',
-        expl: 'mübtəda ... laugh at ...',
+        expl: '... laughs at ...',
         sntc: 'O, çox vaxt onlara gülür',
-        tr: 'He often laugh at them'
+        tr: 'He often laughs at them'
       },
       {
         id: 344,
-        descr: 'İngilis dilində sabit ifadələr. a waste of - israf edilmə, itirmə',
-        expl: 'to\u00A0be\u00A0qısa\u00A0forma a waste of ...',
+        descr: 'İngilis dilində sabit ifadə: a waste of - israf edilmə, itirmə',
+        expl: 'to\u00A0be\u00A0feil a waste of ...',
         sntc: 'Bu, vaxt itkisidir',
         tr: 'It’s a waste of time'
       },
       {
         id: 345,
         descr: 'İngilis dilində önlük. In summer/winter/spring/autumn',
-        expl: 'Yiyəlik⁣⁣⁣⁣⁣\u00A0əvəzliyi ... and ... in summer',
+        expl: '... and ... in summer',
         sntc: 'Mənim dostum və mən yayda orada yaşayırıq',
         tr: 'My friend and I live there in summer'
       },
@@ -2458,29 +2458,29 @@ const initialState = {
       },
       {
         id: 347,
-        descr: 'İngilis dilində feillərin əksəriyyəti ilə müyəyyən sözönü işlənir',
-        expl: 'mübtəda feil to adapt to ...',
+        descr: 'İngilis dilində bəzi feillər ilə müyəyyən sözönü işlənir',
+        expl: '... adapt to ...',
         sntc: 'Mənə bu şərtlərə uyğunlaşmaq lazımdır',
         tr: 'I need to adapt to these conditions'
       },
       {
         id: 348,
         descr: 'İngilis dilində sabit ifadə. as soon as possible - mümkün qədər tez',
-        expl: 'mübtəda feil to ... as soon as possible',
+        expl: '... as soon as possible',
         sntc: 'Mənə bunu mümkün qədər tez bitirmək lazımdır',
         tr: 'I need to finish it as soon as possible'
       },
       {
         id: 349,
-        descr: 'İngilis dilində feillərin əksəriyyəti ilə müyəyyən sözönü işlənir',
-        expl: 'mübtəda feil to prepare for ...',
-        sntc: 'İmtahana hazırlaşmağa ehtiyacım var',
+        descr: 'İngilis dilində bəzi feillər ilə müyəyyən sözönü işlənir',
+        expl: '... prepare for ...',
+        sntc: 'Mənim imtahana hazırlaşmağa ehtiyacım var',
         tr: 'I need to prepare for the exam'
       },
       {
         id: 350,
         descr: "Like-dan sonra gələn felə 'ing' əlavə etmək mümkündür",
-        expl: 'mübtəda like fel+ing ...',
+        expl: '... like fel+ing ...',
         sntc: 'Mən İngilis dilini öyrənməyi sevirəm',
         tr: 'I like learning English'
       }
@@ -2488,7 +2488,7 @@ const initialState = {
     [{
         id: 351,
         descr: 'Ingilis dilində sözönü. by - ... qədər (vaxt haqqında). Məsələn: by six - saat altıya qədər',
-        expl: 'Do ... by next week',
+        expl: '... by next week',
         sntc: 'Sənə bunu gələn həftəyə qədər bitirmək lazımdır?',
         tr: 'Do you need to finish it by next week?'
       },
@@ -2523,20 +2523,20 @@ const initialState = {
       {
         id: 356,
         descr: 'Ingilis dilində sözönü: on - üzərində, üstündə, -da/də',
-        expl: '... on ... table',
+        expl: '... on the table',
         sntc: 'Açarlar stolun üstündədir',
-        tr: 'The keys on the table'
+        tr: 'The keys are on the table'
       },
       {
         id: 357,
         descr: 'Ingilis dilində sözönü: on - üzərində, üstündə, -da/də',
-        expl: '... on ... desk',
+        expl: '... on my desk',
         sntc: 'Qələm masamın üstündə deyil',
         tr: 'The pen isn’t on my desk'
       },
       {
         id: 358,
-        descr: 'İngilis dilində feillərin əksəriyyəti ilə müyəyyən sözönü işlənir',
+        descr: 'İngilis dilində bəzi feillər ilə müyəyyən sözönü işlənir',
         expl: '... communicate with ...',
         sntc: 'Mənim dostum onlarla ünsiyyət qurmur',
         tr: 'My friend doesn’t communicate with them'
@@ -2579,43 +2579,43 @@ const initialState = {
       },
       {
         id: 364,
-        descr: 'Çoxluğu bildirən many və much ifadələrdən fərqli olaraq `a lot (of)` və yaxud `lots (of)` həm sayılan həm də sayılmayan isimlər ilə istifadə oluna bilərlər',
+        descr: 'Çoxluğu bildirən many və much sözlərdən fərqli olaraq a lot (of) və yaxud lots (of) həm sayılan həm də sayılmayan isimlər ilə istifadə oluna bilərlər',
         expl: '... a lot',
-        sntc: 'Bu dərsləri çox bəyənirəm',
+        sntc: 'Mən bu dərsləri çox sevirəm',
         tr: 'I like these lessons a lot'
       },
       {
         id: 365,
         descr: 'Ingilis dilində sual',
-        expl: 'Does ... feil ...',
+        expl: 'Does ... feil ... ?',
         sntc: 'Onun qardaşı qəribə davranır?',
         tr: 'Does his brother behave strangely?'
       },
       {
         id: 366,
         descr: 'elder - daha yaşlı',
-        expl: 'yiyəlik⁣⁣⁣⁣⁣\u00A0əvəzliyi elder brother',
+        expl: 'Is ... elder brother ?',
         sntc: 'Bu oğlan onun böyük qardaşıdır?',
         tr: 'Is this boy his elder brother?'
       },
       {
         id: 367,
         descr: 'younger - yaşa görə kiçik',
-        expl: 'yiyəlik⁣⁣⁣⁣⁣\u00A0əvəzliyi younger sister',
+        expl: 'Is ... younger sister ?',
         sntc: 'Bu qız onun kiçik bacısıdır?',
         tr: 'Is this girl her younger sister?'
       },
       {
         id: 368,
         descr: 'İdiom: the meaning of - ... mənası',
-        expl: 'Do ... the meaning of ...',
+        expl: 'Do ... the meaning of ... ?',
         sntc: 'Bütün şagirdlər bu ifadənin mənasını bilirlər?',
         tr: 'Do all the students know the meaning of this expression?'
       },
       {
         id: 369,
         descr: 'İdiom: the meaning of - ... mənası',
-        expl: '... the meaning of ...',
+        expl: '... the meaning of ... ?',
         sntc: 'Bu sözün mənası nədir?',
         tr: "What's the meaning of this word?"
       },
@@ -2637,27 +2637,27 @@ const initialState = {
       {
         id: 372,
         descr: 'İdiom: each other - bir-birini',
-        expl: '... each other',
+        expl: '... each other ?',
         sntc: 'Siz bir-birinizi tanıyırsız?',
         tr: 'Do you know each other?'
       },
       {
         id: 373,
-        descr: 'İngilis dilində hamçinin bəzi sifətlər müyəyyən sözönülərlə bir yerdə işlənir. interested in - ... maraqlanmaq',
+        descr: 'To be interested in - ... maraqlanmaq',
         expl: '... interested in ...',
-        sntc: 'Mən bununla maraqlanıram',
-        tr: "I'm interested in i\u202Et"
+        sntc: 'Mən siyasətlə maraqlanıram',
+        tr: "I'm interested in politics"
       },
       {
         id: 374,
-        descr: 'İdiom: to be keen on - həvəsi olmaq',
+        descr: 'İdiom: be keen on - həvəsi olmaq',
         expl: '... keen on ...',
         sntc: 'Mən musiqiyə həvəsliyəm',
         tr: "I'm keen on music"
       },
       {
         id: 375,
-        descr: 'To be be keen on - həvəsi olmaq',
+        descr: 'To be keen on - həvəsi olmaq',
         expl: '... keen on feil+ing',
         sntc: 'Mən oxumağa həvəsliyəm',
         tr: "I'm keen on reading"
@@ -2672,7 +2672,7 @@ const initialState = {
       {
         id: 377,
         descr: 'İngilis dilində inkar cümləsi',
-        expl: 'mübtəda köməkçi\u00A0feil feil ...',
+        expl: 'I/You/We/They don’t feil ...',
         sntc: 'Onlar ayrı yaşamır',
         tr: "They don't live separately"
       },
@@ -2693,7 +2693,7 @@ const initialState = {
       {
         id: 380,
         descr: 'İngilis dilində xüsusi sual',
-        expl: 'How köməkçi\u00A0feil ... prepare for ...',
+        expl: 'How do I/you/we/they ... prepare for ...',
         sntc: 'Sən adətən imtahanlarına necə hazırlaşırsan?',
         tr: 'How do you usually prepare for your exams?'
       }
@@ -2701,28 +2701,28 @@ const initialState = {
     [{
         id: 381,
         descr: 'To be feil köməyi ilə xüsusi sual cümləsi',
-        expl: 'Why to\u00A0be\u00A0feil mübtəda ...',
+        expl: 'Why is he/she/it ...',
         sntc: 'Bu nəyə görə səhvdir?',
         tr: 'Why is it wrong?'
       },
       {
         id: 382,
         descr: 'İngilis dilində bəzi feillər (be, seem, become, look, feel, sound, taste, smell) yalnız sifətlər ilə istifadə olunurlar',
-        expl: 'Why köməkçi\u00A0feil mübtəda seem sifət',
+        expl: 'Why does he/she/it seem sifət',
         sntc: 'Bu nəyə görə yanlış görünür?',
         tr: 'Why does it seem wrong?'
       },
       {
         id: 383,
         descr: 'Xüsusi sual cümləsi',
-        expl: 'How köməkçi\u00A0feil mübtəda ...',
+        expl: 'How do I/you/we/they ...',
         sntc: 'Sən adətən ad gününü necə qeyd edirsən?',
         tr: 'How do you usually celebrate your birthday?'
       },
       {
         id: 384,
         descr: 'Xüsusi sual cümləsi',
-        expl: 'What kind of ... köməkçi\u00A0feil mübtəda prefer to feil',
+        expl: 'What kind of ... do I/you/we/they ...',
         sntc: 'Nə cür videolara baxmağa üstünlük verirsən?',
         tr: 'What kind of videos do you prefer to watch?'
       },
@@ -2736,28 +2736,28 @@ const initialState = {
       {
         id: 386,
         descr: 'Xüsusi sual cümləsi sual sözü ilə başlayır',
-        expl: 'Why ... mübtəda feil ...',
-        sntc: 'Bu nəyə görə balaca görünür?',
-        tr: 'Why does it look small?'
+        expl: 'Why does ... feil ... ?',
+        sntc: 'Niyə bu qız balaca görünür?',
+        tr: 'Why does this girl look small?'
       },
       {
         id: 387,
         descr: 'Xüsusi sual cümləsi sual sözü ilə başlayır',
-        expl: 'Where to\u00A0be\u00A0feil mübtəda',
+        expl: 'Where is he/she/it ?',
         sntc: 'O, haradadır?',
         tr: 'Where is he?'
       },
       {
         id: 388,
         descr: 'Xüsusi sual cümləsi sual sözü ilə başlayır',
-        expl: 'Where köməkçi\u00A0feil mübtəda ... ?',
+        expl: 'Where does he/she/it ... ?',
         sntc: 'O, harada yaşayır?',
         tr: 'Where does he live?'
       },
       {
         id: 389,
         descr: 'İdiom: thanks to ... - ... sayəsində, ... görə, ...köməyi ilə',
-        expl: 'to\u00A0be\u00A0qısa\u00A0forma fond of ... thanks to ...',
+        expl: 'I’m fond of ... thanks to ...',
         sntc: 'Böyük tərəqqim sayəsində mən bu dərsləri çox sevirəm',
         tr: 'I’m fond of these lessons thanks to my great progress'
       },
@@ -2785,7 +2785,7 @@ const initialState = {
       },
       {
         id: 393,
-        descr: 'Must modal feil vacibliyi bildirir. Must yalnız indiki və gələcək sadə zamanda olan hərəkətlərə aid işlənir, başqa zamanlarda isə onun sinonimi - have to. ',
+        descr: 'Must modal feil vacibliyi bildirir. Must yalnız indiki və gələcək sadə zamanda olan hərəkətlərə aid işlənir, başqa zamanlarda isə onun sinonimi - have to',
         expl: 'mübtəda modal\u00A0feil feil ...',
         sntc: 'Mən bunu etməliyəm',
         tr: 'I must do i\u202Et'
@@ -2813,29 +2813,29 @@ const initialState = {
       },
       {
         id: 397,
-        descr: 'I would like konstruksiyasının qısa forması əvəzliyə ‘d əlavə etməklə formalaşır. Another sözü tək halında olan isimlə birgə işlənir',
-        expl: '... like to feil in another ...',
+        descr: 'Another tək halında olan isimlə birlikdə işlənir',
+        expl: '... another place',
         sntc: 'O, başqa yerdə yaşamaq istərdi',
         tr: 'She’d like to live in another place'
       },
       {
         id: 398,
-        descr: 'Other sözü cəm halında olan isimlə birgə işlənir',
-        expl: 'mübtəda feil to feil other ...',
+        descr: 'Other cəm halında olan isimlə birlikdə işlənir',
+        expl: '... other books',
         sntc: 'Mən başqa kitablar oxumaq istəyirəm',
         tr: 'I want to read other books'
       },
       {
         id: 399,
         descr: 'Very ilə işlənən ifadələr adətən cümlənin sonunda yerləşir',
-        expl: 'mübtəda usually feil very ...',
+        expl: '... very slowly',
         sntc: 'O, adətən İngilis dilində çox yavaş danışır',
         tr: 'She usually speaks English very slowly'
       },
       {
         id: 400,
-        descr: 'I would like konstruksiyasının qısa forması əvəzliyə ‘d əlavə etməklə formalaşır',
-        expl: '... like to feil about ...',
+        descr: 'Talk about ... - bir şey haqqında danışmaq',
+        expl: '... talk about ...',
         sntc: 'Mən bu problem haqqında danışmaq istərdim',
         tr: 'I’d like to talk about this problem'
       }
@@ -2844,13 +2844,13 @@ const initialState = {
         id: 401,
         sntc: 'Onun işi nədir?',
         tr: "What's his job?",
-        ch: "What's his job him works?"
+        ch: "What's his job him works"
       },
       {
         id: 402,
         sntc: 'Sən yorğunsan?',
         tr: 'Are you tired?',
-        ch: 'Are you tired? lazy?'
+        ch: 'Are you tired lazy'
       },
       {
         id: 403,
@@ -2874,13 +2874,13 @@ const initialState = {
         id: 406,
         sntc: 'Bu nə dərəcədə vacibdir?',
         tr: 'How important is it?',
-        ch: 'How important useful are is it?'
+        ch: 'How important useful are is it'
       },
       {
         id: 407,
         sntc: 'Orada nə var?',
         tr: "What's there?",
-        ch: "What's here be there?"
+        ch: "What's here be there"
       },
       {
         id: 408,
@@ -2898,7 +2898,7 @@ const initialState = {
         id: 410,
         sntc: 'Dostunun iyirmi iki yaşı var?',
         tr: 'Is your friend twenty-two?',
-        ch: 'Is your friend our Are twenty-two?'
+        ch: 'Is your friend our Are twenty-two'
       }
     ],
     [{
@@ -2929,13 +2929,13 @@ const initialState = {
         id: 415,
         sntc: 'Sənin adın nədir?',
         tr: "What's your name?",
-        ch: "What's your you names name?"
+        ch: "What's your you names name"
       },
       {
         id: 416,
         sntc: 'Sən hansı filmlərə daha çox heyran qalırsan?',
         tr: 'What movies do you admire more?',
-        ch: 'What movies do you admire movie does more?'
+        ch: 'What movies do you admire movie does more'
       },
       {
         id: 417,
@@ -2966,7 +2966,7 @@ const initialState = {
         id: 421,
         sntc: 'Sənə nə kömək edir?',
         tr: 'What helps you?',
-        ch: 'What helps help Who you?'
+        ch: 'What helps help Who you'
       },
       {
         id: 422,
@@ -2978,7 +2978,7 @@ const initialState = {
         id: 423,
         sntc: 'Bu kitab neçəyədir?',
         tr: 'How much is this book?',
-        ch: 'How much is are book this book?'
+        ch: 'How much is are book this book'
       },
       {
         id: 424,
@@ -3014,20 +3014,20 @@ const initialState = {
         id: 429,
         sntc: 'Bu onun rəyidir?',
         tr: 'Is it his opinion?',
-        ch: 'Is it his him think opinion?'
+        ch: 'Is it his him think opinion'
       },
       {
         id: 430,
         sntc: 'O, bu barədə tez-tez düşünür?',
         tr: 'Does he often think about it?',
-        ch: 'Does he often think about it?'
+        ch: 'Does he often think about thing toy it'
       }
     ],
     [{
         id: 431,
         sntc: 'Sizin ananızın neçə yaşı var?',
         tr: 'How old is your mother?',
-        ch: 'How old is your father are mother?'
+        ch: 'How old is your father are mother'
       },
       {
         id: 432,
@@ -3063,7 +3063,7 @@ const initialState = {
         id: 437,
         sntc: 'Gülməli bir filmdir?',
         tr: 'Is it a funny movie?',
-        ch: 'Is it a an interesting funny movie?'
+        ch: 'Is it a an interesting funny movie'
       },
       {
         id: 438,
@@ -3081,14 +3081,14 @@ const initialState = {
         id: 440,
         sntc: 'Sizi nə ruhlandırır?',
         tr: 'What inspires you?',
-        ch: 'What inspires Who inspire you?'
+        ch: 'What inspires Who inspire you'
       }
     ],
     [{
         id: 441,
         sntc: 'Əhəmiyyətsiz görünən nədir?',
         tr: 'What seems unimportant?',
-        ch: 'What seems seem very unimportant?'
+        ch: 'What seems seem very unimportant'
       },
       {
         id: 442,
@@ -3106,7 +3106,7 @@ const initialState = {
         id: 444,
         sntc: 'Sən nə bilirsən?',
         tr: 'What do you know?',
-        ch: 'What do you does understand know?'
+        ch: 'What do you does understand know'
       },
       {
         id: 445,
@@ -3118,7 +3118,7 @@ const initialState = {
         id: 446,
         sntc: 'Bu çox darıxdırıcıdır',
         tr: "It's very boring",
-        ch: "It's very boring"
+        ch: "It's very good lazy boring"
       },
       {
         id: 447,
@@ -3130,13 +3130,13 @@ const initialState = {
         id: 448,
         sntc: 'Bu uşaqlar üçündür?',
         tr: 'Is it for children?',
-        ch: 'Is it for Are this children?'
+        ch: 'Is it for Are this children'
       },
       {
         id: 449,
         sntc: 'Burada nə var?',
         tr: "What's here?",
-        ch: "What's there are here?"
+        ch: "What's there are here"
       },
       {
         id: 450,
@@ -3155,7 +3155,7 @@ const initialState = {
         id: 452,
         sntc: 'Onu heyran edən kimdir?',
         tr: 'Who admires him?',
-        ch: 'Who admires his admire him?'
+        ch: 'Who admires his admire him'
       },
       {
         id: 453,
@@ -3167,7 +3167,7 @@ const initialState = {
         id: 454,
         sntc: 'O, bunu necə izah edir?',
         tr: 'How does she explain it?',
-        ch: 'How does she explain do you it?'
+        ch: 'How does she explain do you it'
       },
       {
         id: 455,
@@ -3191,7 +3191,7 @@ const initialState = {
         id: 458,
         sntc: 'Səhvlərin üzərində işləyirsən?',
         tr: 'Do you work on your mistakes?',
-        ch: 'Do you job work you on your mistakes?'
+        ch: 'Do you job work you on your mistakes'
       },
       {
         id: 459,
@@ -3203,20 +3203,20 @@ const initialState = {
         id: 460,
         sntc: 'Bu neçəyədir?',
         tr: 'How much does it cost?',
-        ch: 'How much does it costs do cost?'
+        ch: 'How much does it costs do cost'
       }
     ],
     [{
         id: 461,
         sntc: 'O, adətən hansı kanala baxır?',
         tr: 'Which channel does he usually watch?',
-        ch: 'Which channel does he often do usually watch?'
+        ch: 'Which channel does he often do usually watch'
       },
       {
         id: 462,
         sntc: 'Bu nəyə görə düzgün görünür?',
         tr: 'Why does it seem right?',
-        ch: 'Why does it seem see do right?'
+        ch: 'Why does it seem see do right'
       },
       {
         id: 463,
@@ -3234,7 +3234,7 @@ const initialState = {
         id: 465,
         sntc: 'Sən məni anlayırsan?',
         tr: 'Do you understand me?',
-        ch: 'Do you they Does understand me?'
+        ch: 'Do you they Does understand me'
       },
       {
         id: 466,
@@ -3262,28 +3262,28 @@ const initialState = {
       },
       {
         id: 470,
-        sntc: 'Bizim kifayət qədər praktikamız var?',
+        sntc: 'Bizim kifayət qədər təcrübəmiz var?',
         tr: 'Do we have enough practice?',
-        ch: 'Do we have has they enough practice?'
+        ch: 'Do we have has they enough practice'
       }
     ],
     [{
         id: 471,
         sntc: 'Səni qorxuya salan nədir?',
         tr: 'What frightens you?',
-        ch: 'What Why need frightens you?'
+        ch: 'What Why need frightens you'
       },
       {
         id: 472,
         sntc: 'Maraqlı görünən nədir?',
         tr: 'What seems interesting?',
-        ch: 'What seems such interest interesting?'
+        ch: 'What seems such interest interesting'
       },
       {
         id: 473,
         sntc: 'Onun o yerə gəlməyi lazımdır?',
         tr: 'Does she need to come to that place?',
-        ch: 'Does she need must go to come to that place?'
+        ch: 'Does she need must go to come to that place'
       },
       {
         id: 474,
@@ -3301,13 +3301,13 @@ const initialState = {
         id: 476,
         sntc: 'Nəyə görə onun dərsləri belə yararsızdır?',
         tr: 'Why are her lessons so ineffective?',
-        ch: 'Why are her lessons so such What ineffective?'
+        ch: 'Why are her lessons so such What ineffective'
       },
       {
         id: 477,
         sntc: 'Onlar birlikdədirlər?',
         tr: 'Are they together?',
-        ch: 'Are they together?'
+        ch: 'Are they happy together'
       },
       {
         id: 478,
@@ -3325,7 +3325,7 @@ const initialState = {
         id: 480,
         sntc: 'Qəribə görünən nədir?',
         tr: 'What looks strange?',
-        ch: 'What looks Why strange?'
+        ch: 'What looks Why strange'
       }
     ],
     [{
@@ -3344,13 +3344,13 @@ const initialState = {
         id: 483,
         sntc: 'Oyun maraqlıdır?',
         tr: 'Is the game interesting?',
-        ch: 'Is the game play Are interesting?'
+        ch: 'Is the game play Are interesting'
       },
       {
         id: 484,
         sntc: 'Onlar sənə nə demək istəyirlər?',
         tr: 'What do they want to tell you?',
-        ch: 'What do they can  want to tell you?'
+        ch: 'What do they can  want to tell you'
       },
       {
         id: 485,
@@ -3368,19 +3368,19 @@ const initialState = {
         id: 487,
         sntc: 'Sizi daha çox nə təşviq edir?',
         tr: 'What motivates you more?',
-        ch: 'What motivates big most you more?'
+        ch: 'What motivates big most you more'
       },
       {
         id: 488,
         sntc: 'İdeya maraqlıdır?',
         tr: 'Is the idea interesting?',
-        ch: 'Is the idea Are this interesting?'
+        ch: 'Is the idea Are this interesting'
       },
       {
         id: 489,
         sntc: 'Kitab çox maraqlıdır?',
         tr: 'Is the book so interesting?',
-        ch: 'Is the book so such an interesting?'
+        ch: 'Is the book so such an interesting'
       },
       {
         id: 490,
@@ -3391,21 +3391,21 @@ const initialState = {
     ],
     [{
         id: 491,
-        sntc: 'Bu geyim neçəyədir?',
+        sntc: 'Bu paltar neçəyədir?',
         tr: 'How much is this dress?',
-        ch: 'How much is are shoes this dress?'
+        ch: 'How much is are shoes this dress'
       },
       {
         id: 492,
         sntc: 'Bu ucuzdur?',
         tr: 'Is it cheap?',
-        ch: 'Is it expensive he cheap?'
+        ch: 'Is it expensive he cheap'
       },
       {
         id: 493,
         sntc: 'Siz onu dəstəkləyirsiniz?',
         tr: 'Do you support him?',
-        ch: 'Do you support we help him?'
+        ch: 'Do you support we help him'
       },
       {
         id: 494,
@@ -3441,7 +3441,7 @@ const initialState = {
         id: 499,
         sntc: 'Onun dostu bunu başa düşür?',
         tr: 'Does his friend understand it?',
-        ch: 'Does his friend know learn understand it?'
+        ch: 'Does his friend know learn understand it'
       },
       {
         id: 500,
@@ -3452,38 +3452,38 @@ const initialState = {
     ],
     [{
         id: 501,
-        descr: 'Sifətlərin qarşısına `get` feili əlavə etdikdən sonra həmin sifət feilləşir. Misal üçün: I`m rich - mən varlıyam və I`m getting rich - mən varlanıram. Yuxarıdaki cümlə indiki davamedici zamanda olduğuna görə get feilin getting forması istifadə olunub',
-        expl: 'mübtəda will get feil ...',
-        sntc: 'Sən tezliklə yorulacaqsan',
-        tr: 'You will get tired soon'
-      },
-      {
-        id: 502,
         descr: 'Gələcək sadə zamanda cümlə qurmaq üçün will köməkçi feil tələb olunur',
         expl: 'mübtəda will feil ...',
         sntc: 'Onlar ora gedəcəklər',
         tr: 'They will go there'
       },
       {
-        id: 503,
+        id: 502,
         descr: 'Gələcək sadə zamanda cümlə qurmaq üçün will köməkçi feil tələb olunur',
         expl: 'mübtəda will feil ...',
         sntc: 'Onlar gəliri artıracaqlar',
         tr: 'They will maximize the profit'
       },
       {
-        id: 504,
+        id: 503,
         descr: 'Gələcək sadə zamanda cümlə qurmaq üçün will köməkçi feil tələb olunur',
         expl: 'mübtəda will feil ...',
         sntc: 'Onun boş vaxtı olacaq',
         tr: 'He will have free time'
       },
       {
-        id: 505,
+        id: 504,
         descr: 'Gələcək sadə zamanda cümlə qurmaq üçün will köməkçi feil tələb olunur',
         expl: 'mübtəda will feil ...',
         sntc: 'O, bunu manipulyasiya edəcək',
         tr: 'He will manipulate i\u202Et'
+      },
+      {
+        id: 505,
+        descr: 'Sifətlərin qarşısına get-feil əlavə etdikdən sonra həmin sifət feilləşir. Misal üçün: I`m rich - mən varlıyam və I`m getting rich - mən varlanıram. Yuxarıdaki cümlə indiki davamedici zamanda olduğuna görə get feilin getting forması istifadə olunub',
+        expl: 'mübtəda will get feil ...',
+        sntc: 'Sən tezliklə yorulacaqsan',
+        tr: 'You will get tired soon'
       },
       {
         id: 506,
@@ -3494,10 +3494,10 @@ const initialState = {
       },
       {
         id: 507,
-        descr: 'Gələcək sadə zamanda cümlə qurmaq üçün qısa forma əvəzliyə `’ll` əlavə etməklə formalaşır',
-        expl: 'əvəzlik+’ll feil ...',
-        sntc: 'Mən bu məqsədə çatacağam',
-        tr: 'I’ll achieve this aim'
+        descr: 'Gələcək sadə zamanda cümlə qurmaq üçün qısa forma əvəzliyə `’ll` əlavə etməklə formalaşır. Sabit ifadə: sooner or later - gec-tez',
+        expl: 'əvəzlik+’ll feil ... sooner or later',
+        sntc: 'Mən bu məqsədə gec-tez çatacağam',
+        tr: 'I’ll achieve this aim sooner or later'
       },
       {
         id: 508,
@@ -3560,7 +3560,7 @@ const initialState = {
         id: 516,
         descr: 'Gələcək sadə zamanda cümlə qurmaq üçün will köməkçi feil tələb olunur',
         expl: '... mübtəda will feil ...',
-        sntc: 'Hakimiyyət bunu hansısa yolla tənzimləyəcək',
+        sntc: 'Hökümət orqanları bunu hansısa yolla tənzimləyəcək',
         tr: 'The authoritie\u202Es will regulate i\u202Et somehow'
       },
       {
@@ -3589,7 +3589,7 @@ const initialState = {
         descr: 'Gələcək sadə zamanda cümlə qurmaq üçün will köməkçi feil tələb olunur',
         expl: '... mübtəda will feil ...',
         sntc: 'Onun dostu buna peşman olacaq',
-        tr: 'His frien\u202Ed will regret i\u202Et '
+        tr: 'His frien\u202Ed will regret i\u202Et'
       }
     ],
     [{
@@ -3643,10 +3643,10 @@ const initialState = {
       },
       {
         id: 528,
-        descr: 'Gələcək sadə zamanda inkar etmək üçün qısa forma:',
-        expl: 'mübtəda won’t feil ...',
-        sntc: 'Biz bu şirkətlə rəqabət aparmayacıq',
-        tr: 'We won’t compete with this company'
+        descr: 'Sabit ifadə: any longer - artıq',
+        expl: 'mübtəda won’t feil ... any longer',
+        sntc: 'Biz artıq bu şirkətlə rəqabət aparmayacıq',
+        tr: 'We won’t compete with this company any longer'
       },
       {
         id: 529,
@@ -3668,7 +3668,7 @@ const initialState = {
         descr: 'Gələcək sadə zamanda inkar etmək üçün qısa forma:',
         expl: '... mübtəda won’t insist on ...',
         sntc: 'Mənim müdirim bunu təkid etməyəcək',
-        tr: 'My bos\u202E\u202Es won’t insist on i\u202Et'
+        tr: 'My bos\u202Es won’t insist on i\u202Et'
       },
       {
         id: 532,
@@ -3724,7 +3724,7 @@ const initialState = {
         descr: 'Gələcək sadə zamanda inkar etmək üçün qısa forma:',
         expl: '... mübtəda won’t feil ...',
         sntc: 'O tələbələrin kifayət qədər təcrübəsi olmayacaq',
-        tr: 'Those student\u202Es won’t have enough practice '
+        tr: 'Those student\u202Es won’t have enough practice'
       },
       {
         id: 540,
@@ -4012,7 +4012,7 @@ const initialState = {
       },
       {
         id: 580,
-        descr: 'İfadəli feil: be away - olmama, uzaqda olmaq',
+        descr: 'İfadəli feil: be away - olmamaq, uzaqda olmaq',
         expl: 'How long will ... be away ?',
         sntc: 'Sənin valideynlərin nə vaxta qədər olmayacaqlar?',
         tr: 'How long will your parents be away?'
@@ -4040,11 +4040,11 @@ const initialState = {
         id: 584,
         sntc: 'Sizi daha çox motivasiya edən nədir?',
         tr: 'What motivates you more?',
-        ch: 'What motivates me much you more?'
+        ch: 'What motivates me much you more'
       },
       {
         id: 585,
-        sntc: 'Hakimiyyət bir şey etməli olacaq',
+        sntc: 'Hökümət orqanları bir şey etməli olacaq',
         tr: 'The authorities will need to do something',
         ch: 'The authorities want all will need to do something'
       },
@@ -4064,7 +4064,7 @@ const initialState = {
         id: 588,
         sntc: 'İdeya maraqlıdır?',
         tr: 'Is the idea interesting?',
-        ch: 'Is the idea think realy interesting?'
+        ch: 'Is the idea think realy interesting'
       },
       {
         id: 589,
@@ -4089,7 +4089,7 @@ const initialState = {
         id: 592,
         sntc: 'Kitab elə maraqlıdır?',
         tr: 'Is the book so interesting?',
-        ch: 'Is the book so such a interesting?'
+        ch: 'Is the book so such a interesting'
       },
       {
         id: 593,
@@ -4101,7 +4101,7 @@ const initialState = {
         id: 594,
         sntc: 'Tələbələr bu cür məşqləri nə sıxlıqda edəcəklər?',
         tr: 'How often will the students do this kind of exercises?',
-        ch: 'How often will these the students do this kind of exercises?'
+        ch: 'How often will these the students do this kind of exercises'
       },
       {
         id: 595,
@@ -4131,7 +4131,7 @@ const initialState = {
         id: 599,
         sntc: 'Oğlan bu imtahanı nəhayət verəcək?',
         tr: 'Will the boy pass this exam at last?',
-        ch: 'Will the boy price lasted pass this exam at last?'
+        ch: 'Will the boy price lasted pass this exam at last'
       },
       {
         id: 600,
@@ -4150,13 +4150,13 @@ const initialState = {
         id: 602,
         sntc: 'Ailəniz neçə yerə baş çəkəcək?',
         tr: 'How many places will your family visit?',
-        ch: 'How many places will your sister family visit?'
+        ch: 'How many places will your sister family visit'
       },
       {
         id: 603,
         sntc: 'Sən adətən boş vaxtını necə keçirirsən?',
         tr: 'How do you usually spend your free time?',
-        ch: 'How do you usually spend we What your free time?'
+        ch: 'How do you usually spend we What your free time'
       },
       {
         id: 604,
@@ -4205,7 +4205,7 @@ const initialState = {
         id: 611,
         sntc: 'Mən bu işi mümkün qədər tez bitirməyə çalışacam',
         tr: 'I’ll try to finish this work as soon as possible',
-        ch: 'I’ll try to finish this work as soon as possible'
+        ch: 'I’ll try to finish these this work as soon as possible'
       },
       {
         id: 612,
@@ -4235,13 +4235,13 @@ const initialState = {
         id: 616,
         sntc: 'Onlar hansı meyvə-tərəvəzləri orada yeyəcəklər?',
         tr: 'What fruit and vegetables will they eat there?',
-        ch: 'What fruit and vegetables eats Who will they eat there?'
+        ch: 'What fruit and vegetables eats Who will they eat there'
       },
       {
         id: 617,
         sntc: 'Bu üsul yenidir?',
         tr: 'Is this method new?',
-        ch: 'Is this method the old new?'
+        ch: 'Is this method the old new'
       },
       {
         id: 618,
@@ -4253,13 +4253,13 @@ const initialState = {
         id: 619,
         sntc: 'Bu hadisə harada baş tutacaq?',
         tr: 'Where will this event take place?',
-        ch: 'Where will this event mistery takes take place?'
+        ch: 'Where will this event mistery takes take place'
       },
       {
         id: 620,
         sntc: 'Siz bir-birinizi tanıyırsınız?',
         tr: 'Do you know each other?',
-        ch: 'Do you know each another understand other?'
+        ch: 'Do you know each another understand other'
       }
     ],
     [{
@@ -4278,7 +4278,7 @@ const initialState = {
         id: 623,
         sntc: 'O, bu sirri saxlayacaq?',
         tr: 'Will she keep this secret?',
-        ch: 'Will she keep keeps sentence this secret?'
+        ch: 'Will she keep keeps sentence this secret'
       },
       {
         id: 624,
@@ -4302,7 +4302,7 @@ const initialState = {
         id: 627,
         sntc: 'Onlar ticarət uğuru qazanacaqlar?',
         tr: 'Will they have a commercial success?',
-        ch: 'Will they have a has politic commercial success?'
+        ch: 'Will they have a has politic commercial success'
       },
       {
         id: 628,
@@ -4327,7 +4327,7 @@ const initialState = {
         id: 631,
         sntc: 'Onun müəllimi ne cür nümunələr verir?',
         tr: 'What kind of examples does his teacher give?',
-        ch: 'What kind of examples does his teacher give?'
+        ch: 'What kind of examples does his teacher take give'
       },
       {
         id: 632,
@@ -4339,13 +4339,13 @@ const initialState = {
         id: 633,
         sntc: 'O, bunu necə alacaq?',
         tr: 'How will he manage to buy it?',
-        ch: 'How will he manage to buy borrow here it?'
+        ch: 'How will he manage to buy borrow here it'
       },
       {
         id: 634,
         sntc: 'Bu hasisə vacib görünür?',
         tr: 'Does this event seem important?',
-        ch: 'Does this event seem useful useless important?'
+        ch: 'Does this event seem useful useless important'
       },
       {
         id: 635,
@@ -4363,7 +4363,7 @@ const initialState = {
         id: 637,
         sntc: 'O, kinoteatra nə sıxlıqda gedir?',
         tr: 'How often does she go to the cinema?',
-        ch: 'How often much does do she go to the cinema?'
+        ch: 'How often much does do she go to the cinema'
       },
       {
         id: 638,
@@ -4375,7 +4375,7 @@ const initialState = {
         id: 639,
         sntc: 'Bu sənə heç bir kömək etməyəcək',
         tr: "It won't help you at all",
-        ch: "It won't help you at all"
+        ch: "It won't help you always at all"
       },
       {
         id: 640,
@@ -4400,7 +4400,7 @@ const initialState = {
         id: 643,
         sntc: 'Mənim kifayət qədər pulum var?',
         tr: 'Do I have enough money?',
-        ch: 'Do I have enough has Does money?'
+        ch: 'Do I have enough has Does money'
       },
       {
         id: 644,
@@ -4412,7 +4412,7 @@ const initialState = {
         id: 645,
         sntc: 'Kimlər maraqlanacaq?',
         tr: 'Who will be interested?',
-        ch: 'Who will What interest be interested?'
+        ch: 'Who will What interest be interested'
       },
       {
         id: 646,
@@ -4505,7 +4505,7 @@ const initialState = {
         id: 659,
         descr: 'start - başlamaq',
         expl: 'mübtəda started feil+ing ...',
-        sntc: 'Mən iki il əvvəl İngilis dilini öyrənməyə başladım',
+        sntc: 'Mən iki il əvvəl İngilis dilini öyrənməyə başlamışam',
         tr: 'I started learning English two years ago'
       },
       {
@@ -4560,10 +4560,10 @@ const initialState = {
       },
       {
         id: 667,
-        descr: 'enter - daxil olmaq, girmək; qəbul olunmaq (yalnız universitetə)',
+        descr: 'change - dəyişmək, dəyişdirmək',
         expl: 'mübtəda feil ...',
-        sntc: 'O, binaya daxil oldu',
-        tr: 'He entered the building'
+        sntc: 'Bu mənim həyatımı deyişdi',
+        tr: 'It changed my life'
       },
       {
         id: 668,
@@ -4740,7 +4740,7 @@ const initialState = {
         id: 692,
         descr: 'inform (of) - məlumat vermək, xəbər vermək',
         expl: 'mübtəda feil ...',
-        sntc: 'Onlar bu problem barədə bizə məlumat verdilər',
+        sntc: 'Onlar bu problem ilə bağlı bizə məlumat verdilər',
         tr: 'They informed us of this problem'
       },
       {
@@ -4774,7 +4774,7 @@ const initialState = {
       {
         id: 697,
         descr: 'hate - nifrət etmək',
-        expl: 'mübtəda ... feil feil+ing ...',
+        expl: 'mübtəda ... hated feil+ing ...',
         sntc: 'Mən bunu etməkdən həqiqətən nifrət edirdim',
         tr: 'I really hated doing i\u202Et'
       },
@@ -4883,7 +4883,7 @@ const initialState = {
         id: 714,
         sntc: 'Mən çox səylə oxuyurdum',
         tr: 'I studied very hard',
-        ch: 'I studied very hard'
+        ch: 'I studied very much hard'
       },
       {
         id: 715,
@@ -5119,7 +5119,7 @@ const initialState = {
       },
       {
         id: 753,
-        sntc: 'Mən ingilis dilində danışmağı təcrübə etdim',
+        sntc: 'Mən İngilis dilində danışmağı təcrübə etdim',
         tr: 'I practiced speaking English',
         ch: 'I practiced tell always speaking English'
       },
@@ -5143,7 +5143,7 @@ const initialState = {
       },
       {
         id: 757,
-        sntc: 'O, çox böyük məbləğdə pul yatırdı',
+        sntc: 'O, çox böyük məbləğdə pul sərmayə qoydu',
         tr: 'He invested such a big sum of money',
         ch: 'He invested an such a big sum of money'
       },
@@ -5174,7 +5174,7 @@ const initialState = {
       },
       {
         id: 762,
-        sntc: 'O, çox az pul yatırdı',
+        sntc: 'O, çox az pul sərmayə qoydu',
         tr: 'He invested too little money',
         ch: 'He invested too little much You money'
       },
@@ -5412,7 +5412,7 @@ const initialState = {
     ],
     [{
         id: 801,
-        descr: 'Ingilis dilində feillərin 3 forması mövcuddur. Birinci və ikinci formalar sadə zamanlarla, üçüncü forma isə Perfect qrup zamanlar ilə istifadə olunur. Qaydalı feillərdən fərqli olaraq qaydasız feillərin 2 və 3 formaların yaranması ümumi qaydaya riayət etmir və onları yalnız əzbərləmək gərəkdir. have - had - had - sahib olmaq, malik olmaq',
+        descr: 'Ingilis dilində feillərin 3 forması mövcuddur. Birinci və ikinci formalar sadə zamanlarla, üçüncü forma isə Perfect qrup zamanlarla istifadə olunur. Qaydalı feillərdən fərqli olaraq qaydasız feillərin 2 və 3 formaların yaranması ümumi qaydaya riayət etmir və onları yalnız əzbərləmək lazımdır. have - had - had - sahib olmaq, malik olmaq',
         expl: 'mübtəda feil ...',
         sntc: 'Onun çox maraqlı ideyası var idı',
         tr: 'He had a very interesting idea'
@@ -5447,7 +5447,7 @@ const initialState = {
       },
       {
         id: 806,
-        descr: 'can - could - bacarmaq. Can feilin məsdər forması yoxdur və onun əvəzinə be able to konstruksiyası istifadə olunur. Ümümi qaydaya əsasən feil ədatsız (to) istifadə olununan təqdirdə ona -ing əlavə olunur',
+        descr: 'can - could - bacarmaq. Can feilin məsdər forması yoxdur və onun əvəzinə be able to konstruksiyası istifadə olunur. Feilə -ing əlavə etdikdə o, davamedici formaya çevirilir. Məsələn: do - etmək, doing - edərək. listen - qulaq asmaq, listening - qulaq asaraq və s.',
         expl: 'mübtəda feil ...',
         sntc: 'Mən başqa işlərlə məşğul olaraq onu dinləyə bilərdim',
         tr: 'I could listen to her doing other things'
@@ -5539,14 +5539,14 @@ const initialState = {
       },
       {
         id: 819,
-        descr: 'find - found - found - tapmaq; həsab etmək; kəşf etmək',
+        descr: 'find - found - found - tapmaq; həsab etmək; kəşf etmək. İfadəli feil: find out - aşkar etmək, aydınlaşdırmaq, öyrənmək',
         expl: 'mübtəda feil ...',
-        sntc: 'Mən həmin kanalı nəhayət tapdım',
-        tr: 'I found that channel at last'
+        sntc: 'Mən nəhayət bütün həqiqəti aydınlaşdırdım',
+        tr: 'I found out all the truth at last'
       },
       {
         id: 820,
-        descr: 'give - gave - given - vermək',
+        descr: 'give - gave - given - vermək. İfadəli feil: give up - tərgitmək',
         expl: 'mübtəda feil ...',
         sntc: 'O, mənə bu tövsiyəni verdi',
         tr: 'He gave me this recommendation'
@@ -5561,7 +5561,7 @@ const initialState = {
       },
       {
         id: 822,
-        descr: 'mean - meant - meant - nəzərdə tutmaq, istəmək',
+        descr: 'mean - meant - meant - nəzərdə tutmaq, istəmək, niyyəti olmaq',
         expl: 'mübtəda feil ...',
         sntc: 'Bu aşağıdakıları nəzərdə tuturdu',
         tr: 'It meant the following'
@@ -5603,10 +5603,10 @@ const initialState = {
       },
       {
         id: 828,
-        descr: 'run - ran - run - qaçmaq',
+        descr: 'run - ran - run - qaçmaq. Sabit ifadə: run away - qaçmaq, qaçıb getmək',
         expl: 'mübtəda feil ...',
-        sntc: 'O, çox yavaş-yavaş qaçdı',
-        tr: 'She ran very slowly'
+        sntc: 'Biz qaçıb getdik',
+        tr: 'We ran away'
       },
       {
         id: 829,
@@ -5783,7 +5783,7 @@ const initialState = {
         id: 853,
         descr: 'fight - fought - fought - vuruşmaq, savaşmaq',
         expl: 'mübtəda feil ...',
-        sntc: 'Onlar böyük cəsarətlə döyüşdülər',
+        sntc: 'Onlar böyük cürətlə döyüşdülər',
         tr: 'They fought very bravely'
       },
       {
@@ -5795,7 +5795,7 @@ const initialState = {
       },
       {
         id: 855,
-        descr: 'throw - thew - thrown - atmaq, tullamaq',
+        descr: 'throw - thew - thrown - atmaq. ifadəli feil: throw away - tullamaq',
         expl: 'mübtəda feil ...',
         sntc: 'O, topu mənə atdı',
         tr: 'He threw me a ball'
@@ -6209,7 +6209,7 @@ const initialState = {
         id: 915,
         sntc: 'Problemlər elə böyükdür?',
         tr: 'Are the problems so big?',
-        ch: 'Are the Is problem problems so big?'
+        ch: 'Are the Is problem problems so big'
       },
       {
         id: 916,
@@ -6270,7 +6270,7 @@ const initialState = {
         id: 925,
         sntc: 'Sənin otağın haradadır?',
         tr: 'Where is your room?',
-        ch: 'Where is your house window room?'
+        ch: 'Where is your house window room'
       },
       {
         id: 926,
@@ -6368,7 +6368,7 @@ const initialState = {
         id: 941,
         sntc: 'Mən aşkar etdim ki, bizim bəzi problemlərimiz var idi',
         tr: 'I found out that we had some problems',
-        ch: 'I found out that we had some problems'
+        ch: 'I found out that we had same some problems'
       },
       {
         id: 942,
@@ -6398,7 +6398,7 @@ const initialState = {
         id: 946,
         sntc: 'Bu böyük uğurdur?',
         tr: 'Is it a big success?',
-        ch: 'Is it an much a big success?'
+        ch: 'Is it an much a big success'
       },
       {
         id: 947,
@@ -6465,7 +6465,7 @@ const initialState = {
         id: 957,
         sntc: 'Burada soyuqdur?',
         tr: 'Is it cold here?',
-        ch: 'Is it warm there cold here?'
+        ch: 'Is it warm there cold here'
       },
       {
         id: 958,
@@ -6502,7 +6502,7 @@ const initialState = {
         id: 963,
         sntc: 'O, mənə topu atdı',
         tr: 'He threw me a ball',
-        ch: 'He threw me a ball'
+        ch: 'He threw me an there a ball'
       },
       {
         id: 964,
@@ -6758,7 +6758,7 @@ const initialState = {
         id: 1005,
         sntc: 'Sən evə necə çatırsan?',
         tr: 'How do you get home?',
-        ch: 'How do you fly house get home?'
+        ch: 'How do you fly house get home'
       },
       {
         id: 1006,
@@ -7026,7 +7026,7 @@ const initialState = {
         id: 1049,
         sntc: 'O, balığı dörd hissəyə doğradı',
         tr: 'She cut the fish into four pieces',
-        ch: 'She cut the fish into four pieces'
+        ch: 'She cut the fish into second four pieces'
       },
       {
         id: 1050,
@@ -7137,21 +7137,21 @@ const initialState = {
       {
         id: 1065,
         descr: 'Keçmiş sadə zamanda sual vermək üçün konstruksiya:',
-        expl: 'Did mübtəda feil ...',
+        expl: 'Did mübtəda feil ... ?',
         sntc: 'Sən bu işi əldə etdin?',
         tr: 'Did you get this job?'
       },
       {
         id: 1066,
         descr: 'Keçmiş sadə zamanda sual vermək üçün konstruksiya:',
-        expl: 'Did mübtəda feil ...',
+        expl: 'Did mübtəda feil ... ?',
         sntc: 'Bu sizə qrammatikanızı yaxşılaşdırmağa kömək etdi?',
         tr: 'Did it help you improve your grammar?'
       },
       {
         id: 1067,
         descr: 'Keçmiş sadə zamanda sual vermək üçün konstruksiya:',
-        expl: 'Did mübtəda feil ...',
+        expl: 'Did mübtəda feil ... ?',
         sntc: 'O, bunu göstərməməyə çalışdı?',
         tr: 'Did she try not to show it\u202E?'
       },
@@ -7748,17 +7748,13 @@ const initialState = {
   ],
 };
 
-// let obj = [];
-
-// for (let i = 80; i < 91; i++) {
+// let obj = []
+// for (let i = 105; i < 115; i++) {
 //   for (let a = 0; a < 10; a++) {
 //     // obj.id=initialState.lessons[0][i][a].id
-//     obj.push(initialState.lessons[i][a].descr)
+//     obj.push(initialState.lessons[i][a].tr.replace('\u202E',''))
 //   }
-// }
-// console.log(obj)
-
-
+// }console.log(obj)
 
 const theory = (state = initialState, action) => {
   return state

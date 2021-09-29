@@ -11,7 +11,7 @@ export const ListenAndEnterSecond = ({ route }) => {
     function setNumCount() {
         setNum(prev => prev + 1)
     }
-    const progressValue = route.params.lessonIndex * 7 + 7
+    const progressValue = route.params.lessonIndex * 8 + 7
     return (
         <ListenFrom route={route} sentences={sentences} num={num} setNumCount={setNumCount} type={'theory'} progressValue={progressValue} lessonIndex={route.params.lessonIndex} />
     )

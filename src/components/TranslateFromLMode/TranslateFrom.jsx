@@ -14,7 +14,9 @@ import { useNavigation } from '@react-navigation/core'
 import { ResultModal } from '../Common/ResultModal'
 
 export const TranslateFrom = ({ sentences, setNumCount, num, type, progressValue }) => {
+    const voice = useSelector(state=>state.voice.value)
     const dispatch = useDispatch()
+    const navigation = useNavigation()
     const user = useSelector(state => state.auth.user)
     const progress = useSelector(state => state.progress[0])
     const [output, setOutput] = useState('')
@@ -32,7 +34,7 @@ export const TranslateFrom = ({ sentences, setNumCount, num, type, progressValue
         try {
             SoundPlayer.stop()
             let url = await storage()
-                .ref(`${type}/${sentences.id}.ogg`)
+                .ref(`${voice}/${type}/${sentences.id}.ogg`)
                 .getDownloadURL()
             SoundPlayer.loadUrl(url)
         }
@@ -53,7 +55,6 @@ export const TranslateFrom = ({ sentences, setNumCount, num, type, progressValue
             console.log(e)
         }
     }
-
     function next() {
         setOutput('')
         setKeyArray([])
@@ -78,9 +79,9 @@ export const TranslateFrom = ({ sentences, setNumCount, num, type, progressValue
     }
     useEffect(() => {
         setSentence(sentences.sntc),
-        setTransSentence(sentences.tr),
-        setTransSentenceTwo(sentences.trt),
-        loadAudio()
+            setTransSentence(sentences.tr),
+            setTransSentenceTwo(sentences.trt),
+            loadAudio()
     }, [num])
     useEffect(() => setChoice(shuffle(sentences.ch.split(' '))), [sentence])
     useEffect(() => {
@@ -93,15 +94,12 @@ export const TranslateFrom = ({ sentences, setNumCount, num, type, progressValue
             }, 300);
         } else { fade(speakerAnim, 0, 500); fade(buttonAnim, 0, 500) }
     }, [result])
-
     function check() {
-        if(transSentence == output||transSentenceTwo==output){setResult(true)}
-        else setResult(false)
-        if (!(transSentence == output||transSentenceTwo==output)) { setMistakes(prev => prev - 1) }
-        setAnswered(true)
-        if (num === 9) { setReady(true) }
+        if (transSentence.indexOf('?') >= 0 && output.indexOf('?') < 1) { setOutput(p => p + '?') }
+        if (transSentence.replace('?', '') == output || transSentenceTwo && transSentenceTwo.replace('?', '') == output || transSentence == output || transSentenceTwo && transSentenceTwo == output) { setAnswered(true), setResult(true) }
+        else { setResult(false), setMistakes(prev => prev - 1), setAnswered(true) }
+        if (num === 9 || num === 4 && type == 'enAz') { setReady(true) }
     }
-
     useEffect(() => {
         if (isReady && mistakes >= 0 && progressValue > progress) dispatch(updateProgress(progressValue, user))
     }, [isReady])
@@ -115,7 +113,6 @@ export const TranslateFrom = ({ sentences, setNumCount, num, type, progressValue
             }, 700),
             []
     })
-    const navigation = useNavigation()
     function remove() {
         setOutput((prev) => (prev.substring(0, prev.lastIndexOf(" "))))
         keyArray.pop()
@@ -123,7 +120,7 @@ export const TranslateFrom = ({ sentences, setNumCount, num, type, progressValue
     return (
         <ImageBackground source={require('../../img/bg/tasksBg.jpg')} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
             <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-                <ProgressBar count={num} mistakesBalance={mistakes} />
+                <ProgressBar numOfTasks={type == 'enAz' && 5} count={num} mistakesBalance={mistakes} />
             </View>
             <View style={s.wrapper}>
                 <Animated.View style={[s.task, { opacity: taskAnim }]}>
@@ -134,7 +131,7 @@ export const TranslateFrom = ({ sentences, setNumCount, num, type, progressValue
                     <Output value={sentence} />
                 </Animated.View>
                 <Animated.View style={[s.outputWrapper, { opacity: taskAnim }]}>
-                    <TouchableOpacity disabled={answered} activeOpacity={0.5} onPress={remove}>
+                    <TouchableOpacity disabled={answered} activeOpacity={0.7} onPress={remove}>
                         <View style={s.output}>
                             {output.length > 0 ? output.split(' ').map((w, i) =>
                                 <Text key={i} style={[s.choice, answered && result ? { backgroundColor: '#4ba83e', color: '#fff' } : answered && transSentence.split(' ')[i] != w ? { backgroundColor: '#DB504B', color: '#fff' } : null]}>{w}</Text>
@@ -144,19 +141,19 @@ export const TranslateFrom = ({ sentences, setNumCount, num, type, progressValue
                 </Animated.View>
                 <Animated.View style={[s.choiceWrapper, { opacity: outputAnim }]}>
                     <View style={{ flexDirection: 'row', flexWrap: 'wrap', width: '100%', flex: 1 }}>{choice.map((w, i) =>
-                        <TouchableOpacity key={i} onPress={() => answer(w, i)} disabled={result || answered || keyArray.some(id => id == i)}>
+                        <TouchableOpacity activeOpacity={0.7} key={i} onPress={() => answer(w, i)} disabled={result || answered || keyArray.some(id => id == i)}>
                             <Text style={[s.choice, keyArray.some(id => id == i) ? s.chosen : null]}>{w}
                             </Text>
                         </TouchableOpacity>)}
                     </View>
                     {answered ? <ResultModal result={result} sentence={sentence} transSentence={transSentence} errorData={errorData} /> : null}
-                    <View style={{ width: '100%', justifyContent: 'flex-end' }}>
-                        <TouchableOpacity disabled={!answered && output.length == 0} onPress={!answered ? () => { play(), check() } : answered && !isReady ? next : answered && isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>
-                            <Text style={[{ color: '#fff', fontSize: 25, backgroundColor: answered && !isReady && '#1AB248' || '#0881FF', padding: 10, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold', marginHorizontal: 20, }, output.length == 0 ? { backgroundColor: '#7B97BC' } : null]}>
+                    <View style={{ width: '100%', justifyContent: 'flex-end', paddingHorizontal:20 }}>
+                        <TouchableOpacity activeOpacity={0.7} disabled={!answered && output.length == 0} onPress={!answered ? () => { play(), check() } : answered && !isReady ? next : answered && isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>
+                            <Text style={[{ color: '#fff', fontSize: 25, backgroundColor: answered && !isReady && '#1AB248' || '#0881FF', padding: 12, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold' }, output.length == 0 ? { backgroundColor: '#7B97BC' } : null]}>
                                 {!answered ? 'yoxlamaq' : answered && !isReady ? 'növbəti' : answered && isReady ? 'dərslər' : null}
                             </Text>
-                            {answered ? <TouchableOpacity disabled={!answered} onPress={play} style={{ position: 'absolute', transform: [{ translateY: 10 }], right: 30 }} >
-                                <Image style={{ width: 30, height: 30 }} source={require('../../img/speakerW.png')} />
+                            {answered ? <TouchableOpacity activeOpacity={0.6} disabled={!answered} onPress={play} style={{ position: 'absolute', transform: [{ translateY: 6 }], right: 10 }} >
+                                <Image style={{ width: 40, height: 40 }} source={require('../../img/speakerW.png')} />
                             </TouchableOpacity> : null}
                         </TouchableOpacity>
                     </View>
@@ -165,7 +162,6 @@ export const TranslateFrom = ({ sentences, setNumCount, num, type, progressValue
         </ImageBackground>
     )
 }
-
 
 const s = StyleSheet.create({
     wrapper: {
@@ -207,7 +203,7 @@ const s = StyleSheet.create({
         color: '#000',
         marginRight: 5,
         marginBottom: 5,
-        paddingVertical: 9,
+        paddingVertical: 10,
         paddingHorizontal: 15,
         backgroundColor: '#fff',
         fontFamily: 'SFUIDisplay-Regular'

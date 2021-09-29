@@ -16,9 +16,9 @@ const s = StyleSheet.create({
         textAlign: 'center',
         color: '#000',
         paddingVertical: 15,
-        paddingHorizontal: 10,
+        paddingHorizontal: 15,
         backgroundColor: '#fff',
         borderRadius: 15,
-        minWidth: '90%'
+        minWidth: '100%'
     }
 })

@@ -9,11 +9,14 @@ import storage from '@react-native-firebase/storage';
 import { Audio } from 'expo-av';
 import { setBottomTabVisible } from '../../redux/bottomTab';
 
-export const MatchWordsEnAz = ({ route, practice }) => {
+export const MatchWordsEnAz = ({ route }) => {
+    const index = route.params.lessonIndex
+    const practice = useSelector(state => state.levelsList.levels[0][index][2])
+    const voice = useSelector(state=>state.voice.value)
     const user = useSelector(state => state.auth.user)
     const progress = useSelector(state => state.progress[0])
     const dispatch = useDispatch()
-    const words = useSelector(state => state.wordsForMatch.words[route.params.lessonIndex])
+    const words = useSelector(state => state.wordsForMatch.words[index])
     const [page, setPage] = useState(0)
     const [answerMode, setAnswerMode] = useState(false)
     const [wordList, setWordList] = useState([...words[0]])
@@ -32,16 +35,15 @@ export const MatchWordsEnAz = ({ route, practice }) => {
 
     async function playSound(word) {
         let url = await storage()
-            .ref(`words/${word}.ogg`)
+            .ref(`${voice}/words/${word}.ogg`)
             .getDownloadURL()
         const { sound } = await Audio.Sound.createAsync({ uri: url })
         await sound.playAsync();
     }
 
     useEffect(() => { if (output.length === wordList.length) { setIsReady(true) } }, [output])
-    const index = route.params.lessonIndex
-    const progressValue = practice && index * 7 + 2 || index * 7 + 3
 
+    const progressValue = practice && index * 8 + 2 || index * 8 + 3
     useEffect(() => {
         if (isReady && page === 1 && progressValue > progress) dispatch(updateProgress(progressValue, user))
     }, [isReady])
@@ -56,7 +58,6 @@ export const MatchWordsEnAz = ({ route, practice }) => {
     function choiseAWord(word, i) {
         if (chosenWord == word.tr) {
             setOutput((prev) => [...prev, [word.tr, word.id]])
-            playSound(word.wd)
             setKeyArray(prev => [...prev, i])
         }
     }
@@ -97,8 +98,6 @@ export const MatchWordsEnAz = ({ route, practice }) => {
     }
     if (!answerMode || isReady) { fade(buttonAnim, 1, 1000) }
 
-    function nums(w) { setChosenWord(w) }
-
     return (
         <View style={{ flex: 1, backgroundColor: '#181A1B' }}>
             <ImageBackground source={require('../../img/bg/tasksBg.jpg')} style={s.imageBackground}>
@@ -119,7 +118,7 @@ export const MatchWordsEnAz = ({ route, practice }) => {
                     </View>
                     <View style={s.answeredWords}>
                         {wordList.map((word) =>
-                            <TouchableOpacity key={word.id} onPress={() => nums(word.tr)} disabled={!answerMode}>
+                            <TouchableOpacity key={word.id} onPress={() => setChosenWord(word.tr)} disabled={!answerMode}>
                                 <Text key={word.id} style={[s.textAns, answerMode ? { backgroundColor: 'rgba(255,255,255,0.3)', color: 'rgba(0,0,0,0)', borderStyle: 'dashed', borderWidth: 0.6, borderColor: '#fff', paddingVertical: 9.7, marginVertical: 3.7, } : null, output.some(w => word.tr == w[0]) ? { backgroundColor: '#fff', color: '#000', borderWidth: 0, paddingVertical: 10, marginVertical: 4 } : chosenWord == word.tr ? { backgroundColor: '#4ba83e' } : null]}>{word.tr}</Text>
                             </TouchableOpacity>)}
                     </View>
