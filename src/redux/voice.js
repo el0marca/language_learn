@@ -1,32 +1,11 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
 let initialState = {
-    value: 'us/male'
+    value: 'uk/male'
 }
 const SET_VOICE = 'SET_VOICE'
-const setVoice = value => ({
+export const changeVoice = value => ({
     type: SET_VOICE,
     value
 })
-
-export const getVoice = () => {
-    return async (dispatch) => {
-        const voiceValue = await AsyncStorage.getItem('voiceValue')
-        if (voiceValue !== null) {
-            dispatch(setVoice(voiceValue))
-        }
-    }
-}
-
-export const changeVoice = (value) => {
-    return async (dispatch) => {
-        await AsyncStorage.setItem('voiceValue', value)
-        dispatch(setVoice(value))
-    }
-}
-
-
-
 
 const voice = (state = initialState, action) => {
     switch (action.type) {

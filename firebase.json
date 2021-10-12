@@ -1,0 +1,7 @@
+{      
+    "$schema": "./node_modules/@react-native-firebase/app/firebase-schema.json",
+    "react-native": {
+      "database_persistence_enabled": true,
+      "keepSynced": true
+    }
+  }

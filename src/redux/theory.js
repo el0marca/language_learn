@@ -2,7 +2,7 @@ const initialState = {
   lessons: [
     [{
         id: '1',
-        descr: 'İngilis dilində ən sadə cümlələr mübtəda + feil (xəbər) köməyi ilə formalaşır. Ümümi anlayış əldə etmək üçün zamanlar cədvəlinə baxmaq məsləhətdir',
+        descr: 'İngilis dilində ən sadə cümlələr mübtəda + feil (xəbər) köməyi ilə formalaşır. Ümümi anlayış əldə etmək üçün zamanlar cədvəlinə baxmaq tövsiyə olunur',
         expl: 'I/You/We/They feil ...',
         sntc: 'Mən burada təhsil alıram',
         tr: 'I study here'
@@ -430,7 +430,7 @@ const initialState = {
         id: 61,
         descr: 'Bir şeyi bəyəndiyini ifadə etmək üçün konstruksiya:',
         expl: 'I/You/We/They like ...',
-        sntc: 'Mən bunu sevirəm',
+        sntc: 'Mən bunu bəyənirəm',
         tr: 'I like i\u202Et'
       },
       {
@@ -451,7 +451,7 @@ const initialState = {
         id: 64,
         descr: 'Bir şeyi bəyəndiyini ifadə etmək üçün konstruksiya:',
         expl: 'I/You/We/They really like ...',
-        sntc: 'Mən bunu həqiqətən sevirəm',
+        sntc: 'Mən bunu həqiqətən bəyənirəm',
         tr: 'I really like i\u202Et'
       },
       {
@@ -2252,21 +2252,21 @@ const initialState = {
       },
       {
         id: 318,
-        descr: 'To be feil köməyi ilə təsdiq',
-        expl: 'I am ...',
-        sntc: 'Mən güclə doluyam',
-        tr: 'I am full of power'
+        descr: 'İngilis dilində sifətlər ‘ing’ və ‘ed’ ilə sonlana bilər. ‘ing’ ilə düzələn sifət əşyanın xarakterik xüsusiyyətini, ‘ed’ ilə düzələn sifət isə insana xas olan xüsusiyyətləri bildirir. Be, feel, look - əgər cümlədə bu feillərdən biri istifadə olunursa sifət ‘ed’ ilə sonlanır',
+        expl: 'mübtəda be/feel/look interested in ...',
+        sntc: 'Mən bununla maraqlanıram',
+        tr: 'I am interested in it'
       },
       {
         id: 319,
-        descr: 'To be feil köməyi ilə təsdiq',
-        expl: 'He/She/It is ...',
-        sntc: 'O, məzuniyyətdədir',
-        tr: 'He is on holiday'
+        descr: 'İngilis dilində sifətlər ‘ing’ və ‘ed’ ilə sonlana bilər. ‘ing’ ilə düzələn sifət əşyanın xarakterik xüsusiyyətini, ‘ed’ ilə düzələn sifət isə insana xas olan xüsusiyyətləri bildirir. Be, feel, look - əgər cümlədə bu feillərdən biri istifadə olunursa sifət ‘ed’ ilə sonlanır',
+        expl: 'mübtəda be/feel/look bored',
+        sntc: 'O, darıxmış görünür',
+        tr: 'He looks bored'
       },
       {
         id: 320,
-        descr: 'To be feil köməyi ilə təsdiq',
+        descr: 'To be feil köməyi ilə təsdiq. be on vacation/on holiday - tətildə, məzuniyyətdə',
         expl: 'You/We/They are ...',
         sntc: 'Biz məzuniyyətdəyik',
         tr: 'We are on vacation'
@@ -2317,28 +2317,28 @@ const initialState = {
       {
         id: 327,
         descr: 'To be feil köməyi ilə sual',
-        expl: 'Are you/we/they ...',
+        expl: 'Are you/we/they ... ?',
         sntc: 'Onlar bundan qorxurlar?',
         tr: 'Are they afraid of it\u202E?'
       },
       {
         id: 328,
         descr: 'To be feil köməyi ilə sual',
-        expl: 'Is he/she/it in the ...',
+        expl: 'Is he/she/it in the ... ?',
         sntc: 'O, axırıncı yerdədir?',
         tr: 'Is he in the last place?'
       },
       {
         id: 329,
         descr: 'İngilis dilində yalnız tək və cəm halda işlənən sözlər var. Money həmişə tək halda istifadə olunur',
-        expl: 'to\u00A0be\u00A0feil this money ...',
+        expl: 'to\u00A0be\u00A0feil this money ... ?',
         sntc: 'Bu pullar kifayət edir?',
         tr: 'Is this money enough?'
       },
       {
         id: 330,
         descr: 'News həmişə tək halda istifadə olunur',
-        expl: 'to\u00A0be\u00A0feil artikl news ...',
+        expl: 'to\u00A0be\u00A0feil artikl news ... ?',
         sntc: 'Xəbərlər maraqlıdır?',
         tr: 'Is the news interesting?'
       }
@@ -2479,7 +2479,7 @@ const initialState = {
       },
       {
         id: 350,
-        descr: "Like-dan sonra gələn felə 'ing' əlavə etmək mümkündür",
+        descr: "Like-dan sonra gələn feilə 'ing' əlavə etmək mümkündür",
         expl: '... like fel+ing ...',
         sntc: 'Mən İngilis dilini öyrənməyi sevirəm',
         tr: 'I like learning English'
@@ -2565,7 +2565,7 @@ const initialState = {
       },
       {
         id: 362,
-        descr: 'Həmçinin bəzi sifətlər də müyəyyən sözönülərlə müşaiyət olunurlar: fond of - çox sevmək',
+        descr: 'Həmçinin bəzi sifətlərdə müyəyyən sözönülərlə müşaiyət olunurlar: fond of - çox sevmək',
         expl: '... fond of ...',
         sntc: 'Mən İngilis dilini çox sevirəm',
         tr: "I am fond of English"
@@ -7745,8 +7745,10 @@ const initialState = {
         tr: 'How long was the lecture\u202E?'
       }
     ],
-  ],
-};
+  ]
+}
+// console.log(JSON.stringify(initialState))
+
 
 // let obj = []
 // for (let i = 105; i < 115; i++) {
@@ -7756,8 +7758,20 @@ const initialState = {
 //   }
 // }console.log(obj)
 
+const SET_THEORY = 'SET_THEORY'
+export const setTheory = value => ({
+    type: SET_THEORY,
+    value
+})
+
 const theory = (state = initialState, action) => {
-  return state
-}
+  switch (action.type) {
+    case SET_THEORY:
+        return {
+            ...state, lessons: action.value
+        }
+            default:
+                return state
+}}
 
 export default theory

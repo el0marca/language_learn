@@ -9,7 +9,7 @@ import { updateProgress } from '../../redux/progress'
 import { setBottomTabVisible } from '../../redux/bottomTab'
 import { Award } from '../Common/Award'
 import { useNavigation } from '@react-navigation/core'
-import { ResultModal } from '../Common/ResultModal'
+import { ResultModal, ReportModal } from '../Common/ResultModal'
 import Highlighter from 'react-native-highlight-words'
 
 export const completeSentence = ({ route }) => {
@@ -27,9 +27,10 @@ export const completeSentence = ({ route }) => {
     const [tVariant, setTVariant] = useState(sentences.v3)
     const [result, setResult] = useState(false)
     const [isReady, setReady] = useState(false)
-    const [mistakes, setMistakes] = useState(12)
+    const [mistakes, setMistakes] = useState(1)
     const [answered, setAnswered] = useState(false)
     const errorData = 'azEn' + sentences.id
+    const [reportMode, setReportMode]=useState(false)
 
     function setNumCount() {
         setNum(prev => prev + 1)
@@ -126,8 +127,9 @@ export const completeSentence = ({ route }) => {
     }
     return (
         <ImageBackground source={require('../../img/bg/tasksBg.jpg')} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
+            {reportMode&&<ReportModal closeWindow={()=>setReportMode(false)} lesson={errorData}/>}
             <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-                <ProgressBar numOfTasks={5} count={num} mistakesBalance={mistakes} />
+                <ProgressBar type={'completeSentences'} count={num} mistakesBalance={mistakes} />
             </View>
             <View style={s.wrapper}>
                 <Animated.View style={[s.task, { opacity: taskAnim }]}>
@@ -150,7 +152,7 @@ export const completeSentence = ({ route }) => {
                 </Animated.View>
                 <Animated.View style={[s.choiceWrapper, { opacity: outputAnim }]}>
                     <View style={{ flex: 1 }}>
-                        {answered && <ResultModal result={result} sentence={transSentence} transSentence={sentences.sntc.replace('___', `${sentences.ra}`)} errorData={errorData} />}
+                        {answered && <ResultModal result={result} sentence={transSentence} transSentence={sentences.sntc.replace('___', `${sentences.ra}`)} errorData={errorData} openReportWindow={()=>setReportMode(true)} />}
                     </View>
                     <View style={{ width: '100%', justifyContent: 'center', flex: 1, paddingHorizontal: 20 }}>
                         <TouchableOpacity disabled={!value} onPress={!answered ? () => { play(), check() } : answered && !isReady ? next : answered && isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>

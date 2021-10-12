@@ -3,7 +3,7 @@ const initialState = {
     [{
         id: 1,
         sntc: 'I think so',
-        tr: 'Mən elə düşünürəm',
+        tr: 'Mən belə düşünürəm',
         ch: 'Mən belə düşünürəm Sən bilirəm gedirəm'
       },
       {
@@ -667,14 +667,14 @@ const initialState = {
         sntc: 'I think so',
         tr: 'Mən belə düşünürəm',
         trt: '',
-        ch: 'Mən belə düşünürəm bilirəm xərcəyirəm o qədər'
+        ch: 'Mən belə düşünürəm bilirəm xərcəyirəm'
       },
       {
         id: 95,
         sntc: 'Does this person seem very good?',
         tr: 'Bu insan çox yaxşı görünür?',
         trt: '',
-        ch: 'Bu insan çox yaxşı burada ev yandı görünür '
+        ch: 'Bu insan çox yaxşı burada ev yandı görünür'
       }
     ],
     [{
@@ -859,9 +859,9 @@ const initialState = {
     [{
         id: 121,
         sntc: "She's such a wise woman",
-        tr: 'O elə müdrik qadındır',
-        trt: 'O çox müdrik qadındır',
-        ch: 'O çox elə müdrik pul kisəsi fərqli aktrisa qadındır'
+        tr: 'O, elə müdrik qadındır',
+        trt: 'O, çox müdrik qadındır',
+        ch: 'O, çox elə müdrik pul kisəsi fərqli aktrisa qadındır'
       },
       {
         id: 122,
@@ -875,7 +875,7 @@ const initialState = {
         sntc: "It's so easy",
         tr: 'Bu elə asandır',
         trt: 'Bu çox asandır',
-        ch: 'Bu çox elə səhv belə narahat olmaq asandır'
+        ch: 'Bu çox elə səhv narahat olmaq asandır'
       },
       {
         id: 124,
@@ -1112,8 +1112,8 @@ const initialState = {
         id: 156,
         sntc: 'He is so clever',
         tr: 'O, çox ağıllıdır',
-        trt: '',
-        ch: 'O, çox ağıllıdır deyişiklik göz yaşı göz kəmər'
+        trt: 'O, elə ağıllıdır',
+        ch: 'O, çox ağıllıdır deyişiklik elə göz yaşı kəmər'
       },
       {
         id: 157,
@@ -1138,10 +1138,10 @@ const initialState = {
       },
       {
         id: 160,
-        sntc: 'I have a good job',
-        tr: 'Mənim yaxşı işim var',
+        sntc: 'He is shocked',
+        tr: 'O, şoka düşüb',
         trt: '',
-        ch: 'Mənim yaxşı işim detal utancaq tamamilə əmin var'
+        ch: 'O, şoka düşüb Mən quyuya burada'
       }
     ],
     [{
@@ -1651,9 +1651,9 @@ const initialState = {
     [{
         id: 231,
         sntc: "I'm fond of this app thanks to my fantastic result",
-        tr: 'Fantastik nəticəm sayəsində bu tətbiqi çox sevirəm',
-        trt: '',
-        ch: 'Fantastik nəticəm sayəsində nəzərdə tutmaq bu tətbiqi çox sevirəm'
+        tr: 'Fantastik nəticəm sayəsində mən bu tətbiqi çox sevirəm',
+        trt: 'Fantastik nəticəm sayəsində bu tətbiqi çox sevirəm',
+        ch: 'Fantastik nəticəm sayəsində nəzərdə mən tutmaq bu tətbiqi çox sevirəm'
       },
       {
         id: 232,
@@ -1679,9 +1679,9 @@ const initialState = {
       {
         id: 235,
         sntc: "She's very optimistic",
-        tr: 'O çox optimistdir',
+        tr: 'O, çox optimistdir',
         trt: '',
-        ch: 'O çox yaxşı öyrətmək oynamaq optimistdir'
+        ch: 'O, çox yaxşı öyrətmək oynamaq optimistdir'
       }
     ],
     [{
@@ -2198,9 +2198,9 @@ const initialState = {
       {
         id: 307,
         sntc: 'How will you manage to find a solution to such a difficult problem?',
-        tr: 'Belə çətin bir problemin həllini necə tapa biləcəksən?',
-        trt: 'Belə çətin problemin həllini necə tapa biləcəksən?',
-        ch: 'Belə çətin bir problemin həllini necə ən uzun tapa biləcəksən'
+        tr: 'Sən belə çətin bir problemin həllini necə tapa biləcəksən?',
+        trt: 'Sən belə çətin problemin həllini necə tapa biləcəksən?',
+        ch: 'Sən belə çətin bir problemin həllini necə ən uzun tapa biləcəksən'
       },
       {
         id: 308,
@@ -3718,7 +3718,7 @@ const initialState = {
         sntc: 'They fought for their rights',
         tr: 'Onlar öz hüquqları uğrunda mübarizə aparırdılar',
         trt: '',
-        ch: 'Onlar öz hüquqları uğrunda mübarizə aparırdılar vermək sonra darıxmaq '
+        ch: 'Onlar öz hüquqları uğrunda mübarizə aparırdılar vermək sonra darıxmaq'
       },
       {
         id: 519,
@@ -4131,8 +4131,11 @@ const initialState = {
         ch: 'Görüş nə qədər oyun məsləhət davam etdi'
       }
     ],
-  ]
+  ],
 }
+// console.log(JSON.stringify(initialState))
+
+// console.log(JSON.stringify(initialState))
 // let ab=0;
 // let obj=[]
 // for (let i=0; i<115; i++){
@@ -4155,28 +4158,44 @@ const initialState = {
 // };
 // let number = 550;
 // for (let i = 0; i < 115; i++) {
-  // for (let a = 0; a < 5; a++) {
-    // number++
-    // obj.id=initialState.sentences[i][a].id
-    // obj.id = number
-    // obj.sntc = (initialState.sentences[i][a].sntc)
-    // obj.tr = (initialState.sentences[i][a].tr)
-    // obj.ch = (initialState.sentences[i][a].ch)
-    // console.log(obj)
-  //   if(initialState.sentences[i][a].trt){
-  //   initialState.sentences[i][a].trt.split(' ').forEach(w => {
-  //     if(!initialState.sentences[i][a].ch.includes(w)){
-  //       console.log(w, initialState.sentences[i][a].id)}
-  //     })}
-  // }}
+//   for (let a = 0; a < 5; a++) {
+//     number++
+//     obj.id=initialState.sentences[i][a].id
+//     obj.id = number
+//     obj.sntc = (initialState.sentences[i][a].sntc)
+//     obj.tr = (initialState.sentences[i][a].tr)
+//     obj.ch = (initialState.sentences[i][a].ch)
+//     console.log(obj)
+//     if(initialState.sentences[i][a].trt){
+//     initialState.sentences[i][a].trt.split(' ').forEach(w => {
+//       if(!initialState.sentences[i][a].ch.includes(w)){
+//         console.log(w, initialState.sentences[i][a].id)}
+//       })}
+//   }}
 
 // setTimeout(() => {
 //   console.log(obj)
 // }, 1000)
 
+const SET_ENAZ = 'SET_ENAZ'
+export const setEnAz = (value) => ({
+    type: SET_ENAZ,
+    value,
+})
 
 const enAzSentences = (state = initialState, action) => {
-  return state
-}
+  switch (action.type) {
+    case SET_ENAZ:
+      // const sentence = state.sentences[action.lesson].map((e,i)=>{if (e.id==1){console.log(e)}})
+      // console.log(state[0][0])
+        return {
+            ...state, 
+            sentences: action.value
+            // state.sentences[0].map(e=> return ...e, action.value)
+            // sentences: action.value
+        }
+            default:
+                return state
+} }
 
 export default enAzSentences

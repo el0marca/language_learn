@@ -10,7 +10,7 @@ import { updateProgress } from '../../redux/progress'
 import { setBottomTabVisible } from '../../redux/bottomTab'
 import { useNavigation } from '@react-navigation/core'
 import { Speaker } from '../Common/Speaker'
-import { ResultModal } from '../Common/ResultModal'
+import { ResultModal, ReportModal } from '../Common/ResultModal'
 
 export const ListenFrom = ({ sentences, setNumCount, num, type, progressValue, route }) => {
     const voice = useSelector(state=>state.voice.value)
@@ -27,8 +27,9 @@ export const ListenFrom = ({ sentences, setNumCount, num, type, progressValue, r
     const [isReady, setReady] = useState(false)
     const [keyArray, setKeyArray] = useState([])
     const [answered, setAnswered] = useState(false)
-    const [mistakes, setMistakes] = useState(12)
+    const [mistakes, setMistakes] = useState(type=='enAz'&&1||2)
     const errorData = type + ' ' + sentences.id
+    const [reportMode, setReportMode]=useState(false)
 
     async function loadAudio() {
         try {
@@ -113,8 +114,9 @@ export const ListenFrom = ({ sentences, setNumCount, num, type, progressValue, r
     }
     return (
         <ImageBackground source={require('../../img/bg/tasksBg.jpg')} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
+            {reportMode&&<ReportModal closeWindow={()=>setReportMode(false)} lesson={errorData}/>}
             <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-                <ProgressBar numOfTasks={type==='enAz'&&5} count={num} mistakesBalance={mistakes} />
+                <ProgressBar type={type} count={num} mistakesBalance={mistakes} />
             </View>
             <View style={s.wrapper}>
                 <Animated.View style={[s.task, { opacity: taskAnim }]}>
@@ -138,7 +140,7 @@ export const ListenFrom = ({ sentences, setNumCount, num, type, progressValue, r
                             </Text>
                         </TouchableOpacity>)}
                     </View>
-                    {answered ? <ResultModal result={result} sentence={sentence} transSentence={transSentence} errorData={errorData} /> : null}
+                    {answered ? <ResultModal result={result} sentence={sentence} transSentence={transSentence} errorData={errorData} openReportWindow={()=>setReportMode(true)}  /> : null}
                     <View style={{ width: '100%', justifyContent: 'flex-end', paddingHorizontal:20 }}>
                         <TouchableOpacity disabled={!answered && output.length == 0} onPress={!answered ? check : answered && !isReady ? next : answered && isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>
                             <Text style={[{ color: '#fff', fontSize: 25, backgroundColor: '#0881FF', padding: 12, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold' }, output.length == 0 ? { backgroundColor: '#7B97BC' } : null]}>

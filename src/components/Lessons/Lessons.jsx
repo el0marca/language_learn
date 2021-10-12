@@ -13,7 +13,7 @@ export default function Lessons() {
   const initialIndex = Math.floor(progress / 8) > 114 ? 114 : Math.floor(progress / 8)
   const scrollRef = React.useRef()
   const navigation = useNavigation()
-  const levels = useSelector(state => state.levelsList.levels[0])
+  const levels = useSelector(state => state.levelsList.levels)
   const scrollPos = useRef(new Animated.Value(0)).current
   const getItemLayout = (data, index) => ({
     length: circleSize,
@@ -21,8 +21,9 @@ export default function Lessons() {
     index,
   })
   React.useEffect(
-    () => { if (isProgressChanged) { scrollRef.current.scrollToIndex({ animated: true, index: initialIndex }); } },
+    () => { if (isProgressChanged) { scrollRef.current.scrollToIndex({ animated: true, index: initialIndex })} },
     [isProgressChanged])
+
   return (
     <ImageBackground source={require('../../img/bg/lessonBg.png')} style={s.background}>
       <View style={{ height: '55%' }}>
@@ -31,16 +32,16 @@ export default function Lessons() {
           showsHorizontalScrollIndicator={false}
           style={{ height: circleSize, paddingLeft: width * .15 }}
           onScroll={Animated.event([{ nativeEvent: { contentOffset: { x: scrollPos } } }], { useNativeDriver: true })}
-          horizontal data={levels}
+          horizontal 
+          data={levels}
           keyExtractor={item => item[0]}
           getItemLayout={getItemLayout}
           initialScrollIndex={initialIndex}
           snapToInterval={circleSize}
           decelerationRate={.95}
-          windowSize={5}
+          windowSize={10}
           maxToRenderPerBatch={5}
-          initialNumToRender={5}
-          // removeClippedSubviews
+          initialNumToRender={15}
           renderItem={({ item, index }) => {
             const scale = scrollPos.interpolate({
               inputRange: [circleSize * (index - 1), circleSize * index, circleSize * (index + 1)],

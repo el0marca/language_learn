@@ -5197,6 +5197,7 @@ const initialState = {
     }],
   ]
 }
+// console.log(JSON.stringify(initialState))
 
 // for (let i = 0; i < 115; i++) {
 //   for (let a = 0; a < 5; a++) {
@@ -5212,10 +5213,21 @@ const initialState = {
 //         obj.push(initialState.sentences[i][a].sntc.replace('___', initialState.sentences[i][a].ra))}}
 // setTimeout(() => {console.log(obj)}, 1000)
 
-
+const SET_COMPLETESENTENCES = 'SET_COMPLETESENTENCES'
+export const setCompleteSentences = value => ({
+    type: SET_COMPLETESENTENCES,
+    value
+})
 
 const completeSentence = (state = initialState, action) => {
-  return state
+  switch (action.type) {
+    case SET_COMPLETESENTENCES:
+        return {
+            ...state, sentences: action.value
+        }
+            default:
+                return state
+}
 }
 
 export default completeSentence

@@ -2,7 +2,7 @@ const initialState = {
   sentences: [
     [{
         id: 1,
-        sntc: 'O orada işləyir',
+        sntc: 'O, orada işləyir',
         tr: 'He works there',
         ch: 'He works here study there'
       },
@@ -20,7 +20,7 @@ const initialState = {
       },
       {
         id: 4,
-        sntc: 'O bunu bilir',
+        sntc: 'O, bunu bilir',
         tr: 'She knows it',
         ch: 'She knows likes it You know'
       },
@@ -32,7 +32,7 @@ const initialState = {
       },
       {
         id: 6,
-        sntc: 'O bunu başa düşür',
+        sntc: 'O, bunu başa düşür',
         tr: 'He understands it',
         ch: 'He understands know They it'
       },
@@ -50,13 +50,13 @@ const initialState = {
       },
       {
         id: 9,
-        sntc: 'O bunu istəyir',
+        sntc: 'O, bunu istəyir',
         tr: 'He wants it',
         ch: 'He wants understand We know it'
       },
       {
         id: 10,
-        sntc: 'O orada işləyir',
+        sntc: 'O, orada işləyir',
         tr: 'She works there',
         ch: 'She study work works there'
       }
@@ -69,7 +69,7 @@ const initialState = {
       },
       {
         id: 12,
-        sntc: 'O bu səhvi görür',
+        sntc: 'O, bu səhvi görür',
         tr: 'He sees this mistake',
         ch: 'He We look sees this mistake'
       },
@@ -142,7 +142,7 @@ const initialState = {
       },
       {
         id: 24,
-        sntc: 'O İngilis dilini öyrənməyə çalışır',
+        sntc: 'O, İngilis dilini öyrənməyə çalışır',
         tr: 'He tries to learn English',
         ch: 'He We tries try study to learn English'
       },
@@ -154,7 +154,7 @@ const initialState = {
       },
       {
         id: 26,
-        sntc: 'O tez-tez kinoteatra gedir',
+        sntc: 'O, tez-tez kinoteatra gedir',
         tr: 'She often goes to the cinema',
         ch: 'She often this I go goes to the cinema'
       },
@@ -172,7 +172,7 @@ const initialState = {
       },
       {
         id: 29,
-        sntc: 'O mənə kömək etməyə çalışır',
+        sntc: 'O, mənə kömək etməyə çalışır',
         tr: 'He tries to help me',
         ch: 'He tries We wants try to help me'
       },
@@ -252,7 +252,7 @@ const initialState = {
       },
       {
         id: 42,
-        sntc: 'O bunu bilir',
+        sntc: 'O, bunu bilir',
         tr: 'She knows it',
         ch: 'She I understand know understands knows it'
       },
@@ -270,13 +270,13 @@ const initialState = {
       },
       {
         id: 45,
-        sntc: 'O mənə kömək edir ',
+        sntc: 'O, mənə kömək edir',
         tr: 'She helps me',
         ch: 'She We helps know my help you me'
       },
       {
         id: 46,
-        sntc: 'O bunu istəyir',
+        sntc: 'O, bunu istəyir',
         tr: 'He wants it',
         ch: 'He wants want We know knows it'
       },
@@ -288,7 +288,7 @@ const initialState = {
       },
       {
         id: 48,
-        sntc: 'O sənin üçün darıxır',
+        sntc: 'O, sənin üçün darıxır',
         tr: 'He misses you',
         ch: 'He I know misses miss you'
       },
@@ -374,7 +374,7 @@ const initialState = {
       },
       {
         id: 62,
-        sntc: 'Mən bu yeri həqiqətən sevirəm',
+        sntc: 'Mən bu yeri həqiqətən xoşlayıram',
         tr: 'I really like this place',
         ch: 'I really likes that like this place'
       },
@@ -422,7 +422,7 @@ const initialState = {
       },
       {
         id: 70,
-        sntc: 'Biz də bunu etməyi sevirik',
+        sntc: 'Biz də bunu etməyi xoşlayırıq',
         tr: 'We also like to do it',
         ch: 'We also always want like to do it'
       }
@@ -435,7 +435,7 @@ const initialState = {
       },
       {
         id: 72,
-        sntc: 'O bunu etməyə çalışmır',
+        sntc: 'O, bunu etməyə çalışmır',
         tr: 'He doesn’t try to do it',
         ch: 'He doesn’t I tries try to do it'
       },
@@ -831,7 +831,7 @@ const initialState = {
       },
       {
         id: 137,
-        sntc: 'O bizimlə razı deyil',
+        sntc: 'O, bizimlə razı deyil',
         tr: "He doesn't agree with us",
         ch: "He doesn't agree agrees by with us"
       },
@@ -843,13 +843,13 @@ const initialState = {
       },
       {
         id: 139,
-        sntc: 'O, bu yeri sevir',
+        sntc: 'O, bu yeri beyənir',
         tr: 'She likes this place',
         ch: 'She likes We like that this place'
       },
       {
         id: 140,
-        sntc: 'O, bu yeri sevir?',
+        sntc: 'O, bu yeri beyənir?',
         tr: 'Does she like this place?',
         ch: 'Does she like likes that this place'
       }
@@ -1039,7 +1039,7 @@ const initialState = {
     ],
     [{
         id: 171,
-        sntc: 'O bunu bilmir',
+        sntc: 'O, bunu bilmir',
         tr: "He doesn't know it",
         ch: "He doesn't know knows this it"
       },
@@ -1057,7 +1057,7 @@ const initialState = {
       },
       {
         id: 174,
-        sntc: 'O səni indi görmək istəyir',
+        sntc: 'O, səni indi görmək istəyir',
         tr: 'She wants to see you right now',
         ch: 'She wants Does say to want see you right now'
       },
@@ -3003,7 +3003,7 @@ const initialState = {
       },
       {
         id: 493,
-        sntc: 'O çox boyludur',
+        sntc: 'O, çox boyludur',
         tr: "He's so tall",
         ch: "He's small short so tall"
       },
@@ -3064,7 +3064,7 @@ const initialState = {
       },
       {
         id: 503,
-        sntc: 'O bunu mənə izah edəcək',
+        sntc: 'O, bunu mənə izah edəcək',
         tr: "He'll explain it to me",
         ch: "He'll tell us explain it to me"
       },
@@ -6016,7 +6016,7 @@ const initialState = {
       },
       {
         id: 987,
-        sntc: 'O, həmin kağızları cırdı ',
+        sntc: 'O, həmin kağızları cırdı',
         tr: 'He tore those papers',
         ch: 'He tore those sale punish papers'
       },
@@ -6931,7 +6931,7 @@ const initialState = {
       },
       {
         id: 1137,
-        sntc: 'O necə idi?',
+        sntc: 'O, necə idi?',
         tr: 'How was she?',
         ch: 'How was attract look she'
       },
@@ -7017,6 +7017,8 @@ const initialState = {
     ],
   ]
 }
+// console.log(JSON.stringify(initialState))
+
 // let ad=0
 // let obj=[]
 // for (let i=0; i<115; i++){
@@ -7027,10 +7029,21 @@ const initialState = {
 //       }}
 
 // setTimeout(() => {console.log(obj)}, 1000)
-
+const SET_AZEN = 'SET_AZEN'
+export const setAzEn = value => ({
+  type: SET_AZEN,
+  value
+})
 
 const azEnSentences = (state = initialState, action) => {
-  return state
+  switch (action.type) {
+    case SET_AZEN:
+      return {
+        ...state, sentences: action.value
+      }
+      default:
+        return state
+  }
 }
 
 export default azEnSentences

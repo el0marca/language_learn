@@ -1,18 +1,19 @@
-import { Provider, useDispatch, useSelector } from 'react-redux';
-import React, { useEffect, useState } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { SettingScreen } from './src/screens/SettingScreen';
-import { ProfileScreen } from './src/screens/ProfileScreen';
-import { MainStackscreen } from './src/screens/Mainscreen';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { StatusBar } from 'expo-status-bar';
-import { Image, ActivityIndicator, View, StyleSheet } from 'react-native';
-import store from './src/redux/store';
-import auth, { firebase } from '@react-native-firebase/auth';
-import { setUserInfo } from './src/redux/auth';
-import { downloadProgress } from './src/redux/progress';
-import { getVoice } from './src/redux/voice';
+import { Provider, useDispatch, useSelector } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import { SettingScreen } from './src/screens/SettingScreen'
+import { ProfileScreen } from './src/screens/ProfileScreen'
+import { MainStackscreen } from './src/screens/Mainscreen'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { StatusBar } from 'expo-status-bar'
+import { Image, ActivityIndicator, View, StyleSheet } from 'react-native'
+import {store, persistor} from './src/redux/store'
+import auth from '@react-native-firebase/auth'
+import { setUserInfo } from './src/redux/auth'
+import { PersistGate } from 'redux-persist/integration/react'
+import { updateLessons } from './src/redux/version'
+import { setBottomTabVisible } from './src/redux/bottomTab'
 
 const ProfileStack = createStackNavigator();
 
@@ -73,11 +74,12 @@ function MyTabs() {
     </NavigationContainer>
   );
 }
-
 export default AppContainer = () => {
   return (
      <Provider store={store}>
+      <PersistGate persistor={persistor}>
      <App/>
+      </PersistGate>
      </Provider>
   )
 }
@@ -87,12 +89,14 @@ function App() {
   const [initializing, setInitializing] = useState(true)
   
   function onAuthStateChanged(user) {
-    dispatch(setUserInfo(user))
+    user&&dispatch(setUserInfo(user))
     if (initializing) setInitializing(false)
   }
+  const versionValue = useSelector(state => state.version.value)
+
   useEffect(() => {
-    dispatch(downloadProgress())
-    dispatch(getVoice())
+    dispatch(updateLessons(versionValue))
+    dispatch(setBottomTabVisible(true))
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged)
     return subscriber
   }, [])

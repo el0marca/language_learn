@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { ActivityIndicator, TouchableOpacity } from 'react-native'
-import { Text, View, StyleSheet, TextInput, ImageBackground, Dimensions, Image,Button } from 'react-native'
+import { Text, View, StyleSheet, TextInput, ImageBackground, Dimensions, Image, Button } from 'react-native'
 import auth, { firebase } from '@react-native-firebase/auth'
 import { useDispatch, useSelector } from 'react-redux'
 import database from '@react-native-firebase/database'
 import { setUserInfo } from '../redux/auth'
-import { updateBeginnerProgress } from '../redux/progress'
+import { updateProgress } from '../redux/progress'
 import { Back } from '../components/Common/Back'
+import ProgressCircle from 'react-native-progress-circle'
+
+const { width } = Dimensions.get('window');
 
 export const ProfileScreen = () => {
   const [loginMode, setLoginMode] = useState(false)
@@ -21,23 +24,23 @@ export const ProfileScreen = () => {
   const [alert, setAlert] = useState('')
   const learnWords = progress < 8 * 60 + 1 ? Math.floor((progress - 1) / 8 * 15) : Math.floor((60 * 15) + (progress - 481) / 8 * 10)
   const passedSentences = Math.floor(progress / 8) * 30
+
   function signUpWithEmail() {
     setErrorInfo('')
     setAlert('')
-    if (!email || !password || email.indexOf('@') === -1) return setErrorInfo('Lütfən email və ya şifrəni düzgün daxil edin!')
-    else if (password.length < 7) return setErrorInfo('Şifrə 6 simvoldan artıq olmalıdır')
+    if (!email || !password || !email.includes('@')) return setErrorInfo('Lütfən email və ya şifrəni düzgün daxil edin!')
+    else if (password.length <= 5) return setErrorInfo('Şifrə 5 simvoldan artıq olmalıdır')
     setInitializing(true)
     auth()
       .createUserWithEmailAndPassword(email, password)
       .then((e) => {
         setData(e.user.uid)
-        console.log('User account created & signed in!');
         setInitializing(false)
       })
       .catch(error => {
         setInitializing(false)
         if (error.code === 'auth/email-already-in-use') {
-          setErrorInfo('e-mail mövcuddır')
+          setErrorInfo('Hesab artıq mövcuddur')
         }
         else if (error.code === 'auth/invalid-email') {
           setErrorInfo('Lütfən e-mailı düzgün daxil edin')
@@ -47,7 +50,7 @@ export const ProfileScreen = () => {
   function signInWithEmail() {
     setErrorInfo('')
     setAlert('')
-    if (!email || !password || email.indexOf('@') === -1) return setErrorInfo('Lütfən e-mail və ya şifrəni düzgün daxil edin!')
+    if (!email || !password || !email.includes('@')) return setErrorInfo('Lütfən e-mail və ya şifrəni düzgün daxil edin!')
     setInitializing(true)
     auth()
       .signInWithEmailAndPassword(email, password)
@@ -74,13 +77,13 @@ export const ProfileScreen = () => {
     setInitializing(true)
     auth()
       .signOut()
-      .then(() => console.log('User signed out!'))
-      .finally(e => setInitializing(false))
+      .then(() => dispatch(setUserInfo(null)))
+      .finally(e => { dispatch(setUserInfo(null)), setInitializing(false) })
   }
   const passwordReset = () => {
     setErrorInfo('')
     setAlert('')
-    if (!email || email.indexOf('@') === -1) return setErrorInfo('Lütfən e-mailı düzgün daxil edin')
+    if (!email || !email.includes('@')) return setErrorInfo('Lütfən e-mailı düzgün daxil edin')
     setInitializing(true)
     auth()
       .sendPasswordResetEmail(email)
@@ -89,16 +92,20 @@ export const ProfileScreen = () => {
         if (e === 'auth/invalid-email') { setErrorInfo('hesab mövcud deyil') }
         if (e == 'auth/too-many-requests') { setErrorInfo('bir müddetdən sonra yenidən cəhd edin') }
         else setErrorInfo('Əməliyyat baş tutmadı')
-        console.log(e)
       })
-      .finally(e => setInitializing(false))
+      .finally(e => {
+        setInitializing(false), setTimeout(() => {
+          setLoginMode(true)
+          setForgotPassword(false)
+        }, 2000)
+      })
   }
-  useEffect(() => setErrorInfo(''), [email, password])
+  useEffect(() => { setErrorInfo(''), setAlert('') }, [email, password, loginMode, forgotPassword])
 
   const setData = (uid) => {
     database()
       .ref(`/users/${uid}`)
-      .set(progress)
+      .set({ progress: progress })
       .then(() => console.log('Data set.'))
   }
   const getData = (uid) => {
@@ -106,27 +113,28 @@ export const ProfileScreen = () => {
       .ref(`/users/${uid}`)
       .once('value')
       .then(snapshot => {
-        const beginner = JSON.parse(snapshot.val()[[0]])
-        if (beginner > progress) { dispatch(updateBeginnerProgress(beginner)) }
+        const value = snapshot.val().progress
+        if (value > progress) { dispatch(updateProgress(value)) }
       })
-      .catch(e=>console.log(e))
+      .catch(e => console.log(e))
   }
-
   return (
     <ImageBackground source={require('../img/bg/tasksBg.jpg')} style={{ flex: 1 }}>
       <View style={{ flex: 1, justifyContent: 'center', flexDirection: 'row', alignItems: 'flex-end' }}>
         <View style={{ position: 'absolute', left: 20, bottom: 15, zIndex: 1 }}>
-          <Back />
+          {loginMode && <TouchableOpacity activeOpacity={0.9} onPress={() => { forgotPassword && setForgotPassword(false), loginMode && !forgotPassword && setLoginMode(false), setAlert(''), setErrorInfo(''), onChangePassword('') }}>
+            <Image source={require('../img/back-arrow.png')} style={{ width: 35, height: 35 }} />
+          </TouchableOpacity> || <Back />}
         </View>
         <Text style={{ color: '#fff', fontSize: 25, textAlign: 'center', fontFamily: 'SFUIDisplay-Bold', paddingBottom: 15 }}>Həsab</Text>
       </View>
       <View style={{ flex: 7, backgroundColor: '#fff', borderRadius: 40, alignItems: 'center' }}>
         <View style={{ justifyContent: 'center', alignItems: 'center', paddingVertical: 20 }}>
-          <Image source={require('../img/rising.png')} style={{ width: 100, height: 100 }} />
+          <Image source={require('../img/rising.png')} style={{ width: 80, height: 80 }} />
         </View>
         {!user ? (
           <>
-            <Text style={{ textAlign: 'center', marginBottom: 10, fontSize: 22, fontFamily: 'SFUIDisplay-Regular', color: '#0f3073' }}>
+            <Text style={{ textAlign: 'center', marginBottom: 10, fontSize: 22, fontFamily: 'SFUIDisplay-Bold', color: '#828282' }}>
               {!loginMode ? 'Qeydiyyatdan keçin' : 'Daxil olun'}</Text>
             <TextInput
               style={[s.input, errorInfo && { borderColor: '#DB504B' }]}
@@ -142,31 +150,26 @@ export const ProfileScreen = () => {
               placeholder="şifrə"
               type='password'
               secureTextEntry={true}
+              visible-password={false}
             />}
-            <View style={{ height: 50 }}>
-              {initializing && <ActivityIndicator size={30} color="#00ff00" /> || <Text style={{ fontFamily: 'SFUIDisplay-Regular', textAlign: 'center', fontSize: 16, marginBottom: 10 }}>{alert || errorInfo}</Text>}
+            <View style={{ height: 35 }}>
+              {initializing && <ActivityIndicator size={25} color="#00ff00" /> || <Text style={{ fontFamily: 'SFUIDisplay-Regular', textAlign: 'center', fontSize: 16, marginBottom: 10 }}>{alert || errorInfo}</Text>}
             </View>
             {!loginMode ?
               <View style={{ alignItems: 'center' }}>
-                <TouchableOpacity onPress={signUpWithEmail}>
-                  <Text style={s.button}>Qeydiyyatdan keçmək</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => { setLoginMode(true), setErrorInfo(''), onChangePassword('') }}>
-                  <Text style={s.button}>Həsabınız var?</Text>
-                </TouchableOpacity>
+                <ButtonItem fnc={signUpWithEmail} color='#0881FF' descr='Qeydiyyatdan keçmək' />
+                <ButtonItem fnc={() => { setLoginMode(true), setErrorInfo(''), onChangePassword('') }} color='#1AB248' descr='Həsabınız var?' />
               </View>
               : null}
             {loginMode ?
-              <View>
-                {!forgotPassword && <TouchableOpacity onPress={signInWithEmail}>
-                  <Text style={s.button}>Daxil olmaq</Text>
-                </TouchableOpacity>}
-                <TouchableOpacity onPress={() => { !forgotPassword && (setForgotPassword(true), setErrorInfo('')), forgotPassword && passwordReset() }}>
-                  <Text style={s.button}>{!forgotPassword ? 'Şifrəni unutmusan?' : 'Şifrəni sıfırla'}</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => { forgotPassword && setForgotPassword(false), loginMode && !forgotPassword && setLoginMode(false), setAlert(''), setErrorInfo(''), onChangePassword('') }}>
-                  <Text style={s.button}>Geriyə</Text>
-                </TouchableOpacity>
+              <View style={{ width: '80%' }}>
+                {!forgotPassword && <ButtonItem fnc={signInWithEmail} color='#1AB248' descr='Daxil olmaq' />}
+                {forgotPassword && <ButtonItem color='#7B97BC' fnc={() => passwordReset()} descr={'Şifrəni sıfırla'} />}
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+                  {!forgotPassword && <TouchableOpacity activeOpacity={0.9} onPress={() => { !forgotPassword && (setForgotPassword(true), setErrorInfo('')), forgotPassword && passwordReset() }}>
+                    <Text style={{ fontFamily: 'SFUIDisplay-Bold', paddingTop: 10, textAlign: 'center', fontSize: 19, color: '#777', }}>Şifrəni unutmusan?</Text>
+                  </TouchableOpacity>}
+                </View>
               </View> : null}
           </>
         ) :
@@ -174,7 +177,7 @@ export const ProfileScreen = () => {
             <View style={{ flex: 4 }}>
               <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', }}>
                 <Text style={{ paddingRight: 10 }}>{user.email}</Text>
-                <TouchableOpacity onPress={signOut}>
+                <TouchableOpacity activeOpacity={0.9} onPress={signOut}>
                   <Text style={s.exit}>çıxmaq</Text>
                 </TouchableOpacity>
               </View>
@@ -188,13 +191,15 @@ export const ProfileScreen = () => {
                         Hazırki seviyyə:</Text>
                       <Text style={{ fontSize: 17, fontFamily: 'SFUIDisplay-Bold', paddingLeft: 5 }}>{progress < 30 * 8 && 'Beginner' || progress < 70 * 8 && 'Elementary' || 'Pre-Intermediate'}</Text>
                     </View>
-                    <View style={{flexDirection:'row'}}><View>
-                      <Text style={{ fontSize: 17, color: '#444', fontFamily: 'SFUIDisplay-Regular' }}>Siz keçmisiz:</Text>
+                    <View style={{ flexDirection: 'row' }}>
+                      <View>
+                        <Text style={{ fontSize: 17, color: '#444', fontFamily: 'SFUIDisplay-Regular' }}>Siz keçmisiz:</Text>
+                      </View>
+                      <View style={{ paddingLeft: 10 }}>
+                        <Text style={{ color: '#737479', fontFamily: 'SFUIDisplay-Bold', fontSize: 16 }}>{learnWords} söz</Text>
+                        <Text style={{ color: '#737479', fontFamily: 'SFUIDisplay-Bold', fontSize: 16 }}>{passedSentences} cümlə</Text>
+                      </View>
                     </View>
-                    <View style={{paddingLeft:10}}>
-                      <Text style={{ color: '#737479', fontFamily: 'SFUIDisplay-Bold', fontSize: 16 }}>{learnWords} söz</Text>
-                      <Text style={{ color: '#737479', fontFamily: 'SFUIDisplay-Bold', fontSize: 16 }}>{passedSentences} cümlə</Text>
-                    </View></View>
                   </View>
                 </View>
               </View>
@@ -205,10 +210,16 @@ export const ProfileScreen = () => {
     </ImageBackground>
   )
 }
-const { width } = Dimensions.get('window');
-import ProgressCircle from 'react-native-progress-circle'
 
-const ProgresItem = ({ item, progress }) => {
+const ButtonItem = ({ fnc, color, descr }) => {
+  return (
+    <TouchableOpacity activeOpacity={0.9} onPress={fnc}>
+      <Text style={[s.button, color && { backgroundColor: color }]}>{descr}</Text>
+    </TouchableOpacity>
+  )
+}
+
+const ProgresItem = ({ progress }) => {
   return (
     <ProgressCircle
       percent={(progress < 115 * 8 + 1) ? progress / 9.21 : 100}
@@ -234,15 +245,16 @@ const s = StyleSheet.create({
     paddingHorizontal: 15,
     fontSize: 17,
     borderColor: '#999',
-    width: '80%'
+    width: '80%',
+    fontFamily: 'SFUIDisplay-Regular',
   },
   button: {
     backgroundColor: '#7B97BC',
-    fontFamily: 'SFUIDisplay-Regular',
-    padding: 10,
+    fontFamily: 'SFUIDisplay-Bold',
+    padding: 13,
     textAlign: 'center',
-    borderRadius: 15,
-    fontSize: 20,
+    borderRadius: 5,
+    fontSize: 19,
     color: '#fff',
     marginBottom: 5,
     paddingHorizontal: 30,
@@ -273,4 +285,4 @@ const s = StyleSheet.create({
     flexDirection: 'column',
     paddingLeft: 10
   }
-});
+})

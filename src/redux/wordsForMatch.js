@@ -1158,6 +1158,7 @@ initialState={
 { id: 1149, wd: 'month', tr: 'ay' },
 { id: 1150, wd: 'last name', tr: 'soyad' }]]
 ]}
+// console.log(JSON.stringify(initialState))
 
 // for(let i=0; i<115;i++){
 //   for(let a=0;a<2;a++){
@@ -1166,8 +1167,21 @@ initialState={
 //     console.log(initialState.words[i][a][b].wd)
 //   }}
 
+const SETMATCHWORDS='SETMATCHWORDS'
+export const setWordsForMatch = value =>({
+    type:SETMATCHWORDS,
+    value
+})
+
 const wordsForMatch = (state=initialState, action)=>{
-  return state
+  switch (action.type) {
+    case SETMATCHWORDS:
+      return {
+        ...state, words: action.value
+      }
+    default:
+      return state
+  }
 }
 
 export default wordsForMatch

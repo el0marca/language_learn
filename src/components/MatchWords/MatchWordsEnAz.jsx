@@ -11,7 +11,7 @@ import { setBottomTabVisible } from '../../redux/bottomTab';
 
 export const MatchWordsEnAz = ({ route }) => {
     const index = route.params.lessonIndex
-    const practice = useSelector(state => state.levelsList.levels[0][index][2])
+    const practice = useSelector(state => state.levelsList.levels[index][2])
     const voice = useSelector(state=>state.voice.value)
     const user = useSelector(state => state.auth.user)
     const progress = useSelector(state => state.progress[0])

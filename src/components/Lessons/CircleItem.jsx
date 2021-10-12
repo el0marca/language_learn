@@ -121,28 +121,29 @@ const requires = [
     require('../../img/circles/115.png')
 ]
 export const CircleItem = ({ progress, index, subject, circleSize }) => {
-    const circleRadius = circleSize / 2;
+    const circleRadius = circleSize / 2
     const s = StyleSheet.create({
         container: {
             width: circleSize,
             height: circleSize,
             borderRadius: circleRadius,
             backgroundColor: '#99a4bf',
-            elevation: 15
+            elevation: 15, 
         },
         lessonNum: {
-            flex: 0.5,
-            justifyContent: 'center',
-            alignItems: 'center'
+            flex: 0.7,
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            paddingTop:5
         },
         lessonNumText: {
             fontSize: 15,
             color: '#fff',
             textAlign: 'center',
-            fontFamily: 'SFUIDisplay-Regular'
+            fontFamily: 'SFUIDisplay-Regular',
         },
         lessonDescr: {
-            flex: 0.5,
+            flex: 0.8,
             paddingHorizontal: 30,
             alignItems: 'center',
             paddingTop: 15
@@ -156,13 +157,13 @@ export const CircleItem = ({ progress, index, subject, circleSize }) => {
         stars: {
             justifyContent: 'center',
             alignItems: 'center',
-            flex: 0.5
+            flex: 1
         },
         button: {
-            flex: 0.5,
+            flex: 0.7,
             alignItems: 'center',
             justifyContent: 'flex-end',
-            paddingBottom: 20
+            paddingBottom: 15
         },
         buttonText: {
             color: '#999',
@@ -184,13 +185,16 @@ export const CircleItem = ({ progress, index, subject, circleSize }) => {
     function star(number) {
         return value > number ? require('../../img/star.png') : require('../../img/starDeactive.png')
     }
-    
+    function smileStar(number){
+        return value > number ? require('../../img/starSmileActive.png') : require('../../img/starSmileInActive.png')
+
+    }
     return (
         <View style={s.container}>
         <ImageBackground source={requires[index - 1]} style={{ flex: 1 }} >
             <View style={s.lessonNum}>
                 <Text style={s.lessonNumText}>dərs #{index}</Text>
-                <FastImage style={{ width: 25, height: 25 }} source={star(8)} />
+                <View style={{paddingTop:5}}><FastImage style={{ width: 30, height: 30 }} source={smileStar(8)} /></View>
             </View>
             <View style={s.lessonDescr}>
                 <Text style={[s.text]}>{subject}</Text>

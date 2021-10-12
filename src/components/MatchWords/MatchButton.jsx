@@ -15,7 +15,7 @@ const s = StyleSheet.create({
         color: '#fff',
         fontSize: 25,
         backgroundColor: '#0881FF',
-        padding: 10,
+        padding: 15,
         textAlign: 'center',
         borderRadius: 10,
         fontFamily: 'SFUIDisplay-Bold',

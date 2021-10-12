@@ -1,9 +1,4 @@
 let initialState = {
-  keyboard: [
-    ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
-    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
-    ['z', 'x', 'c', 'v', 'b', 'n', 'm']
-  ],
   words: [
     [{ id: 1, wd: 'sevmək, bəyənmək', tr: 'like' },
       { id: 2, wd: 'içində, - da/də', tr: 'in' },
@@ -643,7 +638,7 @@ let initialState = {
     ],[],[],[],[],[],[],[],[],[],[],
     [{ id: 801, wd: 'kəşf', tr: 'discovery' },
       { id: 802, wd: 'acı-acı, kəskin', tr: 'bitterly' },
-      { id: 803, wd: 'məyus etmək, ümidini boşa çıxarmaq', tr: 'disappoint' },
+      { id: 803, wd: 'məyus, ümidi boşa çıxmış', tr: 'disappointed' },
       { id: 804, wd: 'qulaq asmaq, dinləmək', tr: 'listen' },
       { id: 805, wd: 'min', tr: 'thousand' },
       { id: 806, wd: 'ay', tr: 'month' },
@@ -873,7 +868,7 @@ let initialState = {
     [{ id: 1141, wd: 'çətin', tr: 'difficult' },
       { id: 1142, wd: 'soyad', tr: 'surname' },
       { id: 1143, wd: 'otel', tr: 'hotel' },
-      { id: 1144, wd: 'məyus etmək, ümidini boşa çıxarmaq', tr: 'disappoint' },
+      { id: 1144, wd: 'məyus, ümidi boşa çıxmış', tr: 'disappointed' },
       { id: 1145, wd: 'hava limanı', tr: 'airport' },
       { id: 1146, wd: 'ən yaxın', tr: 'nearest' },
       { id: 1147, wd: 'supermarket', tr: 'supermarket' },
@@ -884,6 +879,7 @@ let initialState = {
     ],
   ]
 }
+// console.log(JSON.stringify(initialState))
 
 // for(let i=105; i<115;i++){
 // for(let a=0;a<10;a++){
@@ -891,8 +887,22 @@ let initialState = {
 //   console.log(initialState.words[i][a].tr)
 // }}
 
+const SET_LEARNWORDS = 'SET_LEARNWORDS'
+export const setLearnWords = value => ({
+    type: SET_LEARNWORDS,
+    value
+})
+
 const learnWords = (state = initialState, action) => {
-  return state
+  switch (action.type) {
+    case SET_LEARNWORDS:
+      return {
+        ...state, words: action.value
+      }
+  
+    default:
+      return state
+  }
 }
 
 export default learnWords

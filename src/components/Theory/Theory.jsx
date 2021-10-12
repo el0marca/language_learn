@@ -12,6 +12,7 @@ import { setBottomTabVisible } from '../../redux/bottomTab'
 import { Award } from '../Common/Award'
 import { useNavigation } from '@react-navigation/core'
 import database from '@react-native-firebase/database'
+import { ReportModal } from '../Common/ResultModal'
 
 const { width } = Dimensions.get('window')
 
@@ -32,26 +33,8 @@ export function Theory({ route }) {
     const [result, setResult] = useState(false)
     const [keyArray, setKeyArray] = useState([])
     const [outputArr, setOutputArr] = useState([])
-
-    function report() {
-        database()
-            .ref(`theory/${lesson.id}`)
-            .update({
-                mistake: true
-            })
-            .then(() => console.log('success'))
-    }
-    function alert() {
-        Alert.alert("", "Səhv haqqında bildirmək istəyirsiniz?",
-            [
-                {
-                    text: "XEYİR",
-                    onPress: () => console.log("Cancel Pressed"),
-                },
-                { text: "BƏLİ", onPress: () => (report()) }
-            ]
-        )
-    }
+    const errorData = 'theory ' + lesson.id
+    const [reportMode, setReportMode] = useState(false)
 
     async function loadAudio() {
         try {
@@ -168,6 +151,7 @@ export function Theory({ route }) {
                     </TouchableOpacity>
                 </View>
             </Modal>
+            {reportMode&&<ReportModal closeWindow={()=>setReportMode(false)} lesson={errorData}/>}
             <View style={s.progressBar}>
                 <ProgressBar count={num} numOfTasks={10} learnMode={false} theory={true} changeModalVisibleMode={changeModalVisibleMode} />
             </View>
@@ -181,9 +165,6 @@ export function Theory({ route }) {
                     </View>
                 </Animated.View>
                 <Animated.View style={[s.originContainer, { opacity: taskAnim }]}>
-                    <TouchableOpacity onPress={alert}>
-                        <Award />
-                    </TouchableOpacity>
                     <Text style={s.originHeader}>Cümləni topla</Text>
                     <Output value={sentence} />
                 </Animated.View>
@@ -202,14 +183,18 @@ export function Theory({ route }) {
                                 <Text style={[s.choice, pronoun.some(e => e == w.replace('?', '')) ? s.pronoun : null, adverb.some(e => e == w.replace('?', '')) ? s.adverb : null, verbs.some(e => e == w.replace('?', '')) ? s.verb : demPronouns.some(e => e == w.replace('?', '')) ? s.demPronouns : pPronouns.some(e => e == w.replace('?', '')) ? s.pPronouns : article.some(e => e == w.replace('?', '')) ? s.article : qWords.some(e => e == w.replace('?', '')) ? s.qWords : adjectives.some(e => e == w.replace('?', '')) ? s.adjectives : null, keyArray.some(id => id == i) ? s.chosen : null]}>{w}</Text>
                             </TouchableOpacity>)}
                     </View>
-                    {result && <Animated.View style={{ width: '100%', opacity: 1, position: 'absolute', bottom: 30, paddingHorizontal:20, opacity:buttonAnim }}>
-                        <TouchableOpacity activeOpacity={0.7} disabled={!result} onPress={!isReady ? next : isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>
-                            <Text style={{ color: '#fff', fontSize: 25, backgroundColor: '#1AB248', padding: 12, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold' }}>
+                    {result && <Animated.View style={{ width: '100%', position: 'absolute', bottom: 30, paddingHorizontal: 20, opacity: buttonAnim }}>
+                        <TouchableOpacity style={{flexDirection:'row', backgroundColor: '#1AB248', borderRadius:10, justifyContent:'space-around', alignItems:'center'}} activeOpacity={0.7} disabled={!result} onPress={!isReady ? next : isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>
+                            <TouchableOpacity activeOpacity={0.7} disabled={!result} onPress={()=>setReportMode(true)} >
+                                <Image style={{ width: 40, height: 40 }} source={require('../../img/qproblem.png')} />
+                            </TouchableOpacity>
+                            <Text style={{ color: '#fff', fontSize: 25, padding: 12, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold' }}>
                                 {!isReady ? 'növbəti' : isReady ? 'dərslər' : null}
                             </Text>
-                            <TouchableOpacity activeOpacity={0.7} disabled={!result} onPress={play} style={{ position: 'absolute', transform: [{ translateY: 6 }], right: 10 }} >
+                            <TouchableOpacity activeOpacity={0.7} disabled={!result} onPress={play} >
                                 <Image style={{ width: 40, height: 40 }} source={require('../../img/speakerW.png')} />
                             </TouchableOpacity>
+                            
                         </TouchableOpacity>
                     </Animated.View>}
                 </Animated.View>
@@ -263,7 +248,7 @@ const s = StyleSheet.create({
     originHeader: {
         fontSize: 23,
         textAlign: 'center',
-        paddingBottom: 3,
+        paddingBottom: 10,
         color: '#fff',
         fontFamily: 'SFUIDisplay-Bold'
     },

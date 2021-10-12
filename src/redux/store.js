@@ -13,8 +13,17 @@ import theory from "./theory";
 import words from "./words";
 import wordsForMatch from "./wordsForMatch";
 import voice from "./voice";
+import {persistStore, persistReducer} from 'redux-persist'
+import AsyncStorage from "@react-native-async-storage/async-storage"
+import { version } from "./version";
 
-let reducers = combineReducers(
+const persistConfig = {
+    key: 'root',
+    storage: AsyncStorage,
+    blackList:['bottomTab']
+}
+
+const rootReducer = combineReducers(
     {
         wordsForMatch: wordsForMatch,
         azEnSentences: azEnSentences,
@@ -27,9 +36,14 @@ let reducers = combineReducers(
         bottomTab: bottomTab,
         words: words,
         completeSentence:completeSentence,
-        voice:voice
+        voice:voice,
+        version: version
     })
 
-let store = createStore(reducers, applyMiddleware(thunkMiddleware));
+const persistReducers = persistReducer(persistConfig, rootReducer)
 
-export default store
+export const store = createStore(persistReducers, applyMiddleware(thunkMiddleware));
+
+export const persistor = persistStore(store)
+
+export default {store, persistor}

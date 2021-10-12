@@ -7,7 +7,7 @@ export const ListenAndEnter = ({ route }) => {
     let shuflle=[6,4,7,2,0,8,5,1,9,3]
     const [num, setNum] = useState(0)
     const sentences=useSelector(state=>state.azEnSentences.sentences[route.params.lessonIndex][shuflle[num]])
-    const practice = useSelector(state => state.levelsList.levels[0][route.params.lessonIndex][2])
+    const practice = useSelector(state => state.levelsList.levels[route.params.lessonIndex][2])
 
     function setNumCount() {
         setNum(prev => prev + 1)

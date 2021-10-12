@@ -1,16 +1,15 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { Text, View, StyleSheet, Animated, ImageBackground } from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
-import { useDispatch, useSelector } from 'react-redux';
-import { ProgressBar } from '../Common/ProgressBar';
-import { QwertyKeyboard } from './QwertyKeyboard';
-import { updateProgress } from '../../redux/progress';
-import storage from '@react-native-firebase/storage';
-import { setBottomTabVisible } from '../../redux/bottomTab';
+import { Text, View, StyleSheet, Animated, ImageBackground, Image, TouchableOpacity } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux'
+import { ProgressBar } from '../Common/ProgressBar'
+import { QwertyKeyboard } from './QwertyKeyboard'
+import { updateProgress } from '../../redux/progress'
+import storage from '@react-native-firebase/storage'
+import { setBottomTabVisible } from '../../redux/bottomTab'
 import SoundPlayer from 'react-native-sound-player'
-import { useNavigation } from '@react-navigation/core';
+import { useNavigation } from '@react-navigation/core'
 
-export function LearnWords({ route, practice }) {
+export function LearnWords({ route }) {
     const voice = useSelector(state=>state.voice.value)
     const navigation = useNavigation()
     const user = useSelector(state => state.auth.user)
@@ -19,7 +18,6 @@ export function LearnWords({ route, practice }) {
     const [numberOfWord, setNumberOfWord] = useState(0)
     const [count, setCount] = useState(0)
     const task = useSelector(state => state.learnWords.words[route.params.lessonIndex][numberOfWord])
-    const keyboard = useSelector(state => state.learnWords.keyboard)
     const [result, setResult] = useState(false)
     const [isReady, setReady] = useState(false)
     const [originWord, setOriginWord] = useState(task.wd)
@@ -27,6 +25,12 @@ export function LearnWords({ route, practice }) {
     const [wordToChoose, setWordToChoose] = useState(translatedWord.split(''))
     const [output, setOutput] = useState('')
     const [item, setItem] = useState(wordToChoose)
+
+    const keyboard = [
+        ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+        ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+        ['z', 'x', 'c', 'v', 'b', 'n', 'm']
+      ]
 
     async function loadAudio() {
         SoundPlayer.stop()
@@ -110,8 +114,7 @@ export function LearnWords({ route, practice }) {
         setTimeout(() => {
             fade(keyboardAnim, 1, 500)
         }, 700)
-    },
-        [])
+    }, [])
 
     return (
         <View style={s.content}>
@@ -121,13 +124,15 @@ export function LearnWords({ route, practice }) {
                 </View>
                 <Animated.View style={{ flex: 3, alignItems: 'center', justifyContent: 'center', opacity: taskAnim }}>
                     <View style={s.task}>
-                        <Text style={s.originWordText}>{originWord}</Text>
-                        <TouchableOpacity style={s.speaker} onPress={play}>
-                            <Animated.Image style={{ width: 80, height: 80 }} source={require('../../img/microphone.png')} />
+                    <View style={{height:50,backgroundColor:'#fff', borderRadius:10, justifyContent:'center', alignItems:'center'}}>
+                            <Text style={s.originWord}>{originWord}</Text>
+                        </View>
+                        <TouchableOpacity activeOpacity={0.6} style={s.speaker} onPress={play}>
+                            <Image style={{ width: 80, height: 80 }} source={require('../../img/microphone.png')} />
                         </TouchableOpacity>
-                        <TouchableOpacity disabled={!result}>
-                            <Animated.Text style={[s.originWordText, result ? { color: '#fff', backgroundColor: '#4ba83e' } : null]}>{output}</Animated.Text>
-                        </TouchableOpacity>
+                        <View style={{height:50,backgroundColor:result&&'#4ba83e'||'#fff', borderRadius:10, justifyContent:'center', alignItems:'center'}}>
+                            <Text style={ [s.originWord, result&&{color:'#fff'}]}>{output}</Text>
+                        </View>
                     </View>
                 </Animated.View>
                 <Animated.View style={{ flex: 2, justifyContent: 'center', opacity: keyboardAnim }}>
@@ -137,7 +142,7 @@ export function LearnWords({ route, practice }) {
                 </Animated.View>
                 <Animated.View style={{ paddingHorizontal: 20, justifyContent: 'center', flex: 1, opacity: buttonAnim }}>
                     <TouchableOpacity disabled={!result} onPress={!isReady ? next : isReady ? () => navigation.navigate('Tasks') : next}>
-                        <Text style={{ color: '#fff', fontSize: 25, backgroundColor: '#0881FF', padding: 10, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold', marginHorizontal: 20, }}>
+                        <Text style={{ color: '#fff', fontSize: 25, backgroundColor: '#0881FF', padding: 15, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold', marginHorizontal: 20, }}>
                             {!isReady ? 'növbəti' : isReady ? 'dərslər' : null}
                         </Text>
                     </TouchableOpacity>
@@ -160,15 +165,11 @@ const s = StyleSheet.create({
         minWidth: '50%',
         justifyContent: 'space-around'
     },
-    originWordText: {
+    originWord: {
         fontSize: 20,
-        textAlign: 'center',
         color: '#000',
-        backgroundColor: '#fff',
-        borderRadius: 10,
-        padding: 10,
-        paddingHorizontal: 25,
         fontFamily: 'SFUIDisplay-Regular',
+        marginHorizontal:20
     },
     keyboard: {
         flex: 2,
