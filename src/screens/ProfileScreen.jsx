@@ -22,7 +22,8 @@ export const ProfileScreen = () => {
   const [forgotPassword, setForgotPassword] = useState(false)
   const [initializing, setInitializing] = useState(false)
   const [alert, setAlert] = useState('')
-  const learnWords = progress < 8 * 60 + 1 ? Math.floor((progress - 1) / 8 * 15) : Math.floor((60 * 15) + (progress - 481) / 8 * 10)
+  const learnWords = Math.floor((progress-1)*2.2)
+  // progress < 8 * 60 + 1 ? Math.floor((progress - 1) / 8 * 15) : Math.floor((60 * 15) + (progress - 481) / 8 * 10)
   const passedSentences = Math.floor(progress / 8) * 30
 
   function signUpWithEmail() {
@@ -58,6 +59,7 @@ export const ProfileScreen = () => {
         dispatch(setUserInfo(e.user))
         getData(e.user.uid)
         console.log('user have authorized')
+        setLoginMode(false)
       })
       .catch(error => {
         if (error.code === 'auth/network-request-failed') {
@@ -77,7 +79,7 @@ export const ProfileScreen = () => {
     setInitializing(true)
     auth()
       .signOut()
-      .then(() => dispatch(setUserInfo(null)))
+      // .then(() => dispatch(setUserInfo(null)))
       .finally(e => { dispatch(setUserInfo(null)), setInitializing(false) })
   }
   const passwordReset = () => {
@@ -122,7 +124,7 @@ export const ProfileScreen = () => {
     <ImageBackground source={require('../img/bg/tasksBg.jpg')} style={{ flex: 1 }}>
       <View style={{ flex: 1, justifyContent: 'center', flexDirection: 'row', alignItems: 'flex-end' }}>
         <View style={{ position: 'absolute', left: 20, bottom: 15, zIndex: 1 }}>
-          {loginMode && <TouchableOpacity activeOpacity={0.9} onPress={() => { forgotPassword && setForgotPassword(false), loginMode && !forgotPassword && setLoginMode(false), setAlert(''), setErrorInfo(''), onChangePassword('') }}>
+          {loginMode && <TouchableOpacity activeOpacity={0.5} onPress={() => { forgotPassword && setForgotPassword(false), loginMode && !forgotPassword && setLoginMode(false), setAlert(''), setErrorInfo(''), onChangePassword('') }}>
             <Image source={require('../img/back-arrow.png')} style={{ width: 35, height: 35 }} />
           </TouchableOpacity> || <Back />}
         </View>

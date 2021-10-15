@@ -135,7 +135,7 @@ export const completeSentence = ({ route }) => {
                 <Animated.View style={[s.task, { opacity: taskAnim }]}>
                     <Award />
                     <View style={s.taskHeader}>
-                        <Text style={s.taskHeaderText}>Cümləni topla</Text>
+                        <Text style={s.taskHeaderText}>Cümləni tamamla</Text>
                     </View>
                     <Highlighter
                         style={s.output}

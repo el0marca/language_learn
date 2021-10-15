@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { useEffect, useState } from 'react'
-import { View, Text, TouchableOpacity, StyleSheet, Animated, ImageBackground, Image, Modal, Dimensions, Alert } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, Animated, ImageBackground, Image, Dimensions, FlatList } from 'react-native'
 import SoundPlayer from 'react-native-sound-player'
 import storage from '@react-native-firebase/storage'
 import { shuffle } from '../../utils/shuffle'
@@ -9,9 +9,7 @@ import { ProgressBar } from '../Common/ProgressBar'
 import { updateProgress } from '../../redux/progress'
 import { Output } from '../Common/Output'
 import { setBottomTabVisible } from '../../redux/bottomTab'
-import { Award } from '../Common/Award'
 import { useNavigation } from '@react-navigation/core'
-import database from '@react-native-firebase/database'
 import { ReportModal } from '../Common/ResultModal'
 
 const { width } = Dimensions.get('window')
@@ -35,7 +33,6 @@ export function Theory({ route }) {
     const [outputArr, setOutputArr] = useState([])
     const errorData = 'theory ' + lesson.id
     const [reportMode, setReportMode] = useState(false)
-
     async function loadAudio() {
         try {
             SoundPlayer.stop()
@@ -134,26 +131,34 @@ export function Theory({ route }) {
     const navigation = useNavigation()
     const [modalVisible, setModalVisible] = useState(false)
 
-    const changeModalVisibleMode = () => { setModalVisible(true) }
+    const tables = [require('../../img/tables/tenses.png'), require('../../img/tables/pronouns.png'), require('../../img/tables/tobe.png')]
 
-    const table = lessonIndex < 22 && require('../../img/tables/tenses.png') || require('../../img/tables/tenses.png')
+    const initialTable = (lessonIndex == 3 || lessonIndex == 4) && 1 || lessonIndex>22&&lessonIndex<34&&2||lessonIndex>107&&lessonIndex<115&&2||0
+
     return (
         <ImageBackground source={require('../../img/bg/tasksBg.jpg')} style={{ flex: 1, resizeMode: "center", justifyContent: "center" }}>
-            <Modal
-                animationType="fade"
-                transparent={true}
-                visible={modalVisible}
-                onRequestClose={() => { setModalVisible(!modalVisible) }}>
-                <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.5)' }} >
-                    <Image style={{ width: width * 0.97, resizeMode: 'contain', flex: 7 }} source={table} />
-                    <TouchableOpacity style={{ marginTop: 30, flex: 1 }} onPress={() => setModalVisible(false)}>
-                        <Text style={{ fontSize: 18, backgroundColor: '#fff', paddingHorizontal: 15, paddingVertical: 10, borderRadius: 15, }}>bağlamaq</Text>
+            {modalVisible && <View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center', zIndex: 100, backgroundColor: 'rgba(0,0,0,0.4)' }}>
+                <View style={{ flex: 1 }}>
+                    <View style={{ flex: 7 }}>
+                        <FlatList
+                            horizontal
+                            pagingEnabled
+                            data={tables}
+                            initialScrollIndex={initialTable}
+                            keyExtractor={(item, i) => i.toString()}
+                            renderItem={({ item }) =>
+                                <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                                    <Image style={{ width: width, resizeMode: 'center', justifyContent: 'center', alignItems: 'center' }} source={item} /></View>}
+                        />
+                    </View>
+                    <TouchableOpacity activeOpacity={0.6} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} onPress={() => setModalVisible(false)}>
+                        <Text style={{ fontSize: 20, backgroundColor: '#fff', paddingVertical: 10, width: '80%', textAlign: 'center', fontFamily: 'SFUIDisplay-Bold' }}>bağlamaq</Text>
                     </TouchableOpacity>
                 </View>
-            </Modal>
-            {reportMode&&<ReportModal closeWindow={()=>setReportMode(false)} lesson={errorData}/>}
+            </View>}
+            {reportMode && <ReportModal closeWindow={() => setReportMode(false)} lesson={errorData} />}
             <View style={s.progressBar}>
-                <ProgressBar count={num} numOfTasks={10} learnMode={false} theory={true} changeModalVisibleMode={changeModalVisibleMode} />
+                <ProgressBar count={num} numOfTasks={10} learnMode={false} theory={true} changeModalVisibleMode={() => setModalVisible(true)} />
             </View>
             <View style={s.wrapper}>
                 <Animated.View style={[s.explainContainer, { opacity: descrAnim }]}>
@@ -184,8 +189,8 @@ export function Theory({ route }) {
                             </TouchableOpacity>)}
                     </View>
                     {result && <Animated.View style={{ width: '100%', position: 'absolute', bottom: 30, paddingHorizontal: 20, opacity: buttonAnim }}>
-                        <TouchableOpacity style={{flexDirection:'row', backgroundColor: '#1AB248', borderRadius:10, justifyContent:'space-around', alignItems:'center'}} activeOpacity={0.7} disabled={!result} onPress={!isReady ? next : isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>
-                            <TouchableOpacity activeOpacity={0.7} disabled={!result} onPress={()=>setReportMode(true)} >
+                        <TouchableOpacity style={{ flexDirection: 'row', backgroundColor: '#1AB248', borderRadius: 10, justifyContent: 'space-around', alignItems: 'center' }} activeOpacity={0.7} disabled={!result} onPress={!isReady ? next : isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>
+                            <TouchableOpacity activeOpacity={0.7} disabled={!result} onPress={() => setReportMode(true)} >
                                 <Image style={{ width: 40, height: 40 }} source={require('../../img/qproblem.png')} />
                             </TouchableOpacity>
                             <Text style={{ color: '#fff', fontSize: 25, padding: 12, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold' }}>
@@ -194,7 +199,7 @@ export function Theory({ route }) {
                             <TouchableOpacity activeOpacity={0.7} disabled={!result} onPress={play} >
                                 <Image style={{ width: 40, height: 40 }} source={require('../../img/speakerW.png')} />
                             </TouchableOpacity>
-                            
+
                         </TouchableOpacity>
                     </Animated.View>}
                 </Animated.View>

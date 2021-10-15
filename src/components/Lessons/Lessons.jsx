@@ -41,7 +41,7 @@ export default function Lessons() {
           decelerationRate={.95}
           windowSize={10}
           maxToRenderPerBatch={5}
-          initialNumToRender={15}
+          initialNumToRender={10}
           renderItem={({ item, index }) => {
             const scale = scrollPos.interpolate({
               inputRange: [circleSize * (index - 1), circleSize * index, circleSize * (index + 1)],

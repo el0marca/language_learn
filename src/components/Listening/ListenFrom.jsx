@@ -135,14 +135,14 @@ export const ListenFrom = ({ sentences, setNumCount, num, type, progressValue, r
                 </Animated.View>
                 <Animated.View style={[s.choiceWrapper, { opacity: outputAnim }]}>
                     <View style={{ flexDirection: 'row', flexWrap: 'wrap', flex: 1 }}>{choice.map((w, i) =>
-                        <TouchableOpacity key={i} onPress={() => answer(w, i)} disabled={result || answered || keyArray.some(id => id == i)}>
+                        <TouchableOpacity activeOpacity={0.5} key={i} onPress={() => answer(w, i)} disabled={result || answered || keyArray.some(id => id == i)}>
                             <Text style={[s.choice, keyArray.some(id => id == i) ? s.chosen : null]}>{w}
                             </Text>
                         </TouchableOpacity>)}
                     </View>
                     {answered ? <ResultModal result={result} sentence={sentence} transSentence={transSentence} errorData={errorData} openReportWindow={()=>setReportMode(true)}  /> : null}
                     <View style={{ width: '100%', justifyContent: 'flex-end', paddingHorizontal:20 }}>
-                        <TouchableOpacity disabled={!answered && output.length == 0} onPress={!answered ? check : answered && !isReady ? next : answered && isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>
+                        <TouchableOpacity activeOpacity={0.5} disabled={!answered && output.length == 0} onPress={!answered ? check : answered && !isReady ? next : answered && isReady ? () => navigation.navigate('Tasks', { num: num }) : next}>
                             <Text style={[{ color: '#fff', fontSize: 25, backgroundColor: '#0881FF', padding: 12, textAlign: 'center', borderRadius: 10, fontFamily: 'SFUIDisplay-Bold' }, output.length == 0 ? { backgroundColor: '#7B97BC' } : null]}>
                                 {!answered ? 'yoxlamaq' : answered && !isReady ? 'növbəti' : answered && isReady ? 'dərslər' : null}
                             </Text>

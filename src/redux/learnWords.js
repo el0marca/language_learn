@@ -1,7 +1,7 @@
 let initialState = {
   words: [
-    [{ id: 1, wd: 'sevmək, bəyənmək', tr: 'like' },
-      { id: 2, wd: 'içində, - da/də', tr: 'in' },
+    [{ id: 1, wd: 'bəyənmək', tr: 'like' },
+      { id: 2, wd: 'düşünmək', tr: 'think' },
       { id: 3, wd: 'orada', tr: 'there' },
       { id: 4, wd: 'yaşamaq', tr: 'live' },
       { id: 5, wd: 'burada', tr: 'here' },

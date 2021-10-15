@@ -46,10 +46,10 @@ export const SettingScreen = () => {
         <MenuItem fnc={onShare} img={require('../img/share.png')} txt={'Tətbiqi bölüşmək'} />
         <Line />
         <MenuItem fnc={() => { setSuggestMode(true), setIsSent(false) }} img={require('../img/question.png')} txt={'Məndə problem var'} />
-        <TextInput style={{ marginTop: 150 }}
+        {/* <TextInput style={{ marginTop: 150 }}
           onChangeText={onChangeText}
           value={text} />
-        <Button title='setmyprogress' onPress={() => dispatch(updateProgress(Number(text)))} />
+        <Button title='setmyprogress' onPress={() => dispatch(updateProgress(Number(text)))} /> */}
       </View>
     </ImageBackground>
   )

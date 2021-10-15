@@ -7765,6 +7765,7 @@ export const setTheory = value => ({
 })
 
 const theory = (state = initialState, action) => {
+  console.log(action.value)
   switch (action.type) {
     case SET_THEORY:
         return {

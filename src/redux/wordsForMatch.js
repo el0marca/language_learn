@@ -2,7 +2,7 @@ initialState={
   words: [
 [[
 { id: 1, wd: 'I', tr: 'mən' },
-{ id: 2, wd: 'think', tr: 'düşünmək' },
+{ id: 2, wd: 'in', tr: 'içində, - da/də' },
 { id: 3, wd: 'we', tr: 'biz' },
 { id: 4, wd: 'understand', tr: 'anlamaq' },
 { id: 5, wd: 'it', tr: 'bu' }],

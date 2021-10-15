@@ -12,7 +12,7 @@ export const Task = ({ routeName, setDisable, lessonIndex, setSuccess, header, d
       <TouchableOpacity activeOpacity={0.8} disabled={setDisable} style={s.touchble} onPress={() => navigation.navigate(`${routeName}`, { lessonIndex: lessonIndex })}>
         <View style={{ borderWidth: 5, borderColor: setDisable && '#ffe3e0' || !setSuccess && '#ccfff6' || setSuccess && '#F7F9FA', borderStyle: 'solid', borderRadius: 999, justifyContent: 'center', alignItems: 'center', padding: 2 }}>{setDisable && locked || !setSuccess && ready || setSuccess && studying}</View>
         <View style={s.descr}>
-        <Text style={{fontSize: 15, color: '#444',fontFamily:'SFUIDisplay-Lato-Bold'}}>
+        <Text style={{fontSize: 16, color: '#555',fontFamily:'SFUIDisplay-Bold'}}>
           {header}</Text>
         <Text style={{color:'#737479',fontFamily:'SFUIDisplay-ZillaSlab-Light',paddingTop:5,fontSize:15}}>{descr}</Text>
         </View>
@@ -36,7 +36,6 @@ const s = StyleSheet.create({
     paddingLeft: 13,
     marginHorizontal: 15,
     borderRadius: 20,
-    marginBottom: 0.5,
     marginBottom: 5
   },
   touchble: {
