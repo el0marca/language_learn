@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "1078824412746",
+    "firebase_url": "https://asan-english-default-rtdb.firebaseio.com",
+    "project_id": "asan-english",
+    "storage_bucket": "asan-english.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1078824412746:android:8a611ab3bb9d1d813fa8b3",
+        "android_client_info": {
+          "package_name": "com.nativee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1078824412746-38dfp1mp33mcgkmjh0fa05103e3oabc5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nativee",
+            "certificate_hash": "d3eaee90d1f5a9fdebc0bd8c362b29890d032dc8"
+          }
+        },
+        {
+          "client_id": "1078824412746-lm2gj90ht242bj3qklik0edkc3nni6rt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nativee",
+            "certificate_hash": "ef3311a70588c36598141193ce8ceafef248a855"
+          }
+        },
+        {
+          "client_id": "1078824412746-5c3l9ke687snskfjpk0gucn1mhikj9fp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOeHhjyAJcWNh2xiX0bSHSXqQ9rLt0cUM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1078824412746-5c3l9ke687snskfjpk0gucn1mhikj9fp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

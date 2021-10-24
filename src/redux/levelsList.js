@@ -1,0 +1,143 @@
+let initialState = {
+  levels: [
+    ['1', 'İndiki sadə zaman. Really, also, so'],
+    ['2', 'Qeyri-müəyyən artikl a (an)'],
+    ['3', 'He/she/it + feil konstruksiyada sonluq'],
+    ['4', 'Əvəzliklər. Müəyyən artikl the'],
+    ['5', 'Əvəzliklərin istifadə qaydaları'],
+    ['6', 'I want, I want to konstruksiyalar'],
+    ['7', 'I like, I would like konstruksiyalar'],
+    ['8', 'İndiki sadə zamanda inkar'],
+    ['9', 'İndiki sadə zamanda inkar'],
+    ['10', 'I need, I need to konstruksiyalar'],
+    ['11', 'Indiki sadə zamanda sual'],
+    ['12', 'Indiki sadə zamanda sual'],
+    ['13', 'Indiki sadə zamanda sual'],
+    ['14', 'Indiki sadə zamanda sual'],
+    ['15', 'Xüsusi suallar. What kind of'],
+    ['16', 'Indiki sadə zamanda xüsusi suallar'],
+    ['17', 'How much, how many konstruksiyalar'],
+    ['18', 'Təsdiq, sual və inkar formaları birlikdə'],
+    ['19', 'Təsdiq, sual və inkar formaları birlikdə'],
+    ['20', 'I like, I want, I need konstruksiyalar birlikdə'],
+    ['21', 'Hüsusi suallar, yeni sözlər'],
+    ['22', 'Always / often / usually. Also, too'],
+    ['23', 'To be feil və onun formaları'],
+    ['24', 'Müyyən və qeyri-müyyən artikl'],
+    ['25', 'So / such istifadə qaydaları'],
+    ['26', 'Müəyyən artikl. Mənsubiyyət, yaş.'],
+    ['27', 'To be feil köməyi ilə inkar'],
+    ['28', 'To be feil köməyi ilə sual'],
+    ['29', 'To be feil köməyi ilə sual'],
+    ['30', 'To be feil köməyi ilə xüsusi suallar'],
+    ['31', 'To be feil köməyi ilə xüsusi suallar'],
+    ['32', 'To be feil köməyi ilə xüsusi suallar'],
+    ['33', 'To be feil köməyi ilə təsdiq, inkar və sual'],
+    ['34', 'To be feil köməyi ilə təsdiq, inkar və sual'],
+    ['35', 'Sabit ifadələr və sözönü'],
+    ['36', 'Sabit ifadələr və sözönü'],
+    ['37', 'Much, many. Elder, younger'],
+    ['38', 'Sabit söz birləşməsi, idiomlar'],
+    ['39', 'Xüsusi suallar'],
+    ['40', 'Modal feillər'],
+    ['41', 'Present simple praktika 1', 'practice'],
+    ['42', 'Present simple praktika 2', 'practice'],
+    ['43', 'Present simple praktika 3', 'practice'],
+    ['44', 'Present simple praktika 4', 'practice'],
+    ['45', 'Present simple praktika 5', 'practice'],
+    ['46', 'Present simple praktika 6', 'practice'],
+    ['47', 'Present simple praktika 7', 'practice'],
+    ['48', 'Present simple praktika 8', 'practice'],
+    ['49', 'Present simple praktika 9', 'practice'],
+    ['50', 'Present simple praktika 10', 'practice'],
+    ['51', 'Gələcək sadə zaman'],
+    ['52', 'Gələcək sadə zaman'],
+    ['53', 'Gələcək sadə zamanda inkar'],
+    ['54', 'Gələcək sadə zamanda inkar'],
+    ['55', 'Gələcək sadə zamanda sual'],
+    ['56', 'Gələcək sadə zamanda sual'],
+    ['57', 'Gələcək sadə zamanda xüsusi suallar'],
+    ['58', 'Gələcək sadə zamanda xüsusi suallar'],
+    ['59', 'Gələcək sadə zaman praktika 1', 'practice'],
+    ['60', 'Gələcək sadə zaman praktika 2', 'practice'],
+    ['61', 'Gələcək sadə zaman praktika 3', 'practice'],
+    ['62', 'Gələcək sadə zaman praktika 4', 'practice'],
+    ['63', 'Gələcək sadə zaman praktika 5', 'practice'],
+    ['64', 'Gələcək sadə zaman praktika 6', 'practice'],
+    ['65', 'Gələcək sadə zaman praktika 7', 'practice'],
+    ['66', 'Qaydalı feillər'],
+    ['67', 'Qaydalı feillər'],
+    ['68', 'Qaydalı feillər'],
+    ['69', 'Qaydalı feillər'],
+    ['70', 'Qaydalı feillər'],
+    ['71', 'Qaydalı feillər praktika 1', 'practice'],
+    ['72', 'Qaydalı feillər praktika 2', 'practice'],
+    ['73', 'Qaydalı feillər praktika 3', 'practice'],
+    ['74', 'Qaydalı feillər praktika 4', 'practice'],
+    ['75', 'Qaydalı feillər praktika 5', 'practice'],
+    ['76', 'Qaydalı feillər praktika 6', 'practice'],
+    ['77', 'Qaydalı feillər praktika 7', 'practice'],
+    ['78', 'Qaydalı feillər praktika 8', 'practice'],
+    ['79', 'Qaydalı feillər praktika 9', 'practice'],
+    ['80', 'Qaydalı feillər praktika 10', 'practice'],
+    ['81', 'Qaydasız feillər 1-10'],
+    ['82', 'Qaydasız feillər 11-20'],
+    ['83', 'Qaydasız feillər 21-30'],
+    ['84', 'Qaydasız feillər 31-40'],
+    ['85', 'Qaydasız feillər 41-50'],
+    ['86', 'Qaydasız feillər 51-60'],
+    ['87', 'Qaydasız feillər 61-70'],
+    ['88', 'Qaydasız feillər 71-80'],
+    ['89', 'Qaydasız feillər 81-90'],
+    ['90', 'Qaydasız feillər 91-100'],
+    ['91', 'Qaydasız feillər praktika 1', 'practice'],
+    ['92', 'Qaydasız feillər praktika 2', 'practice'],
+    ['93', 'Qaydasız feillər praktika 3', 'practice'],
+    ['94', 'Qaydasız feillər praktika 4', 'practice'],
+    ['95', 'Qaydasız feillər praktika 5', 'practice'],
+    ['96', 'Qaydasız feillər praktika 6', 'practice'],
+    ['97', 'Qaydasız feillər praktika 7', 'practice'],
+    ['98', 'Qaydasız feillər praktika 8', 'practice'],
+    ['99', 'Qaydasız feillər praktika 9', 'practice'],
+    ['100', 'Qaydasız feillər praktika 10', 'practice'],
+    ['101', 'Qaydasız feillər praktika 11', 'practice'],
+    ['102', 'Qaydasız feillər praktika 12', 'practice'],
+    ['103', 'Qaydasız feillər praktika 13', 'practice'],
+    ['104', 'Qaydasız feillər praktika 14', 'practice'],
+    ['105', 'Qaydasız feillər praktika 15', 'practice'],
+    ['106', 'Keçmiş sadə zamanda inkar'],
+    ['107', 'Keçmiş sadə zamanda sual'],
+    ['108', 'Keçmiş sadə zamanda xüsusi sual'],
+    ['109', 'To be feil keçmiş sadə zamanda'],
+    ['110', 'To be feil keçmiş sadə zamanda'],
+    ['111', 'To be feil köməyi ilə keçmiş sadə zamanda inkar'],
+    ['112', 'To be feil köməyi ilə keçmiş sadə zamanda inkar'],
+    ['113', 'To be feil köməyi ilə keçmiş sadə zamanda sual'],
+    ['114', 'To be feil köməyi ilə keçmiş sadə zamanda sual'],
+    ['115', 'To be feil köməyi ilə keçmiş sadə zamanda xüsusi sual']
+  ],
+
+}
+// console.log(JSON.stringify(initialState))
+
+const SETLEVELSLIST = 'SETLEVELSLIST'
+export const setLevelsList = (value) => ({
+  type: SETLEVELSLIST,
+  value
+})
+
+
+const levelsList = (state = initialState, action) => {
+  switch (action.type) {
+    case SETLEVELSLIST:
+      return {
+        ...state, levels: action.value
+      }
+
+    default:
+      return state
+  }
+}
+
+
+export default levelsList
