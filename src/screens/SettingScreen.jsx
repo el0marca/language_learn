@@ -4,7 +4,10 @@ import { updateProgress } from '../redux/progress'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeVoice } from '../redux/voice'
 import { Back } from '../components/Common/Back'
-import database from '@react-native-firebase/database';
+import database from '@react-native-firebase/database'
+import SelectDropdown from 'react-native-select-dropdown'
+const countries = ["1 saat", "2 saat", "4 saat", "8 saat", "24 saat"]
+
 const radioTrue = require('../img/radioTrue.png')
 const radioFalse = require('../img/radioFalse.png')
 
@@ -40,6 +43,23 @@ export const SettingScreen = () => {
             <LanguageItem txt={'Britaniya İngiliscəsi'} voiceType={'uk/male'} />
           </View>
         </View>
+        <SelectDropdown
+	data={countries}
+  rowStyle={{}}
+	onSelect={(selectedItem, index) => {
+		console.log(selectedItem, index)
+	}}
+	buttonTextAfterSelection={(selectedItem, index) => {
+		// text represented after item is selected
+		// if data array is an array of objects then return selectedItem.property to render after item is selected
+		return selectedItem
+	}}
+	rowTextForSelection={(item, index) => {
+		// text represented for each item in dropdown
+		// if data array is an array of objects then return item.property to represent item in dropdown
+		return item
+	}}
+/>
         <Line />
         <MenuItem fnc={setResetProgressMode} img={require('../img/reset.png')} txt={'Tərəqqini sıfırlamaq'} />
         <Line />

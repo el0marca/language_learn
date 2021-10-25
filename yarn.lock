@@ -5783,6 +5783,11 @@ react-native-codegen@^0.0.7:
     jscodeshift "^0.11.0"
     nullthrows "^1.1.1"
 
+react-native-dropdown-picker@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-dropdown-picker/-/react-native-dropdown-picker-5.2.0.tgz#9af407a3c079aed77cfcdbb7aba077dac283b79e"
+  integrity sha512-4xq2ca+pQmojmoU1uBhyQIRyqpgT/Eo2AClOedJm3cP24fLHsH1aUjlKrN6gWREhMRRD+lzvrHrNbOtqdpStXg==
+
 react-native-fast-image@^8.5.11:
   version "8.5.11"
   resolved "https://registry.yarnpkg.com/react-native-fast-image/-/react-native-fast-image-8.5.11.tgz#e3dc969d0e4e8df026646bf18194465aa55cbc2b"
@@ -5845,6 +5850,11 @@ react-native-screens@^3.8.0:
   integrity sha512-lHrnB/elAoMJKv8O12U6BLgeup4lB6ZKJHEOVuG/D72nv/OE9wUusbou6YCB5tp3YbaSpHflPnkFmHA/vCejpw==
   dependencies:
     warn-once "^0.1.0"
+
+react-native-select-dropdown@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-select-dropdown/-/react-native-select-dropdown-1.2.0.tgz#ac6e1b02dc004206dcc90d68001f048232b7fc1c"
+  integrity sha512-qFbldUJFjcruyEmxQThuUtsPYGt7aGYrVtgDfivuJCodjGJEFed2DvcZUd9JJYk1uWe/OfSxWi2KsXYeoB2ZIw==
 
 react-native-sound-player@^0.11.1:
   version "0.11.1"
